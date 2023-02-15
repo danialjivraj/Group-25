@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\LoginLogoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/userRegistration', [RegistrationController::class , 'show']);
+
+
+Route::post('/userRegistration', [RegistrationController::class, 'registerUser']);
+
+
+Route::get('/logout',[LoginLogoutController::class, 'logout']);
