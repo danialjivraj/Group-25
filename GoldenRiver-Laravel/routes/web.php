@@ -15,7 +15,7 @@ use App\Http\Controllers\LoginLogoutController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('userRegistration');
 });
 
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
