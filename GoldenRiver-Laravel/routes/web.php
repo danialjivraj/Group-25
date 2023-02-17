@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('userRegistration');
 });
 
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
+
 Route::get('/contact', function () {
     return view('contact');
 });
