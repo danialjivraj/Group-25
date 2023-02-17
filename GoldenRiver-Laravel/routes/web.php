@@ -18,6 +18,11 @@ Route::get('/', function () {
     return view('userRegistration');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+//test
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
 
