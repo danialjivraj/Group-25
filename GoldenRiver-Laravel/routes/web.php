@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('userRegistration');
 });
 
+//test
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
 
