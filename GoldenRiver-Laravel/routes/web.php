@@ -25,3 +25,24 @@ Route::post('/userRegistration', [RegistrationController::class, 'registerUser']
 
 
 Route::get('/logout',[LoginLogoutController::class, 'logout']);
+
+Route::get('/homePage', function () {
+    return view('homePage');
+});
+
+Route::get('/landing', function () {
+    return view('landing');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
+Route::get('/nav', function () {
+    return view('/partials/nav');
+});
+
+Route::get('/footer', function () {
+    return view('/partials/footer');
+});
+
