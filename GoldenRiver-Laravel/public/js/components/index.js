@@ -14,5 +14,5 @@
     $('#nav-toggle').click(function() {
       $('nav ul').slideToggle();
     });
-  }); // end DOM ready
-})(jQuery); // end jQuery
+  });
+})(jQuery);
