@@ -1,6 +1,10 @@
+
 @extends('partials.nav')
 
 <link rel="stylesheet" href="css/shop.css">
+
+<link rel="stylesheet" href="css/style.css">
+
 
 <body>
 
