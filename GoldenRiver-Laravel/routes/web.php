@@ -22,6 +22,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+
+
 //test
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
