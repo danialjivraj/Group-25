@@ -3,8 +3,8 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
-        <title> Golden River | Log in</title>
-        <link rel="stylesheet" href="app.css">
+        <title> Golden River | Registration</title>
+        <link rel="stylesheet" href="registration.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <script src="./login.js"></script>
 </head>
@@ -43,6 +43,9 @@
                 </div>
                 <br>
                 <button type="submit" class="reg-btn">Register</button>
+                <a class="form__link" href="./" id= "logIn">Already have an account? sign in</a>
+                
+            
             </form>
 
             <!-- test -->
