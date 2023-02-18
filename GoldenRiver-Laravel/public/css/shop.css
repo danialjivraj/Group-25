@@ -1,0 +1,135 @@
+/** -------------------------------------------------------- SHOP PAGE CSS ----------------------------------------------------------------------**/
+.shop {
+    min-height: 100vh;
+}
+
+.shop-banner {
+    position: relative;
+    width: 100%;
+    margin-top: 4.7rem;
+    margin-bottom: 5rem;
+}
+/** BEGINNING OF TABLE CSS ---------------------------------------------------------------------------------------------**/
+.productTables {
+    text-transform: capitalize;
+    letter-spacing: 5px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 10px;
+    border-collapse: separate;
+    font-size: 35px;
+    font-weight: bolder;
+    color: #000;
+}
+
+.cellPaddingPX {
+    padding: 70px;
+}
+
+.displayShop {
+    display: none;
+}
+
+.theThreeBanners {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/** END OF TABLE CSS ---------------------------------------------------------------------------------------------**/
+
+/** PRODUCT IMAGE SIZES **/
+.energyImageSize {
+    width: 280px;
+    height: 300px;
+}
+
+.carbonatedImageSize {
+    width: 200px;
+    height: 267px;
+}
+
+.hydrationImageSize {
+    width: 170px;
+    height: 300px;
+}
+/** END OF PRODUCT IMAGE SIZES **/
+
+/** BEGINNING OF BUTTON CSS ---------------------------------------------------------------------------------------------**/
+.shopAddToCartButtonCSS {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    --bg-color-1: #ffffff;
+    --bg-color-2: #ffffff;
+    --bg-color-3: #ffe9c9;
+    --bg-color-4: #fcb69f;
+    --bg-color-5: #fcb69f;
+    --bg-color-6: #fcb69f;
+  }
+  
+  /* Hover Effect */
+  .shopAddToCartButtonCSS:hover {
+    transform: scale(1.1); /* Scale the button up by 10% on hover */
+    background-image: radial-gradient(circle at 30% 107%, var(--bg-color-1) 0%, var(--bg-color-2) 8%, var(--bg-color-3) 30%, var(--bg-color-4) 60%, var(--bg-color-5) 80%, var(--bg-color-6) 100%);
+  }
+  
+  /* Thunder Click Effect */
+  .shopAddToCartButtonCSS:active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* Set the initial scale to 0 */
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, #f4f7f8, #fff);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    animation: thunder 0.6s linear forwards;
+    z-index: -1;
+  }
+  
+  @keyframes thunder {
+    0% {
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0;
+    }
+  }
+
+/** END OF BUTTON CSS -----------------------------------------------------------------------------------------------------**/
+
+/** DRINK NAME TEXT -----------------------------------------------------------------------------------------------**/
+.drinkName {
+    font-size: 18px;
+    letter-spacing: 5px;
+}
+/** END OF DRINK NAME TEXT -----------------------------------------------------------------------------------------------**/
+
+/** BEGINNING OF IMAGE SIZE BIGGER WHEN HOVERED -----------------------------------------------------------------------------**/
+.shopProductImages {
+    transition: transform 0.2s;
+    margin: 0 auto;
+}
+
+.shopProductImages:hover {
+    transform: scale(1.1);
+}
+
+/** END OF IMAGE SIZE BIGGER WHEN HOVERED ----------------------------------------------------------------------------------**/
+
+/** --------------------------------------------------------  END OF SHOP PAGE CSS --------------------------------------------------------------**/
