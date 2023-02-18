@@ -53,3 +53,6 @@ Route::get('/footer', function () {
     return view('/partials/footer');
 });
 
+Route::get('/shop', function () {
+    return view('shop');
+});
