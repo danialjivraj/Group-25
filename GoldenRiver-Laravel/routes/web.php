@@ -56,3 +56,23 @@ Route::get('/footer', function () {
 Route::get('/shop', function () {
     return view('shop');
 });
+
+Route::get('/bracelets', function () {
+    return view('/categories/bracelets');
+});
+
+Route::get('/earrings', function () {
+    return view('/categories/earrings');
+});
+
+Route::get('/necklaces', function () {
+    return view('/categories/necklaces');
+});
+
+Route::get('/rings', function () {
+    return view('/categories/rings');
+});
+
+Route::get('/exclusiveSets', function () {
+    return view('/categories/exclusiveSets');
+});
