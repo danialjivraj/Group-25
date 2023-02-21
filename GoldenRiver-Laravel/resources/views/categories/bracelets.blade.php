@@ -30,7 +30,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Golden Slider Bracelet</h3>
-        <p>£65.00</p>
+        <p>£40.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -43,7 +43,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Golden Strap Bracelet</h3>
-        <p>£50.00</p>
+        <p>£45.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -56,7 +56,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Golden Thick Strap Bracelet</h3>
-        <p>£45.00</p>
+        <p>£55.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -75,7 +75,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Pearl Bracelet</h3>
-        <p>£45.00</p>
+        <p>£68.00</p>
         <div class="shop-button">
             <a class="link" href="#">SHOP</a>
         </div>
@@ -84,12 +84,12 @@
     <div class="product-box">
         <div class="product-image">
             <a href="#">
-                <img src="{{ asset('/images/bracelets/roseSparklingChunky.jpg') }}" alt="Rose Sparkling Chuncky Bracelet">
+                <img src="{{ asset('/images/bracelets/goldSwarovskiBangle.jpg') }}" alt="Gold Swarovski Bangle">
         </div>
         </a>
         <div class="smallSpace"></div>
-        <h3>Rose Sparkling Chuncky Bracelet</h3>
-        <p>£65.00</p>
+        <h3>Gold Swarovski Bangle</h3>
+        <p>£75.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -98,12 +98,12 @@
     <div class="product-box">
         <div class="product-image">
             <a href="#">
-                <img src="{{ asset('/images/bracelets/silverSpraklingPolished.jpg') }}" alt="Silver Sparkling Oolished Bracelet">
+                <img src="{{ asset('/images/bracelets/silverSpraklingPolished.jpg') }}" alt="Silver Sparkling Polished Bracelet">
         </div>
         </a>
         <div class="smallSpace"></div>
-        <h3>Silver Sparkling Oolished Bracelet</h3>
-        <p>£50.00</p>
+        <h3>Silver Sparkling Polished Bracelet</h3>
+        <p>£85.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -117,7 +117,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Sparkling Heart Pendant Bracelet</h3>
-        <p>£45.00</p>
+        <p>£55.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>

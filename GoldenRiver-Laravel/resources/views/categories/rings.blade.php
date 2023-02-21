@@ -43,7 +43,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Gold and Clear Flower Ring</h3>
-        <p>£50.00</p>
+        <p>£85.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -103,7 +103,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Radiant Golden Triple Square Ring</h3>
-        <p>£50.00</p>
+        <p>£45.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>

@@ -11,12 +11,12 @@
     <div class="product-box">
         <a href="#">
             <div class="product-image">
-                <img src="{{ asset('/images/necklaces/goldAndSilverIntricatePearlDrop.jpg') }}" alt="Double Halo Gold Ring">
+                <img src="{{ asset('/images/necklaces/goldAndSilverIntricatePearlDrop.jpg') }}" alt="Gold&Silver Intricate Pearl Drop Necklace">
             </div>
         </a>
         <div class="smallSpace"></div>
-        <h3>Gold and Silver intricate pearl drop necklace</h3>
-        <p>£55.00</p>
+        <h3>Gold&Silver Intricate Pearl Necklace</h3>
+        <p>£45.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -30,7 +30,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Golden chain necklace</h3>
-        <p>£65.00</p>
+        <p>£35.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -38,12 +38,12 @@
     <div class="product-box">
         <div class="product-image">
             <a href="#">
-                <img src="{{ asset('/images/necklaces/goldenLockPendant.jpg') }}" alt="Gold and Clear Flower Ring">
+                <img src="{{ asset('/images/necklaces/whiteAndBlueCrystal.jpg') }}" alt="White and Blue Crystal Necklace">
         </div>
         </a>
         <div class="smallSpace"></div>
-        <h3>Gold lock necklace</h3>
-        <p>£50.00</p>
+        <h3>White and Blue Crystal Necklace</h3>
+        <p>£25.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -56,7 +56,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Silver and gold arrow necklace</h3>
-        <p>£45.00</p>
+        <p>£38.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -75,7 +75,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Gold pendant necklace</h3>
-        <p>£45.00</p>
+        <p>£38.00</p>
         <div class="shop-button">
             <a class="link" href="#">SHOP</a>
         </div>
@@ -89,7 +89,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Rose gold chain necklace</h3>
-        <p>£65.00</p>
+        <p>£35.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -103,7 +103,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Silver peal drop pendant necklace</h3>
-        <p>£50.00</p>
+        <p>£45.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -112,12 +112,12 @@
     <div class="product-box">
         <div class="product-image">
             <a href="#">
-                <img src="{{ asset('/images/necklaces/whiteAndBluePearl.jpg') }}" alt="Silver Sparkle Ring">
+                <img src="{{ asset('/images/necklaces/whiteAndBluePearl.jpg') }}" alt="Purple Stone Flower Necklace">
         </div>
         </a>
         <div class="smallSpace"></div>
-        <h3>White and blue pearl necklace</h3>
-        <p>£45.00</p>
+        <h3>Purple Stone Flower Necklace</h3>
+        <p>£25.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>

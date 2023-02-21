@@ -16,7 +16,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Golden Small Hoop Clip Earrings</h3>
-        <p>£55.00</p>
+        <p>£45.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -30,7 +30,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Oval Stud Earrings</h3>
-        <p>£65.00</p>
+        <p>£80.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -38,12 +38,12 @@
     <div class="product-box">
         <div class="product-image">
             <a href="#">
-                <img src="{{ asset('/images/earrings/pearlDangling.jpg') }}" alt="Pearl Dangling Earrings">
+                <img src="{{ asset('/images/earrings/intricateDangly.jpg') }}" alt="Intricate Dangly Earrings">
         </div>
         </a>
         <div class="smallSpace"></div>
-        <h3>Pearl Dangling Earrings</h3>
-        <p>£50.00</p>
+        <h3>Intricate Dangly Earrings</h3>
+        <p>£63.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -56,7 +56,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Silver and Blue Stud Earrings</h3>
-        <p>£45.00</p>
+        <p>£65.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -75,7 +75,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Silver Stud Earrings</h3>
-        <p>£45.00</p>
+        <p>£65.00</p>
         <div class="shop-button">
             <a class="link" href="#">SHOP</a>
         </div>
@@ -89,7 +89,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Snowflake Studs</h3>
-        <p>£65.00</p>
+        <p>£63.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -103,7 +103,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Sparkling Crystal Drop Earrings</h3>
-        <p>£50.00</p>
+        <p>£78.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>
@@ -117,7 +117,7 @@
         </a>
         <div class="smallSpace"></div>
         <h3>Stirling Silver Leaf Hoop Earrings</h3>
-        <p>£45.00</p>
+        <p>£95.00</p>
         <div class="shop-button">
             <a href="#">SHOP</a>
         </div>

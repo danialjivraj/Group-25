@@ -25,16 +25,16 @@
   .product-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* make it center if group wants some space on the sides*/
-    /*padding: 0 5%;*/
+    justify-content: center; /* make it center if group wants some space on the sides*/
+   padding: 0 10%;
   }
   
-  /* DO NOT DELETE 
+  
   .product {
     flex-basis: 23%;
     margin: 1%;
   }
-  */
+  
 
 .product-box {
     width: calc(25% - 10px);
