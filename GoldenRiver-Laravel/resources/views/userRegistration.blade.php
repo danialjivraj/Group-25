@@ -8,43 +8,52 @@
 <body>
     <div class="container">
         <h1 class= "form__title">Registration</h1>
-<form class="form__id" form action="/userRegistration" method="post" class="signin-inputs" id="registration">
+<form class="form" form action="/userRegistration" method="post" class="signin-inputs" id="registration">
                 @csrf
-                <input type="text" name="Fullname" placeholder="Your name" class="input-field2" required/><br>
+                <div class="form__input-group">
+                <input type="text" class="form__input" name="Fullname" placeholder="Full Name" required/><br>
                 <div class="errorlog">
                     @error('Fullname')
                     {{$message}}
                     <br>
                     @enderror
-                </div>
-                <input type="email" name="email" placeholder="Your email" class="input-field2" required/><br>
+                </div></div>
+                <div class="form__input-group">
+                <input type="email" class="form__input" name="email" placeholder="Your email"  required/><br>
                 <div class="errorlog">
                     @error('email')
                     {{$message}}
                     <br>
                     @enderror
-                </div>
-                <input type="password" name="password" placeholder="Password" class="input-field2" required/><br>
+                </div></div>
+                <div class="form__input-group">
+                <input type="password" class="form__input" name="password" placeholder="Password"  required/><br>
                 <div class="errorlog">
                     @error('password')
                     {{$message}}
                     <br>
                     @enderror
-                </div>
-                <input type="password" name="password_confirmation" placeholder="Retype Password"
-                    class="input-field2" required/><br>
+                </div></div>
+                <div class="form__input-group">
+                <input type="password" class="form__input" name="password_confirmation" placeholder="Retype Password"
+                     required/><br>
                 <div class="errorlog">
                     @error('password_confirmation')
                     {{$message}}
                     <br>
                     @enderror
-                </div>
+                </div></div>
                 <br>
-                <button class="form__button" button type="submit" class="reg-btn">Register</button>
-                <a href="#" id="linkLogin" class= "form__link">Already have an account? sign in.</a>
+                <button class="form__button" button type="submit">Register</button>
+                <p class="form__text">
+                <a class="form__link" href="./login.blade.php" id="linkLogin">Already have an account? Sign in</a>
+</p>
                 
             
             </form>
 
             <!-- test -->
+
+            
 </body>
+
