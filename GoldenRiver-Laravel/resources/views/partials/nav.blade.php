@@ -11,7 +11,7 @@
 </head>
 <div class="fullcontainer">
 <div>
-    
+
 <header>
 <div class="completenavbar">
     <div class="container">
@@ -24,7 +24,7 @@
                 <a href="cart" class="navbar_item">Basket</a>
                 <a href="login" class="navbar_item">Log In</a>
                 <a href="userRegistration" class="navbar_item">Sign Up</a>
-                <a href="#" class="navbar_item">Shop</a>
+                <a href="product" class="navbar_item">Shop</a>
             </div>
         </div>
     </div>
