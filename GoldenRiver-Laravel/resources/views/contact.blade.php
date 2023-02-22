@@ -26,7 +26,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
 
-          <input type="submit" value="Send">
+          <input type="submit" id= "submit-btn" value="Send">
         </form>
       </div>
       <div class="reach-us">
@@ -38,3 +38,17 @@
   </body>
 
   @endsection
+</html>
+
+
+<!-- USE THE FOLLOWING ALERT IF U LIKE - Made by Faraz -->
+<!--<script>
+
+var alertButton = document.getElementById("submit-btn");
+alertButton.addEventListener("click", function() {
+  confirm("Click yes to submit your query");
+});
+
+</script> -->
+
+
