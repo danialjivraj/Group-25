@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginLogoutController;
+use App\Http\Controllers\ProductsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,8 +28,6 @@ Route::get('/contact', function () {
 });
 
 
-
-//test
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
 
@@ -80,3 +79,23 @@ Route::get('/rings', function () {
 Route::get('/exclusiveSets', function () {
     return view('/categories/exclusiveSets');
 });
+
+
+
+Route::get('/login',[LoginLogoutController::class, 'showLogin']);
+
+
+Route::post('/login', [LoginLogoutController::class, 'doLogin']);
+
+Route::get('/product', [ProductsController::class, 'showProducts']);
+
+//route to get one product when a certain product is selected on the products page.
+Route::get('/product/{Product_ID}', [ProductsController::class, 'aProduct']);
+
+//route to search for a product using the search bar on products page
+Route::get('/search', [ProductsController::class,'search']);
+
+//Route just for testing
+Route::get('/test', [LoginLogoutController::class,'test']);
+
+

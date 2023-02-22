@@ -47,13 +47,14 @@
                 <br>
                 <button class="form__button" button type="submit">Register</button>
                 <p class="form__text">
-                <a class="form__link" href="./login.blade.php" id="linkLogin">Already have an account? Sign in</a>
+                <a class="form__link" href="./login" id="linkLogin">Already have an account? Sign in</a>
 </p>
-                
+
+
             </form>
 
-            
+
             <!-- test -->
 
-</div>     
+
 </body>
