@@ -1,27 +1,37 @@
-
+<link rel="stylesheet" href="css/shop copy.css">
 
 <!-- search box -->
 <div>
-<form type="get" action="{{ url('/search') }}">
-    @csrf
-<label for="search">Search:</label>
-  <input type="text" name= "search" id="search" name="search" >
-  <input type="submit" value="Submit">
-</form>
+    <form type="get" action="{{ url('/search') }}">
+        @csrf
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search" name="search">
+        <input type="submit" value="Submit">
+    </form>
 </div>
 <!-- search box -->
 
-@foreach($products as $prod)
-<div class="product">
-    <a href="/product/{{ $prod->Product_ID }}">
-        <img src="{{ $prod->imageLocation }} " alt="productImage" height="350px" width="330px">
-            <p>
-                <div class="productName">
-                    <h2>{{ $prod->Product_Name }}</h2> <br>
-                </div>
+<div class="product-row">
+    @foreach($products as $index => $prod)
+        @if($index % 4 == 0 && $index > 0)
+            </div><div class="product-row">
+        @endif
+        <div class="product-container">
+            <div class="product-box">
+                <a href="/product/{{ $prod->Product_ID }}">
+                    <div class="product-image">
+                        <img src="{{ asset('images/' . $prod->category_name . '/' . $prod->image_name) }}" alt="productImage" height="350px" width="330px">
+                    </div>
+                </a>
+                <div class="smallSpace"></div>
+                <h3>{{ $prod->Product_Name }}</h3>
                 <div class="productPrice">
-                    <h2>£{{ $prod->Product_Price }} </h2> <br>
+                    <p>£{{ $prod->Product_Price }}</p>
                 </div>
-            </p>
+                <div class="shop-button">
+                    <a href="#">SHOP</a>
+                </div>
+            </div>
+        </div>
+    @endforeach
 </div>
-@endforeach
