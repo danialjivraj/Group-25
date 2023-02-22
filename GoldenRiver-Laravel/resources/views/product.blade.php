@@ -1,5 +1,8 @@
-<link rel="stylesheet" href="css/shop copy.css">
+@extends('partials.nav')
 
+
+<link rel="stylesheet" href="css/shop copy.css">
+@section('body')
 <!-- search box -->
 <div>
     <form type="get" action="{{ url('/search') }}">
@@ -36,3 +39,4 @@
         </div>
     @endforeach
 </div>
+@endsection
