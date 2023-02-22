@@ -7,19 +7,17 @@
     <title>Laravel</title>
 
 <!-- footer section starts-->
-@yield('css')
     <link rel="stylesheet" href="{{asset('style.css')}}">
-    <script src="{{asset('js/components/index.js')}}"></script>
-@section('css')
+    <script src="{{asset('js/components/index.js)}}"></script>
 <!--all the links for style sheets custom and ready made bootstrap-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css%22%3E
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/3cc03d8fde.js" crossorigin="anonymous"></script>
-@endsection
+
 
     <!-- Styles -->
-</head>
+    </head>
     <body>
     <section class="header">
         <div class="logo"></div>
@@ -51,6 +49,10 @@
 
     </body>
 </html>
+
+<div>
+@include('layouts.footer')
+</div>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
