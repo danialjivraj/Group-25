@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('partials.nav')
 
 @section('css')
     <link rel="stylesheet" href="css/style.css" type="text/css">
