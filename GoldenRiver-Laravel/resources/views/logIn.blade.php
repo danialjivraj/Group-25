@@ -1,5 +1,5 @@
 <!doctype html>
-<html> 
+<html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
@@ -10,6 +10,15 @@
 </head>
 
     <div class="container">
-<form action="/userRegistration" method="post" class="signin-inputs">
 
+<h1>Login Page</h1>
+<form action="/login" method="post" class="login-inputs">
+    @csrf
+    <input type="email" class="form__input" name="email" placeholder="Your email"  required/><br>
+    <input type="password" class="form__input" name="password" placeholder="Password"  required/><br>
+
+    <input type="submit" value="Sign in" class="submit-btn">
+</form>
+
+</div>
 </html>

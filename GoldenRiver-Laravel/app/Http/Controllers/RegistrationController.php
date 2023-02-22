@@ -17,7 +17,6 @@ class RegistrationController extends Controller
 
     }
     public function registerUser(Request $request){
-       // return redirect("/welcome");
         /*
 
         Validates the data inputted by the user matches the set rules.
@@ -25,14 +24,14 @@ class RegistrationController extends Controller
         */
         $this->validate($request, [
             'Fullname' => ['required', 'max:255'],
-
+            'email' => ['required', 'max:255', 'unique:account,Email,exists,Account_ID'],
             'password' => ['required','min:8' ,'max:255', 'confirmed'],
             'password_confirmation' => 'required'
            ]);
 
            /*
 
-           If validation is a new account is created.
+           If validation passes is a new account is created.
 
            */
            Account::create([
@@ -41,11 +40,15 @@ class RegistrationController extends Controller
             'User_Password' => Hash::make($request->password),
             ]);
 
-            auth()->attempt([
-            'Email' => $request-> email,
-            'password' => $request->password
+            Auth::attempt([
+            'Email' => $request->email,
+            'User_Password' => $request->password
             ]);
+            $account= Account::where(['Email'=>$request->email])->first();
 
-          #  echo();
+            dd(Auth::check());
+            //$request->session()->put('user', $account);
+            return redirect('/shop');
+
     }
 }

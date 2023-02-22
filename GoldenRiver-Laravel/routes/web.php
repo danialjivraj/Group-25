@@ -27,8 +27,6 @@ Route::get('/contact', function () {
 });
 
 
-
-//test
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
 
@@ -80,3 +78,14 @@ Route::get('/rings', function () {
 Route::get('/exclusiveSets', function () {
     return view('/categories/exclusiveSets');
 });
+
+
+
+Route::get('/login',[LoginLogoutController::class, 'showLogin']);
+
+
+Route::post('/login', [LoginLogoutController::class, 'doLogin']);
+
+
+//Route just for testing
+Route::get('/test', [LoginLogoutController::class,'test']);

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Account  extends Authenticatable
+class Account extends Authenticatable
 {
     protected $table = 'account';
 
@@ -33,8 +33,12 @@ class Account  extends Authenticatable
      */
     protected $hidden = [
         'User_Password',
+        'remember_token',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }
 
 
