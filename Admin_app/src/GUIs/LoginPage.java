@@ -16,7 +16,7 @@ public class LoginPage  implements ActionListener {
 	private JPanel panel;
 	private JTextField loginTx,passTx;
 	 private JLabel labelInfo1Login,labelInfo2Password;
-	 
+	 //variables
 	public LoginPage() {
 		frame=new JFrame();
 		panel = new JPanel();
