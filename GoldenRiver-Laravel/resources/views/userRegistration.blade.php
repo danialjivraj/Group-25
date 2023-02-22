@@ -6,6 +6,7 @@
         <link href="{{ URL::asset('css\registration.css') }}" rel="stylesheet" type="text/css" >
 </head>
 <body>
+
     <div class="container">
         <h1 class= "form__title">Registration</h1>
 <form class="form" form action="/userRegistration" method="post" class="signin-inputs" id="registration">
@@ -49,11 +50,10 @@
                 <a class="form__link" href="./login.blade.php" id="linkLogin">Already have an account? Sign in</a>
 </p>
                 
-            
             </form>
 
+            
             <!-- test -->
 
-            
+</div>     
 </body>
-
