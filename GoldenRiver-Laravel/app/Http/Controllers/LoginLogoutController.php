@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Account;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -29,7 +30,7 @@ public function showLogin(Request $request)
 public function doLogin(Request $request)
     {
 
-        $user= Account::where(['Email'=>$request->email])->first();
+        $user= User::where(['email'=>$request->email])->first();
 
         //validating that email and password fields are not empty and right format
         $this->validate($request, [
@@ -38,7 +39,7 @@ public function doLogin(Request $request)
              ]);
 
         auth()->attempt($request->only('email', 'password'));
-        $request->session()->put('user',$user);
+       // $request->session()->put('user',$user);  //uncomment later
         return redirect('/shop');
 
         //dd($user);
@@ -47,8 +48,8 @@ public function doLogin(Request $request)
 
 public function test()
     {
-       // dd(Auth::check());
-       dd(Session::all());
+        dd(Auth::check());
+       //dd(Session::all());
     }
 
 }
