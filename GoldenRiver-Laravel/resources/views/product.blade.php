@@ -23,7 +23,7 @@
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                    <img src="{{ $prod->product_image }}" alt="productImage" height="350px" width="330px">
+                    <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
 
                     </div>
                 </a>
