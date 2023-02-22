@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
+@extends('partials.nav')
+
+@section('title')
+<title>Contact Us</title>
+@endsection('title')
+
+@section('css')
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+@endsection
+
+
+@section('body')
   <body>
     <main>
       <div class="content">
@@ -30,4 +36,5 @@
       </div>
     </main>
   </body>
-</html>
+
+  @endsection
