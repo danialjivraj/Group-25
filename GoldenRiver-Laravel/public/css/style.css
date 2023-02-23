@@ -223,11 +223,184 @@ body{
 #nav-toggle.active span:after {
     transform: rotate(-45deg);
 }
-article {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 10px;
+/* Landing Page */
+/* landing images */
+
+.viewport-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+ }
+
+ .viewport-container p {
+    text-align: center;
+    margin-top: 13%;
+    color: #fff;
 }
+
+ .main { 
+    grid-area: main; 
+    background-color: orange;
+    height: 500px;
+}
+
+.viewport-subcontainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 500px;
+    background-color: aqua;
+}
+
+.viewport-subcontainer p {
+    text-align: center;
+    margin-top: 25%;
+    color: #fff;
+}
+
+ .fashion { 
+    grid-area: fashion; 
+    background-color: purple;
+    width: 50%;
+}
+
+ .fine { 
+    grid-area: fine; 
+    background-color: chocolate;
+    width: 50%;
+}
+
+/* category */
+
+.category-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* background-color: beige; */
+    width: 80%;
+    height: 300px;
+    text-align: center;
+}
+
+.category-item {
+    width: 110px;
+    height: 110px;
+    margin-top: 50px;
+    border-radius: 15px;
+    color: #000;
+}
+
+#rings {
+    background-color: blue;
+    transition: all .2s ease-in-out; 
+}
+
+#rings:hover {
+    transform: scale(1.1);
+}
+
+#necklaces {
+    background-color: blue;
+    transition: all .2s ease-in-out; 
+}
+
+#necklaces:hover {
+    transform: scale(1.1);
+}
+
+#earrings {
+    background-color: blue;
+    transition: all .2s ease-in-out; 
+}
+
+#earrings:hover {
+    transform: scale(1.1);
+}
+
+#bracelets {
+    background-color: blue;
+    transition: all .2s ease-in-out; 
+}
+
+#bracelets:hover {
+    transform: scale(1.1);
+}
+
+#exclusive {
+    background-color: blue;
+    transition: all .2s ease-in-out; 
+}
+
+#exclusive:hover {
+    transform: scale(1.1);
+}
+
+.featured-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80%;
+    height: 300px;
+    text-align: center;
+}
+
+.featured-item {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    color: #000;
+}
+
+
+#featured1 {
+    background-color: orange;
+    transition: all .2s ease-in-out; 
+}
+
+#featured1:hover {
+    transform: scale(1.1);
+}
+
+#featured2 {
+    background-color: orange;
+    transition: all .2s ease-in-out; 
+}
+
+#featured2:hover {
+    transform: scale(1.1);
+}
+
+#featured3 {
+    background-color: orange;
+    transition: all .2s ease-in-out; 
+}
+
+#featured3:hover {
+    transform: scale(1.1);
+}
+
+#featured4 {
+    background-color: orange;
+    transition: all .2s ease-in-out; 
+}
+
+#featured4:hover {
+    transform: scale(1.1);
+}
+
+#featured5 {
+    background-color: orange;
+    transition: all .2s ease-in-out; 
+}
+
+#featured5:hover {
+    transform: scale(1.1);
+}
+
+
 
  
 /**cart section**/
