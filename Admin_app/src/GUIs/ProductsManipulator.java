@@ -23,13 +23,29 @@ public class ProductsManipulator implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JButton createReport;
-	private JButton openNewProductGUI;
+	private JButton openNewProductGUI,infoPF,infoUF;
 	private JLabel statusOfReport;
-
+	private JTextField productFinder,userFinder;
 	
 public ProductsManipulator() {
 	frame=new JFrame();
 	panel = new JPanel();
+	
+	infoUF=new JButton("Find product");
+	panel.add(infoUF);
+	infoUF.addActionListener(this);
+	
+	userFinder = new JTextField(30);
+	//loginTx.setBounds(WIDTH/2,70,100,25);
+	panel.add(userFinder);
+	
+	infoPF=new JButton("Find user");
+	panel.add(infoPF);
+	infoPF.addActionListener(this);
+	
+	productFinder = new JTextField(30);
+	//loginTx.setBounds(WIDTH/2,70,100,25);
+	panel.add(productFinder);
 	
     statusOfReport=new JLabel("Click it to Generate a report:");
     

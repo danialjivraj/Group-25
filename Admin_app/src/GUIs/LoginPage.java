@@ -74,6 +74,9 @@ public class LoginPage  implements ActionListener {
 				            "Logged in!",
 				            "Sys",
 				            JOptionPane.INFORMATION_MESSAGE);
+					
+					new ProductsManipulator();
+					frame.dispose();
 				}
 				else {
 					JOptionPane.showMessageDialog(null,
