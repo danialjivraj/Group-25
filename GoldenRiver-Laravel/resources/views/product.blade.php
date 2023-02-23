@@ -20,7 +20,7 @@
     </form>
 </div>
 <!-- search box -->
-
+<br>
 <div class="container">
     <div class="product-row">
     @foreach($products as $index => $prod)
