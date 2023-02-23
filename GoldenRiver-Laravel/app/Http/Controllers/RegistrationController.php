@@ -38,11 +38,11 @@ class RegistrationController extends Controller
             'password' => $request->password
            ]);
 
-        $user= Account::where(['Email'=>$request->email])->first();
+        $user= User::where(['email'=>$request->email])->first();
 
-        //dd(Auth::check());
-        //$request->session()->put('user', $user);
-        return redirect('/shop');
+        $request->session()->put('user', $user);
+        //dd(session()->has('user'));
+        return redirect('/product');
 
     }
 }

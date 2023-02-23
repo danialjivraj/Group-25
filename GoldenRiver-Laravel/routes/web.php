@@ -16,6 +16,10 @@ use App\Http\Controllers\ProductsController;
 */
 
 Route::get('/', function () {
+    return view('landing');
+});
+
+Route::get('/userRegistration', function () {
     return view('userRegistration');
 });
 
@@ -40,9 +44,6 @@ Route::get('/homePage', function () {
     return view('homePage');
 });
 
-Route::get('/landing', function () {
-    return view('landing');
-});
 
 Route::get('/cart', function () {
     return view('cart');

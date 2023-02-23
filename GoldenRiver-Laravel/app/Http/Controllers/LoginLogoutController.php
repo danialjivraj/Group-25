@@ -39,11 +39,8 @@ public function doLogin(Request $request)
              ]);
 
         auth()->attempt($request->only('email', 'password'));
-       // $request->session()->put('user',$user);  //uncomment later
-        return redirect('/shop');
-
-        //dd($user);
-       // dd($request->all());
+        $request->session()->put('user',$user);  //uncomment later
+        return redirect('/product');
     }
 
 public function test()

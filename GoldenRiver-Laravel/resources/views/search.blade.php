@@ -7,6 +7,8 @@
 
 
 <div class="product">
+<img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
+
     <a href="/product/{{ $prod->Product_ID }}">
 
             <p>
