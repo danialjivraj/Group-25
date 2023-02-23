@@ -12,8 +12,8 @@ public class DBproductAndCategory extends DataBaseConn{
 		
 		//Used to create product
 		
-		String sql="INSERT INTO product (Category_ID,Product_Name,Product_Discount,Product_Price,Amount,Description,Predescription	) "
-				+ "VALUES ('"+Category_ID+"','"+Product_Name+"','"+Product_Discount+"','"+Product_Price+"','"+Amount+"','"+Description+"','null');";
+		String sql="INSERT INTO product (Category_ID,Product_Name,Product_Discount,Product_Price,Amount,Description	) "
+				+ "VALUES ('"+Category_ID+"','"+Product_Name+"','"+Product_Discount+"','"+Product_Price+"','"+Amount+"','"+Description+"');";
 		
 		getStmt().executeUpdate(sql);	
 		

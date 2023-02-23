@@ -26,6 +26,9 @@ public class Main {
 		
 		//Report rep=new Report();
 		//rep.makeReport();
+		DBaccount acc=new DBaccount();
+		
+		System.out.println( acc.login("Test","TestPass"));
 		
 		new LoginPage();
 	}

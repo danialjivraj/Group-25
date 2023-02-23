@@ -1,10 +1,11 @@
 package Connection;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBaccount extends DataBaseConn{
-//The class is used to control data related to account table
+//The class is used to control data related to users table
 	
 	
 	public void createRecordAccount(String Phone_Number,String Email,String User_Name,String User_Surname,
@@ -14,7 +15,7 @@ public class DBaccount extends DataBaseConn{
 		
 		String StatusSQL=StatusMaker(User_Status);
 		
-		String sql="INSERT INTO account (Phone_Number,Email,User_Name,User_Surname,User_Sex,User_DOB,User_Status,User_Password	) "
+		String sql="INSERT INTO users (Phone_Number,email,name,User_Surname,User_Sex,User_DOB,User_Status,password	) "
 				+ "VALUES ('"+Phone_Number+"','"+Email+"','"+User_Name+"','"+User_Surname+"','"+User_Sex+"','"+DOB+"','"+StatusSQL+"','"+User_Password+"');";
 		
 		getStmt().executeUpdate(sql);
@@ -32,9 +33,9 @@ public class DBaccount extends DataBaseConn{
 		
 	
 		
-		String sql= "UPDATE account "
+		String sql= "UPDATE users "
 				+ "SET User_Status = '"+StatusSQL+"' "
-				+ "WHERE Account_ID="+ID+";";
+				+ "WHERE id="+ID+";";
 		
 		getStmt().executeUpdate(sql);
 		
@@ -49,13 +50,26 @@ public class DBaccount extends DataBaseConn{
 	
 		
 	
-		String sql= "UPDATE account "
-				+ "SET Email = '"+Email+"' "
-				+ "WHERE Account_ID="+ID+";";
+		String sql= "UPDATE users "
+				+ "SET email = '"+Email+"' "
+				+ "WHERE id="+ID+";";
 		
 		getStmt().executeUpdate(sql);
 		
 		System.out.println("Change of email was successful..");
+		
+	}
+	
+	public boolean login(String email,String password) throws SQLException {
+		boolean result;
+		String sql="SELECT COUNT(*) AS recordCount FROM users WHERE email='"+email+"' AND password = '"+password+"' AND User_Status = 'Admin'";
+		ResultSet rs = getStmt().executeQuery(sql);
+		rs.next();
+		int count = rs.getInt("recordCount");
+		//System.out.println("MyTable has " + count + " row(s).");
+		
+		if(count==1) {return true;}
+		else {return false;}
 		
 	}
 	

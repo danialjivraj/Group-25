@@ -2,20 +2,27 @@ package GUIs;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import Connection.DBaccount;
 
 public class LoginPage  implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JTextField loginTx,passTx;
 	 private JLabel labelInfo1Login,labelInfo2Password;
+	 private JButton ChButton;
 	 //variables
 	public LoginPage() {
 		frame=new JFrame();
@@ -39,18 +46,46 @@ public class LoginPage  implements ActionListener {
 		passTx = new JTextField(30);
 		//passTx.setBounds(WIDTH/2,70+GAP,100,25);
 		panel.add(passTx);
+		
+		ChButton= new JButton("Log in");
+		//ChButton.setBounds(WIDTH-225,HEIGHT-100,SIZE,40);
+		panel.add(ChButton);
+		
 				
 		frame.add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Products panel");
 		frame.pack();
 		frame.setVisible(true);
+		
+		ChButton.addActionListener(this);
 	}
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		
+		if (e.getSource().equals(ChButton)) {
+			DBaccount acc=new DBaccount();
+			try {
+				if(acc.login(loginTx.getText(),passTx.getText())==true) {
+					JOptionPane.showMessageDialog(null,
+				            "Logged in!",
+				            "Sys",
+				            JOptionPane.INFORMATION_MESSAGE);
+				}
+				else {
+					JOptionPane.showMessageDialog(null,
+			                "Wrong input",
+			                "Sys",
+			                JOptionPane.INFORMATION_MESSAGE);
+				}
+			} catch (HeadlessException | SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 		
 	}
 	
