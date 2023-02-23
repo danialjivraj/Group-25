@@ -11,11 +11,7 @@
     color: #000;
 }
 
-.container {
-    max-width: 90%;
-    margin: 0 auto;
-    /* this will center the container horizontally */
-}
+
 
 .product-row {
     display: flex;
@@ -24,13 +20,11 @@
 }
 
 .product-container {
-    flex-basis: calc(25% - 20px);
-    /* this subtracts the margin from 25% to get the 4 products in a row */
+    flex-basis: calc(20% - 16px);
     margin: 10px;
-    /* add some margin between products */
-}
-
-.product-box {
+  }
+  
+  .product-box {
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
@@ -38,7 +32,7 @@
     text-align: center;
     position: relative;
     height: 610px;
-}
+  }
 
 .product-image {
     position: relative;
