@@ -11,10 +11,6 @@
 
 
 @section('body')
-
-<img class="loginpage__image" 
-                    src="{{ asset('/images/necklaces/goldenLockPendant.jpg') }}"></a>
-
     <div class="login__container">
 
 <h1 class= "form__title">Login</h1>

@@ -442,13 +442,7 @@ text-align: center;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
     border-radius: var(--border-radius);
     background: #ffffff;
-    float:right;
-    
+    margin: auto;
+    margin-bottom: 5rem;
 
-}
-
-.loginpage__image{
-   width: 90px;
-   height: 90px;
-   float: left;
 }
