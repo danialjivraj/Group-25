@@ -17,7 +17,7 @@
 <form class="form" action="/login" method="post" class="login-inputs">
     @csrf
     <div class="form__input-group">
-    <input type="email" class="form__input" name="email" placeholder="Your email"  required/><br>
+    <input type="email" class="form__input" name="email" placeholder="Username or email"  required/><br>
     <input type="password" class="form__input" name="password" placeholder="Password"  required/><br>
 </div>
 
