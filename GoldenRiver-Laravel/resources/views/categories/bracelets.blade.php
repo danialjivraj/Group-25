@@ -1,9 +1,15 @@
 @extends('partials.nav')
 
-<link rel="stylesheet" href="css/shop.css">
+@section('title')
+<title>GoldenRiver | Bracelets</title>
+@endsection('title')
 
-<br><br><br><br><br><br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('css/shop.css')}}">
 
+
+
+@section('body')
 <h1 class="categoryTitle">BRACELETS</h1>
 <br><br>
 <!--  -->
@@ -124,3 +130,4 @@
     </div>
 </div>
 <!--  -->
+@endsection
