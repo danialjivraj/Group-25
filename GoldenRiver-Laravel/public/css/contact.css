@@ -23,7 +23,7 @@ body {
   
   .reach-us {
     width: 40%;
-    background-color: #23395d;
+    background-color: #839795;
     color: #FFFFFF;
     text-align: center;
     border-left: 1px solid #BBBBBB;
@@ -53,7 +53,7 @@ body {
   }
   
   input[type="submit"] {
-    background-color: #23395d;
+    background-color: #839795;
     color: #FFFFFF;
     border-radius: 50px;
     border: none;
