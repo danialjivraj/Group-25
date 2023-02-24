@@ -1,20 +1,7 @@
 /* body */
 body {
-    background-color: #fff;
-<<<<<<< Updated upstream
+    background-color: white;
     font-family: cambria math;
- }
-
- /*Header*/
-
- .logo {
-    width: 70px;
-    height: 70px;
-    background-color: #2581dc;
-    margin: 0 auto;
-=======
-    font-family: Cambria Math,Georgia,serif; 
->>>>>>> Stashed changes
  }
 
  /**footer section**/
@@ -23,38 +10,27 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
-<<<<<<< Updated upstream
-body{
-    font-family: Cambria math;
-    font-weight: 400;
-}
   
-=======
->>>>>>> Stashed changes
   .footer{
         padding: 45px 0;
-        background-color: #f5ebdc;
+        background-color: #191c40;
         position: relative;
-        left: 0;
-        bottom: 0;
-        width: 100%;
         left: 0;
         bottom: 0;
         width: 100%;
         text-align: center;
   }
-  
-  .footer .socials{
+
+   .socials{
       text-align: center;
       padding-bottom: 20px;
-      color: #434434 ;
+      color: #b29758;
   }
   
-  .footer .socials a{
+ .socials a{
       font-size: 25px;
-      color: inherit;
-      border: 3px solid #ccc;
+      color: #b29758;
+      border: 3px solid #b29758;
       width: 40px;
       height: 40px;
       line-height: 38px;
@@ -65,12 +41,12 @@ body{
       opacity: 0.7;
   }
 
-.footer .socials a i{
+.socials a i{
     padding-top: 5px;
 }
 
   
-  .footer .socials a:hover{
+.socials a:hover{
       opacity: 0.9;
   }
   
@@ -82,42 +58,50 @@ body{
       line-height: 1.5;
       margin-bottom: 0;
       text-align: center;
+      
   }
-  
+
   .footer ul li{
       display: inline-block;
       padding: 0 15px;
   }
   
   .footer ul li span{
-      color: inherit;
+      color: #b29758;
       font-size: 10px;
   }
-  
+
+  .footer ul li span:hover{
+    color: #c8b17a;
+      }
+
   .footer ul li a{
-      color: inherit;
+      color: #b29758;
       text-decoration: none;
-      opacity: 0.7;
   }
   
+  .footer ul li a:hover{
+color: #e5c781;
+  }
+
   .footer .copyright{
       text-align: center;
       margin-top: 20px;
       font-size: 10px;
-      color: inherit;
+      color:#b29758;
   }
   
   /**nav bar header**/
   .completenavbar{
       overflow: hidden;
-      background-color:#ffffff;
+      background-color: #191c40;
       padding :22px 0 22px 0;
   }
   
     .navbar_item {
       float: left;
       font-size: 18px;
-      color: #272727;
+      color: #b29758;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none !important;
@@ -134,16 +118,16 @@ body{
       border: none;
       outline: none;
       font-weight: bold;
-      color: #000000;
+      color: #b29758;
       padding: 14px 16px;
-      background-color: inherit;
-      font-family: inherit;
+      background-color: #b29758;
+      font-family: cambria math;
       margin: 0;
     }
   
     .navbar_item:hover {
       transition: 0.5s;
-      color:#a09962;
+      color:#c8b17a;
     }
   
    .navbar__image{
@@ -236,8 +220,6 @@ article {
     padding: 10px;
 }
 
-<<<<<<< Updated upstream
-=======
 .category-item {
     width: 110px;
     height: 110px;
@@ -314,11 +296,10 @@ article {
 }
 
 
->>>>>>> Stashed changes
  
 /**cart section**/
 .text-navy {
-    color: #777c7b;
+    color: #191c40;
   }
   
   .cart-product-imitation {
@@ -385,11 +366,7 @@ article {
   }
   
   .ibox-title {
-  background-color: #b7b5ab;
-  border-color: #e7eaec;
-  border-image: none;
-  border-style: solid solid none;
-  border-width: 3px 0 0;
+  background-color: #c8b17a;
   color: inherit;
   margin-bottom: 0;
   padding: 14px 15px 7px;
@@ -400,15 +377,10 @@ article {
   background-color: #ffffff;
   color: inherit;
   padding: 15px 20px 20px 20px;
-  border-color: #e7eaec;
-  border-image: none;
-  border-style: solid solid none;
-  border-width: 1px 0;
   }
   
   .ibox-footer {
   color: inherit;
-  border-top: 1px solid #e7eaec;
   font-size: 90%;
   background: #ffffff;
   padding: 10px 15px;
@@ -428,11 +400,63 @@ article {
     width: 85px;
   }
 
+  .cart__btnwhite{
+    padding: 1rem 2rem;
+    font-weight: lighter;
+    font-size: 1.3rem;
+    color: rgb(0, 0, 0);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background: #b29758 ;
+  }
+
+  .cart__btnwhite:hover{
+    background: #c8b17a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-muted{
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .text-muted:hover{
+            text-decoration:underline;
+    }
+
+    .contactus__link{
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .contactus__link:hover{
+        text-decoration:underline;
+    }
+  
+.checkout__button{
+    padding: 1rem 2rem;
+    font-weight: lighter;
+    font-size: 1.3rem;
+    color: rgb(0, 0, 0);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    background: #b29758 ;
+    outline: black;
+}
+
+.checkout__button:hover{
+    background: #c8b17a;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
 /* user registration & login page styling starts here */
 .reg__container{
-    --color-primary: #c1c0c0d5;
-    --color-primary-dark: #C1C0c0;
-    --color-secondary: #D8C1A5;
+    --color-primary: #b29758;
+    --color-primary-dark:#c8b17a;
     --border-radius: 4px;
 
 }
@@ -450,6 +474,7 @@ h1{
     background: #ffffff;
     margin: auto;
     margin-bottom: 5rem;
+    margin-top: 5rem;
 }
 
 .reg__container
@@ -511,12 +536,9 @@ text-align: center;
     text-decoration:underline;
 }
 
-
-
 .login__container{
-    --color-primary: #c1c0c0d5;
-    --color-primary-dark: #C1C0c0;
-    --color-secondary: #D8C1A5;
+    --color-primary: #b29758;
+    --color-primary-dark:#c8b17a;
     --border-radius: 4px;
 }
 
@@ -530,8 +552,10 @@ text-align: center;
     background: #ffffff;
     margin: auto;
     margin-bottom: 5rem;
+    margin-top: 5rem;
 
 }
+/* About us page starts here*/
 
 .about{
     width: 100%;
@@ -539,7 +563,7 @@ text-align: center;
     background-color: #ffffff;
 }
 .about-text h1{
-    color: rgb(19, 18, 18);
+    color: #b29758;
     font-size: 70px;
     margin-bottom: 5px;
 
@@ -561,17 +585,17 @@ width: 400px;
 }
 
 .about-text h3{
-    color: rgb(16, 15, 15);
+    color: #c8b17a;
     font-size: 25px;
     margin-bottom: 15px;
     letter-spacing: 2px;
-
 }
 
 .about-text h4{
-    color:#777c7b;
+    color:#8f8e8e;
     letter-spacing: 1;
     line-height: 26px;
     font-size: 15px;
     margin-bottom: 30px;
+    text-align: justify;
 }
