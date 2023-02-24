@@ -32,5 +32,14 @@
             <div id="featured4"class="featured-item">featured item 4</div>
             <div id="featured5"class="featured-item">featured item 5</div>
         </div>
+
+        <!-- Banner -->
+        <div class="landing-page-banner-container"><div class="landing-page-banner"></div></div>
+
+        <!-- Sustainability -->
+        <div class="sustainability-container">
+            <div id="sustainability-img" class="sustainability-content"></div>
+            <div id="sustainbility-txt" class="sustainability-content"></div>
+        </div>
     </section>
 @endsection
