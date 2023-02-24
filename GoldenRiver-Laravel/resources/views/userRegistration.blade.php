@@ -1,13 +1,16 @@
-<!doctype html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta charset="utf-8">
-        <title> Golden River | Registration</title>
-        <link href="{{ URL::asset('css\registration.css') }}" rel="stylesheet" type="text/css" >
-</head>
-<body>
+@extends('partials.nav')
 
-    <div class="container">
+@section('title')
+<title> Golden River | Registration</title>
+@endsection('title')
+
+@section('css')
+        <link rel="stylesheet" href="style.css">
+@section('css')
+        
+
+@section('body')
+    <div class="reg__container">
         <h1 class= "form__title">Registration</h1>
 <form class="form" form action="/userRegistration" method="post" class="signin-inputs" id="registration">
                 @csrf
@@ -52,9 +55,9 @@
 
 
             </form>
+</div>
+</html>
 
+@endsection
 
             <!-- test -->
-
-
-</body>
