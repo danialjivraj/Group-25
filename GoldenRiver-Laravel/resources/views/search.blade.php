@@ -11,12 +11,13 @@
 
 @section('body')
 <!-- search box -->
-<div>
-    <form type="get" action="{{ url('/search') }}">
+<div class="search-container">
+    <form class="search-form" type="get" action="{{ url('/search') }}">
         @csrf
-        <label for="search">Search:</label>
-        <input type="text" name="search" id="search" name="search">
-        <input type="submit" value="Submit">    
+        <div class="search-box">
+            <input class="search-input" type="text" name="search" id="search" name="search" placeholder="Search...">
+            <button class="search-submit" type="submit"><i class="fa fa-search"></i></button>
+        </div>
     </form>
 </div>
 <!-- search box -->
@@ -24,50 +25,50 @@
 
 <div class="container">
     <div class="product-row">
-    @if(count($product) == 0)
+        @if(count($product) == 0)
         <h1>No Results Found</h1>
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    @else
+        @else
         @foreach($product as $index => $prod)
-            <div class="product-container">
+        <div class="product-container">
             @if(($index+1) % 4 == 0)
-                <div class="product-box">
-                    <a href="/product/{{ $prod->Product_ID }}">
-                        <div class="product-image">
-                            <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
-                        </div>
-                    </a>
-                    <div class="smallSpace"></div>
-                    <h3>{{ $prod->Product_Name }}</h3>
-                    <div class="productPrice">
-                        <p>£{{ $prod->Product_Price }}</p>
+            <div class="product-box">
+                <a href="/product/{{ $prod->Product_ID }}">
+                    <div class="product-image">
+                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
                     </div>
-                    <div class="shop-button">
-                        <a href="#">SHOP</a>
-                    </div>
+                </a>
+                <div class="smallSpace"></div>
+                <h3>{{ $prod->Product_Name }}</h3>
+                <div class="productPrice">
+                    <p>£{{ $prod->Product_Price }}</p>
                 </div>
+                <div class="shop-button">
+                    <a href="#">SHOP</a>
                 </div>
-                <div class="product-row">
-            @else
-                <div class="product-box">
-                    <a href="/product/{{ $prod->Product_ID }}">
-                        <div class="product-image">
-                            <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
-                        </div>
-                    </a>
-                    <div class="smallSpace"></div>
-                    <h3>{{ $prod->Product_Name }}</h3>
-                    <div class="productPrice">
-                        <p>£{{ $prod->Product_Price }}</p>
-                    </div>
-                    <div class="shop-button">
-                        <a href="#">SHOP</a>
-                    </div>
-                </div>
-            @endif
             </div>
+        </div>
+        <div class="product-row">
+            @else
+            <div class="product-box">
+                <a href="/product/{{ $prod->Product_ID }}">
+                    <div class="product-image">
+                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
+                    </div>
+                </a>
+                <div class="smallSpace"></div>
+                <h3>{{ $prod->Product_Name }}</h3>
+                <div class="productPrice">
+                    <p>£{{ $prod->Product_Price }}</p>
+                </div>
+                <div class="shop-button">
+                    <a href="#">SHOP</a>
+                </div>
+            </div>
+            @endif
+        </div>
         @endforeach
-    @endif
+        @endif
     </div>
 </div>
 @endsection
