@@ -290,50 +290,11 @@ body{
     margin-top: 50px;
     border-radius: 15px;
     color: #000;
-}
-
-#rings {
     background-color: blue;
-    transition: all .2s ease-in-out; 
+    transition: all .2s ease-in-out;
 }
 
-#rings:hover {
-    transform: scale(1.1);
-}
-
-#necklaces {
-    background-color: blue;
-    transition: all .2s ease-in-out; 
-}
-
-#necklaces:hover {
-    transform: scale(1.1);
-}
-
-#earrings {
-    background-color: blue;
-    transition: all .2s ease-in-out; 
-}
-
-#earrings:hover {
-    transform: scale(1.1);
-}
-
-#bracelets {
-    background-color: blue;
-    transition: all .2s ease-in-out; 
-}
-
-#bracelets:hover {
-    transform: scale(1.1);
-}
-
-#exclusive {
-    background-color: blue;
-    transition: all .2s ease-in-out; 
-}
-
-#exclusive:hover {
+.category-item:hover {
     transform: scale(1.1);
 }
 
@@ -359,6 +320,7 @@ body{
 .featured-item:hover{
     transform: scale(1.1);
 }
+
 
 
  
