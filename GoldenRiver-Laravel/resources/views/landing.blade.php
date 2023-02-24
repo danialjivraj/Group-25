@@ -42,4 +42,4 @@
             <div id="sustainbility-txt" class="sustainability-content"></div>
         </div>
     </section>
-@endsection
+@endsection 
