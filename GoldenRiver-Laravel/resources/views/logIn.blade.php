@@ -18,7 +18,19 @@
     @csrf
     <div class="form__input-group">
     <input type="email" class="form__input" name="email" placeholder="Username or email"  required/><br>
+    <div class="errorlog">
+                    @error('email')
+                    {{ $message }}
+                    <br>
+                    @enderror
+                </div>
     <input type="password" class="form__input" name="password" placeholder="Password"  required/><br>
+    <div class="errorlog">
+                    @error('password')
+                    {{ $message }}
+                    <br>
+                    @enderror
+                </div>
 </div>
 
     <button class="form__button" button type="submit">Sign in</button>
