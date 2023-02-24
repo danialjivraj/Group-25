@@ -352,54 +352,13 @@ body{
     height: 120px;
     border-radius: 15px;
     color: #000;
-}
-
-
-#featured1 {
     background-color: orange;
-    transition: all .2s ease-in-out; 
+    transition: all .2s ease-in-out;
 }
 
-#featured1:hover {
+.featured-item:hover{
     transform: scale(1.1);
 }
-
-#featured2 {
-    background-color: orange;
-    transition: all .2s ease-in-out; 
-}
-
-#featured2:hover {
-    transform: scale(1.1);
-}
-
-#featured3 {
-    background-color: orange;
-    transition: all .2s ease-in-out; 
-}
-
-#featured3:hover {
-    transform: scale(1.1);
-}
-
-#featured4 {
-    background-color: orange;
-    transition: all .2s ease-in-out; 
-}
-
-#featured4:hover {
-    transform: scale(1.1);
-}
-
-#featured5 {
-    background-color: orange;
-    transition: all .2s ease-in-out; 
-}
-
-#featured5:hover {
-    transform: scale(1.1);
-}
-
 
 
  
