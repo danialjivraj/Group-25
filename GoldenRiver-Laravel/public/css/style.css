@@ -344,8 +344,8 @@ article {
 
 /* user registration & login page styling starts here */
 .reg__container{
-    --color-primary: #A3B8B6;
-    --color-primary-dark: #839795;
+    --color-primary: #c1c0c0bf;
+    --color-primary-dark: #C1C0c0;
     --color-secondary: #D8C1A5;
     --border-radius: 4px;
 
@@ -446,9 +446,7 @@ text-align: center;
     margin-bottom: 5rem;
 
 }
-<<<<<<< HEAD
 
-=======
 .about{
     width: 100%;
     padding: 50px, 50px;
@@ -491,4 +489,3 @@ width: 400px;
     font-size: 15px;
     margin-bottom: 30px;
 }
->>>>>>> d70154223d702121ea893d27590650b802f5f661

@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F2F2F2;
+    background-color: #ffffff;
   }
   
   main {
@@ -12,7 +12,7 @@ body {
     width: 80%;
     margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 0 10px #BBBBBB;
+    box-shadow:  0 0 40px rgba(0, 0, 0, 0.2);;
   }
   
   .content {
@@ -23,8 +23,8 @@ body {
   
   .reach-us {
     width: 40%;
-    background-color: #839795;
-    color: #FFFFFF;
+    background-color: C1C0C0;
+    color: black;
     text-align: center;
     border-left: 1px solid #BBBBBB;
     padding-left: 20px;
@@ -53,8 +53,8 @@ body {
   }
   
   input[type="submit"] {
-    background-color: #839795;
-    color: #FFFFFF;
+    background-color: #C1c0C0;
+    color: black;
     border-radius: 50px;
     border: none;
     cursor: pointer;
