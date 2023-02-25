@@ -28,7 +28,7 @@
                 <a href="userRegistration" class="navbar_item">Sign Up</a>
                 @endguest
                 @auth
-                <a href="#" class="navbar_item">{{Session::get('user')['name']}}</a>
+                <a href="profile" class="navbar_item">{{Session::get('user')['name']}}</a>
                 <a href="logout" class="navbar_item">Log Out</a>
                 @endauth
             </div>
