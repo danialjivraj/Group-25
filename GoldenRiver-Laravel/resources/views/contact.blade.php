@@ -31,8 +31,8 @@
       </div>
       <div class="reach-us">
         <p><strong>Reach Us</strong></p>
-        <p>Email: info@jewellerystore.com</p>
-        <p>Phone: +1 123 456 7890</p>
+        <p>Email: info@goldenriver.com</p>
+        <p>Phone: +44 123 456 7890</p>
       </div>
     </main>
   </body>
