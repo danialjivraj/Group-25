@@ -51,7 +51,7 @@
 
     <div class="reg__container form-box">
         <div style="margin-bottom: 10px;">
-            Update Your Password    
+            Update Your Password
         </div>
         <form method="POST" action="{{ route('user.update.password', Auth::user()->id) }}">
             @csrf
