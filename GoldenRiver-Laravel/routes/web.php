@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginLogoutController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,9 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/profile', function () {
+    return view('profile');
+});
 
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
@@ -81,10 +85,7 @@ Route::get('/exclusiveSets', function () {
     return view('/categories/exclusiveSets');
 });
 
-
-
 Route::get('/login',[LoginLogoutController::class, 'showLogin']);
-
 
 Route::post('/login', [LoginLogoutController::class, 'doLogin']);
 
@@ -99,4 +100,11 @@ Route::get('/search', [ProductsController::class,'search']);
 //Route just for testing
 Route::get('/test', [LoginLogoutController::class,'test']);
 
+Route::post('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
+
+Route::post('/users/{id}/update-name-email', [UserController::class, 'updateNameEmail'])->name('user.update.name.email');
+
+Route::post('/users/{id}/update/password', [UserController::class, 'update'])->name('user.update.password');
+
+Route::post('/users/{id}/update/password', [UserController::class, 'updatePassword'])->name('user.update.password');
 
