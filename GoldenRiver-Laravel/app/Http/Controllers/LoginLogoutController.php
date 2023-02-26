@@ -38,6 +38,7 @@ class LoginLogoutController extends Controller
             'password' => ['required'],
         ]);
 
+        $user= User::where(['email'=>$request->email])->first();
         auth()->attempt($request->only('email', 'password'));
         $request->session()->put('user', $user);
 

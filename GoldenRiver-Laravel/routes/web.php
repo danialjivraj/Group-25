@@ -53,13 +53,13 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
-Route::get('/nav', function () {
-    return view('/partials/nav');
-});
+// Route::get('/nav', function () {
+//     return view('/partials/nav');
+// });
 
-Route::get('/footer', function () {
-    return view('/partials/footer');
-});
+// Route::get('/footer', function () {
+//     return view('/partials/footer');
+// });
 
 Route::get('/shop', function () {
     return view('shop');
