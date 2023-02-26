@@ -101,3 +101,10 @@ Route::get('/search', [ProductsController::class,'search']);
 Route::get('/test', [LoginLogoutController::class,'test']);
 
 Route::post('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
+
+Route::post('/users/{id}/update-name-email', [UserController::class, 'updateNameEmail'])->name('user.update.name.email');
+
+Route::post('/users/{id}/update/password', [UserController::class, 'update'])->name('user.update.password');
+
+Route::post('/users/{id}/update/password', [UserController::class, 'updatePassword'])->name('user.update.password');
+
