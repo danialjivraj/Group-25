@@ -16,10 +16,10 @@
 		<div class="accordion-item">
 			<div class="accordion-header">
 				<span class="icon">&#9660;</span>
-				<h3>How can I make a purchase?</h3>
+				<h3>What warranties do you offer?</h3>
 			</div>
 			<div class="accordion-content">
-				<p>You can make a purchase on our website by adding the desired items to your cart and proceeding to checkout. During checkout, you'll be prompted to enter your shipping and payment information.</p>
+				<p>Our warranty policy covers all of the jewelry purchased from Golden River Jewelers. This warranty covers all manufacturer defects in material or workmanship but does not cover neglect and abuse, natural wear and tear or stone loss over .20cts (this gets covered by your insurance).</p>
 			</div>
 		</div>
 		<div class="accordion-item">
@@ -46,7 +46,7 @@
 				<h3>How long does shipping take?</h3>
 			</div>
 			<div class="accordion-content">
-				<p>Shipping typically takes 3-5 business days for orders within the United States. International shipping times may vary depending on the destination.</p>
+				<p>Shipping typically takes 3-5 business days for orders within the United Kingdom. International shipping times may vary depending on the destination.</p>
 			</div>
 		</div>
 	</section>
