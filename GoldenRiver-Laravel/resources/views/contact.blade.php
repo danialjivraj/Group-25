@@ -33,7 +33,8 @@
         <p><strong>Reach Us</strong></p>
         <p>Email: info@goldenriver.com</p>
         <p>Phone: +44 123 456 7890</p>
-      </div>
+        <p>For general queries, visit our <a href="faq"><u>FAQ</u></a> page.</p>
+
     </main>
   </body>
 
