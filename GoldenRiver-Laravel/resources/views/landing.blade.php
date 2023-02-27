@@ -39,7 +39,7 @@
         <!-- Sustainability -->
         <div class="sustainability-container">
             <div id="sustainability-img" class="sustainability-content"></div>
-            <div id="sustainbility-txt" class="sustainability-content"></div>
+            <div id="sustainbility-txt" class="sustainability-content">Lorem ipsum dolor sit amet. Qui Quis aliquam a corporis facere ut nihil voluptatibus non dicta eius. Eos consequatur rerum qui dolorem nesciunt ex autem sunt quo provident rerum est molestias nobis et nulla voluptatibus aut voluptas consequatur. Et praesentium rerum ut minima cupiditate eum veritatis deleniti vel autem aspernatur id molestiae quae et dolorem voluptatem et rerum dolor! Cum repudiandae velit At consequatur nostrum aut iste architecto et dolor porro sit aliquid fuga est esse numquam.</div>
         </div>
     </section>
 @endsection 

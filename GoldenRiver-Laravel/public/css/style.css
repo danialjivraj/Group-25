@@ -88,6 +88,7 @@ body {
       overflow: hidden;
       background-color:#ffffff;
       padding :22px 0 22px 0;
+      height: 10vh;
   }
   
     .navbar_item {
@@ -214,7 +215,7 @@ body {
 
 .viewport-container {
     width: 100%;
-    height: 78vh;
+    height: 85vh;
     background-color: #000;
     display: flex;
     flex-direction: column;
@@ -348,6 +349,12 @@ body {
     margin-top: 20px;
     margin-bottom: 90px;
     background-color: #434434;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#sustainbility-txt {
+    color: black;
+    background-color: white;
 }
 
  
