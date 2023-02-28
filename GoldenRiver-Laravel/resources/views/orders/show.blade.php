@@ -14,14 +14,18 @@
 
 
 <div class="table-container">
-<h1>Order Details</h1>
+    <h1>Order Details</h1>
     <table class="orders-table">
-    <thead>
-    <tr>
-    <th><p><strong>Order ID:</strong> {{ $order->Order_ID }}</p></th>
-    <th><p><strong>Order Status:</strong> {{ $order->Order_Status }}</p></th>
-        <tr>
         <thead>
+            <tr>
+                <th>
+                    <p><strong>Order ID:</strong> {{ $order->Order_ID }}</p>
+                </th>
+                <th>
+                    <p><strong>Order Status:</strong> {{ $order->Order_Status }}</p>
+                </th>
+            <tr>
+                <thead>
     </table>
 </div>
 
@@ -49,7 +53,7 @@
                 <td>£{{ $item->Price }}</td>
             </tr>
             @php
-            $totalAmount += $item->Price / $item->Amount * $item->Amount;
+            $totalAmount += $item->Price * $item->Amount;
             @endphp
             @endforeach
 
