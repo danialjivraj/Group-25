@@ -9,6 +9,25 @@
     <h4>Product Description:</h4>
     <p>{{ $item->Description }} </p>
 </div>
+
+<div>
+    <h4>Product Category:</h4>
+    @if($item->Category_ID == 6 )
+    <p>Necklace</p>
+    @endif
+    @if($item->Category_ID == 5 )
+    <p>Earring</p>
+    @endif
+    @if($item->Category_ID == 7 )
+    <p>Bracelet</p>
+    @endif
+    @if($item->Category_ID == 8 )
+    <p>Ring</p>
+    @endif
+    @if($item->Category_ID == 9 )
+    <p>Set</p>
+    @endif
+</div>
 <div>
     <h4>Price:</h4>
     <p>£{{ $item->Product_Price }} </p>

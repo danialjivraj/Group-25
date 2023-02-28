@@ -7,8 +7,6 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/shop.css')}}">
 
-
-
 @section('body')
 <h1 class="categoryTitle">BRACELETS</h1>
 <br><br>

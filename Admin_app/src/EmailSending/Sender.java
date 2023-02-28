@@ -28,8 +28,8 @@ public class Sender {
 		SendEmail();
 	}
 	public void SendEmail() throws MessagingException {
-		String fromUser="titantop1tap@gmail.com";
-		String fromUserPass="qthjkmprusaewxrt";
+		String fromUser="golden.river.team@gmail.com";
+		String fromUserPass="yguqmevpzfzyhkjw";
 		String emailHost="smtp.gmail.com";
 		Transport transport =newSession.getTransport("smtp");
 		transport.connect(emailHost,fromUser,fromUserPass);

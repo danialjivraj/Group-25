@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginLogoutController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrdersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +34,14 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get("/faq", function(){
+    return view("faq");
+ }); 
+ 
+
+Route::get('/profile', function () {
+    return view('profile');
+});
 
 Route::get('/userRegistration', [RegistrationController::class , 'show']);
 
@@ -49,13 +60,13 @@ Route::get('/cart', function () {
     return view('cart');
 });
 
-Route::get('/nav', function () {
-    return view('/partials/nav');
-});
+// Route::get('/nav', function () {
+//     return view('/partials/nav');
+// });
 
-Route::get('/footer', function () {
-    return view('/partials/footer');
-});
+// Route::get('/footer', function () {
+//     return view('/partials/footer');
+// });
 
 Route::get('/shop', function () {
     return view('shop');
@@ -81,10 +92,7 @@ Route::get('/exclusiveSets', function () {
     return view('/categories/exclusiveSets');
 });
 
-
-
 Route::get('/login',[LoginLogoutController::class, 'showLogin']);
-
 
 Route::post('/login', [LoginLogoutController::class, 'doLogin']);
 
@@ -99,4 +107,16 @@ Route::get('/search', [ProductsController::class,'search']);
 //Route just for testing
 Route::get('/test', [LoginLogoutController::class,'test']);
 
+Route::post('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
 
+Route::post('/users/{id}/update-name-email', [UserController::class, 'updateNameEmail'])->name('user.update.name.email');
+
+Route::post('/users/{id}/update/password', [UserController::class, 'update'])->name('user.update.password');
+
+Route::post('/users/{id}/update/password', [UserController::class, 'updatePassword'])->name('user.update.password');
+
+Route::get('/profile', 'OrdersController@index');
+
+Route::get('/profile', [OrdersController::class, 'index'])->name('profile');
+
+Route::get('/orders/{id}', [OrdersController::class, 'show'])->name('orders.show');

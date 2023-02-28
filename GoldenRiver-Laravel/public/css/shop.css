@@ -101,7 +101,7 @@
 }
 
 .smallSpace {
-    height: 2px;
+    height: 5px;
     font-size: 1px;
 }
 
@@ -112,3 +112,210 @@
 .product-box p {
     margin: 10px 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/********************************************************* Beginning of Profile Page ****************************************************************************************/
+
+/* Style for the form container */
+.form-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for form labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* Style for form input fields */
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+
+  button[disabled] {
+    color: #000000; /* Change the text color of the disabled button */
+    background-color: #b4a583; /* Change the background color of the disabled button */
+  
+  }
+  
+  button[disabled]:hover {
+    color: #000000; /* Prevent the text color from changing on hover */
+    background-color: #b4a072; /* Prevent the background color from changing on hover */
+  }
+
+  
+  /* Style for error message */
+  #error-message {
+    margin-top: 10px;
+  }
+  
+  /* Style for welcome message */
+  h1 {
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  /* Style for information message */
+  div.info-message {
+    margin-top: 20px;
+  }
+  
+  /* Style for orders container */
+  .orders-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+  }
+  
+  /* Style for orders header */
+  .orders-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for orders table */
+  table.orders-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  table.orders-table th,
+  table.orders-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  table.orders-table th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style for logged in message */
+  h4.logged-in {
+    margin-top: 20px;
+  }
+ 
+  .form-box {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin: 0 20px;
+    padding: 20px;
+    vertical-align: top;
+    width: 300px;
+}
+  
+  .form-box form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-box label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-box input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3
+  }
+
+  /********************************************************* End of Profile Page ****************************************************************************************/
+  
+  
+
+  .table-container {
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  .orders-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .orders-table th,
+  .orders-table td {
+    border: 1px solid #ddd;
+    padding: 12px 8px;
+    text-align: center;
+  }
+  
+  .orders-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .orders-table th:first-child,
+  .orders-table td:first-child {
+    text-align: left;
+  }
+  
+  .orders-table td:nth-child(2) {
+    width: 150px;
+  }
+  
+  .orders-table td:last-child {
+    width: 120px;
+  }
+  
+  .orders-table tfoot td {
+    border-top: 2px solid #ddd;
+    font-weight: bold;
+  }
+  
+  .orders-table tfoot td:first-child {
+    text-align: right;
+  }
+  
+  .orders-table tfoot td:last-child {
+    text-align: center;
+  }
+  
+  .order-row:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  .no-orders {
+    text-align: center;
+    font-style: italic;
+    color: grey;
+  }
+  

@@ -191,7 +191,7 @@
                 </div>
 
                 <div class="ibox-content">
-                    <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                    <button class="cart__btnwhite"><i class="fa fa-arrow-left"></i> Continue shopping</button>
 
                 </div>
             </div>
@@ -208,10 +208,10 @@
                     <h2 class="font-bold">£0.00</h2>
 
                     <hr>
-                    <span class="text-muted small">*Currently shipping in the UK only.</span><br></br>
+                    <span class="text-muted__small">*Currently shipping in the UK only.</span><br></br>
                     <div class="m-t-sm">
                         <div class="btn-group">
-                            <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                            <button class="checkout__button"><i class="fa fa-shopping-cart"></i> Checkout</button>
                         </div>
                     </div>
                 </div>
@@ -221,7 +221,7 @@
                 <div class="ibox-title"><h5>Support</h5></div>
                 <div class="ibox-content text-center">
                     <h3><i class="fa fa-phone"></i> +44 1234 5678</h3>
-                    <span class="small">Please <a href="contact.blade.php">contact us</a> if you have any concerns or queries.</span>
+                    <span class="small">Please <a class="contactus__link" href="./contact">contact us</a> if you have any concerns or queries.</span>
                 </div>
             </div>
 

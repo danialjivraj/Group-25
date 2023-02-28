@@ -11,15 +11,32 @@
 
 
 @section('body')
-    <div class="container">
+    <div class="login__container">
 
-<h1>Login Page</h1>
-<form action="/login" method="post" class="login-inputs">
+<h1 class= "form__title">Login</h1>
+<form class="form" action="/login" method="post" class="login-inputs">
     @csrf
-    <input type="email" class="form__input" name="email" placeholder="Your email"  required/><br>
+    <div class="form__input-group">
+    <input type="email" class="form__input" name="email" placeholder="Username or email"  required/><br>
+    <div class="errorlog">
+                    @error('email')
+                    {{ $message }}
+                    <br>
+                    @enderror
+                </div>
     <input type="password" class="form__input" name="password" placeholder="Password"  required/><br>
+    <div class="errorlog">
+                    @error('password')
+                    {{ $message }}
+                    <br>
+                    @enderror
+                </div>
+</div>
 
-    <input type="submit" value="Sign in" class="submit-btn">
+    <button class="form__button" button type="submit">Sign in</button>
+                <p class="form__text">
+                <a class="form__link" href="./userRegistration" id="linkLogin">Don't have an Account? Sign up</a>
+</p>
 </form>
 
 </div>
