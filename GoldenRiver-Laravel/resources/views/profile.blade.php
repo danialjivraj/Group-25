@@ -79,14 +79,44 @@
     <div>
         <br><br>
         <div>
-            View Recent Orders
+            <h1>View Recent Orders</h1>
+
+            <div class="table-container">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Total Price</th>
+                            <th>Order Status</th>
+                            <th>View More</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($orders as $item)
+                        <tr>
+                            <td>{{$item->Order_ID}}</td>
+                            <td>£{{$item->Order_Total_Price}}</td>
+                            <td>{{$item->Order_Status}}</td>
+                            <td><a href="{{ route('orders.show', ['id' => $item->Order_ID]) }}">View More</a></td>
+
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="3">No Orders Available</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+
+
         </div>
     </div>
 
-    <br> <br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     @else
-    <h1>You have logged out successfully!</h1>
+    <h1>Please Login if you want to view your profile!</h1>
     <div>
         {{ __('Please login again to view your information and orders.') }}
         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

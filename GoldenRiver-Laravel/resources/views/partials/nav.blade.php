@@ -19,26 +19,27 @@
                     <a href="/" class="navbar__image"><img class="gr" src="{{asset('images/logo.png')}}" width="150px"></a>
                     <div class="navbar__navsection">
                         <div class="completenavbar">
-                            <a href="/" class="navbar_item">Home</a>
-                            <a href="aboutus" class="navbar_item">About Us</a>
-                            <a href="contact" class="navbar_item">Contact Us</a>
-                            <a href="product" class="navbar_item">Shop</a>
-                            <a href="cart" class="navbar_item">Basket</a>
+                            <a href="{{ url('/') }}" class="navbar_item">Home</a>
+                            <a href="{{ url('/aboutus') }}" class="navbar_item">About Us</a>
+                            <a href="{{ url('/contact') }}" class="navbar_item">Contact Us</a>
+                            <a href="{{ url('/product') }}" class="navbar_item">Shop</a>
+                            <a href="{{ url('/cart') }}" class="navbar_item">Basket</a>
                             @guest
-                            <a href="login" class="navbar_item">Log In</a>
-                            <a href="userRegistration" class="navbar_item">Sign Up</a>
+                            <a href="{{ url('/login') }}" class="navbar_item">Log In</a>
+                            <a href="{{ url('/userRegistration') }}" class="navbar_item">Sign Up</a>
                             @endguest
                             @auth
-                            <a href="profile" id="username" class="navbar_item">{{ Auth::user()->name }}</a>
-                            <a href="logout" class="navbar_item">Log Out</a>
+                            <a href="{{ url('/profile') }}" id="username" class="navbar_item">{{ Auth::user()->name }}</a>
+                            <a href="{{ url('/logout') }}" class="navbar_item">Log Out</a>
                             @endauth
+
                         </div>
                     </div>
                 </div>
             </div>
         </header>
     </div>
-   
+
     @yield('body')
     <div>
         @include('partials.footer')

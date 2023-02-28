@@ -5,6 +5,8 @@ use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginLogoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrdersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -113,3 +115,8 @@ Route::post('/users/{id}/update/password', [UserController::class, 'update'])->n
 
 Route::post('/users/{id}/update/password', [UserController::class, 'updatePassword'])->name('user.update.password');
 
+Route::get('/profile', 'OrdersController@index');
+
+Route::get('/profile', [OrdersController::class, 'index'])->name('profile');
+
+Route::get('/orders/{id}', [OrdersController::class, 'show'])->name('orders.show');
