@@ -298,7 +298,7 @@ body {
     margin-top: 50px;
     border-radius: 15px;
     color: #000;
-    background-color: blue;
+    /* background-color: blue; */
     transition: all .2s ease-in-out;
     text-align: center;
     color: white;
@@ -307,6 +307,46 @@ body {
 
 .category-item:hover {
     transform: scale(1.1);
+}
+
+#rings {
+    background-image: url("../images/allProductImages/34.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#necklaces {    
+    background-image: url("../images/allProductImages/4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#earrings {
+    background-image: url("../images/allProductImages/16.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#bracelets {
+    background-image: url("../images/allProductImages/22.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#exclusiveSets {
+    background-image: url("../images/allProductImages/38.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
 }
 
 .featured-container {
@@ -326,12 +366,52 @@ body {
     background-color: orange;
     transition: all .2s ease-in-out;
     text-align: center;
-    color: white;
+    color: #000;
     cursor: pointer;
 }
 
 .featured-item:hover{
     transform: scale(1.1);
+}
+
+#featured1 {
+    background-image: url("../images/allProductImages/39.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#featured2 {
+    background-image: url("../images/allProductImages/43.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#featured3 {
+    background-image: url("../images/allProductImages/22.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#featured4 {
+    background-image: url("../images/allProductImages/23.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
+}
+
+#featured5 {
+    background-image: url("../images/allProductImages/6.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: center;
 }
 
 /* landing page banner */

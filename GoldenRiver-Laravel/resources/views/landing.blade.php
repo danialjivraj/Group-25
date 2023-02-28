@@ -22,16 +22,16 @@
             <div id="necklaces" class="category-item" href="/product/necklace">Necklaces</div>
             <div id="earrings" class="category-item" href="/product/earrings">Earrings</div>
             <div id="bracelets" class="category-item" href="/product/bracelet">Bracelets</div>
-            <div id="exclusive" class="category-item" href="/product/exclusive sets">Exclusive Sets</div>
+            <div id="exclusiveSets" class="category-item" href="/product/exclusive sets">Exclusive Sets</div>
         </div>
         
         <!-- featured -->
         <div class="featured-container">
-            <div id="featured1"class="featured-item">featured item 1</div>
-            <div id="featured2"class="featured-item">featured item 2</div>
-            <div id="featured3"class="featured-item">featured item 3</div>
-            <div id="featured4"class="featured-item">featured item 4</div>
-            <div id="featured5"class="featured-item">featured item 5</div>
+            <div id="featured1"class="featured-item">Solitaire Squared Set</div>
+            <div id="featured2"class="featured-item">Evergreen Stonework Set</div>
+            <div id="featured3"class="featured-item">Pearl Bracelet</div>
+            <div id="featured4"class="featured-item">Golden Slider Bracelet</div>
+            <div id="featured5"class="featured-item">White and Blue Crystal Necklace</div>
         </div>
 
         <!-- Banner -->
