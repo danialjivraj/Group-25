@@ -219,18 +219,22 @@ body {
     background-color: #000;
     display: flex;
     flex-direction: column;
-    color: white;
+    color: black;
 }
 
 .main {
     width: 100%;
     height: 50%;
-    background-color: orange;
+    background-image: url("../images/allProductImages/25.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 40%;
 }
 
 .main p {
     text-align: center;
-    margin-top: 8%;
+    margin-top: 15%;
 }
 
 .viewport-subcontainer {
@@ -238,7 +242,6 @@ body {
     height: 50%;
     display: flex;
     flex-direction: row;
-    background-color: blue;
 }
 
 .viewport-subcontainer > div {
@@ -246,17 +249,34 @@ body {
     height: 100%;
 }
 
-.viewport-subcontainer > div p {
-    text-align: center;
-    margin-top: 18%;
+.fashion {
+    background-image: url("../images/allProductImages/11.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 70%;
+    display: flex;
+    align-items: center;
 }
 
-.fashion {
-    background-color: purple;
+.fashion a {
+    margin: 0 auto;
+    text-decoration:none;
 }
 
 .fine {
-    background-color: aqua;
+    background-image: url("../images/allProductImages/8.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.fine a {
+    margin: 0 auto;
+    text-decoration:none;
 }
 
 

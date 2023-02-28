@@ -10,18 +10,19 @@
         <div class="viewport-container">
             <div class="main"><p>View Latest Collection</p></div>
             <div class="viewport-subcontainer">
-                <div class="fashion"><p>Shop Fashion Jewellery</p></div>
-                <div class="fine"><p>Shop Fine Jewellery</p></div>
+                <div class="fashion"><a href="/product">Shop Fashion Jewellery</a></div>
+                <div class="fine"><a href="/product">Shop Fine Jewellery</a></div>
             </div>
         </div>
 
         <!-- category -->
         <div class="category-container">
-            <div id="rings" class="category-item">Rings</div>
-            <div id="necklaces" class="category-item">Necklaces</div>
-            <div id="earrings" class="category-item">Earrings</div>
-            <div id="bracelets" class="category-item">Bracelets</div>
-            <div id="exclusive" class="category-item">Exclusive Sets</div>
+            <!-- check href to database -->
+            <div id="rings" class="category-item" href="/product/rings">Rings</div>
+            <div id="necklaces" class="category-item" href="/product/necklace">Necklaces</div>
+            <div id="earrings" class="category-item" href="/product/earrings">Earrings</div>
+            <div id="bracelets" class="category-item" href="/product/bracelet">Bracelets</div>
+            <div id="exclusive" class="category-item" href="/product/exclusive sets">Exclusive Sets</div>
         </div>
         
         <!-- featured -->
