@@ -17,21 +17,21 @@
 
         <!-- category -->
         <div class="category-container">
-            <!-- check href to database -->
-            <div id="rings" class="category-item" href="/product/rings">Rings</div>
-            <div id="necklaces" class="category-item" href="/product/necklace">Necklaces</div>
-            <div id="earrings" class="category-item" href="/product/earrings">Earrings</div>
-            <div id="bracelets" class="category-item" href="/product/bracelet">Bracelets</div>
-            <div id="exclusiveSets" class="category-item" href="/product/exclusive sets">Exclusive Sets</div>
+            <!-- category product pages not completed yet -->
+            <a href="/product/rings"><div id="rings" class="category-item">Rings</div></a>
+            <a href="/product/necklaces"><div id="necklaces" class="category-item" href="/product/necklace">Necklaces</div></a>
+            <a href="/product/earrings"><div id="earrings" class="category-item" href="/product/earrings">Earrings</div></a>
+            <a href="/product/bracelets"><div id="bracelets" class="category-item" href="/product/bracelet">Bracelets</div></a>
+            <a href="/product/exclusive"><div id="exclusiveSets" class="category-item" href="/product/exclusive sets">Exclusive Sets</div></a>
         </div>
         
         <!-- featured -->
         <div class="featured-container">
-            <div id="featured1"class="featured-item">Solitaire Squared Set</div>
-            <div id="featured2"class="featured-item">Evergreen Stonework Set</div>
-            <div id="featured3"class="featured-item">Pearl Bracelet</div>
-            <div id="featured4"class="featured-item">Golden Slider Bracelet</div>
-            <div id="featured5"class="featured-item">White and Blue Crystal Necklace</div>
+            <a href="/product/39"><div id="featured1"class="featured-item">Solitaire Squared Set</div></a>
+            <a href="/product/43"><div id="featured2"class="featured-item">Evergreen Stonework Set</div></a>
+            <a href="/product/22"><div id="featured3"class="featured-item">Pearl Bracelet</div></a>
+            <a href="/product/23"><div id="featured4"class="featured-item">Golden Slider Bracelet</div></a>
+            <a href="/product/6"><div id="featured5"class="featured-item">White and Blue Crystal Necklace</div></a>
         </div>
 
         <!-- Banner -->
@@ -40,7 +40,18 @@
         <!-- Sustainability -->
         <div class="sustainability-container">
             <div id="sustainability-img" class="sustainability-content"></div>
-            <div id="sustainbility-txt" class="sustainability-content">Lorem ipsum dolor sit amet. Qui Quis aliquam a corporis facere ut nihil voluptatibus non dicta eius. Eos consequatur rerum qui dolorem nesciunt ex autem sunt quo provident rerum est molestias nobis et nulla voluptatibus aut voluptas consequatur. Et praesentium rerum ut minima cupiditate eum veritatis deleniti vel autem aspernatur id molestiae quae et dolorem voluptatem et rerum dolor! Cum repudiandae velit At consequatur nostrum aut iste architecto et dolor porro sit aliquid fuga est esse numquam.</div>
+            <div id="sustainbility-txt" class="sustainability-content">We are committed to operating in a sustainable and ethical manner. We strive to minimize our impact on the environment by using eco-friendly materials and packaging, and reducing waste throughout our production process. Additionally, we prioritize ethical practices by sourcing materials from responsible suppliers who adhere to fair labor practices and do not engage in environmentally harmful practices. </div>
         </div>
     </section>
 @endsection 
+
+<!-- 
+    To Do: 
+
+1. Update category links to product category pages
+2. Update banner for once about page is completed
+3. Make page responsive for mobile devices
+
+
+
+-->
