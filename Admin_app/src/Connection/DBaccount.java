@@ -61,6 +61,7 @@ public class DBaccount extends DataBaseConn{
 	}
 	
 	public boolean login(String email,String password) throws SQLException {
+		//Used to check if there is an admin account with the password and email
 		boolean result;
 		String sql="SELECT COUNT(*) AS recordCount FROM users WHERE email='"+email+"' AND password = '"+password+"' AND User_Status = 'Admin'";
 		ResultSet rs = getStmt().executeQuery(sql);
@@ -68,6 +69,7 @@ public class DBaccount extends DataBaseConn{
 		int count = rs.getInt("recordCount");
 		//System.out.println("MyTable has " + count + " row(s).");
 		
+		//if there is 1 account with the provided detail => login else => wrong details
 		if(count==1) {return true;}
 		else {return false;}
 		
@@ -76,6 +78,10 @@ public class DBaccount extends DataBaseConn{
 	
 	public String StatusMaker(int Status) {
 		
+		// requires number as input to make status as String
+		//1 - Customer
+		//2 - Admin
+		//ELSE => ERROR
 		
 		String StatusSQL;
 		
