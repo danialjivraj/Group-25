@@ -13,7 +13,7 @@ use App\Models\Address;
 class BasketController extends Controller
 {
     public function addToBasket(Request $request){
-//dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
+        //dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
         if (Auth::user()){
         $productPrice = Product::where('Product_ID', $request->Product_ID)
         ->value('Product_Price');
@@ -67,13 +67,13 @@ class BasketController extends Controller
         //}
 
         return view('cart');
-}
+    }
 
-public function removeBasket($id)
-{
-    OrderItem::where('Product_ID', $id)->delete();
-    return redirect('/cart')->with('msg', "Item Removed");
-}
+    public function removeBasket($id)
+    {
+        OrderItem::where('Product_ID', $id)->delete();
+        return redirect('/cart')->with('msg', "Item Removed");
+    }
 public function test()
 {
 //dd(OrderItem::all());

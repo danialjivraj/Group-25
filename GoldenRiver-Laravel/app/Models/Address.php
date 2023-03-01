@@ -9,5 +9,12 @@ class Address extends Model
 {
     protected $table = 'address';
     use HasFactory;
-
+    protected $fillable = [
+        'Account_ID',
+        'ZIP',
+        'City',
+        'Country',
+        'Street',
+        'County',
+    ];
 }
