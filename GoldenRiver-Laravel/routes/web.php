@@ -36,8 +36,8 @@ Route::get('/contact', function () {
 
 Route::get("/faq", function(){
     return view("faq");
- }); 
- 
+ });
+
 
 Route::get('/profile', function () {
     return view('profile');
@@ -97,6 +97,8 @@ Route::get('/login',[LoginLogoutController::class, 'showLogin']);
 Route::post('/login', [LoginLogoutController::class, 'doLogin']);
 
 Route::get('/product', [ProductsController::class, 'showProducts']);
+
+//Route::get('/product/{}', [ProductsController::class, 'filterProducts']);
 
 //route to get one product when a certain product is selected on the products page.
 Route::get('/product/{Product_ID}', [ProductsController::class, 'aProduct']);
