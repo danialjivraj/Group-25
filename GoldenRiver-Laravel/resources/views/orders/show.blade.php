@@ -8,65 +8,59 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/shop.css')}}">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
-@endsection
-
 @section('body')
 
-
-<div class="table-container">
-    <h1>Order Details</h1>
-    <table class="orders-table">
-        <thead>
-            <tr>
-                <th>
-                    <p><strong>Order ID:</strong> {{ $order->Order_ID }}</p>
-                </th>
-                <th>
-                    <p><strong>Order Status:</strong> {{ $order->Order_Status }}</p>
-                </th>
-            <tr>
-                <thead>
-    </table>
-</div>
-
-<div class="table-container">
-    <table class="orders-table">
-        <h2>Order Items</h2>
+<table class="show-order-table">
+    <thead>
+        <tr>
+            <th>Items in this order</th>
+            <th>Status: {{ $order->Order_Status }}</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @php
+        $totalItems = 0;
+        $totalAmount = 0;
+        @endphp
         @if(isset($orderItems) && $orderItems->count() > 0)
-
-        <thead>
-            <tr>
-                <th>Product Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
+        @foreach($orderItems as $item)
+        <tr>
+            <td>
+                <div class="show-product-image">
+                    <img src="/images/allProductImages/{{$item->product->Product_ID}}.jpg" alt="productImage">
+                </div>
+                <div class="product-info">
+                    <p><strong>{{ $item->product->Product_Name }}</strong></p>
+                    <p>Qty: {{ $item->Amount }}</p>
+                    <p>£{{ $item->Price }}</p>
+                </div>
+            </td>
             @php
-            $totalAmount = 0;
-            @endphp
-
-            @foreach($orderItems as $item)
-            <tr>
-                <td>{{ $item->product->Product_Name }}</td>
-                <td>{{ $item->Amount }}</td>
-                <td>£{{ $item->Price }}</td>
-            </tr>
-            @php
+            $totalItems += $item->Amount;
             $totalAmount += $item->Price * $item->Amount;
             @endphp
-            @endforeach
-
-            <tr>
-                <td colspan="2">Total Amount:</td>
-                <td>£{{ $totalAmount }}</td>
-            </tr>
-
-        </tbody>
-    </table>
-</div>
-@else
-<p>No order items found.</p>
-@endif
+        </tr>
+        @endforeach
+        <tr>
+            <td><strong>{{ $totalItems }} Items</strong></td>
+            <td><strong>£{{ $totalAmount }}</strong></td>
+        </tr>
+        <tr>
+            <td>Shipping:</td>
+            <td>£0.00</td>
+        </tr>
+        <tr>
+            <td><strong>Grand Total:</strong></td>
+            <td><strong>£{{ $totalAmount }}</strong></td>
+        </tr>
+        @else
+        <tr>
+            <td colspan="3">No order items found.</td>
+        </tr>
+        @endif
+    </tbody>
+</table>
+<br><br><br><br><br><br><br>
 
 @endsection
