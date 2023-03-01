@@ -1,4 +1,9 @@
+@extends('partials.nav')
 
+@section('title')
+<title> Golden River | Item</title>
+@endsection('title')
+@section('body')
 <div class="item-title">
     <h2>{{ $item->Product_Name }}</h2>
 </div>
@@ -41,7 +46,7 @@
     @endif
 </div>
 <div class="select-quantity">
-                    <form action="#" > <!-- make it <form action= "/basket" method = "post"> later -->
+                    <form action= "/cart" method = "post" > <!-- make it <form action= "/cart" method = "post"> later -->
                         @csrf
                         <h5>Select Quantity:</h5>
                         <select class="form-control" name="qty" id="quantity-box">
@@ -56,4 +61,5 @@
                     @endif
                 </div>
 
+                @endsection
 

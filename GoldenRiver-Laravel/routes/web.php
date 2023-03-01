@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BasketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\LoginLogoutController;
@@ -98,8 +99,6 @@ Route::post('/login', [LoginLogoutController::class, 'doLogin']);
 
 Route::get('/product', [ProductsController::class, 'showProducts']);
 
-//Route::get('/product/{}', [ProductsController::class, 'filterProducts']);
-
 //route to get one product when a certain product is selected on the products page.
 Route::get('/product/{Product_ID}', [ProductsController::class, 'aProduct']);
 
@@ -107,7 +106,7 @@ Route::get('/product/{Product_ID}', [ProductsController::class, 'aProduct']);
 Route::get('/search', [ProductsController::class,'search']);
 
 //Route just for testing
-Route::get('/test', [LoginLogoutController::class,'test']);
+Route::get('/test', [BasketController::class,'test']);
 
 Route::post('/user/{id}/update', [UserController::class, 'update'])->name('user.update');
 
@@ -122,3 +121,10 @@ Route::get('/profile', 'OrdersController@index');
 Route::get('/profile', [OrdersController::class, 'index'])->name('profile');
 
 Route::get('/orders/{id}', [OrdersController::class, 'show'])->name('orders.show');
+
+Route::post('/cart', [BasketController::class,'addToBasket']);
+
+Route::get('/cart',[BasketController::class,'listBasket']);
+
+
+

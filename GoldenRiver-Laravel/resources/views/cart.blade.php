@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="col-md-9">
-            
+
             <div class="ibox">
                 <div class="ibox-title">
                     <!--retrieve database info fot no. of items in cart-->
@@ -50,11 +50,11 @@
                                     </div>
                                 </td>
 
-                                <td>
+                                <!-- <td> -->
                                     <!--retrieve database info for product description-->
-                                    £0.00
-                                </td>
-                                <td width="65">
+                                    <!-- £0.00 -->
+                                <!-- </td> -->
+                                <!-- <td width="65">
                                     <div class="px-3 my-3 text-center">
                                         <div class="cart-item-label">Quantity</div>
                                         <div class="count-input">
@@ -72,7 +72,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </td>
+                                </td> -->
                                 <td><h4>£0.00</h4></td>
                             </tr>
                             </tbody>
@@ -80,115 +80,6 @@
                     </div>
                 </div>
 
-                <div class="ibox-content">
-                    <div class="table-responsive">
-                        <table class="table shoping-cart-table">
-                            <tbody>
-                            <tr>
-                                <td width="90">
-                                    <div class="cart-product-imitation">
-                                    </div>
-                                </td>
-                                <td class="desc">
-                                    <h3>
-                                    <a href="#" class="text-navy">Item 2</a>
-                                    </h3>
-                                    <dl class="small m-b-none">
-                                        <dt>Product Description</dt>
-                                        <!--retrieve database info for product description-->
-                                        <dd>include description.</dd>
-                                    </dl>
-
-                                    <div class="m-t-sm">
-                                        <!-- allow item deletion -->
-                                        <a href="#" class="text-muted"><i class="fa fa-trash"></i> Remove item</a>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <!--retrieve database info for product description-->
-                                    £0.00
-                                </td>
-                                <td width="65">
-                                    <div class="px-3 my-3 text-center">
-                                        <div class="cart-item-label">Quantity</div>
-                                        <div class="count-input">
-                                            <select class="form-control">
-                                            <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><h4>£0.00</h4></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="ibox-content">
-                    <div class="table-responsive">
-                        <table class="table shoping-cart-table">
-                            <tbody>
-                            <tr>
-                                <td width="90">
-                                    <div class="cart-product-imitation">
-                                    </div>
-                                </td>
-                                <td class="desc">
-                                    <h3>
-                                    <a href="#" class="text-navy">Item 3</a>
-                                    </h3>
-                                    <dl class="small m-b-none">
-                                        <dt>Product Description</dt>
-                                        <!--retrieve database info for product description-->
-                                        <dd>include description.</dd>
-                                    </dl>
-
-                                    <div class="m-t-sm">
-                                        <!-- allow item deletion -->
-                                        <a href="#" class="text-muted"><i class="fa fa-trash"></i> Remove item</a>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <!--retrieve database info for product description-->
-                                    £0.00
-                                </td>
-                                <td width="65">
-                                    <div class="px-3 my-3 text-center">
-                                        <div class="cart-item-label">Quantity</div>
-                                        <div class="count-input">
-                                            <select class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><h4>£0.00</h4></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
                 <div class="ibox-content">
                     <button class="cart__btnwhite"><i class="fa fa-arrow-left"></i> Continue shopping</button>
@@ -205,6 +96,7 @@
                 </div>
                 <div class="ibox-content">
                     <span>Total</span>
+                    <!-- add the subtotal here -->
                     <h2 class="font-bold">£0.00</h2>
 
                     <hr>
@@ -225,7 +117,7 @@
                 </div>
             </div>
 
-            
+
         </div>
     </div>
 

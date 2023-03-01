@@ -11,6 +11,13 @@
 
 
 @section('body')
+
+@if (session('loginToAddCart'))
+    <div class="alert alert-danger">
+        {{ session('loginToAddCart') }}
+    </div>
+@endif
+
     <div class="login__container">
 
 <h1 class= "form__title">Login</h1>

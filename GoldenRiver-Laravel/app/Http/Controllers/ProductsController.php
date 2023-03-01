@@ -45,10 +45,6 @@ class ProductsController extends Controller
         return view('product', ['products' => $prod]);
     }
 
-    public function filterProducts(){
-
-    }
-
     public function aProduct($Product_ID)
     {
         $aProduct = Product::where('Product_ID', $Product_ID)->first();

@@ -13,8 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('test', function (Blueprint $table) {
-            $table->id();
+        Schema::table('orderb', function (Blueprint $table) {
             $table->timestamps();
         });
     }
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test');
+        Schema::table('orderb', function (Blueprint $table) {
+            //
+        });
     }
 };
