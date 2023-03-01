@@ -5,6 +5,9 @@ import java.sql.SQLException;
 public class DBorder extends DataBaseConn{
 	
 	public void changeStatusOfOrder(String ID, int Status) throws SQLException {
+		// used to change status of the order 
+		//requires id of order and
+		//new status as an int (statusMaker)=> String
 		
 		String StatusSQL= statusMaker(Status);
 		

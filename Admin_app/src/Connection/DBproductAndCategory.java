@@ -42,6 +42,8 @@ public class DBproductAndCategory extends DataBaseConn{
 
 	public HashMap<String,Integer> listOfEndingProducts() throws SQLException{
 		
+		//Used to make a Hashmap with low stock (stock is low if < 3)
+		
 		HashMap<String,Integer> records=new HashMap<>();
 		String sql="SELECT * FROM product WHERE Amount<4";
 		
@@ -57,6 +59,8 @@ public class DBproductAndCategory extends DataBaseConn{
 		
 	}
 	public HashMap<String,String> listOfProcessingOrders() throws SQLException{
+		
+		//Used to make a Hashmap of Processing (status of order) orders
 		
 		HashMap<String,String> records=new HashMap<>();
 		String sql="SELECT * FROM orderb WHERE Order_Status='Processing'";
