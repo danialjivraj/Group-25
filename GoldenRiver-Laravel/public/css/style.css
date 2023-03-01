@@ -599,3 +599,7 @@ width: 400px;
     margin-bottom: 30px;
     text-align: justify;
 }
+body {
+    margin: 0;
+    padding: 0;
+  }
