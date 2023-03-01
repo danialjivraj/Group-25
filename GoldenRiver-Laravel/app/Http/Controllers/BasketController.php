@@ -56,14 +56,17 @@ class BasketController extends Controller
     }
 
     public function listBasket (){
-        if (Auth::user()){
-            $userID = Auth::user()->id;
-            $data = Order::where('AccountID', $userID)
-            ->where('Order_Status', 'Basket')
-            ->get();
 
-            return $data;
-    }
+        //this might be useful (not sure tho)
+        // if (Auth::user()){
+        //     $userID = Auth::user()->id;
+        //     $data = Order::where('AccountID', $userID)
+        //     ->where('Order_Status', 'Basket')
+        //     ->get();
+        //     return $data;
+        //}
+
+        return view('cart');
 }
 
 public function removeBasket($id)
