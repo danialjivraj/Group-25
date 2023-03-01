@@ -20,7 +20,7 @@
         <div class = "navbar__navsection">
             <div class="completenavbar">
                 <div class="container">
-                    <a href="/" class="navbar__image"><img class="gr" src="{{asset('images/logo.png')}}" width="150px"></a>
+                    <!-- <a href="/" class="navbar__image"><img class="gr" src="{{asset('images/logo.png')}}" width="150px"></a> -->
                     <div class="navbar__navsection">
                         <div class="completenavbar">
                             <a href="{{ url('/') }}" class="navbar_item">Home</a>
