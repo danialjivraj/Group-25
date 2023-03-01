@@ -13,6 +13,7 @@ class OrderItem extends Model
     protected $fillable = [
         'Order_ID',
         'Product_ID',
+        'Amount',
         'Price',
     ];
 
@@ -25,7 +26,7 @@ class OrderItem extends Model
     {
         return $this->belongsTo(Product::class, 'Product_ID');
     }
-    
+
 
     public function linkedProduct()
     {

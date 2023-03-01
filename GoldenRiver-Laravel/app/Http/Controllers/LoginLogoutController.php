@@ -46,11 +46,4 @@ class LoginLogoutController extends Controller
 
         return redirect('/profile');
     }
-
-
-    public function test()
-    {
-        dd(Auth::check());
-        //dd(Session::all());
-    }
 }
