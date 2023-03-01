@@ -18,11 +18,11 @@
         <!-- category -->
         <div class="category-container">
             <!-- category product pages not completed yet -->
-            <a href="/product/rings"><div id="rings" class="category-item">Rings</div></a>
-            <a href="/product/necklaces"><div id="necklaces" class="category-item" href="/product/necklace">Necklaces</div></a>
-            <a href="/product/earrings"><div id="earrings" class="category-item" href="/product/earrings">Earrings</div></a>
-            <a href="/product/bracelets"><div id="bracelets" class="category-item" href="/product/bracelet">Bracelets</div></a>
-            <a href="/product/exclusive"><div id="exclusiveSets" class="category-item" href="/product/exclusive sets">Exclusive Sets</div></a>
+            <a href="/product?filter_by_category=8"><div id="rings" class="category-item">Rings</div></a>
+            <a href="/product?filter_by_category=6"><div id="necklaces" class="category-item" href="/product/necklace">Necklaces</div></a>
+            <a href="/product?filter_by_category=5"><div id="earrings" class="category-item" href="/product/earrings">Earrings</div></a>
+            <a href="/product?filter_by_category=7"><div id="bracelets" class="category-item" href="/product/bracelet">Bracelets</div></a>
+            <a href="/product?filter_by_category=9"><div id="exclusiveSets" class="category-item" href="/product/exclusive sets">Exclusive Sets</div></a>
         </div>
         
         <!-- featured -->
