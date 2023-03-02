@@ -18,7 +18,7 @@
 @endsection
 
 @section('body')
-<div style="text-align: center;">
+<div style="text-align: center; ">
     @if(Auth::check())
 
     @if (session('message'))

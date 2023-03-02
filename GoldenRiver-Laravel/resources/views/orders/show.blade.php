@@ -8,13 +8,14 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/shop.css')}}">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
-@section('body')
 
+
+@section('body')
 <table class="show-order-table">
     <thead>
         <tr>
             <th>Items in this order</th>
-            <th>Status: {{ $order->Order_Status }}</th>
+            <th class="status-label">Status: {{ $order->Order_Status }}</th>
             <th></th>
         </tr>
     </thead>
