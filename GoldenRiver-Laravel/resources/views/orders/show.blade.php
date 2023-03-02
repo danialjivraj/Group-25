@@ -11,6 +11,7 @@
 
 
 @section('body')
+<br><br><br><br>    
 <table class="show-order-table">
     <thead>
         <tr>
@@ -29,7 +30,7 @@
         <tr>
             <td>
                 <div class="show-product-image">
-                    <img src="/images/allProductImages/{{$item->product->Product_ID}}.jpg" alt="productImage">
+                    <a href="/product/{{$item->product->Product_ID }}"><img src="/images/allProductImages/{{$item->product->Product_ID}}.jpg" alt="productImage"></a>
                 </div>
                 <div class="product-info">
                     <p><strong>{{ $item->product->Product_Name }}</strong></p>
