@@ -54,7 +54,7 @@ public class LoginPage  implements ActionListener {
 				
 		frame.add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Products panel");
+		frame.setTitle("Login page");
 		frame.pack();
 		frame.setVisible(true);
 		
