@@ -35,7 +35,7 @@ class LoginLogoutController extends Controller
             'email' => ['required'],
             'password' => ['required'],
         ]);
-
+        if(auth()->attempt($request->only('email', 'password'))){
         $user= User::where(['email'=>$request->email])->first();
         auth()->attempt($request->only('email', 'password'));
         $request->session()->put('user', $user);
@@ -43,5 +43,9 @@ class LoginLogoutController extends Controller
         $request->session()->flash('message', 'You are logged in!');
 
         return redirect('/profile');
+        }
+        else{
+            return redirect('/login')->with('loginerrmsg', 'Login unsuccessful!');
+        }
     }
 }

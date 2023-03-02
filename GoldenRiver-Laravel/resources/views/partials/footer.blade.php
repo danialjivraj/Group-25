@@ -20,7 +20,7 @@
             <ul class="list">
                 <li>
                     <a href="#">Free Delivery<br><span>Free delivery on orders over £30</span></a>
-                    
+
                 </li>
                 <li>
                     <a href="contact">Support<br><span>Visit Contact Us for customer support</span></a>
@@ -29,7 +29,7 @@
                     <a href="#">Privacy Policy<br><span>T&Cs apply</a>
                 </li>
                 <li>
-                    <a href="faq">FAQ<br><span>Find out More</a>
+                    <a href="/faq">FAQ<br><span>Find out More</a>
                 </li>
             </ul>
             <p class="copyright">

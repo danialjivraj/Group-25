@@ -21,6 +21,14 @@
     <div class="login__container">
 
 <h1 class= "form__title">Login</h1>
+
+@if (session('loginerrmsg'))
+    <div class="alert alert-danger" style = "color:red">
+        {{ session('loginerrmsg') }}
+    </div>
+@endif
+
+
 <form class="form" action="/login" method="post" class="login-inputs">
     @csrf
     <div class="form__input-group">
