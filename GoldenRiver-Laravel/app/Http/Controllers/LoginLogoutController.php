@@ -12,16 +12,14 @@ use Illuminate\Support\Facades\Session;
 class LoginLogoutController extends Controller
 {
 
-
     public function logout(Request $request)
     {
         auth()->logout();
-        //Flushing the session
-        $request->session()->flush();
-        return back();
-
-        //add a /logout tag or button to logout user in the blade layouts
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->back()->with('success', 'You\'ve logged out successfully!');
     }
+    
 
     public function showLogin(Request $request)
     {

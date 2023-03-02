@@ -13,7 +13,7 @@ use App\Models\Address;
 class BasketController extends Controller
 {
     public function addToBasket(Request $request){
-//dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
+        //dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
         if (Auth::user()){
         $productPrice = Product::where('Product_ID', $request->Product_ID)
         ->value('Product_Price');
@@ -22,6 +22,7 @@ class BasketController extends Controller
                  Address::firstOrCreate([
                 'Account_ID' => Auth::user()->id,
                 ], [
+                'Account_ID' => Auth::user()->id,
                 'Address_ID' => Auth::user()->id,
                 'ZIP' => "pendin",
                 'City' => "pending",
@@ -30,17 +31,33 @@ class BasketController extends Controller
                 'County' => "pending",
                 ]);
 
-         //check if order exists in the database If so only increase the Order_Total_Price
+        //  check if order exists in the database If so only increase the Order_Total_Price
          $basketE = Order::where('Account_ID', Auth::user()->id)
          ->where('Order_Status', "Basket")
          ->first();
 
-         $user = Order::updateOrCreate([
-            'Account_ID' => Auth::user()->id,
-            'Order_Status'=> "Basket",
-        ], [
-            'Order_Total_Price' => Order::where('Account_ID', Auth::user()->id)->sum('Order_Total_Price') + $productPrice * $request->qty,
-        ]);
+         if($basketE){
+        $order = new Order;
+        $basketE->increment('Order_Total_Price', $productPrice * $request->qty);
+        $basketE->update();
+        }else{
+        $order = new Order;
+        $order->Account_ID = Auth::user()->id;
+        $order->Address_ID = Auth::user()->id;
+        $order->Order_Status = "Basket";
+        //$order->Order_Total_Price = $order->Order_Total_Price + ($productPrice * $request->qty);  //remove brackets if it doesnt work , Adding the right Amount
+        $order->Order_Total_Price = $productPrice * $request->qty;
+        $order->save();
+        }
+
+        // Order::updateOrCreate([
+        //     'Account_ID' => Auth::user()->id,
+        //     'Order_Status'=> "Basket",
+        // ], [
+        //     'Account_ID' => Auth::user()->id,
+        //     'Order_Status'=> "Basket",
+        //     'Order_Total_Price' => Order::where('Account_ID', Auth::user()->id)->sum('Order_Total_Price') + $productPrice * $request->qty,
+        // ]);
 
         $orderItem = new OrderItem;
         $orderItem->Product_ID = $request->Product_ID;
@@ -56,21 +73,24 @@ class BasketController extends Controller
     }
 
     public function listBasket (){
-        if (Auth::user()){
-            $userID = Auth::user()->id;
-            $data = Order::where('AccountID', $userID)
-            ->where('Order_Status', 'Basket')
-            ->get();
 
-            return $data;
+        //this might be useful (not sure tho)
+        // if (Auth::user()){
+        //     $userID = Auth::user()->id;
+        //     $data = Order::where('AccountID', $userID)
+        //     ->where('Order_Status', 'Basket')
+        //     ->get();
+        //     return $data;
+        //}
+
+        return view('cart');
     }
-}
 
-public function removeBasket($id)
-{
-    OrderItem::where('Product_ID', $id)->delete();
-    return redirect('/cart')->with('msg', "Item Removed");
-}
+    public function removeBasket($id)
+    {
+        OrderItem::where('Product_ID', $id)->delete();
+        return redirect('/cart')->with('msg', "Item Removed");
+    }
 public function test()
 {
 //dd(OrderItem::all());

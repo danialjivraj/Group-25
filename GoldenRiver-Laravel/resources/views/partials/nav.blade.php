@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -24,9 +23,10 @@
                     <div class="navbar__navsection">
                         <div class="completenavbar">
                             <a href="{{ url('/') }}" class="navbar_item">Home</a>
+                            <a href="{{ url('/product') }}" class="navbar_item">Shop</a>
                             <a href="{{ url('/aboutus') }}" class="navbar_item">About Us</a>
                             <a href="{{ url('/contact') }}" class="navbar_item">Contact Us</a>
-                            <a href="{{ url('/product') }}" class="navbar_item">Shop</a>
+                    
                             <a href="{{ url('/cart') }}" class="navbar_item">Basket</a>
                             @guest
                             <a href="{{ url('/login') }}" class="navbar_item">Log In</a>

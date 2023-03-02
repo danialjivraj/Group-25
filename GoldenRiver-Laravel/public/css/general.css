@@ -154,3 +154,7 @@ body{
     justify-content: space-between;
 }
 **/
+body {
+  margin: 0;
+  padding: 0;
+}

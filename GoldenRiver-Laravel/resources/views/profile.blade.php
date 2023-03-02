@@ -8,6 +8,13 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/shop.css')}}">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="\tableCSS\css\style.css">
+
 @endsection
 
 @section('body')
@@ -16,11 +23,12 @@
 
     @if (session('message'))
     <div>
-        <h4>{{ session('message') }}</h4>
+        <h2>{{ session('message') }}</h2>
+        <h1>Welcome, {{ Auth::user()->name }}</h1>
     </div>
     @endif
 
-    <h1>Welcome, {{ Auth::user()->name }}</h1>
+    <h1>Account</h1>
 
     <div class="reg__container form-box">
         <div style="margin-bottom: 10px;">
@@ -76,51 +84,68 @@
         @endif
     </div>
 
-    <div>
-        <br><br>
-        <div>
-            <h1>View Recent Orders</h1>
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <h1 class="h5 mb-4 text-center">View Recent Orders</h1>
+                    <div class="table-wrap">
 
-            <div class="table-container">
-                <table class="orders-table">
-                    <thead>
-                        <tr>
-                            <th>Order ID</th>
-                            <th>Total Price</th>
-                            <th>Order Status</th>
-                            <th>View More</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @forelse($orders as $item)
-                        <tr>
-                            <td>{{$item->Order_ID}}</td>
-                            <td>£{{$item->Order_Total_Price}}</td>
-                            <td>{{$item->Order_Status}}</td>
-                            <td><a href="{{ route('orders.show', ['id' => $item->Order_ID]) }}">View More</a></td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Ordered on</th>
+                                    <th>Status</th>
+                                    <th>More Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(isset($orders) && $orders->count() > 0)
+                                @php $prevOrderID = null; @endphp
+                                @foreach($orders as $order)
+                                @if($order->Order_ID != $prevOrderID)
+                                <tr>
+                                    <td>{{ $order->Order_ID }}</td>
+                                    <td>{{ $order->created_at }}</td>
+                                    <td class="status">
+                                        <span>Status:</span>
+                                        <span class="status-label">{{ $order->Order_Status }}</span>
+                                    </td>
+                                    <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
+                                </tr>
+                                @php $prevOrderID = $order->Order_ID; @endphp
+                                @endif
+                                @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="4">No orders available.</td>
+                                </tr>
+                                @endif
+                            </tbody>
+                        </table>
 
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="3">No Orders Available</td>
-                        </tr>
-                        @endforelse
-                    </tbody>
-                </table>
+
+                    </div>
+                </div>
             </div>
-
-
         </div>
-    </div>
+    </section>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     @else
-    <h1>Please Login if you want to view your profile!</h1>
-    <div>
-        {{ __('Please login again to view your information and orders.') }}
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    @if(session('success'))
+    <div class="alert alert-success"><br><br><br><br><br>
+       <h1> {{ session('success') }} </h1>
     </div>
+    
+    @endif
+    <br>
+    <p>{{ __('Please login again to view your information and orders!') }}</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
     @endif
 
     <script src="{{ asset('js/passwordAuthentication.js') }}"></script>
