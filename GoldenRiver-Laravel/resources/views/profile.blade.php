@@ -23,11 +23,12 @@
 
     @if (session('message'))
     <div>
-        <h4>{{ session('message') }}</h4>
+        <h2>{{ session('message') }}</h2>
+        <h1>Welcome, {{ Auth::user()->name }}</h1>
     </div>
     @endif
 
-    <h1>Welcome, {{ Auth::user()->name }}</h1>
+    <h1>Account</h1>
 
     <div class="reg__container form-box">
         <div style="margin-bottom: 10px;">
@@ -87,7 +88,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-                    <h3 class="h5 mb-4 text-center">View Recent Orders</h3>
+                    <h1 class="h5 mb-4 text-center">View Recent Orders</h1>
                     <div class="table-wrap">
 
                         <table>
@@ -134,11 +135,17 @@
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
     @else
-    <h1>Please Login if you want to view your profile!</h1>
-    <div>
-        {{ __('Please login again to view your information and orders.') }}
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    @if(session('success'))
+    <div class="alert alert-success"><br><br><br><br><br>
+       <h1> {{ session('success') }} </h1>
     </div>
+    
+    @endif
+    <br>
+    <p>{{ __('Please login again to view your information and orders!') }}</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
     @endif
 
     <script src="{{ asset('js/passwordAuthentication.js') }}"></script>
