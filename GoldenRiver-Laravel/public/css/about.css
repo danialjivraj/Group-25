@@ -1,0 +1,45 @@
+
+.about{
+    width: 100%;
+    padding: 50px, 50px;
+    background-color: #ffffff;
+}
+.about-text h1{
+    color: #090909;
+    font-size: 70px;
+    margin-bottom: 5px;
+
+}
+.about img{
+height: 400px;
+width: 400px;
+}
+.about-text{
+    width: 500px;
+}
+.main{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.about-text h3{
+    color: #1a1a19;
+    font-size: 25px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.about-text h4{
+    color:#0d0d0d;
+    letter-spacing: 1;
+    line-height: 26px;
+    font-size: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+body {
+    margin: 0;
+    padding: 0;
+  }
