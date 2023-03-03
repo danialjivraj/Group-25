@@ -2,18 +2,28 @@ package Connection;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class DBproductAndCategory extends DataBaseConn{
-	
+	String textToIDCat(String nameCat) throws SQLException {
+		String sql="SELECT * FROM category WHERE Category_Name='"+nameCat+"'";
+		ResultSet rs = getStmt().executeQuery(sql);
+		rs.next();
+		//int count = rs.getInt("recordCount");
+		//if(count!=1) {throw new IllegalStateException("Unknown parameter for Category");}
+		
+		return rs.getString("Category_ID");
+		//return "5";
+	}
 	public void createProduct(String Category_ID,String Product_Name,int Product_Discount,
 			int Product_Price,int Amount,String Description) throws SQLException  {
 		
 		//Used to create product
 		
 		String sql="INSERT INTO product (Category_ID,Product_Name,Product_Discount,Product_Price,Amount,Description	) "
-				+ "VALUES ('"+Category_ID+"','"+Product_Name+"','"+Product_Discount+"','"+Product_Price+"','"+Amount+"','"+Description+"');";
+				+ "VALUES ('"+textToIDCat(Category_ID)+"','"+Product_Name+"','"+Product_Discount+"','"+Product_Price+"','"+Amount+"','"+Description+"');";
 		
 		getStmt().executeUpdate(sql);	
 		
@@ -75,5 +85,20 @@ public class DBproductAndCategory extends DataBaseConn{
 		 }
 		return records;
 		
+	}
+	
+	public String[] MakeArrayOfCategories() throws SQLException {
+		ArrayList<String> records=new ArrayList<>();
+		String sql="SELECT * FROM category";
+		ResultSet rs = getStmt().executeQuery(sql);
+		 while (rs.next()) {
+			
+			String NameofCat=rs.getString("Category_Name");
+			
+			 records.add(NameofCat);
+		 }
+		String[] result= new String[records.size()];
+		result=(String[]) records.toArray(result);
+		return result;
 	}
 }

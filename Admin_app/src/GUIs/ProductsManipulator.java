@@ -77,15 +77,22 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getSource()==createReport) {
 		Report rep=new Report(); 
 		try {
-			Sender sender=new Sender("titantop1tap@gmail.com",rep.makeReport());
+			String report=rep.makeReport();
+			Sender sender=new Sender("titantop1tap@gmail.com",report);
 			statusOfReport.setText("The report has been sent, check your email.");
+			new ReportGUI("<html>"+report+"</html>");
 		} catch (MessagingException | IOException | SQLException e1) {
 			e1.printStackTrace();
 			statusOfReport.setText("The report has not been sent!(Error: "+e1+")");
 		}
 	}
 	else if(e.getSource()==addProduct) {
-		new AddProductGUI();
+		try {
+			new AddProductGUI();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 	}
 	
 	

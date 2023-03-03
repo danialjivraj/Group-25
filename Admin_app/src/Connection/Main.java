@@ -29,6 +29,8 @@ public class Main {
 		DBaccount acc=new DBaccount();
 		
 		System.out.println( acc.login("Test","TestPass"));
+		DBproductAndCategory DAC= new DBproductAndCategory();
+		//System.out.println(DAC.textToIDCat("Necklace"));
 		
 		new LoginPage();
 	}
