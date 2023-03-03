@@ -740,7 +740,6 @@ h1{
 
 .form__input-group{
     margin-bottom: 1rem;
-
 }
 
 .form__input{
@@ -753,6 +752,8 @@ h1{
     outline: none;
     background: #eeeeee;
     transition: background 0.2s, border-color 0.2s;
+    font-family:Cambria math !important; 
+    font-size: 16px;
 }
 
 .form__input:focus{
@@ -808,7 +809,7 @@ text-align: center;
     margin: auto;
     margin-bottom: 5rem;
     margin-top: 5rem;
-
+    font-family:Cambria math !important ; 
 }
 /* About us page starts here*/
 
