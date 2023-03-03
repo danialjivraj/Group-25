@@ -69,10 +69,6 @@ Route::get('/cart', function () {
 //     return view('/partials/footer');
 // });
 
-Route::get('/shop', function () {
-    return view('shop');
-});
-
 Route::get('/bracelets', function () {
     return view('/categories/bracelets');
 });
