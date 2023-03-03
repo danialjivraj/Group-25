@@ -24,12 +24,12 @@
 <!-- search box -->
 
 <div class="col-md-12 mb-3">
-    <span class="font-weight-bold" class = "sort-font">Sort By :</span>
-    <a href="{{ URL::current() }}" class = "sort-font">All</a>
-    <a href="{{ URL::current()."?sort=price_ascending" }}" class = "sort-font">Price - Ascending</a>
-    <a href="{{ URL::current()."?sort=price_descending" }}" class = "sort-font">Price - Descending</a>
-    <a href="{{ URL::current()."?sort=prod_cat" }}" class = "sort-font">Category</a>
-    <a href="{{ URL::current()."?sort=popularity" }}" class = "sort-font">Popularity</a>
+    <span class="font-weight-bold" class="sort-font">Sort By :</span>
+    <a href="{{ URL::current() }}" class="sort-font">All</a>
+    <a href="{{ URL::current()."?sort=price_ascending" }}" class="sort-font">Price - Ascending</a>
+    <a href="{{ URL::current()."?sort=price_descending" }}" class="sort-font">Price - Descending</a>
+    <a href="{{ URL::current()."?sort=prod_cat" }}" class="sort-font">Category</a>
+    <a href="{{ URL::current()."?sort=popularity" }}" class="sort-font">Popularity</a>
 </div>
 
 <hr>
@@ -38,26 +38,26 @@
     <form method="get" action="{{ 'product' }}">
         <h2>Filter By:<h2>
 
-        <h3>Product Category</h3>
-            <select name="filter_by_category">
-                <!-- <option value="">Select</option> -->
-                <option value="5">Earrings</option>
-                <option value="6">Necklace</option>
-                <option value="7">Bracelets</option>
-                <option value="8">Rings</option>
-                <option value="9">Exclusive Sets</option>
-            </select>
-            <!-- <span>Earrings<input type="checkbox" name="filter_by_category" value="5" ></span>
+                <h3>Product Category</h3>
+                <select name="filter_by_category">
+                    <!-- <option value="">Select</option> -->
+                    <option value="5">Earrings</option>
+                    <option value="6">Necklace</option>
+                    <option value="7">Bracelets</option>
+                    <option value="8">Rings</option>
+                    <option value="9">Exclusive Sets</option>
+                </select>
+                <!-- <span>Earrings<input type="checkbox" name="filter_by_category" value="5" ></span>
             <span>Necklace<input type="checkbox" name="filter_by_category" value="6" ></span>
             <span>Bracelets<input type="checkbox" name="filter_by_category" value="7" ></span>
             <span>Rings<input type="checkbox" name="filter_by_category" value="8" ></span>
             <span>Exclusive Sets<input type="checkbox" name="filter_by_category" value="9" ></span> -->
 
-        <h3>Stock</h3>
-            <span>In Stock<input type="checkbox" name="filter_by_stock" value="1" ></span><br><br>
+                <h3>Stock</h3>
+                <span>In Stock<input type="checkbox" name="filter_by_stock" value="1"></span><br><br>
 
-        <button type="submit">Filter</button>
-        <a href = "/product">Clear Filters</a>
+                <button type="submit">Filter</button>
+                <a href="/product">Clear Filters</a>
 
     </form>
 </div>
@@ -70,7 +70,7 @@
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" >
+                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage">
                     </div>
                 </a>
                 <div class="smallSpace"></div>

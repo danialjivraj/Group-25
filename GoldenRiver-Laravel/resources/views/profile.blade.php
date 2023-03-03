@@ -106,8 +106,8 @@
                                 @foreach($orders as $order)
                                 @if($order->Order_ID != $prevOrderID)
                                 <tr>
-                                    <td>{{ $order->Order_ID }}</td>
-                                    <td>{{ $order->created_at }}</td>
+                                    <td>{{$order->Order_ID}}</td>
+                                    <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                     <td class="status">
                                         <span>Status:</span>
                                         <span class="status-label">{{ $order->Order_Status }}</span>
