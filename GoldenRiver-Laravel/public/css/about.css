@@ -1,6 +1,6 @@
 
 body {
-  font-family: sans-serif;
+  font-family: Cambria Math;
   margin-top: 0cm;
 }
 
@@ -11,10 +11,8 @@ body {
 }
 
 .hero-text h1 {
-  color: #c8b17a
-;
+  color: #b29758;
   font-size: 80px;
-  text-shadow: 4px 4px #070707;
   margin-top: 1cm;
   text-align: center;
 }
@@ -25,7 +23,7 @@ body {
   margin-top: 2cm;
   margin-bottom: 2cm;
   padding: 20px;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
 }
@@ -38,17 +36,18 @@ body {
   font-size: 36px;
   margin-top: 40px;
   margin-bottom: 20px;
+  color: #b29758;
 }
 
 .about-us p {
   line-height: 1.6;
   margin-bottom: 20px;
+  color: #c8b17a;
 }
 .about-us {
   width: 60%;
- 
-  background-color: #f1f1f1;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .hero img {
   width: 100%;
