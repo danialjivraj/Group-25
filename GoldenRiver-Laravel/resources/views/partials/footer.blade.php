@@ -26,7 +26,7 @@
                     <a href="contact">Support<br><span>Visit Contact Us for customer support</span></a>
                 </li>
                 <li>
-                    <a href="#">Privacy Policy<br><span>T&Cs apply</a>
+                    <a href="/privacy">Privacy Policy<br><span>T&Cs apply</a>
                 </li>
                 <li>
                     <a href="/faq">FAQ<br><span>Find out More</a>
