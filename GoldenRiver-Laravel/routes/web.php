@@ -123,7 +123,7 @@ Route::get('/orders/{id}', [OrdersController::class, 'show'])->name('orders.show
 
 Route::post('/cart', [BasketController::class,'addToBasket']);
 
-Route::get('/cart',[BasketController::class,'listBasket']);
+Route::get('/cart',[BasketController::class,'showCart']);
 
 
 

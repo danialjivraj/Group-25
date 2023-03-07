@@ -15,6 +15,12 @@ class Order extends Model
         // Add other fillable fields here
     ];
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'linked_product_order', 'Order_ID', 'Product_ID')
+            ->withPivot('Amount')
+            ->withTimestamps();
+    }
 
     
     
