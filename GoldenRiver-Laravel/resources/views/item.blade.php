@@ -4,11 +4,15 @@
 <title> Golden River | Item</title>
 @endsection('title')
 @section('body')
+@if(session()->has('addcartmsg'))
+    <div class="alert alert-success" role="alert" id="go-to-basket">
+        {{session()->get('addcartmsg')}} <a href="/cart" class="alert-link">Go to Basket?</a>.
+    </div>
+    @endif
 <div class="item-title">
     <h2>{{ $item->Product_Name }}</h2>
 </div>
 <img src="/images/allProductImages/{{$item->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
-
 
 <div>
     <h4>Product Description:</h4>

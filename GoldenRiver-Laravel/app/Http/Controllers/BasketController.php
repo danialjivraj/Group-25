@@ -65,6 +65,7 @@ class BasketController extends Controller
         $orderItem->Amount = $request->qty;
         $orderItem->Price = $productPrice;
         $orderItem->save();
+        return redirect()->back()->with('addcartmsg', 'Product added to Basket');
 
         } else{
             return redirect('login')->with('loginToAddCart', 'You need to Login to add to Cart');
