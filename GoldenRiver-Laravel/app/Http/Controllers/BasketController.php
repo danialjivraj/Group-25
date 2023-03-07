@@ -76,7 +76,7 @@ class BasketController extends Controller
     public function showCart()
     {
         if (!auth()->check()) {
-            return redirect()->route('login');
+            return redirect('login');
         }
 
         $order = Order::where('Account_ID', auth()->user()->id)
