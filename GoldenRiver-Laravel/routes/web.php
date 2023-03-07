@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginLogoutController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -127,5 +128,8 @@ Route::get('/cart',[BasketController::class,'showCart']);
 
 Route::get('/removefrombasket/{id}',[BasketController::class,'removeBasket']);
 
+//Route::get('/order-summary', [CheckoutController::class, 'showOrderSummary']);
+
+Route::post('/checkout', [CheckoutController::class, 'processCheckout']);
 
 

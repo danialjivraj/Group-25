@@ -48,6 +48,8 @@ class BasketController extends Controller
         //$order->Order_Total_Price = $order->Order_Total_Price + ($productPrice * $request->qty);  //remove brackets if it doesnt work , Adding the right Amount
         $order->Order_Total_Price = $productPrice * $request->qty;
         $order->save();
+
+        //session()->put('Order_ID', $order->Order_ID); //uncomment later
         }
 
         // Order::updateOrCreate([
