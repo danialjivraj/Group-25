@@ -125,5 +125,7 @@ Route::post('/cart', [BasketController::class,'addToBasket']);
 
 Route::get('/cart',[BasketController::class,'showCart']);
 
+Route::get('/removefrombasket/{id}',[BasketController::class,'removeBasket']);
+
 
 

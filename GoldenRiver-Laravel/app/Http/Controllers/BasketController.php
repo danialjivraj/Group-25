@@ -78,17 +78,17 @@ class BasketController extends Controller
         if (!auth()->check()) {
             return redirect()->route('login');
         }
-    
+
         $order = Order::where('Account_ID', auth()->user()->id)
             ->where('Order_Status', 'Basket')
             ->first();
-    
+
         // if (!$orderItem) {
         //     return view('cart');
         // }
-    
+
         $products = $order->products;
-    
+
         return view('cart', [
             'products' => $products,
         ]);
@@ -97,8 +97,13 @@ class BasketController extends Controller
 
     public function removeBasket($id)
     {
-        OrderItem::where('Product_ID', $id)->delete();
-        return redirect('/cart')->with('msg', "Item Removed");
+       $order_ID = Order::where('Account_ID', auth()->user()->id)
+       ->where('Order_Status', 'Basket')
+       ->value('Order_ID');
+
+        OrderItem::where('Product_ID', $id)->
+        where('Order_ID', $order_ID)->delete();
+        return redirect('/cart')->with('rmvcartmsg', "Item Removed");
     }
 public function test()
 {
