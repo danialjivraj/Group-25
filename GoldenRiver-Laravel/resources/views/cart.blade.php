@@ -20,10 +20,10 @@
     @endif
 @foreach($products as $product)
 <div>
-    <h2>{{ $product->name }}</h2>
-    <p>{{ $product->description }}</p>
-    <p>Amount: {{ $product->pivot->Amount }}</p>
-    <p>Price: {{ $product->pivot->Product_Price }}</p>
+    <h2>{{ $product->Product_Name }}</h2>
+    <p>{{ $product->Description }}</p>
+    <p>Quantity: {{ $product->pivot->Amount }}</p>
+    <p>Price: £{{ number_format($product->Product_Price, 2) }}</p>
       <!-- Remove Button-->
       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
 
