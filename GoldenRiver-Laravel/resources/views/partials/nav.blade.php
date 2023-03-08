@@ -26,8 +26,8 @@
                             <a href="{{ url('/product') }}" class="navbar_item">Shop</a>
                             <a href="{{ url('/aboutus') }}" class="navbar_item">About Us</a>
                             <a href="{{ url('/contact') }}" class="navbar_item">Contact Us</a>
-                    
-                            <a href="{{ url('/cart') }}" class="navbar_item">Basket</a>
+
+                            <a href="{{ url('/cart') }}" class="navbar_item">Basket({{ \App\Models\Order::basketTotal() }})</a>
                             @guest
                             <a href="{{ url('/login') }}" class="navbar_item">Log In</a>
                             <a href="{{ url('/userRegistration') }}" class="navbar_item">Sign Up</a>

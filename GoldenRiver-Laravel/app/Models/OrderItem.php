@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     use HasFactory;
-
+    protected $primaryKey = 'POL_ID';
     protected $table = 'linked_product_order';
     protected $fillable = [
         'Order_ID',
@@ -19,7 +19,8 @@ class OrderItem extends Model
 
     public function order()
     {
-        return $this->belongsTo(Order::class);
+        //return $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class, 'Order_ID');
     }
 
     public function product()

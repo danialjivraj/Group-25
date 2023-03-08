@@ -11,6 +11,8 @@
 
 
 @section('body')
+@if($products->count() > 0)
+
 @if(session()->has('rmvcartmsg'))
     <div class="alert alert-success" role="alert" id="go-to-basket">
         {{session()->get('rmvcartmsg')}}
@@ -53,4 +55,7 @@
      </div>
 </form>
 
+@else
+<h1>Basket Empty!</h1>
+@endif
 @endsection

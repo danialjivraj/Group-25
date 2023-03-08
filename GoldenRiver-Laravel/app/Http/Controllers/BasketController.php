@@ -14,7 +14,10 @@ class BasketController extends Controller
 {
     public function addToBasket(Request $request){
         //dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
-        if (Auth::user()){
+    if (!Auth::check()) {
+            return redirect('login')->with('loginToAddCart', 'You need to Login to add to Cart');
+    }
+
         $productPrice = Product::where('Product_ID', $request->Product_ID)
         ->value('Product_Price');
 
@@ -31,48 +34,46 @@ class BasketController extends Controller
                 'County' => "pending",
                 ]);
 
-        //  check if order exists in the database If so only increase the Order_Total_Price
-         $basketE = Order::where('Account_ID', Auth::user()->id)
-         ->where('Order_Status', "Basket")
-         ->first();
+        // Check if order exists in the database. If so, only increase the Order_Total_Price.
+        $basketE = Order::where('Account_ID', Auth::user()->id)
+        ->where('Order_Status', 'Basket')
+        ->first();
 
-         if($basketE){
-        $order = new Order;
-        $basketE->increment('Order_Total_Price', $productPrice * $request->qty);
-        $basketE->update();
-        }else{
+    if (!$basketE) {
+        // Create a new order if it doesn't exist
         $order = new Order;
         $order->Account_ID = Auth::user()->id;
         $order->Address_ID = Auth::user()->id;
-        $order->Order_Status = "Basket";
-        //$order->Order_Total_Price = $order->Order_Total_Price + ($productPrice * $request->qty);  //remove brackets if it doesnt work , Adding the right Amount
+        $order->Order_Status = 'Basket';
         $order->Order_Total_Price = $productPrice * $request->qty;
         $order->save();
-
-        //session()->put('Order_ID', $order->Order_ID); //uncomment later
+    } else {
+        // Update the existing order
+        $basketE->increment('Order_Total_Price', $productPrice * $request->qty);
+        $basketE->update();
+        $order = $basketE;
         }
 
-        // Order::updateOrCreate([
-        //     'Account_ID' => Auth::user()->id,
-        //     'Order_Status'=> "Basket",
-        // ], [
-        //     'Account_ID' => Auth::user()->id,
-        //     'Order_Status'=> "Basket",
-        //     'Order_Total_Price' => Order::where('Account_ID', Auth::user()->id)->sum('Order_Total_Price') + $productPrice * $request->qty,
-        // ]);
+        // Check if the product already exists in the basket
+        $orderItem = OrderItem::where('Order_ID', $order->Order_ID)
+        ->where('Product_ID', $request->Product_ID)
+        ->first();
 
-        $orderItem = new OrderItem;
-        $orderItem->Product_ID = $request->Product_ID;
-        $orderItem->Order_ID = Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID;
-        $orderItem->Amount = $request->qty;
-        $orderItem->Price = $productPrice;
-        $orderItem->save();
-        return redirect()->back()->with('addcartmsg', 'Product added to Basket');
+    if (!$orderItem) {
+            // Add the product to the basket if it doesn't exist
+            $orderItem = new OrderItem;
+            $orderItem->Product_ID = $request->Product_ID;
+            $orderItem->Order_ID = $order->Order_ID;
+            $orderItem->Amount = $request->qty;
+            $orderItem->Price = $productPrice;
+            $orderItem->save();
+    } else {
+            // Update the quantity of the product in the basket
+            $orderItem->increment('Amount', $request->qty);
+            $orderItem->update();
+    }
+    return redirect()->back()->with('addcartmsg', 'Product added to Basket');
 
-        } else{
-            return redirect('login')->with('loginToAddCart', 'You need to Login to add to Cart');
-
-        }
     }
 
     public function showCart()
@@ -96,16 +97,43 @@ class BasketController extends Controller
         ]);
     }
 
+    // public static function basketTotal()
+    // {
+    // // $totalItems = Order::where('Account_ID', Auth::user()->id)
+    // //          ->where('Order_Status', 'Basket')
+    // //          ->first()
+    // //          ->orderItems()
+    // //          ->sum('Amount');
+
+    // $order = Order::where('Account_ID', Auth::user()->id)
+    // ->where('Order_Status', 'Basket')
+    // ->first();
+
+    // if ($order) {
+    // return $order->orderItems()->sum('Amount');
+    // }
+
+    // return 0;
+    // }
 
     public function removeBasket($id)
     {
-       $order_ID = Order::where('Account_ID', auth()->user()->id)
-       ->where('Order_Status', 'Basket')
-       ->value('Order_ID');
+    $order = Order::where('Account_ID', Auth::user()->id)
+    ->where('Order_Status', 'Basket')
+    ->first();
 
-        OrderItem::where('Product_ID', $id)->
-        where('Order_ID', $order_ID)->delete();
-        return redirect('/cart')->with('rmvcartmsg', "Item Removed");
+    $orderItem = OrderItem::where('Order_ID', $order->Order_ID)
+    ->where('Product_ID', $id)
+    ->first();
+
+   // Subtract the price of the deleted order item from the order's total price
+   $order->Order_Total_Price -= $orderItem->Price * $orderItem->Amount;
+   $order->save();
+
+   // Delete the order item
+   $orderItem->delete();
+
+   return redirect('/cart')->with('rmvcartmsg', "Item Removed");
     }
 public function test()
 {

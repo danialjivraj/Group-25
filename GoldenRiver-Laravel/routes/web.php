@@ -127,8 +127,7 @@ Route::post('/cart', [BasketController::class,'addToBasket']);
 Route::get('/cart',[BasketController::class,'showCart']);
 
 Route::get('/removefrombasket/{id}',[BasketController::class,'removeBasket']);
-
-//Route::get('/order-summary', [CheckoutController::class, 'showOrderSummary']);
+//Route::delete('/basket/{id}', 'BasketController@removeBasket')->name('basket.remove');
 
 Route::post('/checkout', [CheckoutController::class, 'processCheckout']);
 

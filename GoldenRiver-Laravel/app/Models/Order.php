@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Order extends Model
 {
@@ -22,14 +23,25 @@ class Order extends Model
             ->withTimestamps();
     }
 
-    
-    
+
+
 
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class, 'Order_ID');
     }
-    
-    
 
+    public static function basketTotal()
+    {
+    if (Auth::check()) {
+        $order = Order::where('Account_ID', Auth::user()->id)
+            ->where('Order_Status', 'Basket')
+            ->first();
+
+        if ($order) {
+            return $order->orderItems()->sum('Amount');
+        }
+    }
+    return 0;
+    }
 }
