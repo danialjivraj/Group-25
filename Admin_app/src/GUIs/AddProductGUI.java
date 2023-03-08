@@ -35,7 +35,7 @@ public class AddProductGUI implements ActionListener {
 		frame=new JFrame();
 		panel = new JPanel();
 		
-		Pr_Name_L = new JLabel("Producr name:");
+		Pr_Name_L = new JLabel("Product name:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(Pr_Name_L);
 		
@@ -44,7 +44,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(Pr_Name);
 		
 		
-		Pr_p_L = new JLabel("Producr price:");
+		Pr_p_L = new JLabel("Product price:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(Pr_p_L);
 		
@@ -53,7 +53,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(Pr_p);
 		
 		
-		Pr_Dis_L = new JLabel("Producr discount:");
+		Pr_Dis_L = new JLabel("Product discount:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(Pr_Dis_L);
 		
@@ -62,7 +62,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(Pr_Dis);
 		
 		
-		Amount_L = new JLabel("Producr amount:");
+		Amount_L = new JLabel("Product amount:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(Amount_L);
 		
@@ -71,7 +71,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(Amount);
 		
 		
-		Description_L = new JLabel("Producr description:");
+		Description_L = new JLabel("Product description:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(Description_L);
 		
@@ -80,7 +80,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(Description);
 		
 		
-		categories_L = new JLabel("Producr amount:");
+		categories_L = new JLabel("Product amount:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(categories_L);
 		

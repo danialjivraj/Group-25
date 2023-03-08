@@ -40,7 +40,7 @@ public Report() {
 		
 		HashMap<String,Integer> records=
 				p.listOfEndingProducts();
-		String table ="<h2>Please pay attention to ending products:</h2> <table> <tr> <th>Product ID</th> <th>Amount left</th> </tr>";
+		String table ="<h2>Please pay attention to running out of products:</h2> <table> <tr> <th>Product ID</th> <th>Amount left</th> </tr>";
 		
 		if(records.size()==0) {return "";}
 		
