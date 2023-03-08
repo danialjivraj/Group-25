@@ -22,19 +22,19 @@
 </div>
 <hr>
 <!-- search box -->
-<div style="text-align: center;">
+<div>
 <div class="col-md-12 mb-3" >
     <span class="font-weight-bold" class = "sort-font"><h2>Sort By :</h2></span>
-    <a href="{{ URL::current() }}" class = "sort-font" style="margin-right: 10px;">All</a>
-    <a href="{{ URL::current()."?sort=price_ascending" }}" class = "sort-font" style="margin-right: 10px;">Price - Ascending</a>
-    <a href="{{ URL::current()."?sort=price_descending" }}" class = "sort-font" style="margin-right: 10px;">Price - Descending</a>
-    <a href="{{ URL::current()."?sort=prod_cat" }}" class = "sort-font" style="margin-right: 10px;">Category</a>
-    <a href="{{ URL::current()."?sort=popularity" }}" class = "sort-font" style="margin-right: 10px;">Popularity</a>
+    <a href="{{ URL::current() }}" class = "sort-font" >All</a>
+    <a href="{{ URL::current()."?sort=price_ascending" }}" class = "sort-font" >Price - Ascending</a>
+    <a href="{{ URL::current()."?sort=price_descending" }}" class = "sort-font" >Price - Descending</a>
+    <a href="{{ URL::current()."?sort=prod_cat" }}" class = "sort-font" >Category</a>
+    <a href="{{ URL::current()."?sort=popularity" }}" class = "sort-font">Popularity</a>
 </div>
 </div><br>
 <hr>
 
-<div style="text-align: center;">
+<div>
     <form method="get" action="{{ 'product' }}" >
         <h2>Filter By:</h2>
 
