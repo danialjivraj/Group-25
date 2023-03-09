@@ -11,15 +11,18 @@
 
 
 @section('body')
-@if($products->count() > 0)
+@if ($products !== null && $products->count() > 0)
 
 @if(session()->has('rmvcartmsg'))
     <div class="alert alert-success" role="alert" id="go-to-basket">
         {{session()->get('rmvcartmsg')}}
     </div>
     @endif
+    @php
+    $subTotal = 0;@endphp
 @foreach($products as $product)
 <div>
+    <img src="/images/allProductImages/{{$product->Product_ID}}.jpg" alt="productImage" width="130" height="180" >
     <h2>{{ $product->Product_Name }}</h2>
     <p>{{ $product->Description }}</p>
     <p>Quantity: {{ $product->pivot->Amount }}</p>
@@ -29,7 +32,7 @@
 
       <a href="{{ url('/removefrombasket/'.$product->Product_ID) }}" class="remove-btn" style="color:red">Remove</a>
         </div>
-</div>
+</div> <br><br>
 
 @endforeach
 
@@ -51,11 +54,11 @@
     <input type="text" name="Post_Code" id="Post_Code" required> -->
 
 @php
-    $subTotal = 0; 
-    $subTotal += $product->Product_Price * $product->pivot->Amount; 
+    if(isset($product))
+    $subTotal += $product->Product_Price * $product->pivot->Amount;
 @endphp
-
-<p>Total: £{{ number_format($subTotal, 2) }}</p>
+<hr>
+<h1>Total: £{{ number_format($subTotal, 2) }}</h1>
          <button type="submit">Order Now</button>
      </div>
 </form>

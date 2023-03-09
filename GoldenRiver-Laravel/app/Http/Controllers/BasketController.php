@@ -81,37 +81,22 @@ class BasketController extends Controller
         if (!auth()->check()) {          //checks if the user is authenticated if not then they will be redirected to the login page
             return redirect('login');
         }
-        // Retrieve user basket 
+        // Retrieve user basket
         $order = Order::where('Account_ID', auth()->user()->id)
-            ->where('Order_Status', 'Basket')                   
+            ->where('Order_Status', 'Basket')
             ->first();
 
-        // Retrieve user products 
+        if (!$order) {
+            return view('cart', ['products' => null]);
+        }
+
+        // Retrieve user products
         $products = $order->products;
-       
+
         return view('cart', [
             'products' => $products,
         ]);
     }
-
-    // public static function basketTotal()
-    // {
-    // // $totalItems = Order::where('Account_ID', Auth::user()->id)
-    // //          ->where('Order_Status', 'Basket')
-    // //          ->first()
-    // //          ->orderItems()
-    // //          ->sum('Amount');
-
-    // $order = Order::where('Account_ID', Auth::user()->id)
-    // ->where('Order_Status', 'Basket')
-    // ->first();
-
-    // if ($order) {
-    // return $order->orderItems()->sum('Amount');
-    // }
-
-    // return 0;
-    // }
 
     public function removeBasket($id)
     {
@@ -123,7 +108,7 @@ class BasketController extends Controller
     ->where('Product_ID', $id)
     ->first();
 
-   // Subtract the price of the deleted order item from the order's total price
+   //to subtract the price of the deleted order item from the order's total price
    $order->Order_Total_Price -= $orderItem->Price * $orderItem->Amount;
    $order->save();
 
@@ -134,59 +119,7 @@ class BasketController extends Controller
     }
 public function test()
 {
-//dd(OrderItem::all());
 
-// if (Auth::user()){
-//     $productPrice = Product::where('Product_ID', $request->Product_ID)
-//     ->value('Product_Price');
-
-
-
-//       //checks first if address record exists
-//       if(!(Address::where('Account_ID', Auth::user()->id)->exists())){
-//       $address = new Address;
-//       $address->Address_ID= Auth::user()->id;
-//       $address->Account_ID= Auth::user()->id;
-//       $address->ZIP= "pendin";
-//       $address->City= "pending";
-//       $address->Country = "pending";
-//       $address->Street = "pending";
-//       $address->County = "pending";
-//       $address->save();
-//    }
-//      //check if order exists in the database If so only increase the Order_Total_Price
-//      $basketE = Order::where('Account_ID', Auth::user()->id)
-//      ->where('Order_Status', "Basket")
-//      ->first();
-
-//         if($basketE){
-//         //  $c="true";
-//         // dd($c);
-//         $order = new Order;
-//         $basketE->increment('Order_Total_Price', $productPrice * $request->qty);
-//         $basketE->update();
-//         }else{
-//         $order = new Order;
-//         $order->Account_ID = Auth::user()->id;
-//         $order->Address_ID = Auth::user()->id;
-//         $order->Order_Status = "Basket";
-//         //$order->Order_Total_Price = $order->Order_Total_Price + ($productPrice * $request->qty);  //remove brackets if it doesnt work , Adding the right Amount
-//         $order->Order_Total_Price = $productPrice * $request->qty;
-//         $order->save();
-//         }
-
-//     $orderItem = new OrderItem;
-//     $orderItem->Product_ID = $request->Product_ID;
-//     $orderItem->Order_ID = $order->Order_ID;
-//     $orderItem->Amount = $request->qty;
-//     $orderItem->Price = $productPrice;
-//     $orderItem->save();
-
-//     } else{
-//         return redirect('login')->with('loginToAddCart', 'You need to Login to add to Cart');
-
-//     }
-
- }
+}
 
 }

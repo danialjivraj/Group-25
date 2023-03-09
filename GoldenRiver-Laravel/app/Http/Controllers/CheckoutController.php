@@ -11,10 +11,6 @@ use App\Models\OrderItem;
 
 class CheckoutController extends Controller
 {
-
-    // public function showCheckout(){
-    //     return view('checkout');
-    // }
     public function processCheckout(Request $request){
         // //To do: check if the Phone_Number already exists.
         // $user = User::find(auth()->user()->id);
@@ -36,10 +32,12 @@ class CheckoutController extends Controller
        $order->Order_Status = 'Processing';
        $order->save();
 
-        return view('order-summary')->with([
-            'order' => $order
-           // ,'address' => $address
-        ]);
+        // Retrieve the order items for the current order
+        $orderItems = OrderItem::where('Order_ID', $order->Order_ID)->get();
 
+        return view('order-summary')->with([
+            'order' => $order,
+            'orderItems' => $orderItems,
+        ]);
     }
 }
