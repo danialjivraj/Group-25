@@ -55,7 +55,7 @@
     $subTotal += $product->Product_Price * $product->pivot->Amount; 
 @endphp
 
-<p>Sub-total: £{{ number_format($subTotal, 2) }}</p>
+<p>Total: £{{ number_format($subTotal, 2) }}</p>
          <button type="submit">Order Now</button>
      </div>
 </form>
