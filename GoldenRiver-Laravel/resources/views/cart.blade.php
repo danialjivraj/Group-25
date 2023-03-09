@@ -50,7 +50,12 @@
     <label for="expiryDate">Post Code</label>
     <input type="text" name="Post_Code" id="Post_Code" required> -->
 
-         <h1>Subtotal: "Subtotal GOES HERE"</h1>
+@php
+    $subTotal = 0; 
+    $subTotal += $product->Product_Price * $product->pivot->Amount; 
+@endphp
+
+<p>Sub-total: £{{ number_format($subTotal, 2) }}</p>
          <button type="submit">Order Now</button>
      </div>
 </form>
