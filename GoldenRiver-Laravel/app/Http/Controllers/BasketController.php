@@ -78,20 +78,17 @@ class BasketController extends Controller
 
     public function showCart()
     {
-        if (!auth()->check()) {
+        if (!auth()->check()) {          //checks if the user is authenticated if not then they will be redirected to the login page
             return redirect('login');
         }
-
+        // Retrieve user basket 
         $order = Order::where('Account_ID', auth()->user()->id)
-            ->where('Order_Status', 'Basket')
+            ->where('Order_Status', 'Basket')                   
             ->first();
 
-        // if (!$orderItem) {
-        //     return view('cart');
-        // }
-
+        // Retrieve user products 
         $products = $order->products;
-
+       
         return view('cart', [
             'products' => $products,
         ]);
