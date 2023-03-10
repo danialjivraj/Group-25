@@ -91,10 +91,10 @@ class BasketController extends Controller
         }
 
         // Retrieve user products
-        $products = $order->products;
+        // $products = $order->products;
 
         return view('cart', [
-            'products' => $products,
+            'order' => $order, 
         ]);
     }
 

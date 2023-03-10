@@ -11,16 +11,15 @@
 
 
 @section('body')
-@if ($products !== null && $products->count() > 0)
+@if ($order->products !== null && $order->products->count() > 0)
 
 @if(session()->has('rmvcartmsg'))
     <div class="alert alert-success" role="alert" id="go-to-basket">
         {{session()->get('rmvcartmsg')}}
     </div>
     @endif
-    @php
-    $subTotal = 0;@endphp
-@foreach($products as $product)
+    
+@foreach($order->products as $product)
 <div>
     <img src="/images/allProductImages/{{$product->Product_ID}}.jpg" alt="productImage" width="130" height="180" >
     <h2>{{ $product->Product_Name }}</h2>
@@ -53,12 +52,9 @@
     <label for="expiryDate">Post Code</label>
     <input type="text" name="Post_Code" id="Post_Code" required> -->
 
-@php
-    if(isset($product))
-    $subTotal += $product->Product_Price * $product->pivot->Amount;
-@endphp
+
 <hr>
-<h1>Total: £{{ number_format($subTotal, 2) }}</h1>
+<h1>Total: £{{ $order->Order_Total_Price}}</h1>
          <button type="submit">Order Now</button>
      </div>
 </form>
