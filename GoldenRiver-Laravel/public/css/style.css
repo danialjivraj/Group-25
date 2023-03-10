@@ -2,6 +2,8 @@
 body {
     background-color: white;
     font-family: cambria math;
+    margin: 0;
+    padding: 0;
  }
 
  /**footer section**/
