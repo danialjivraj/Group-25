@@ -73,4 +73,24 @@
                     <p>Order Date: {{ $order->created_at->format('Y-m-d'); }}</p>
                     <p>Order Time: {{ $order->created_at->format('H:i'); }}</p>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Delivery Address</h5>
+                </div>
+                <div class="ibox-content">
+                    <span>Address</span>
+                    <!-- add the subtotal here -->
+                    <h2 class="font-bold">House No. & Street Name: {{ $address->Street }}</h2>
+                    <p>City: {{ $address->City }}</p>
+                    <p>County: {{ $address->County }}</p>
+                    <p>Country: {{ $address->Country }}</p>
+                    <p>Post Code: {{ $address->ZIP }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

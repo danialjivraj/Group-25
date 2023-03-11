@@ -129,19 +129,36 @@
                     <form method="post" action="{{ url('checkout') }}">
                         @csrf
                         <div class="m-t-sm">
-                         <!-- <label for="Phone_Number">Phone_Number</label>
-                            <input type="text" name="Phone_Number" id="Phone_Number" required>
-
-                            <label for="expiryDate">Street</label>
-                            <input type="text" name="Street" id="Street" required>
+                            <label for="Phone_Number">Phone Number</label>
+                            <input type="text" name="Phone_Number" id="Phone_Number" value = "{{ session()->get('user.Phone_Number') == '-' ? '' : old('Phone_Number', session()->get('user.Phone_Number')) }}" required>
+                            @error('Phone_Number')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                            <label for="expiryDate">House No & Street</label>
+                            <input type="text" name="Street" id="Street" value="{{ $address->Street == 'pending' ? '' : old('Street', $address->Street) }}" required>
+                            @error('Street')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <label for="expiryDate">City</label>
-                            <input type="text" name="City" id="City" required>
+                            <input type="text" name="City" id="City" value="{{ $address->City == 'pending' ? '' : old('City', $address->City) }}" required>
+                            @error('City')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <label for="expiryDate">County</label>
-                            <input type="text" name="County" id="County" required>
+                            <input type="text" name="County" id="County" value="{{ $address->County == 'pending' ? '' : old('County', $address->County) }}" required>
+                            @error('County')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <label for="expiryDate">Country</label>
-                            <input type="text" name="Country" id="Country" required>
+                            <input type="text" name="Country" id="Country" value="{{ $address->Country == 'pending' ? '' : old('Country', $address->Country) }}" required>
+                            @error('Country')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                             <label for="expiryDate">Post Code</label>
-                            <input type="text" name="Post_Code" id="Post_Code" required> -->
+                            <input type="text" name="Post_Code" id="Post_Code" value="{{ $address->ZIP == 'pending' ? '' : old('Post_Code', $address->ZIP) }}" required>
+                            @error('Post_Code')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror <br><br>
                             <div class="btn-group">
                                 <button class="checkout__button" type= "submit"> Checkout</button>
                             </div>

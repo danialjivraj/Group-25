@@ -27,7 +27,7 @@ class BasketController extends Controller
                 ], [
                 'Account_ID' => Auth::user()->id,
                 'Address_ID' => Auth::user()->id,
-                'ZIP' => "pendin",
+                'ZIP' => "pending",
                 'City' => "pending",
                 'Country' => "pending",
                 'Street' => "pending",
@@ -107,10 +107,15 @@ class BasketController extends Controller
             }
         }
 
+        //AddressID is the same as UserID
+        $address = Address::findOrFail(Auth::id());
+
+
 
         return view('cart', [
             'products' => $products,
             'order' => $order,
+            'address' => $address,
         ]);
     }
 
@@ -135,7 +140,7 @@ class BasketController extends Controller
     }
 public function test()
 {
-
+dd(session()->get('user.Phone_Number'));
 }
 
 }
