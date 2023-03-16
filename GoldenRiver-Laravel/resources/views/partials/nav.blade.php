@@ -40,8 +40,7 @@
     </header>
 
     </div>
-
-    @yield('body')
+        @yield('body')
     <div>
         @include('partials.footer')
     </div>

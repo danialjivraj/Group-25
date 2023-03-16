@@ -622,6 +622,21 @@ body {
     }
   
 .checkout__button{
+    background-color: #b29758;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 2px solid #555;
+}
+
+/*.checkout__button{
     padding: 1rem 2rem;
     font-weight: lighter;
     font-size: 1.3rem;
@@ -629,13 +644,19 @@ body {
     border-radius: var(--border-radius);
     cursor: pointer;
     background: #b29758 ;
-    outline: black;
-}
+    outline: black; */
 
 .checkout__button:hover{
     background: #c8b17a;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
 
 /* user registration & login page styling starts here */
 .reg__container{
