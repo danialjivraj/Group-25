@@ -241,11 +241,17 @@ color: #e5c781;
     background-position: center;
     background-size: cover;
     flex-grow: 1;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
   }
 
-.main p {
-    text-align: center;
-    margin-top: 15%;
+#main-text {
+    margin: 0 auto;
+    padding-top: 10%;
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
 }
 
 .viewport-subcontainer {
@@ -260,7 +266,7 @@ color: #e5c781;
     height: 100%;
 }
 
-.fashion {
+.diamond {
     background-image: url("../images/allProductImages/11.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -271,12 +277,13 @@ color: #e5c781;
 
 }
 
-.fashion a {
+.diamond a {
     margin: 0 auto;
     text-decoration:none;
+    color: #000;
 }
 
-.fine {
+.gold {
     background-image: url("../images/allProductImages/8.jpg");
     background-position: center;
     background-repeat: no-repeat;
@@ -286,9 +293,10 @@ color: #e5c781;
     align-items: center;
 }
 
-.fine a {
+.gold a {
     margin: 0 auto;
     text-decoration:none;
+    color: #000;
 }
 
 
@@ -305,21 +313,38 @@ color: #e5c781;
 }
 
 .category-item {
-    width: 110px;
-    height: 110px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 150px;
     margin-top: 50px;
     border-radius: 15px;
     color: #000;
-    /* background-color: blue; */
     transition: all .2s ease-in-out;
     text-align: center;
-    color: white;
     cursor: pointer;
     text-decoration: none;
 }
 
 .category-item:hover {
     transform: scale(1.1);
+}
+
+.category-item > div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+
+.category-text {
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    background-color: #191c40;
 }
 
 #rings {
@@ -372,8 +397,8 @@ color: #e5c781;
 }
 
 .featured-item {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 15px;
     color: #000;
     transition: all .2s ease-in-out;
@@ -427,23 +452,6 @@ color: #e5c781;
     background-position-y: center;
 }
 
-/* landing page banner */
-
-.landing-page-banner-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 300px;
-}
-
-.landing-page-banner {
-    margin: 0 auto;
-    width: 80%;
-    height: 180px;
-    background-color: #272727;
-}
-
 /* sustainability */
 
 .sustainability-container {
@@ -461,7 +469,6 @@ color: #e5c781;
     height: 250px;  
     margin-top: 20px;
     margin-bottom: 90px;
-    background-color: #434434;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
@@ -472,83 +479,8 @@ color: #e5c781;
 
 #sustainbility-txt {
     color: black;
-    background-color: white;
 }
 
-.category-item {
-    width: 110px;
-    height: 110px;
-    margin-top: 50px;
-    border-radius: 15px;
-    color: #000;
-    background-color: blue;
-    transition: all .2s ease-in-out;
-    cursor: pointer;
-}
-
-.category-item:hover {
-    transform: scale(1.1);
-}
-
-.featured-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 80%;
-    height: 200px;
-    text-align: center;
-}
-
-.featured-item {
-    width: 120px;
-    height: 120px;
-    border-radius: 15px;
-    color: #000;
-    background-color: orange;
-    transition: all .2s ease-in-out;
-}
-
-.featured-item:hover{
-    transform: scale(1.1);
-}
-
-/* landing page banner */
-
-.landing-page-banner-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 300px;
-}
-
-.landing-page-banner {
-    margin: 0 auto;
-    width: 80%;
-    height: 180px;
-    background-color: #272727;
-}
-
-/* sustainability */
-
-.sustainability-container {
-    width: 80%;
-    height: 300px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding-bottom: 30px;
-}
-
-.sustainability-content {
-    width: 30%;
-    height: 250px;  
-    margin-top: 20px;
-    margin-bottom: 90px;
-    background-color: #434434;
-}
 
 
  
