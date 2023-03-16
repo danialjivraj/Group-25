@@ -3,6 +3,8 @@ package Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 
 public class DBaccount extends DataBaseConn{
 //The class is used to control data related to users table
@@ -61,19 +63,25 @@ public class DBaccount extends DataBaseConn{
 	}
 	
 	public boolean login(String email,String password) throws SQLException {
-		//Used to check if there is an admin account with the password and email
-		boolean result;
-		String sql="SELECT COUNT(*) AS recordCount FROM users WHERE email='"+email+"' AND password = '"+password+"' AND User_Status = 'Admin'";
-		ResultSet rs = getStmt().executeQuery(sql);
-		rs.next();
-		int count = rs.getInt("recordCount");
-		//System.out.println("MyTable has " + count + " row(s).");
-		
-		//if there is 1 account with the provided detail => login else => wrong details
-		if(count==1) {return true;}
-		else {return false;}
-		
+	    // Check if there is an admin account with the email and hashed password
+	    String sql = "SELECT password FROM users WHERE email='" + email + "' AND User_Status = 'Admin'";
+	    ResultSet rs = getStmt().executeQuery(sql);
+	  //  System.out.println(rs.next());
+	    // Check if the ResultSet has any rows
+	    if (!rs.next()) {
+	        // No rows returned, so login failed
+	        return false;
+	    }
+	    
+	    // Get the password from the ResultSet
+	    String dbPassword = rs.getString("password");
+	  
+	    // Check if the entered password matches the hashed password stored in the database
+	    return BCrypt.checkpw(password, dbPassword);
+	   
 	}
+		
+	
 	
 	
 	public String StatusMaker(int Status) {
