@@ -27,7 +27,7 @@ class BasketController extends Controller
                 ], [
                 'Account_ID' => Auth::user()->id,
                 'Address_ID' => Auth::user()->id,
-                'ZIP' => "pendin",
+                'ZIP' => "pending",
                 'City' => "pending",
                 'Country' => "pending",
                 'Street' => "pending",
@@ -93,8 +93,29 @@ class BasketController extends Controller
         // Retrieve user products
         $products = $order->products;
 
+           // Check if products are still in stock
+        foreach ($products as $product) {
+            if ($product->Amount < 1) {
+                $order->products()->detach($product->Product_ID);
+
+                $removedProductPrice = $product->Product_Price * $product->pivot->Amount;
+                $order->Order_Total_Price -= $removedProductPrice;
+                //if the line below causes problems move maybe move it outside the loop
+                $order->save();
+
+                session()->flash('cartstockmsg', 'Product ' . $product->Product_Name . ' is no longer available and has been removed from your basket.');
+            }
+        }
+
+        //AddressID is the same as UserID
+        $address = Address::findOrFail(Auth::id());
+
+
+
         return view('cart', [
             'products' => $products,
+            'order' => $order,
+            'address' => $address,
         ]);
     }
 
@@ -119,7 +140,7 @@ class BasketController extends Controller
     }
 public function test()
 {
-
+dd(session()->get('user.Phone_Number'));
 }
 
 }
