@@ -14,16 +14,11 @@
 @section('body')
 <body>
     <main>
-      <section class="hero">
-        <div class="hero-text">
-          <img src="images/banner.jpg" alt="">
-          <h1>About Us</h1>
-        </div>
-      </section>
+     
   
       <section class="about-us">
         <div class="about-us-content">
-          <h2>Our Story</h2>
+          <h2>About Us</h2>
           <p>We are a group of students who have come together to share our passion 
             for jewellery to the rest of the world. We as a company have spent a lot of our
              time into perfecting our craft and creating unique designs that would appeal to
@@ -32,12 +27,19 @@
               craftsmanship and sustainability sets us apart from the
             rest and makes our jewellery the best choice for those who appreciate quality and style. </p>
 
-  
-          <h2>Our Mission</h2>
+            <div class="image">
+      <img src="images/aboutus/aboutimagee.jpg">
+    </div>
+    <h2 style="text-align: center;">Our Mission</h2>
           <p>Our mission is to provide our customers with the best possible experience when it comes to buying jewellery. We offer a wide selection of styles, materials, and price points to meet the needs of every customer. We pride ourselves on our exceptional customer service and attention to detail.</p>
-  
-          <h2>Our Team</h2>
+          <div class="image">
+      <img src="images/aboutus/ourmisson.jpg">
+    </div>
+    <h2 style="text-align: center;">Our Team</h2>
           <p>Our team consists of skilled designers, craftspeople, and salespeople who are passionate about jewellery. We work closely together to ensure that each piece of jewellery we sell is of the highest quality and meets our customers' expectations.</p>
+          <div class="image2">
+      <img src="images/aboutus/team.jpg"  class="no-border">
+    </div>
         </div>
       </section>
     </main>
