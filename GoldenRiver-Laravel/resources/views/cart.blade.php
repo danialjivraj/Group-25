@@ -168,7 +168,9 @@
             </div>
 
             @else
+            <br><br><br><br><br><br><br>
 <h1>Basket Empty!</h1>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 @endif
 
 @endsection
