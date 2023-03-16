@@ -36,12 +36,12 @@
             </div>
         </div>
     </div>
-    <<<<<<< HEAD </header>
+</header>
 
-        </div>
+</div>
 
-        @yield('body')
-        <div>
-            @include('partials.footer')
-        </div>
-        </div>
+@yield('body')
+<div>
+    @include('partials.footer')
+</div>
+</div>
