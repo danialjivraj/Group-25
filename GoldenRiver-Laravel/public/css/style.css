@@ -132,7 +132,7 @@ body {
 
 .navbar__image{
     background-color: transparent;
-    padding: 0px;
+    padding-bottom: 10px;
     aspect-ratio: 1/1;
 }
   
@@ -482,6 +482,13 @@ body {
 
  
 /**cart section**/
+.basketheader{
+    text-align: center;
+    font-weight: bold;
+    font-family: inherit;
+    padding: 20px;
+}
+
 .text-navy {
     color: #191c40;
   }

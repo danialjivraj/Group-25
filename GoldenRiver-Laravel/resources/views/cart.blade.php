@@ -61,7 +61,7 @@
 <body>
     <section>
         <div class="container">
-            <br><h1>Shopping Cart</h1><br></br>
+            <br><h1 class="basketheader">Shopping Cart</h1><br></br>
 
                 <div class="row">
                     <div class="col-sm-12 col-md-9">
@@ -71,7 +71,7 @@
                                 <!--retrieve database info fot no. of items in cart-->
                                 <span class="pull-right">(<strong>...</strong>) items</span>
                                 <h5>Items in your cart</h5>
-                            </div>
+                            </div><br>
                                 @foreach($products as $product)
                             
                                     <div class="table-responsive">
@@ -183,7 +183,7 @@
                 <div>
                     @else
                         <br><br><br><br><br><br><br>
-                        <h1>Basket Empty!</h1>
+                        <h1 class="basketheader">Basket Empty!</h1>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>       
                     @endif
                 </div> <!--php closing tag -->
