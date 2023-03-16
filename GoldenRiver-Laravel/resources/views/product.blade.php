@@ -5,8 +5,8 @@
 @endsection('title')
 
 @section('css')
-
 <link rel="stylesheet" href="{{asset('css/shop copy.css')}}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.css">
 @endsection
 
 @section('body')
@@ -72,7 +72,7 @@
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage">
+                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" class="lazyload" alt="productImage">
                     </div>
                 </a>
                 <div class="smallSpace"></div>
