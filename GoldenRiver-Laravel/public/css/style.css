@@ -482,6 +482,14 @@ body {
 
  
 /**cart section**/
+.empty{
+    text-align: center;
+}
+
+.empty p{
+    font-size: 14px;
+}
+
 .basketheader{
     text-align: center;
     font-weight: bold;
