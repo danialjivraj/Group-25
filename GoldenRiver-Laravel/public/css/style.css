@@ -114,18 +114,6 @@ body {
     padding-right: 3vw;
 }
 
-.navbar__dropbtn {
-    font-size: 18px;
-    border: none;
-    outline: none;
-    font-weight: bold;
-    color: #b29758;
-    padding: 14px 16px;
-    background-color: #b29758;
-    font-family: cambria math;
-    margin: 0;
-}
-
 .navbar_item:hover {
     transition: 0.5s;
     color:#c8b17a;
