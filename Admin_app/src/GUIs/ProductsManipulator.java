@@ -23,7 +23,7 @@ public class ProductsManipulator implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JButton createReport;
-	private JButton infoPF,infoUF,addProduct;
+	private JButton infoPF,infoUF,addProduct, allUsers, allProducts, allOrders;
 	private JLabel statusOfReport;
 	private JTextField productFinder,userFinder;
 	
@@ -31,13 +31,26 @@ public ProductsManipulator() {
 	frame=new JFrame();
 	panel = new JPanel();
 	
-	infoUF=new JButton("Find product");
-	panel.add(infoUF);
-	infoUF.addActionListener(this);
+	
+	allUsers=new JButton("All Users");
+	panel.add(allUsers);
+	allUsers.addActionListener(this);
+	
+	allProducts=new JButton("All Products");
+	panel.add(allProducts);
+	allProducts.addActionListener(this);
+	
+	allOrders=new JButton("All Orders");
+	panel.add(allOrders);
+	allOrders.addActionListener(this);
 	
 	addProduct=new JButton("Add product");
 	panel.add(addProduct);
 	addProduct.addActionListener(this);
+	
+	infoUF=new JButton("Find product");
+	panel.add(infoUF);
+	infoUF.addActionListener(this);
 	
 	userFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
@@ -93,15 +106,26 @@ public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}else if(e.getSource()==allUsers) {
+		try{
+			new UserTableGUI();
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}else if(e.getSource()==allProducts) {
+		try{
+			new ProductsTableGUI();
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}else if(e.getSource()==allOrders) {
+		try{
+			new OrderGUI();
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}		
 	}
-	
-	
-	
-	
-	
-	
-	
-}
 
 
 }

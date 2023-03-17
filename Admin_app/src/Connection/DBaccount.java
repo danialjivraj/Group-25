@@ -3,6 +3,8 @@ package Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 
@@ -104,4 +106,14 @@ public class DBaccount extends DataBaseConn{
 		}
 		return StatusSQL;
 	}
+	
+	//Returns all users  - Added by Faraz
+	public ResultSet getUsers() throws SQLException {
+	    String sql = "SELECT * FROM users;";
+	    ResultSet rs = getStmt().executeQuery(sql);
+	    return rs;
+	}
+
+
+	
 }
