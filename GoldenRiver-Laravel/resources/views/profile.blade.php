@@ -27,129 +27,126 @@
         <h1>Welcome, {{ Auth::user()->name }}</h1>
     </div>
     @endif
-    <h1 class="Accountheading">Account</h1>
-                <div class="profile__container1">
-                    <div style="margin-bottom: 10px;">
-                        <h1>Update Information</h1>
-                    </div>
-                    <form method="POST" action="{{ route('user.update.name.email', Auth::user()->id) }}">
-                        @csrf
-                        <!-- Update Name and Email -->
-                        <div class="form__input-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required autofocus maxlength="30" class="form__input" placeholder="Change your name...">
-                        </div>
-                        <div class="form__input-group" style="margin-top: 10px;">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
-                        </div>
-                        <div class="form__input-group" style="margin-top: 20px;">
-                            <button type="submit" name="update_emailname" class="form__button">Update!</button>
-                        </div>
-                    </form>
-                    
 
-                    @if(session('status'))
-                    <div style="margin-top: 10px;">
-                        {{ session('status') }}
-                     
-                    </div> 
-                      <br><br>
-                    <hr>
-                    @endif
-                    <div style="margin-bottom: 10px;">
-                    <h1> Update Your Password</h1>
-                    </div>
-                    <form method="POST" action="{{ route('user.update.password', Auth::user()->id) }}">
-                        @csrf
-                        <!-- Update Password Only -->
-                        <div class="form__input-group">
-                            <label for="password">New Password</label>
-                            <input type="password" name="password" id="password" class="form__input">
-                        </div>
-                        <div class="form__input-group" style="margin-top: 10px;">
-                            <label for="password-confirm">Confirm Password</label>
-                            <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
-                            <div id="error-message" style="color: red;"></div>
-                        </div>
-                        <div class="form__input-group" style="margin-top: 20px;">
-                            <button id="update-password-button" type="submit" name="update_password" disabled class="form__button">Update!</button>
-                        </div>
-                    </form>
-                    @if (session('password_status'))
-                    <div style="margin-top: 10px;">
-                        {{ session('password_status') }}
-                    </div>
-                    @endif
-            </div>
+    <h1>Account</h1>
+
+    <div class="reg__container form-box">
+        <div style="margin-bottom: 10px;">
+            Update Your Information
         </div>
+        <form method="POST" action="{{ route('user.update.name.email', Auth::user()->id) }}">
+            @csrf
+            <!-- Update Name and Email -->
+            <div class="form__input-group">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required autofocus maxlength="30" class="form__input" placeholder="Change your name...">
+            </div>
+            <div class="form__input-group" style="margin-top: 10px;">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
+            </div>
+            <div class="form__input-group" style="margin-top: 20px;">
+                <button type="submit" name="update_emailname" class="form__button">Update!</button>
+            </div>
+        </form>
 
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <h1 class="h5 mb-4 text-center">View Recent Orders</h1>
-                        <div class="table-wrap">
+        @if(session('status'))
+        <div style="margin-top: 10px;">
+            {{ session('status') }}
+        </div>
+        @endif
+    </div>
 
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Order ID</th>
-                                        <th>Ordered on</th>
-                                        <th>Status</th>
-                                        <th>More Details</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if(isset($orders) && $orders->count() > 0)
-                                    @php $prevOrderID = null; @endphp
-                                    @foreach($orders as $order)
-                                    @if($order->Order_ID != $prevOrderID)
-                                    <tr>
-                                        <td>{{$order->Order_ID}}</td>
-                                        <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
-                                        <td class="status">
-                                            <span>Status:</span>
-                                            <span class="status-label">{{ $order->Order_Status }}</span>
-                                        </td>
-                                        <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
-                                    </tr>
-                                    @php $prevOrderID = $order->Order_ID; @endphp
-                                    @endif
-                                    @endforeach
-                                    @else
-                                    <tr>
-                                        <td colspan="4">No orders available.</td>
-                                    </tr>
-                                    @endif
-                                </tbody>
-                            </table>
+    <div class="reg__container form-box">
+        <div style="margin-bottom: 10px;">
+            Update Your Password
+        </div>
+        <form method="POST" action="{{ route('user.update.password', Auth::user()->id) }}">
+            @csrf
+            <!-- Update Password Only -->
+            <div class="form__input-group">
+                <label for="password">New Password</label>
+                <input type="password" name="password" id="password" class="form__input">
+            </div>
+            <div class="form__input-group" style="margin-top: 10px;">
+                <label for="password-confirm">Confirm Password</label>
+                <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
+                <div id="error-message" style="color: red;"></div>
+            </div>
+            <div class="form__input-group" style="margin-top: 20px;">
+                <button id="update-password-button" type="submit" name="update_password" disabled class="form__button">Update!</button>
+            </div>
+        </form>
+        @if (session('password_status'))
+        <div style="margin-top: 10px;">
+            {{ session('password_status') }}
+        </div>
+        @endif
+    </div>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <h1 class="h5 mb-4 text-center">View Recent Orders</h1>
+                    <div class="table-wrap">
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Ordered on</th>
+                                    <th>Status</th>
+                                    <th>More Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if(isset($orders) && $orders->count() > 0)
+                                @php $prevOrderID = null; @endphp
+                                @foreach($orders as $order)
+                                @if($order->Order_ID != $prevOrderID)
+                                <tr>
+                                    <td>{{$order->Order_ID}}</td>
+                                    <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
+                                    <td class="status">
+                                        <span>Status:</span>
+                                        <span class="status-label">{{ $order->Order_Status }}</span>
+                                    </td>
+                                    <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
+                                </tr>
+                                @php $prevOrderID = $order->Order_ID; @endphp
+                                @endif
+                                @endforeach
+                                @else
+                                <tr>
+                                    <td colspan="4">No orders available.</td>
+                                </tr>
+                                @endif
+                            </tbody>
+                        </table>
 
 
-                        </div>
                     </div>
                 </div>
-                
             </div>
-        
-        </section>
-
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-        @else
-
-        @if(session('success'))
-        <div class="alert alert-success"><br><br><br><br><br>
-        <h1> {{ session('success') }} </h1>
         </div>
-        
-        @endif
-        <br>
-        <p>{{ __('Please login again to view your information and orders!') }}</p>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </section>
 
-        @endif
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        <script src="{{ asset('js/passwordAuthentication.js') }}"></script>
+    @else
 
+    @if(session('success'))
+    <div class="alert alert-success"><br><br><br><br><br>
+       <h1> {{ session('success') }} </h1>
+    </div>
+    
+    @endif
+    <br>
+    <p>{{ __('Please login again to view your information and orders!') }}</p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    @endif
+
+    <script src="{{ asset('js/passwordAuthentication.js') }}"></script>
     @endsection
