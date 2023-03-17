@@ -15,7 +15,7 @@ class CheckoutController extends Controller
     public function processCheckout(Request $request){
 
         $request->validate([
-            'Phone_Number' => 'required|regex:/^[0-9]{10}$/',
+            'Phone_Number' => 'required|regex:/^[0-9]{1,12}$/',
             'Street' => 'required|max:40',
             'City' => 'required|max:40',
             'County' => 'required|max:20',

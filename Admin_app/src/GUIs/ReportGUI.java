@@ -28,7 +28,7 @@ public class ReportGUI {
 		
 		
 		frame.add(panel,BorderLayout.CENTER);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Report");
 		frame.pack();
 		frame.setVisible(true);

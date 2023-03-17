@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import GUIs.StockAlertGUI;
+
 public class DBproductAndCategory extends DataBaseConn{
 	public boolean editProduct(String sqlInfo,String ID) throws SQLException {
 		String sql= "UPDATE product "
@@ -118,4 +120,21 @@ public class DBproductAndCategory extends DataBaseConn{
 		result=(String[]) records.toArray(result);
 		return result;
 	}
+	
+	
+	//added by Faraz - For stock Level Alert
+	public void checkStockLevels() throws SQLException {
+	    HashMap<String,Integer> endingProducts = listOfEndingProducts();
+	    if (!endingProducts.isEmpty()) {
+	        StockAlertGUI stockAlert = new StockAlertGUI();
+	        stockAlert.displayStockAlerts(endingProducts);
+	        stockAlert.setVisible(true);
+	    }
+	}
+	public ResultSet getProducts() throws SQLException{
+		   String sql = "SELECT * FROM product;";
+		    ResultSet rs = getStmt().executeQuery(sql);
+		    return rs;
+	}
+
 }

@@ -2,6 +2,9 @@ package Connection;
 
 import java.sql.SQLException;
 
+import java.sql.ResultSet;
+
+
 public class DBorder extends DataBaseConn{
 	
 	public void changeStatusOfOrder(String ID, int Status) throws SQLException {
@@ -51,6 +54,12 @@ public class DBorder extends DataBaseConn{
 		
 		return StatusSQL;
 		
+	}
+	
+	public ResultSet getAllOrders() throws SQLException {
+	    String sql = "SELECT * FROM orderb";
+	    ResultSet rs = getStmt().executeQuery(sql);
+	    return rs;
 	}
 
 }
