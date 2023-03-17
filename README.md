@@ -8,21 +8,21 @@ This repository will include source code consisting of the following languages H
 All code will be commited to the branches, there are 6 branches in total, all commit history will be viewable on the repository for all repositories including names and description of commits.
 
 ## Contributors 
-- Kirill Ushakov () 
+- Kirill Ushakov (UshakovKirill) 
 
-- Faraz Ahmed () 
+- Faraz Ahmed (fahm781) 
 
 - Awais Riaz (AR127) 
 
-- Nazrin Chowdhury () 
+- Nazrin Chowdhury (NazrinChowdhury) 
 
-- Azraa Faizar () 
+- Azraa Faizar (azraafaizar) 
 
-- Danial Jivraj Amirali () 
+- Danial Jivraj Amirali (danialjivraj) 
 
-- Rayyan Khan ()     
+- Rayyan Khan (rayyan2000)     
 
-- Jamie Yap ()  
+- Jamie Yap (Cyberrrrrrr)  
 
 ## Detailed contributions 
 add specfics of what each member did 
