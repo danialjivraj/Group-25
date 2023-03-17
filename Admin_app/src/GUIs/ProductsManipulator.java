@@ -23,7 +23,7 @@ public class ProductsManipulator implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JButton createReport;
-	private JButton openNewProductGUI,infoPF,infoUF;
+	private JButton infoPF,infoUF,addProduct, allUsers, allProducts, allOrders;
 	private JLabel statusOfReport;
 	private JTextField productFinder,userFinder;
 	
@@ -31,29 +31,41 @@ public ProductsManipulator() {
 	frame=new JFrame();
 	panel = new JPanel();
 	
-	infoUF=new JButton("Find product");
-	panel.add(infoUF);
-	infoUF.addActionListener(this);
 	
-	userFinder = new JTextField(30);
+	allUsers=new JButton("All Users");
+	panel.add(allUsers);
+	allUsers.addActionListener(this);
+	
+	allProducts=new JButton("All Products");
+	panel.add(allProducts);
+	allProducts.addActionListener(this);
+	
+	allOrders=new JButton("All Orders");
+	panel.add(allOrders);
+	allOrders.addActionListener(this);
+	
+	addProduct=new JButton("Add product");
+	panel.add(addProduct);
+	addProduct.addActionListener(this);
+	
+	productFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(userFinder);
+	panel.add(productFinder);
 	
 	infoPF=new JButton("Find user");
 	panel.add(infoPF);
 	infoPF.addActionListener(this);
 	
-	productFinder = new JTextField(30);
+	userFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(productFinder);
+	panel.add(userFinder);
 	
     statusOfReport=new JLabel("Click it to Generate a report:");
     
 	createReport= new JButton("Generate Report");
 	createReport.addActionListener(this);
 	
-	openNewProductGUI= new JButton("Add a new product");
-	openNewProductGUI.addActionListener(this);
+
 	
 	panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 	panel.setLayout(new GridLayout(0,1));
@@ -63,7 +75,7 @@ public ProductsManipulator() {
 	
 	frame.add(panel,BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setTitle("Products panel");
+	frame.setTitle("Main menu");
 	frame.pack();
 	frame.setVisible(true);
 }
@@ -74,17 +86,52 @@ public void actionPerformed(ActionEvent e) {
 	if(e.getSource()==createReport) {
 		Report rep=new Report(); 
 		try {
-			Sender sender=new Sender("titantop1tap@gmail.com",rep.makeReport());
+			String report=rep.makeReport();
+			Sender sender=new Sender("titantop1tap@gmail.com",report);
 			statusOfReport.setText("The report has been sent, check your email.");
+			new ReportGUI("<html>"+report+"</html>");
 		} catch (MessagingException | IOException | SQLException e1) {
 			e1.printStackTrace();
 			statusOfReport.setText("The report has not been sent!(Error: "+e1+")");
 		}
 	}
-	
-	else if(e.getSource()==openNewProductGUI) {
-		
+	else if(e.getSource()==addProduct) {
+		try {
+			new AddProductGUI();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}else if(e.getSource()==allUsers) {
+		try{
+			new UserTableGUI();
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}else if(e.getSource()==allProducts) {
+		try{
+			new ProductsTableGUI();
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}else if(e.getSource()==allOrders) {
+		try{
+			new OrderGUI();
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}		
 	}
+	else if(e.getSource()==infoUF) {
+		try {
+			new EditProductGUI(productFinder.getText());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	
+	
 	
 	
 	

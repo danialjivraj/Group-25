@@ -1,0 +1,43 @@
+.accordion {
+	display: flex;
+	flex-direction: column;
+	gap: 38px;
+	margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 50px;
+}
+
+.accordion-item {
+	background-color: #f7f7f7;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.accordion-header {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	font-size: 24px;
+	font-weight: bold;
+	color: #444;
+	position: relative;
+	z-index: 10;
+	transition: background-color 0.2s ease-in-out;
+}
+
+.accordion-header:hover {
+	background-color: #C8B17A;
+}
+
+.accordion-header .icon {
+	margin-right: 10px;
+	transform: rotate(0deg);
+	transition: transform 0.2s ease-in-out;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+  }

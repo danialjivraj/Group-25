@@ -1,12 +1,16 @@
 package Connection;
-
+//testtesttese
 import java.sql.SQLException;
+
+import java.sql.ResultSet;
 
 import EmailSending.Report;
 import GUIs.LoginPage;
+import GUIs.OrderGUI;
 import GUIs.ProductsManipulator;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 
 public class Main {
 
@@ -26,9 +30,14 @@ public class Main {
 		
 		//Report rep=new Report();
 		//rep.makeReport();
-		DBaccount acc=new DBaccount();
+		//DBaccount acc=new DBaccount();
 		
-		System.out.println( acc.login("Test","TestPass"));
+		//System.out.println( acc.login("Test","TestPass"));
+		//DBproductAndCategory DAC= new DBproductAndCategory();
+		//System.out.println(DAC.textToIDCat("Necklace"));
+		
+		DBproductAndCategory DBPC= new DBproductAndCategory();
+		ResultSet rs = DBPC.findProduct("20");
 		
 		new LoginPage();
 	}

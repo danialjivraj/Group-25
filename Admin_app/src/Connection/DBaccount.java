@@ -3,6 +3,10 @@ package Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
 
 public class DBaccount extends DataBaseConn{
 //The class is used to control data related to users table
@@ -61,21 +65,33 @@ public class DBaccount extends DataBaseConn{
 	}
 	
 	public boolean login(String email,String password) throws SQLException {
-		boolean result;
-		String sql="SELECT COUNT(*) AS recordCount FROM users WHERE email='"+email+"' AND password = '"+password+"' AND User_Status = 'Admin'";
-		ResultSet rs = getStmt().executeQuery(sql);
-		rs.next();
-		int count = rs.getInt("recordCount");
-		//System.out.println("MyTable has " + count + " row(s).");
-		
-		if(count==1) {return true;}
-		else {return false;}
-		
+	    // Check if there is an admin account with the email and hashed password
+	    String sql = "SELECT password FROM users WHERE email='" + email + "' AND User_Status = 'Admin'";
+	    ResultSet rs = getStmt().executeQuery(sql);
+	  //  System.out.println(rs.next());
+	    // Check if the ResultSet has any rows
+	    if (!rs.next()) {
+	        // No rows returned, so login failed
+	        return false;
+	    }
+	    
+	    // Get the password from the ResultSet
+	    String dbPassword = rs.getString("password");
+	  
+	    // Check if the entered password matches the hashed password stored in the database
+	    return BCrypt.checkpw(password, dbPassword);
+	   
 	}
+		
+	
 	
 	
 	public String StatusMaker(int Status) {
 		
+		// requires number as input to make status as String
+		//1 - Customer
+		//2 - Admin
+		//ELSE => ERROR
 		
 		String StatusSQL;
 		
@@ -90,4 +106,14 @@ public class DBaccount extends DataBaseConn{
 		}
 		return StatusSQL;
 	}
+	
+	//Returns all users  - Added by Faraz
+	public ResultSet getUsers() throws SQLException {
+	    String sql = "SELECT * FROM users;";
+	    ResultSet rs = getStmt().executeQuery(sql);
+	    return rs;
+	}
+
+
+	
 }

@@ -1,13 +1,41 @@
+@extends('partials.nav')
 
+@section('title')
+<title> Golden River | Item</title>
+@endsection('title')
+@section('body')
+@if(session()->has('addcartmsg'))
+    <div class="alert alert-success" role="alert" id="go-to-basket">
+        {{session()->get('addcartmsg')}} <a href="/cart" class="alert-link">Go to Basket?</a>.
+    </div>
+    @endif
 <div class="item-title">
     <h2>{{ $item->Product_Name }}</h2>
 </div>
 <img src="/images/allProductImages/{{$item->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
 
-
 <div>
     <h4>Product Description:</h4>
     <p>{{ $item->Description }} </p>
+</div>
+
+<div>
+    <h4>Product Category:</h4>
+    @if($item->Category_ID == 6 )
+    <p>Necklace</p>
+    @endif
+    @if($item->Category_ID == 5 )
+    <p>Earring</p>
+    @endif
+    @if($item->Category_ID == 7 )
+    <p>Bracelet</p>
+    @endif
+    @if($item->Category_ID == 8 )
+    <p>Ring</p>
+    @endif
+    @if($item->Category_ID == 9 )
+    <p>Set</p>
+    @endif
 </div>
 <div>
     <h4>Price:</h4>
@@ -22,7 +50,7 @@
     @endif
 </div>
 <div class="select-quantity">
-                    <form action="#" > <!-- make it <form action= "/basket" method = "post"> later -->
+                    <form action= "/cart" method = "post" > <!-- make it <form action= "/cart" method = "post"> later -->
                         @csrf
                         <h5>Select Quantity:</h5>
                         <select class="form-control" name="qty" id="quantity-box">
@@ -37,4 +65,5 @@
                     @endif
                 </div>
 
+                @endsection
 

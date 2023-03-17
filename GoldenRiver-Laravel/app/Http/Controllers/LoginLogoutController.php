@@ -12,41 +12,40 @@ use Illuminate\Support\Facades\Session;
 class LoginLogoutController extends Controller
 {
 
-
-public function logout(Request $request)
+    public function logout(Request $request)
     {
-        auth()-> logout();
-        //Flushing the session
-        $request->session()->flush();
-        return back();
-
-    //add a /logout tag or button to logout user in the blade layouts
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->back()->with('success', 'You\'ve logged out successfully!');
     }
+    
 
-public function showLogin(Request $request)
+    public function showLogin(Request $request)
     {
         return view('login');
     }
-public function doLogin(Request $request)
-    {
 
-        $user= User::where(['email'=>$request->email])->first();
+    public function doLogin(Request $request)
+    {
+        $user = User::where(['email' => $request->email])->first();
 
         //validating that email and password fields are not empty and right format
         $this->validate($request, [
             'email' => ['required'],
             'password' => ['required'],
-             ]);
-
+        ]);
+        if(auth()->attempt($request->only('email', 'password'))){
+        $user= User::where(['email'=>$request->email])->first();
         auth()->attempt($request->only('email', 'password'));
-        $request->session()->put('user',$user);  //uncomment later
-        return redirect('/product');
-    }
+        $request->session()->put('user', $user);
 
-public function test()
-    {
-        dd(Auth::check());
-       //dd(Session::all());
-    }
+        $request->session()->flash('message', 'You are logged in!');
 
+        return redirect('/profile');
+        }
+        else{
+            return redirect('/login')->with('loginerrmsg', 'Login unsuccessful!');
+        }
+    }
 }

@@ -5,6 +5,7 @@ body {
     background-color: #ffffff;
   }
   
+ 
   main {
     display: flex;
     background-color: #FFFFFF;
@@ -15,20 +16,23 @@ body {
     box-shadow:  0 0 40px rgba(0, 0, 0, 0.2);;
   }
   
+ 
   .content {
     width: 60%;
     padding-right: 20px;
     text-align: left;
   }
   
+ 
   .reach-us {
     width: 40%;
-    background-color: C1C0C0;
+    background-color: #C8B17A;
     color: black;
     text-align: center;
     border-left: 1px solid #BBBBBB;
     padding-left: 20px;
   }
+  
   
   form {
     display: flex;
@@ -38,11 +42,13 @@ body {
     margin: 0 auto;
   }
   
+  
   label, input[type="submit"] {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
   }
+  
   
   input[type="text"], input[type="email"], textarea {
     width: 100%;
@@ -52,8 +58,9 @@ body {
     border: 1px solid #BBBBBB;
   }
   
+  
   input[type="submit"] {
-    background-color: #C1c0C0;
+    background-color: #C8B17A;
     color: black;
     border-radius: 50px;
     border: none;

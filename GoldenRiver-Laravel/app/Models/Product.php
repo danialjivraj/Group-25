@@ -7,6 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $table = 'product';
     use HasFactory;
+    protected $table = 'product';
+    protected $primaryKey = 'Product_ID';
+
+    public function orderItems()
+    {
+        return $this->hasMany(OrderItem::class, 'Product_ID');
+    }
+
+    
 }

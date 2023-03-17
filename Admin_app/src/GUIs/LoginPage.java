@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Connection.DBaccount;
@@ -43,7 +44,7 @@ public class LoginPage  implements ActionListener {
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(labelInfo2Password);
 		
-		passTx = new JTextField(30);
+		passTx = new JPasswordField(30);
 		//passTx.setBounds(WIDTH/2,70+GAP,100,25);
 		panel.add(passTx);
 		
@@ -54,7 +55,7 @@ public class LoginPage  implements ActionListener {
 				
 		frame.add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setTitle("Products panel");
+		frame.setTitle("Login page");
 		frame.pack();
 		frame.setVisible(true);
 		

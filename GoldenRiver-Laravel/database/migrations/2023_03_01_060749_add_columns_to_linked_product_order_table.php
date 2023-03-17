@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('test', function (Blueprint $table) {
-            $table->id();
+        Schema::table('linked_product_order', function (Blueprint $table) {
+            //
             $table->timestamps();
         });
     }
@@ -26,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test');
+        Schema::table('linked_product_order', function (Blueprint $table) {
+            //
+        });
     }
 };

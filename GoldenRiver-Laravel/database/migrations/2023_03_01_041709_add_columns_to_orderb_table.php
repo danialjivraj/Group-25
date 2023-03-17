@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('account', function (Blueprint $table) {
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'));
+        Schema::table('orderb', function (Blueprint $table) {
+            $table->timestamps();
         });
     }
 
@@ -26,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('account', function (Blueprint $table) {
+        Schema::table('orderb', function (Blueprint $table) {
             //
         });
     }
