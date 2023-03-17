@@ -3,9 +3,7 @@ Java appliaction:(Kirill Ushakov)
 21/02/2023 - Start uploading the files for Java application
 
 ## Description 
-This repository will include source code consisting of the following languages HTML, CSS, Java, JavaScript, Laravel Framework (PHP) and SQL.
-
-All code will be commited to the branches, there are 6 branches in total, all commit history will be viewable on the repository for all repositories including names and description of commits.
+The admin application must be built using Java including SQL and Emailing external jars and website is going to build using SQL, PHP (Laravel), CSS, HTML and Laravel to manage the coding part in productive way. It will be hosted online. This repository will include source code consisting of the following languages HTML, CSS, Java, JavaScript, Laravel Framework (PHP) and SQL. All code will be commited to the branches, there are 6 branches in total, all commit history will be viewable on the repository for all repositories including names and description of commits.
 
 ## Contributors 
 - Kirill Ushakov (UshakovKirill) 
