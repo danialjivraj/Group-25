@@ -183,7 +183,11 @@
                 <div>
                     @else
                         <br><br><br><br><br><br><br>
-                        <h1 class="basketheader">Basket Empty!</h1>
+                        <div class="empty">
+                            <h1 class="basketheader">Your Cart Is Currently Empty!</h1><br><br>
+                            <p>Before you proceed to checkout you must add some items to your cart</p><br>
+                            <button onclick="{{ url('shop') }}" class="checkout__button"><i class="fa fa-arrow-left"></i>Return To Shop</button>
+                        </div>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>       
                     @endif
                 </div> <!--php closing tag -->

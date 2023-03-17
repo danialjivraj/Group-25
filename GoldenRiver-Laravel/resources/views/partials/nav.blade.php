@@ -13,26 +13,24 @@
 
 <header>
     <div class="completenavbar">
-        <div class="container">
-            <a href="/" class="navbar__image"><img class="gr" src="{{asset('images/logo.png')}}" width="120px"></a>
-            <div class="navbar__navsection">
-                <div class="completenavbar">
-                    <a href="{{ url('/') }}" class="navbar_item">Home</a>
-                    <a href="{{ url('/product') }}" class="navbar_item">Shop</a>
-                    <a href="{{ url('/aboutus') }}" class="navbar_item">About Us</a>
-                    <a href="{{ url('/contact') }}" class="navbar_item">Contact Us</a>
+        <a href="/" class="navbar__image"><img class="gr" src="{{asset('images/logo.png')}}" width="150px"></a>
+        <div class="navbar__navsection">
+            <div class="completenavbar">
+                <a href="{{ url('/') }}" class="navbar_item">Home</a>
+                <a href="{{ url('/product') }}" class="navbar_item">Shop</a>
+                <a href="{{ url('/aboutus') }}" class="navbar_item">About Us</a>
+                <a href="{{ url('/contact') }}" class="navbar_item">Contact Us</a>
 
-                    @auth
-                    <a href="{{ url('/cart') }}" class="navbar_item">Basket({{ \App\Models\Order::basketTotal() }})</a>
-                    <a href="{{ url('/profile') }}" id="username" class="navbar_item">{{ Auth::user()->name }}</a>
-                    <a href="{{ url('/logout') }}" class="navbar_item">Log Out</a>
-                    @endauth
+                @auth
+                <a href="{{ url('/cart') }}" class="navbar_item">Basket({{ \App\Models\Order::basketTotal() }})</a>
+                <a href="{{ url('/profile') }}" id="username" class="navbar_item">{{ Auth::user()->name }}</a>
+                <a href="{{ url('/logout') }}" class="navbar_item">Log Out</a>
+                @endauth
 
-                    @guest
-                    <a href="{{ url('/login') }}" class="navbar_item">Log In</a>
-                    <a href="{{ url('/userRegistration') }}" class="navbar_item">Sign Up</a>
-                    @endguest
-                </div>
+                @guest
+                <a href="{{ url('/login') }}" class="navbar_item">Log In</a>
+                <a href="{{ url('/userRegistration') }}" class="navbar_item">Sign Up</a>
+                @endguest
             </div>
         </div>
     </div>
