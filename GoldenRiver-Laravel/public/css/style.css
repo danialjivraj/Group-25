@@ -94,16 +94,16 @@ body {
 .completenavbar{
     overflow: hidden;
     background-color: #191c40;
-    padding :27px 0 27px 0;
-    height: 10vh;
+    padding : 0 0 27px 0;
+    height: 15vh;
 }
 
 .navbar_item {
     float: left;
-    font-size: 18px;
+    font-size: 20px;
     color: #b29758;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8vh 20px 0 16px;
     text-decoration: none !important;
     font-weight: bold;
 }
@@ -111,6 +111,7 @@ body {
 .navbar__navsection {
     float: right;
     overflow: hidden;
+    padding-right: 3vw;
 }
 
 .navbar__dropbtn {
@@ -131,9 +132,11 @@ body {
 }
 
 .navbar__image{
-    background-color: transparent;
-    padding-bottom: 10px;
-    aspect-ratio: 1/1;
+    /* background-color: transparent; */
+    position: absolute;
+    padding-bottom: 100px;
+    aspect-ratio: 1 / 1;
+
 }
   
  
