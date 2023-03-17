@@ -7,6 +7,23 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DBproductAndCategory extends DataBaseConn{
+	public boolean editProduct(String sqlInfo,String ID) throws SQLException {
+		String sql= "UPDATE product "
+				+ "SET "+sqlInfo+" "
+				+ "WHERE Product_ID="+ID+";";
+		System.out.println(sql);
+		getStmt().executeUpdate(sql);
+		return true;
+	}
+	public ResultSet findProduct(String ID) throws SQLException {
+		String sql="SELECT * FROM product WHERE Product_ID ='"+ID+"'";
+		ResultSet rs = getStmt().executeQuery(sql);
+		if(!rs.next()) {
+			System.out.println("Error");
+		}else {System.out.println("True");}
+		return rs;
+	}
+	
 	String textToIDCat(String nameCat) throws SQLException {
 		String sql="SELECT * FROM category WHERE Category_Name='"+nameCat+"'";
 		ResultSet rs = getStmt().executeQuery(sql);

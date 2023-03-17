@@ -39,17 +39,17 @@ public ProductsManipulator() {
 	panel.add(addProduct);
 	addProduct.addActionListener(this);
 	
-	userFinder = new JTextField(30);
+	productFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(userFinder);
+	panel.add(productFinder);
 	
 	infoPF=new JButton("Find user");
 	panel.add(infoPF);
 	infoPF.addActionListener(this);
 	
-	productFinder = new JTextField(30);
+	userFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(productFinder);
+	panel.add(userFinder);
 	
     statusOfReport=new JLabel("Click it to Generate a report:");
     
@@ -89,6 +89,14 @@ public void actionPerformed(ActionEvent e) {
 	else if(e.getSource()==addProduct) {
 		try {
 			new AddProductGUI();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	else if(e.getSource()==infoUF) {
+		try {
+			new EditProductGUI(productFinder.getText());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

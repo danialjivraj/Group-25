@@ -7,6 +7,7 @@ import GUIs.LoginPage;
 import GUIs.ProductsManipulator;
 
 import java.sql.Date;
+import java.sql.ResultSet;
 
 public class Main {
 
@@ -26,11 +27,14 @@ public class Main {
 		
 		//Report rep=new Report();
 		//rep.makeReport();
-		DBaccount acc=new DBaccount();
+		//DBaccount acc=new DBaccount();
 		
-		System.out.println( acc.login("Test","TestPass"));
-		DBproductAndCategory DAC= new DBproductAndCategory();
+		//System.out.println( acc.login("Test","TestPass"));
+		//DBproductAndCategory DAC= new DBproductAndCategory();
 		//System.out.println(DAC.textToIDCat("Necklace"));
+		
+		DBproductAndCategory DBPC= new DBproductAndCategory();
+		ResultSet rs = DBPC.findProduct("20");
 		
 		new LoginPage();
 	}
