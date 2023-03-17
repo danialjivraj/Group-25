@@ -120,9 +120,7 @@ public void actionPerformed(ActionEvent e) {
 		}catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-	}		
-	}
-	else if(e.getSource()==infoUF) {
+	}else if(e.getSource()==infoUF) {
 		try {
 			new EditProductGUI(productFinder.getText());
 		} catch (SQLException e1) {
