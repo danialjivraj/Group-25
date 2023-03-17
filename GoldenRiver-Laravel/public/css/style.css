@@ -768,4 +768,42 @@ text-align: center;
     margin-top: 5rem;
     font-family:Cambria math !important ; 
 }
+
+.profile__container1{
+    width: 600px;
+    max-width: 600px;
+    margin: 1rem;
+    padding: 3rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+    margin: auto;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    margin-right: 1rem;
+    display:inline-block;
+}
+
+.profile__container2{
+    width: 600px;
+    max-width: 600px;
+    margin: 1rem;
+    padding: 3rem;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    background: #ffffff;
+    margin: auto;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    margin-left: 2rem;
+    display:inline-block;
+}
+
+.accountheading{
+    text-align: center;
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 35px;
+}
+
 /* About us page starts here*/
