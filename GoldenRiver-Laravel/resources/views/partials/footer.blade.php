@@ -10,32 +10,33 @@
 
 @section('body')
 <body>
-    <div class="footerall">
-        <section class="footer">
-            <div class="socials">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <ul class="list">
-                <li>
-                    <a href="#">Free Delivery<br><span>Free delivery on orders over £30</span></a>
-
-                </li>
-                <li>
-                    <a href="contact">Support<br><span>Visit Contact Us for customer support</span></a>
-                </li>
-                <li>
-                    <a href="/privacy">Privacy Policy<br><span>T&Cs apply</a>
-                </li>
-                <li>
-                    <a href="/faq">FAQ<br><span>Find out More</a>
-                </li>
-            </ul>
-            <p class="copyright">
-                Golden River @ 2023
-            </p>
-        </section>
-    </div>
+    <footer>
+        <div class="footerall">
+            <section class="footer">
+                <div class="socials">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <ul class="list">
+                    <li>
+                        <a href="#">Free Delivery<br><span>Free delivery on orders over £30</span></a>
+                    </li>
+                    <li>
+                        <a href="contact">Support<br><span>Visit Contact Us for customer support</span></a>
+                    </li>
+                    <li>
+                        <a href="/privacy">Privacy Policy<br><span>T&Cs apply</a>
+                    </li>
+                    <li>
+                        <a href="/faq">FAQ<br><span>Find out More</a>
+                    </li>
+                </ul>
+                <p class="copyright">
+                    Golden River @ 2023
+                </p>
+            </section>
+        </div>
+    </footer>
 </body>
 </html>

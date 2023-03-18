@@ -59,7 +59,7 @@
 
 
 <body>
-    <section>
+    <section class = "pagecontent">
         <div class="container">
             <br><h1 class="basketheader">Shopping Cart</h1><br></br>
 
