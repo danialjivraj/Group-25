@@ -7,6 +7,7 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('css/shop copy.css')}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.css">
+
 @endsection
 
 @section('body')
@@ -62,7 +63,7 @@
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                        <img loading="lazy" src="/images/allProductImages/{{$prod->Product_ID}}.jpg" height="350px" width="330px">
+                        <img loading="lazy" src="/images/allProductImages/{{$prod->Product_ID}}.jpg">
                     </div>
                 </a>
                 <div class="smallSpace"></div>
@@ -81,7 +82,7 @@
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                        <img loading="lazy" src="/images/allProductImages/{{$prod->Product_ID}}.jpg" height="350px" width="330px">
+                        <img loading="lazy" src="/images/allProductImages/{{$prod->Product_ID}}.jpg">
                     </div>
                 </a>
                 <div class="smallSpace"></div>
@@ -102,4 +103,8 @@
 <div class="pagination-container">
     {{ $products->links("pagination::bootstrap-4") }}
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
+
+
 @endsection
