@@ -1,5 +1,6 @@
 # Group-25
-![Website Logo](./public/images/logo.png)
+<img src="https://user-images.githubusercontent.com/116160905/226141518-2bb67b77-b194-45a1-bf62-510ddb8ffa43.png" alt="logo" width="500" height="500">
+
 ## Description 
 This repository will include source code consisting of the following languages HTML, CSS, Java, JavaScript, Laravel Framework (PHP) and SQL.
 All code will be commited to the branches, there are 6 branches in total, all commit history will be viewable on the repository for all repositories including names and description of commits.
