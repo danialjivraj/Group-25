@@ -22,9 +22,6 @@ All code will be commited to the branches, there are 6 branches in total, all co
 
 - Jamie Yap (Cyberrrrrrr)  
 
-## Detailed contributions 
-add specfics of what each member did 
-
 ## Pre-Requisites
 - Composer: https://getcomposer.org
 - XAMPP: https://www.apachefriends.org/download.html
