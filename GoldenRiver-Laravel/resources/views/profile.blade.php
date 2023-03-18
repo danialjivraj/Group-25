@@ -110,7 +110,12 @@
                                     <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                     <td class="status">
                                         <span>Status:</span>
-                                        <span class="status-label">{{ $order->Order_Status }}</span>
+                                        <span class="status-label" style="background-color: {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
+                                        ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue')) }}">
+                                            {{ $order->Order_Status }}
+                                            <!-- Ignore errors, works fine -->
+                                        </span>
+
                                     </td>
                                     <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
                                 </tr>
@@ -138,9 +143,9 @@
 
     @if(session('success'))
     <div class="alert alert-success"><br><br><br><br><br>
-       <h1> {{ session('success') }} </h1>
+        <h1> {{ session('success') }} </h1>
     </div>
-    
+
     @endif
     <br>
     <p>{{ __('Please login again to view your information and orders!') }}</p>

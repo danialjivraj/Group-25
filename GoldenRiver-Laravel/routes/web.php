@@ -132,3 +132,4 @@ Route::get('/removefrombasket/{id}',[BasketController::class,'removeBasket']);
 Route::post('/checkout', [CheckoutController::class, 'processCheckout']);
 
 
+
