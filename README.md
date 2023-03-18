@@ -1,8 +1,7 @@
 # Group-25
-
+![Website Logo](./public/images/logo.png)
 ## Description 
 This repository will include source code consisting of the following languages HTML, CSS, Java, JavaScript, Laravel Framework (PHP) and SQL.
-
 All code will be commited to the branches, there are 6 branches in total, all commit history will be viewable on the repository for all repositories including names and description of commits.
 
 ## Contributors 
