@@ -10,6 +10,8 @@
 @endsection
 
 @section('body')
+<hr>
+<div class="filter-container">
 <!-- search box -->
 <div class="search-container">
     <form class="search-form" type="get" action="{{ url('/search') }}">
@@ -20,50 +22,33 @@
         </div>
     </form>
 </div>
-<hr>
-<!-- search box -->
-<div>
-    <div class="col-md-12 mb-3">
-        <span class="font-weight-bold" class="sort-font">
-            <h2>Sort By :</h2>
-        </span>
-        <a href="{{ URL::current() }}" class="sort-font">All</a>
-        <a href="{{ URL::current()."?sort=price_ascending" }}" class="sort-font">Price - Ascending</a>
-        <a href="{{ URL::current()."?sort=price_descending" }}" class="sort-font">Price - Descending</a>
-        <a href="{{ URL::current()."?sort=prod_cat" }}" class="sort-font">Category</a>
-        <a href="{{ URL::current()."?sort=popularity" }}" class="sort-font">Popularity</a>
-    </div>
-</div><br>
-<hr>
 
-<div>
-    <form method="get" action="{{ 'product' }}">
-        <h2>Filter By:</h2>
+<hr>
+    <a href="{{ URL::current() }}" class="filter-option">All</a>
+    <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
+    <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
+    <a href="{{ URL::current()."?sort=prod_cat" }}" class="filter-option">Category</a>
+    <a href="{{ URL::current()."?sort=popularity" }}" class="filter-option">Popularity</a>
 
-        <h4>Product Category</h4>
-        <select name="filter_by_category">
-            <!-- <option value="">Select</option> -->
+    <form method="get" action="{{ 'product' }}" class="filter-form">
+        <label for="category-select" class="form-label">Category:</label>
+        <select name="filter_by_category" id="category-select" class="form-select">
             <option value="5">Earrings</option>
             <option value="6">Necklace</option>
             <option value="7">Bracelets</option>
             <option value="8">Rings</option>
             <option value="9">Exclusive Sets</option>
         </select>
-        <!-- <span>Earrings<input type="checkbox" name="filter_by_category" value="5" ></span>
-            <span>Necklace<input type="checkbox" name="filter_by_category" value="6" ></span>
-            <span>Bracelets<input type="checkbox" name="filter_by_category" value="7" ></span>
-            <span>Rings<input type="checkbox" name="filter_by_category" value="8" ></span>
-            <span>Exclusive Sets<input type="checkbox" name="filter_by_category" value="9" ></span> -->
+        <label for="stock-checkbox" class="form-label">In Stock:</label>
+        <input type="checkbox" id="stock-checkbox" name="filter_by_stock" value="1" class="form-checkbox">
 
-        <h4>Stock</h4>
-        <span>In Stock<input type="checkbox" name="filter_by_stock" value="1"></span><br><br>
-
-        <button type="submit">Filter</button>
-        <a href="/product">Clear Filters</a>
-
+        <button type="submit" class="form-button">Filter</button>
+        <a href="/product" class="form-link">Clear Filters</a>
     </form>
 </div>
 <hr>
+
+
 <div class="container">
     <div class="product-row">
         @foreach($products as $index => $prod)
@@ -72,7 +57,7 @@
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" class="lazyload" alt="productImage">
+                        <img loading="lazy" src="/images/allProductImages/{{$prod->Product_ID}}.jpg" height="350px" width="330px">
                     </div>
                 </a>
                 <div class="smallSpace"></div>
@@ -85,12 +70,13 @@
                 </div>
             </div>
         </div>
+
         <div class="product-row">
             @else
             <div class="product-box">
                 <a href="/product/{{ $prod->Product_ID }}">
                     <div class="product-image">
-                        <img src="/images/allProductImages/{{$prod->Product_ID}}.jpg" alt="productImage" height="350px" width="330px">
+                        <img loading="lazy" src="/images/allProductImages/{{$prod->Product_ID}}.jpg" height="350px" width="330px">
                     </div>
                 </a>
                 <div class="smallSpace"></div>
@@ -106,5 +92,8 @@
         </div>
         @endforeach
     </div>
+</div>
+<div class="pagination-container">
+    {{ $products->links("pagination::bootstrap-4") }}
 </div>
 @endsection
