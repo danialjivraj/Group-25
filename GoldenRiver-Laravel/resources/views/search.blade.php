@@ -12,18 +12,18 @@
 @section('body')
 <hr>
 <div class="filter-container">
-<!-- search box -->
-<div class="search-container">
-    <form class="search-form" type="get" action="{{ url('/search') }}">
-        @csrf
-        <div class="search-box">
-            <input class="search-input" type="text" name="search" id="search" name="search" placeholder="Search...">
-            <button class="search-submit" type="submit"><i class="fa fa-search"></i></button>
-        </div>
-    </form>
-</div>
+    <!-- search box -->
+    <div class="search-container">
+        <form class="search-form" type="get" action="{{ url('/search') }}">
+            @csrf
+            <div class="search-box">
+                <input class="search-input" type="text" name="search" id="search" name="search" placeholder="Search...">
+                <button class="search-submit" type="submit"><i class="fa fa-search"></i></button>
+            </div>
+        </form>
+    </div>
 
-<hr>
+    <hr>
     <a href="{{ URL::current() }}" class="filter-option">All</a>
     <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
     <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
