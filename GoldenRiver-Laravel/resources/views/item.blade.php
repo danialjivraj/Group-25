@@ -42,7 +42,7 @@
     <p>£{{ $item->Product_Price }} </p>
 </div>
 <div class="item-stock-count" id="item-row">
-    @if($item->Amount == 0)
+    @if($item->Amount <= 0)
     <h5>Sorry, this Item is out of stock</h5>
     @else
     <h5>In stock</h5>
@@ -54,9 +54,9 @@
                         @csrf
                         <h5>Select Quantity:</h5>
                         <select class="form-control" name="qty" id="quantity-box">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            @for ($i = 1; $i <= $item->Amount && $i <= 3; $i++)
+                                <option value="{{ $i }}">{{ $i }}</option>
+                            @endfor
                         </select>
                         <br><br>
                         <input type="hidden" name="Product_ID" value="{{$item->Product_ID}}">
