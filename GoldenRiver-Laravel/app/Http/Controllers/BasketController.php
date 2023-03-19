@@ -100,7 +100,6 @@ class BasketController extends Controller
 
                 $removedProductPrice = $product->Product_Price * $product->pivot->Amount;
                 $order->Order_Total_Price -= $removedProductPrice;
-                //if the line below causes problems move maybe move it outside the loop
                 $order->save();
 
                 session()->flash('cartstockmsg', 'Product ' . $product->Product_Name . ' is no longer available and has been removed from your basket.');

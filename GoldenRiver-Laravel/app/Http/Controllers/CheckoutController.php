@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\User;
+use App\Models\Product;
 use App\Models\OrderItem;
 
 class CheckoutController extends Controller
@@ -47,6 +48,13 @@ class CheckoutController extends Controller
 
         // Retrieve the order items for the current order
         $orderItems = OrderItem::where('Order_ID', $order->Order_ID)->get();
+
+           // Deduct the ordered quantities from the product stock
+        foreach ($orderItems as $item) {
+         $product = Product::find($item->Product_ID);
+         $product->Amount -= $item->Amount;
+         $product->save();
+         }
 
         return view('order-summary')->with([
             'order' => $order,
