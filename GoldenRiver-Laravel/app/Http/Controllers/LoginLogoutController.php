@@ -19,7 +19,7 @@ class LoginLogoutController extends Controller
         $request->session()->regenerateToken();
         return redirect()->back()->with('success', 'You\'ve logged out successfully!');
     }
-    
+
 
     public function showLogin(Request $request)
     {
@@ -27,7 +27,7 @@ class LoginLogoutController extends Controller
     }
 
     public function doLogin(Request $request)
-    {
+        {
         $user = User::where(['email' => $request->email])->first();
 
         //validating that email and password fields are not empty and right format
@@ -42,7 +42,7 @@ class LoginLogoutController extends Controller
 
         $request->session()->flash('message', 'You are logged in!');
 
-        return redirect('/profile');
+            return redirect('/product');
         }
         else{
             return redirect('/login')->with('loginerrmsg', 'Login unsuccessful!');

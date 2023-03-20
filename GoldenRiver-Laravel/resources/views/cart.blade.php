@@ -21,6 +21,12 @@
         </div>
         @endif
 
+        @if(session()->has('checkouterr'))
+        <div class="alert alert-success" role="alert" id="go-to-basket">
+            {{session()->get('checkouterr')}}
+        </div>
+        @endif
+
         @if(session()->has('cartstockmsg'))
         <div class="alert alert-danger" role="alert">
             {{ session()->get('cartstockmsg') }}
@@ -31,32 +37,6 @@
             </script>
         </div>
     @endif
-
-    <!-- <form method="post" action="{{ url('checkout') }}">
-        @csrf
-        <div> -->
-        <!-- <label for="Phone_Number">Phone_Number</label>
-        <input type="text" name="Phone_Number" id="Phone_Number" required>
-
-        <label for="expiryDate">Street</label>
-        <input type="text" name="Street" id="Street" required>
-        <label for="expiryDate">City</label>
-        <input type="text" name="City" id="City" required>
-        <label for="expiryDate">County</label>
-        <input type="text" name="County" id="County" required>
-        <label for="expiryDate">Country</label>
-        <input type="text" name="Country" id="Country" required>
-        <label for="expiryDate">Post Code</label>
-        <input type="text" name="Post_Code" id="Post_Code" required> -->
-
-    <!--
-    <hr>
-    <h1>Total: £{{ $order->Order_Total_Price }}</h1>
-            <button type="submit">Order Now</button>
-        </div>
-    </form>
-    -->
-
 
 <body>
     <section class = "pagecontent">
@@ -73,7 +53,7 @@
                                 <h5>Items in your cart</h5>
                             </div><br>
                                 @foreach($products as $product)
-                            
+
                                     <div class="table-responsive">
                                         <table class="table shoping-cart-table">
                                             <tbody>
@@ -106,7 +86,7 @@
                                         </table>
                                     </div> <!--table responsive closing tag -->
                                 @endforeach
-                
+
                         </div> <!--ibox closing tag -->
 
                         <div class="ibox-content">
@@ -188,7 +168,7 @@
                             <p>Before you proceed to checkout you must add some items to your cart</p><br>
                             <button onclick="{{ url('shop') }}" class="checkout__button"><i class="fa fa-arrow-left"></i>Return To Shop</button>
                         </div>
-                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>       
+                        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     @endif
                 </div> <!--php closing tag -->
         </div> <!--container closing tag -->
