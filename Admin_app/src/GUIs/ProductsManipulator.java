@@ -24,13 +24,16 @@ public class ProductsManipulator implements ActionListener {
 	private JPanel panel;
 	private JButton createReport;
 	private JButton infoPF,infoUF,addProduct, allUsers, allProducts, allOrders;
-	private JLabel statusOfReport;
+	private JLabel statusOfReport,email_L;
 	private JTextField productFinder,userFinder;
-	
-public ProductsManipulator() {
+	private String Email;
+public ProductsManipulator(String Email) {
 	frame=new JFrame();
 	panel = new JPanel();
 	
+	this.Email=Email;
+	email_L=new JLabel("Email: "+Email);
+	panel.add(email_L);
 	
 	allUsers=new JButton("All Users");
 	panel.add(allUsers);
@@ -47,6 +50,10 @@ public ProductsManipulator() {
 	addProduct=new JButton("Add product");
 	panel.add(addProduct);
 	addProduct.addActionListener(this);
+	
+	infoUF=new JButton("Find product");
+	panel.add(infoUF);
+	infoUF.addActionListener(this);
 	
 	productFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
@@ -87,7 +94,7 @@ public void actionPerformed(ActionEvent e) {
 		Report rep=new Report(); 
 		try {
 			String report=rep.makeReport();
-			Sender sender=new Sender("titantop1tap@gmail.com",report);
+			Sender sender=new Sender(Email,report);
 			statusOfReport.setText("The report has been sent, check your email.");
 			new ReportGUI("<html>"+report+"</html>");
 		} catch (MessagingException | IOException | SQLException e1) {
@@ -123,6 +130,14 @@ public void actionPerformed(ActionEvent e) {
 	}else if(e.getSource()==infoUF) {
 		try {
 			new EditProductGUI(productFinder.getText());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+	else if(e.getSource()==infoPF) {
+		try {
+			new EditUserGUI(userFinder.getText());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

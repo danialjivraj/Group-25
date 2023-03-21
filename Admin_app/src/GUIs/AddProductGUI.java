@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -22,7 +23,7 @@ public class AddProductGUI implements ActionListener {
 	private JButton addProduct;
 	private JTextField Pr_Name,Pr_Dis,Amount,Description,Pr_p;
 	 private JLabel Pr_Name_L,Pr_Dis_L,Amount_L,Description_L,categories_L,Pr_p_L;
-	private JList categories;
+	private JComboBox categories;
 	
 	DBproductAndCategory DAC= new DBproductAndCategory();
 	
@@ -85,7 +86,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(categories_L);
 		
 		
-		categories= new JList(week);
+		categories= new JComboBox(week);
 		categories.setSelectedIndex(0);
 		panel.add(categories);
 		
@@ -111,7 +112,7 @@ public class AddProductGUI implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==addProduct) {
 			try {
-				DAC.createProduct(categories.getSelectedValue().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
+				DAC.createProduct(categories.getSelectedItem().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
 				
 				frame.dispose();
 			} catch (NumberFormatException e1) {
