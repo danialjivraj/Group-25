@@ -11,7 +11,7 @@
 
 @section('body')
 <div class="reg__container">
-    <h1 class="form__title">Registration</h1>
+    <h1 class="form__title">Registration</h1><br>
     <form class="form" form action="/userRegistration" method="post" class="signin-inputs" id="registration">
         @csrf
         <div class="form__input-group">
