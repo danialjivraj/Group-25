@@ -63,7 +63,7 @@ Route::get('/homePage', function () {
 
 Route::get('/cart', function () {
     return view('cart');
-});
+})->middleware('protectPages');
 
 // Route::get('/nav', function () {
 //     return view('/partials/nav');
@@ -131,5 +131,8 @@ Route::get('/removefrombasket/{id}',[BasketController::class,'removeBasket']);
 
 Route::post('/checkout', [CheckoutController::class, 'processCheckout'])->name('checkout');;
 
-Route::get('/order-summary/{order_id}', [CheckoutController::class, 'showOrderSummary'])->name('order-summary');;
+Route::get('/order-summary/{order_id}', [CheckoutController::class, 'showOrderSummary'])
+    ->name('order-summary')
+    ->middleware('protectPages');
+
 
