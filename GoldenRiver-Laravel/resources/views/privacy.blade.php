@@ -23,7 +23,7 @@
         <p>We collect personal information such as your name, email address, and mailing address when you place an order with us. We also collect information about your browsing behavior on our website using cookies and other similar technologies.</p>
         
         <h2>How We Use Your Information</h2>
-        <p>We use your personal information to process your orders and to communicate with you about your orders. We may also use your information to improve our website and to personalize your browsing experience. We do not share your personal information with any third parties.</p>
+        <p>We use your personal information to process your orders and to communicate with you about your orders. We may also use your information to improve our website and to personalize your browsing experience. We do not share your personal information with any third parties. All the information that is shared with us is kept 100% confidential</p>
         
         <h2>How We Protect Your Information</h2>
         <p>We use reasonable security measures to protect your personal information from unauthorized access, use, or disclosure. However, no transmission of data over the internet is guaranteed to be completely secure.</p>
@@ -32,7 +32,7 @@
         <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on our website. You are advised to review this privacy policy periodically for any changes.</p>
         
         <h2>Contact Us</h2>
-        <p>If you have any questions about this privacy policy, please contact us at privacy@onlinejewelrystore.com.</p>
+        <p>If you have any questions about this privacy policy, please contact us at privacy@goldenriver.com or you can visit our <a href="contact"><u>contact</u></a> page to get in touch with us</p>
       </section>
     </main>
     
