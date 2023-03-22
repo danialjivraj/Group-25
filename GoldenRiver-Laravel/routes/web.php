@@ -65,13 +65,6 @@ Route::get('/cart', function () {
     return view('cart');
 })->middleware('protectPages');
 
-// Route::get('/nav', function () {
-//     return view('/partials/nav');
-// });
-
-// Route::get('/footer', function () {
-//     return view('/partials/footer');
-// });
 
 Route::get('/bracelets', function () {
     return view('/categories/bracelets');
