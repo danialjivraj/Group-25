@@ -947,3 +947,28 @@ text-align: center;
     font-family:Cambria math !important ; 
 }
 
+/* item page styling starts here */
+
+.items{
+    text-align:left;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.itemimage{
+    width: 80%;
+    height: auto;
+}
+
+.itemheader{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 40px;
+    font-family: inherit;
+    padding: 50px;
+}
+
+.itemsubheading{
+    font-weight: bold;
+    font-size: 25px;
+}
