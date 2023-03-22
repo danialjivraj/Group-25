@@ -234,11 +234,19 @@
     padding: 20px;
     vertical-align: top;
     width: 300px;
+    height: 370px;
+}
+
+#error-message {
+  position: absolute;
+  
 }
   
   .form-box form {
     display: flex;
     flex-direction: column;
+    position: relative;
+
   }
   
   .form-box label {
@@ -250,6 +258,20 @@
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 3
+  }
+
+
+  .margin_space{
+    margin-bottom: 10px;
+  }
+
+
+  .form__input-group{
+    margin-top: 20px;
+  }
+
+  .form__input-group2{
+    margin-top: 30px;
   }
 
   /********************************************************* End of Profile Page ****************************************************************************************/

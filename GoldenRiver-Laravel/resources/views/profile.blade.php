@@ -31,7 +31,7 @@
     <h1>Account</h1>
 
     <div class="reg__container form-box">
-        <div style="margin-bottom: 10px;">
+        <div class="margin_space">
             Update Your Information
         </div>
         <form method="POST" action="{{ route('user.update.name.email', Auth::user()->id) }}">
@@ -45,7 +45,7 @@
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
             </div>
-            <div class="form__input-group" style="margin-top: 20px;">
+            <div class="form__input-group">
                 <button type="submit" name="update_emailname" class="form__button">Update!</button>
             </div>
         </form>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="reg__container form-box">
-        <div style="margin-bottom: 10px;">
+        <div class="margin_space">
             Update Your Password
         </div>
         <form method="POST" action="{{ route('user.update.password', Auth::user()->id) }}">
@@ -73,7 +73,7 @@
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
                 <div id="error-message" style="color: red;"></div>
             </div>
-            <div class="form__input-group" style="margin-top: 20px;">
+            <div class="form__input-group2">
                 <button id="update-password-button" type="submit" name="update_password" disabled class="form__button">Update!</button>
             </div>
         </form>
@@ -83,6 +83,7 @@
         </div>
         @endif
     </div>
+
 
     <section class="ftco-section">
         <div class="container">
