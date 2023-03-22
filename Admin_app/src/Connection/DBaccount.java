@@ -26,19 +26,19 @@ public class DBaccount extends DataBaseConn{
 		
 		System.out.println("Creation of account was successful..");
 	}
-	public void changeStatusTo(String ID,int Status) throws SQLException {
+	public void changeStatusTo(String ID,String Status) throws SQLException {
 		//The method is used to change the status of user
 		//ID of the user is required 
 		//Status is required:
 		// 1 - Customer
 		// 2 - Admin
 		
-		String StatusSQL=StatusMaker(Status);
+		//String StatusSQL=StatusMaker(Status);
 		
 	
 		
 		String sql= "UPDATE users "
-				+ "SET User_Status = '"+StatusSQL+"' "
+				+ "SET User_Status = '"+Status+"' "
 				+ "WHERE id="+ID+";";
 		
 		getStmt().executeUpdate(sql);
@@ -119,6 +119,16 @@ public class DBaccount extends DataBaseConn{
 			throw new IllegalStateException("Unknown parameter for Status (1 or 2 )");
 		}
 		return StatusSQL;
+	}
+	
+	public ResultSet getUser(String ID) throws SQLException {
+	    String sql = "SELECT * FROM users WHERE id = '"+ID+"';";
+	    ResultSet rs = getStmt().executeQuery(sql);
+	    if(!rs.next()) {
+			System.out.println("Error");
+		}else {System.out.println("True");}
+		
+	    return rs;
 	}
 	
 	//Returns all users  - Added by Faraz

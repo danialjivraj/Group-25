@@ -91,7 +91,7 @@
 
                         <div class="ibox-content">
                             <!--button onclick not working yet-->
-                            <button onclick="{{ url('/product') }}" class="checkout__button"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                            <button onclick="window.location.href='{{ url('product') }}'" class="checkout__button"><i class="fa fa-arrow-left"></i> Continue shopping</button>
                         </div>
                     </div> <!--column closing tag -->
 
@@ -166,7 +166,7 @@
                         <div class="empty">
                             <h1 class="basketheader">Your Cart Is Currently Empty!</h1><br><br>
                             <p>Before you proceed to checkout you must add some items to your cart</p><br>
-                            <button onclick="{{ url('shop') }}" class="checkout__button"><i class="fa fa-arrow-left"></i>Return To Shop</button>
+                            <button onclick="window.location.href='{{ url('product') }}'" class="checkout__button"><i class="fa fa-arrow-left"></i>Return To Shop</button>
                         </div>
                         <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
                     @endif
