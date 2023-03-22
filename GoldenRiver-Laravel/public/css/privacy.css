@@ -1,7 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Cambria Math;
     background-color: #f8f8f8;
-    color: #333;
+  color: #c8b17a;
+
   }
   
   main {
@@ -13,23 +14,28 @@ body {
   header {
     text-align: center;
     margin-bottom: 40px;
+  color: #b29758;
+  font-weight: bolder;
+
   }
   
   h1 {
-    font-size: 36px;
+    font-size: 40px;
     margin-top: 0;
+    font-weight: bolder;
   }
   
   h2 {
-    margin-top: 40px;
+    margin-top: 36px;
   }
   
   .content {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
     padding: 20px;
     margin-bottom: 40px;
+    
   }
   
   p {
