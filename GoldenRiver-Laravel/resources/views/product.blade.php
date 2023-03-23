@@ -6,14 +6,16 @@
 
 @section('css')
 <link rel="stylesheet" href="{{asset('css/shop copy.css')}}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.css">
+
 
 @endsection
 
 @section('body')
-<hr>
-<div class="filter-container">
-    <!-- search box -->
+  <!--VERSION 1
+  <div class="filter-container">
     <div class="search-container">
         <form class="search-form" type="get" action="{{ url('/product') }}">
             @csrf
@@ -24,7 +26,7 @@
         </form>
     </div>
 
-    <hr>
+    <hr> 
     <a href="{{ URL::current() }}" class="filter-option">All</a>
     <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
     <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
@@ -48,9 +50,57 @@
     </form>
 </div>
 <hr>
+-->
 
 
-<div class="container">
+
+<hr><!--VERSION 2: bootstrap used to make responsive-->
+    <!-- search box -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-2"><!--sec 1-->
+                
+                <div class="search-container">
+                    <form class="search-form" type="get" action="{{ url('/product') }}">
+                        @csrf
+                        <div class="search-box">
+                            <input class="search-input" type="text" name="search" id="search" name="search" placeholder="Search...">
+                            <button class="search-submit" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 2-->
+                
+                <a href="{{ URL::current() }}" class="filter-option">All</a>
+                <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
+                <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
+                <a href="{{ URL::current()."?sort=prod_cat" }}" class="filter-option">Category</a>
+                <a href="{{ URL::current()."?sort=popularity" }}" class="filter-option">Popularity</a>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 3-->
+                <form method="get" action="{{ 'product' }}" class="filter-form">
+                    <label for="category-select" class="form-label">Category:</label>
+                    <select name="filter_by_category" id="category-select" class="form-select">
+                        <option value="5">Earrings</option>
+                        <option value="6">Necklace</option>
+                        <option value="7">Bracelets</option>
+                        <option value="8">Rings</option>
+                        <option value="9">Exclusive Sets</option>
+                    </select>
+                    <label for="stock-checkbox" class="form-label">In Stock:</label>
+                    <input type="checkbox" id="stock-checkbox" name="filter_by_stock" value="1" class="form-checkbox">
+
+                    <button type="submit" class="form-button">Filter</button>
+                    <a href="/product" class="form-link">Clear Filters</a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+<hr>
+
+<!--<div class="container">-->
     <div class="product-row">
         @if(count($products) == 0)
         <h1>No Results Found</h1>
@@ -99,7 +149,7 @@
         @endforeach
         @endif
     </div>
-</div>
+<!--</div>-->
 <div class="pagination-container">
     {{ $products->links("pagination::bootstrap-4") }}
 </div>
