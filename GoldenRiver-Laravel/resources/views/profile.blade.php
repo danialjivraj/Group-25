@@ -40,10 +40,13 @@
             <div class="form__input-group">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required autofocus maxlength="30" class="form__input" placeholder="Change your name...">
+                <div id="name-error"></div>
             </div>
             <div class="form__input-group" style="margin-top: 10px;">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
+              
+                <div id="email-error"></div>
             </div>
             <div class="form__input-group">
                 <button type="submit" name="update_emailname" class="form__button">Update!</button>
@@ -71,7 +74,7 @@
             <div class="form__input-group" style="margin-top: 10px;">
                 <label for="password-confirm">Confirm Password</label>
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
-                <div id="error-message" style="color: red;"></div>
+                <div id="error-message"></div>
             </div>
             <div class="form__input-group2">
                 <button id="update-password-button" type="submit" name="update_password" disabled class="form__button">Update!</button>
@@ -155,4 +158,5 @@
     @endif
 
     <script src="{{ asset('js/passwordAuthentication.js') }}"></script>
+    <script src="{{ asset('js/nameEmailAuthentication.js') }}"></script>
     @endsection
