@@ -70,8 +70,12 @@
 }
 
 .smallSpace {
-  height: 5px;
+  height: 15px;
   font-size: 1px;
+}
+
+.productname{
+  font-size: 18px;
 }
 
 .product-box:hover .shop-button {
@@ -214,6 +218,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 10px; /* Add padding to both left and right */
+}
+
+.filtersection2{
+  padding-top: 15px;
 }
 
 .search-container {

@@ -71,12 +71,14 @@
                 </div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 2-->
+                <div class="filtersection2">
+                    <a href="{{ URL::current() }}" class="filter-option">All</a>
+                    <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
+                    <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
+                    <a href="{{ URL::current()."?sort=prod_cat" }}" class="filter-option">Category</a>
+                    <a href="{{ URL::current()."?sort=popularity" }}" class="filter-option">Popularity</a>
+                </div>
                 
-                <a href="{{ URL::current() }}" class="filter-option">All</a>
-                <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
-                <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
-                <a href="{{ URL::current()."?sort=prod_cat" }}" class="filter-option">Category</a>
-                <a href="{{ URL::current()."?sort=popularity" }}" class="filter-option">Popularity</a>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 3-->
                 <form method="get" action="{{ 'product' }}" class="filter-form">
@@ -117,7 +119,7 @@
                     </div>
                 </a>
                 <div class="smallSpace"></div>
-                <h3>{{ $prod->Product_Name }}</h3>
+                <h3><span class="productname">{{ $prod->Product_Name }}</span></h3>
                 <div class="productPrice">
                     <p>£{{ $prod->Product_Price }}</p>
                 </div>
@@ -136,7 +138,7 @@
                     </div>
                 </a>
                 <div class="smallSpace"></div>
-                <h3>{{ $prod->Product_Name }}</h3>
+                <h3><span class="productname">{{ $prod->Product_Name }}</span></h3>
                 <div class="productPrice">
                     <p>£{{ $prod->Product_Price }}</p>
                 </div>
