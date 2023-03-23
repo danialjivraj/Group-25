@@ -867,6 +867,33 @@ h1{
     margin-top: 5rem;
 }
 
+.errorlog {
+  position: absolute;
+  height: 20px;
+  font-size: 14px;
+  margin-top: -10px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+  }
+
+button[disabled] {
+    color: #000000;
+    /* Change the text color of the disabled button */
+    background-color: #b4a583;
+    /* Change the background color of the disabled button */
+  
+  }
+  
+  button[disabled]:hover {
+    color: #000000;
+    /* Prevent the text color from changing on hover */
+    background-color: #b4a072;
+    /* Prevent the background color from changing on hover */
+  }
+
 .reg__container
 .form__input,
 .form__button{
