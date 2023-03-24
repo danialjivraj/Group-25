@@ -340,8 +340,30 @@
 }
 
 @media (max-width: 768px) {
-  .navcontainer ul {
-    flex-direction: column;
-    align-items: center;
+  .productname {
+    font-size: 20px;
   }
+  
+  .product-image img {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s ease-in-out;
+    max-width: none;
+  }
+  
+  .product-box {
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    position: relative;
+    height: 610px;
+  }
+
 }
