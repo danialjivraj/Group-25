@@ -69,7 +69,7 @@ public class EditUserGUI implements ActionListener {
 		EditUs_B.addActionListener(this);
 		
 		frame.add(panel,BorderLayout.CENTER);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Edit user");
 		frame.pack();
 		frame.setVisible(true);
