@@ -54,13 +54,13 @@ public class OrderGUI extends JFrame implements ActionListener {
             ResultSet rs = orders.getAllOrders();
 
             while (rs.next()) {
-            	// create list with data for each row
+            	// creating Vector with data for each row
                 Vector<String> row = new Vector<>();
                 row.add(rs.getString("Order_ID"));
                 row.add(rs.getString("Account_ID"));
                 row.add(rs.getString("Address_ID"));
                 row.add(rs.getString("Order_Status"));
-                row.add("£" + rs.getString("Order_Total_Price"));
+                row.add("\u00A3" + rs.getString("Order_Total_Price"));
                 row.add(rs.getString("created_at"));
                 row.add(rs.getString("updated_at"));
                 // add row to table model
@@ -78,7 +78,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 
         // create search bar and filter by section
         JPanel searchPanel = new JPanel(new BorderLayout());
-        JLabel searchLabel = new JLabel("Search: ");
+        JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
         searchField = new JTextField();
         searchField.addActionListener(this);
         searchPanel.add(searchLabel, BorderLayout.WEST);
@@ -86,7 +86,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 
         //
         JPanel filterPanel = new JPanel(new BorderLayout());
-        JLabel filterLabel = new JLabel("Filter by: ");
+        JLabel filterLabel = new JLabel("Filter by Order Status: ");
         String[] filterOptions = {"All", "Shipped", "Processing", "Delivered", "Canceled"};
         filterBox = new JComboBox<>(filterOptions);
         filterBox.addActionListener(this);
@@ -111,31 +111,56 @@ public class OrderGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
    
-    //filters the table based on search query or selected filters
+//    //filters the table based on search query or selected filters
+//    private void filterTable() {
+//    	// Get the search query and filter option from the GUI elements
+//    	String searchQuery = searchField.getText().trim();
+//    	String filterOption = (String) filterBox.getSelectedItem();
+//
+//    	
+//    	// Create a TableRowSorter for the JTable
+//    	TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+//    	table.setRowSorter(sorter);
+//
+//    	// Set up the filter
+//    	ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>();
+//    	filters.add(RowFilter.regexFilter("(?i)" + searchQuery)); // Case-insensitive search query filter
+//
+//    	if (filterOption != "All") {
+//    	    // Create a filter for the selected Order Status
+//    	    RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("(?i)" + filterOption, 3); 
+//    	    filters.add(statusFilter);
+//    	}
+//
+//    	// Apply the filters to the TableRowSorter
+//    	sorter.setRowFilter(RowFilter.andFilter(filters));
+//            
+//        }
+    
+  //filters the table based on search query or selected filters
     private void filterTable() {
-    	// Get the search query and filter option from the GUI elements
-    	String searchQuery = searchField.getText().trim();
-    	String filterOption = (String) filterBox.getSelectedItem();
+        // Get the search query and filter option from the GUI elements
+        String searchQuery = searchField.getText().trim();
+        String filterOption = (String) filterBox.getSelectedItem();
 
-    	
-    	// Create a TableRowSorter for the JTable
-    	TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
-    	table.setRowSorter(sorter);
+        // Create a TableRowSorter for the JTable
+        TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
+        table.setRowSorter(sorter);
 
-    	// Set up the filter
-    	ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>();
-    	filters.add(RowFilter.regexFilter("(?i)" + searchQuery)); // Case-insensitive search query filter
+        // Set up the filter
+        ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>();
+        filters.add(RowFilter.regexFilter("(?i)" + searchQuery, 0, 1)); // Case-insensitive search query filter in columns 0 and 1
 
-    	if (filterOption != "All") {
-    	    // Create a filter for the selected Order Status
-    	    RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("(?i)" + filterOption, 3); 
-    	    filters.add(statusFilter);
-    	}
-
-    	// Apply the filters to the TableRowSorter
-    	sorter.setRowFilter(RowFilter.andFilter(filters));
-            
+        if (!filterOption.equals("All")) {
+            // Create a filter for the selected Order Status
+            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("(?i)" + filterOption, 3);
+            filters.add(statusFilter);
         }
+
+        // Apply the filters to the TableRowSorter
+        sorter.setRowFilter(RowFilter.andFilter(filters));
+    }
+
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -146,7 +171,7 @@ public class OrderGUI extends JFrame implements ActionListener {
     		}
     		}
     
-//    public static void main(String[] args) throws SQLException {
-//		new OrderGUI();
-//	}
+    public static void main(String[] args) throws SQLException {
+		new OrderGUI();
+	}
 }
