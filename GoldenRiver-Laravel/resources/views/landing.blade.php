@@ -71,15 +71,6 @@
     </div>
     </div>
 
-
-        <!-- <div class="featured-container">
-            <a href="/product/39" class="featured-item"><div id="featured1"></div><p class="featured-text">Solitaire Squared Set</p></a>
-            <a href="/product/43" class="featured-item"><div id="featured2"></div><p class="featured-text">Evergreen Stonework Set</p></a>
-            <a href="/product/22" class="featured-item"><div id="featured3"></div><p class="featured-text">Pearl Bracelet</p></a>
-            <a href="/product/23" class="featured-item"><div id="featured4"></div><p class="featured-text">Golden Slider Bracelet</p></a>
-            <a href="/product/6" class="featured-item"><div id="featured5"></div><p class="featured-text">White and Blue Crystal Necklace</p></a>
-        </div> -->
-
         <!-- Sustainability -->
         <div class="sustainability-container">
             <div id="sustainability-img" class="sustainability-content"></div>
@@ -87,14 +78,3 @@
         </div>
     </section>
 @endsection 
-
-<!-- 
-    To Do: 
-
-1. Update category links to product category pages
-2. Update banner for once about page is completed
-3. Make page responsive for mobile devices
-
-
-
--->

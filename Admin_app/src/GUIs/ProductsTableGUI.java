@@ -29,6 +29,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 
     public ProductsTableGUI() throws SQLException{
         setTitle("All Products");
+        setIconImage(new ImageIcon("Image_Icon/Favicon.jpg").getImage());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(1400, 600);
         contentPane = new JPanel();
