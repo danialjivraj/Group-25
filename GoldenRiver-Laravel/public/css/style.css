@@ -91,11 +91,19 @@ body {
 }
   
   /* *nav bar header* */
+  .navcontainer{
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
 .completenavbar{
     overflow: hidden;
     background-color: #191c40;
     padding : 0 0 27px 0;
     height: 15vh;
+    width: 100%;
 }
 
 .navbar_item {
@@ -484,7 +492,7 @@ body {
 .basketheader{
     text-align: center;
     font-weight: bold;
-    font-family: inherit;
+    font-family: cambria math;
     padding: 20px;
 }
 
@@ -671,8 +679,11 @@ input[type="text"] {
     --border-radius: 4px;
 
 }
-h1{
-    font-family: cambria math;
+.form__title{
+    font: 500 1rem 'Quicksand', cambria math;
+    font-weight: 600;
+    font-size: 30px;
+    padding: 1rem;
 }
 
 .reg__container{
@@ -694,14 +705,11 @@ h1{
     font: 500 1rem 'Quicksand', cambria math;
 }
 
-.form__input-group{
-    margin-bottom: 1rem;
-}
 
 .form__input{
     display: block;
     width: 100%;
-    padding: 0.75rem;
+    padding: 1rem;
     box-sizing: border-box;
     border-radius: var(--border-radius);
     border: 1px solid #dddddd;
@@ -747,24 +755,3 @@ text-align: center;
 .form__link:hover{
     text-decoration:underline;
 }
-
-.login__container{
-    --color-primary: #b29758;
-    --color-primary-dark:#c8b17a;
-    --border-radius: 4px;
-}
-
-.login__container{
-    width: 400px;
-    max-width: 500px;
-    margin: 1rem;
-    padding: 2rem;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-    border-radius: var(--border-radius);
-    background: #ffffff;
-    margin: auto;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
-    font-family:Cambria math !important ; 
-}
-
