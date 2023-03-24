@@ -26,13 +26,14 @@ class BasketController extends Controller
                 'Account_ID' => Auth::user()->id,
                 ], [
                 'Account_ID' => Auth::user()->id,
-                'Address_ID' => Auth::user()->id,
                 'ZIP' => "pending",
                 'City' => "pending",
                 'Country' => "pending",
                 'Street' => "pending",
                 'County' => "pending",
                 ]);
+
+        $address = Address::where('Account_ID', Auth::user()->id)->first();
 
         // Check if order exists in the database. If so, only increase the Order_Total_Price.
         $basketE = Order::where('Account_ID', Auth::user()->id)
@@ -43,7 +44,7 @@ class BasketController extends Controller
         // Create a new order if it doesn't exist
         $order = new Order;
         $order->Account_ID = Auth::user()->id;
-        $order->Address_ID = Auth::user()->id;
+        $order->Address_ID = $address->Address_ID;
         $order->Order_Status = 'Basket';
         $order->Order_Total_Price = $productPrice * $request->qty;
         $order->save();
@@ -100,7 +101,6 @@ class BasketController extends Controller
 
                 $removedProductPrice = $product->Product_Price * $product->pivot->Amount;
                 $order->Order_Total_Price -= $removedProductPrice;
-                //if the line below causes problems move maybe move it outside the loop
                 $order->save();
 
                 session()->flash('cartstockmsg', 'Product ' . $product->Product_Name . ' is no longer available and has been removed from your basket.');
@@ -108,8 +108,7 @@ class BasketController extends Controller
         }
 
         //AddressID is the same as UserID
-        $address = Address::findOrFail(Auth::id());
-
+        $address = Address::where('Account_ID', Auth::user()->id)->first();
 
 
         return view('cart', [

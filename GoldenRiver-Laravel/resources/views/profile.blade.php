@@ -28,10 +28,10 @@
     </div>
     @endif
 
-    <h1>Account</h1>
+    <h1 class="basketheader">Account</h1>
 
     <div class="reg__container form-box">
-        <div style="margin-bottom: 10px;">
+        <div class="margin_space">
             Update Your Information
         </div>
         <form method="POST" action="{{ route('user.update.name.email', Auth::user()->id) }}">
@@ -40,12 +40,15 @@
             <div class="form__input-group">
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required autofocus maxlength="30" class="form__input" placeholder="Change your name...">
+                <div id="name-error"></div>
             </div>
             <div class="form__input-group" style="margin-top: 10px;">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
+              
+                <div id="email-error"></div>
             </div>
-            <div class="form__input-group" style="margin-top: 20px;">
+            <div class="form__input-group">
                 <button type="submit" name="update_emailname" class="form__button">Update!</button>
             </div>
         </form>
@@ -58,7 +61,7 @@
     </div>
 
     <div class="reg__container form-box">
-        <div style="margin-bottom: 10px;">
+        <div class="margin_space">
             Update Your Password
         </div>
         <form method="POST" action="{{ route('user.update.password', Auth::user()->id) }}">
@@ -71,9 +74,9 @@
             <div class="form__input-group" style="margin-top: 10px;">
                 <label for="password-confirm">Confirm Password</label>
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
-                <div id="error-message" style="color: red;"></div>
+                <div id="error-message"></div>
             </div>
-            <div class="form__input-group" style="margin-top: 20px;">
+            <div class="form__input-group2">
                 <button id="update-password-button" type="submit" name="update_password" disabled class="form__button">Update!</button>
             </div>
         </form>
@@ -83,6 +86,7 @@
         </div>
         @endif
     </div>
+
 
     <section class="ftco-section">
         <div class="container">
@@ -110,7 +114,12 @@
                                     <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                     <td class="status">
                                         <span>Status:</span>
-                                        <span class="status-label">{{ $order->Order_Status }}</span>
+                                        <span class="status-label" style="background-color: {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
+                                        ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue')) }}">
+                                            {{ $order->Order_Status }}
+                                            <!-- Ignore errors, works fine -->
+                                        </span>
+
                                     </td>
                                     <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
                                 </tr>
@@ -138,9 +147,9 @@
 
     @if(session('success'))
     <div class="alert alert-success"><br><br><br><br><br>
-       <h1> {{ session('success') }} </h1>
+        <h1> {{ session('success') }} </h1>
     </div>
-    
+
     @endif
     <br>
     <p>{{ __('Please login again to view your information and orders!') }}</p>
@@ -149,4 +158,5 @@
     @endif
 
     <script src="{{ asset('js/passwordAuthentication.js') }}"></script>
+    <script src="{{ asset('js/nameEmailAuthentication.js') }}"></script>
     @endsection

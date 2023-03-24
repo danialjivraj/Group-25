@@ -27,19 +27,22 @@
               craftsmanship and sustainability sets us apart from the
             rest and makes our jewellery the best choice for those who appreciate quality and style. </p>
 
-            <div class="image">
-      <img src="images/aboutus/aboutimagee.jpg">
-    </div>
-    <h2 style="text-align: center;">Our Mission</h2>
+          <div class="image">
+            <img src="images/aboutus/aboutimagee.jpg">
+          </div>
+          <h2 style="text-align: center;">Our Mission</h2>
           <p>Our mission is to provide our customers with the best possible experience when it comes to buying jewellery. We offer a wide selection of styles, materials, and price points to meet the needs of every customer. We pride ourselves on our exceptional customer service and attention to detail.</p>
           <div class="image">
-      <img src="images/aboutus/ourmisson.jpg">
-    </div>
-    <h2 style="text-align: center;">Our Team</h2>
-          <p>Our team consists of skilled designers, craftspeople, and salespeople who are passionate about jewellery. We work closely together to ensure that each piece of jewellery we sell is of the highest quality and meets our customers' expectations.</p>
-          <div class="image2">
-      <img src="images/aboutus/team.jpg"  class="no-border">
-    </div>
+            <img src="images/aboutus/ourmisson.jpg">
+          </div>
+          <h2 style="text-align: center;">Our Team</h2>
+            <p>Our team consists of skilled designers, craftspeople, and salespeople who are passionate about jewellery. We work closely together to ensure that each piece of jewellery we sell is of the highest quality and meets our customers' expectations.</p>
+          <!--<div class="image2">
+            <img src="images/aboutus/team.jpg"  class="no-border">
+          </div>-->
+          <div class="image">
+            <img src="images/aboutus/ourteam.jpg">
+          </div>
         </div>
       </section>
     </main>

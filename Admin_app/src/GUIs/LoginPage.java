@@ -24,6 +24,7 @@ public class LoginPage  implements ActionListener {
 	private JTextField loginTx,passTx;
 	 private JLabel labelInfo1Login,labelInfo2Password;
 	 private JButton ChButton;
+
 	 //variables
 	public LoginPage() {
 		frame=new JFrame();
@@ -76,7 +77,7 @@ public class LoginPage  implements ActionListener {
 				            "Sys",
 				            JOptionPane.INFORMATION_MESSAGE);
 					
-					new ProductsManipulator();
+					new ProductsManipulator(loginTx.getText());
 					frame.dispose();
 				}
 				else {

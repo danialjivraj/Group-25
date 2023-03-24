@@ -63,15 +63,8 @@ Route::get('/homePage', function () {
 
 Route::get('/cart', function () {
     return view('cart');
-});
+})->middleware('protectPages');
 
-// Route::get('/nav', function () {
-//     return view('/partials/nav');
-// });
-
-// Route::get('/footer', function () {
-//     return view('/partials/footer');
-// });
 
 Route::get('/bracelets', function () {
     return view('/categories/bracelets');
@@ -129,6 +122,14 @@ Route::get('/cart',[BasketController::class,'showCart']);
 Route::get('/removefrombasket/{id}',[BasketController::class,'removeBasket']);
 //Route::delete('/basket/{id}', 'BasketController@removeBasket')->name('basket.remove');
 
-Route::post('/checkout', [CheckoutController::class, 'processCheckout']);
+Route::get('/checkout', function () {
+    return redirect('login');
+});
+
+Route::post('/checkout', [CheckoutController::class, 'processCheckout'])->name('checkout');;
+
+Route::get('/order-summary/{order_id}', [CheckoutController::class, 'showOrderSummary'])
+    ->name('order-summary')
+    ->middleware('protectPages');
 
 

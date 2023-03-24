@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Address;
 use App\Models\User;
+use App\Models\Product;
 use App\Models\OrderItem;
 
 class CheckoutController extends Controller
@@ -24,34 +25,64 @@ class CheckoutController extends Controller
         ]);
 
         $user = User::find(Auth::user()->id);
-        //dd($user);
         $user->Phone_Number = $request->Phone_Number;
         $user->save();
 
-        //To do: check if Address details already exists.
-        $address = Address::find(Auth::user()->id);
-        $address->Street = $request->Street;
-        $address->City = $request->City;
-        $address->County = $request->County;
-        $address->Country = $request->Country;
-        $address->ZIP = $request->Post_Code;
-        $address->save();
+          // Get or create the user's address
+        Address::updateOrCreate(
+            ['Account_ID' => $user->id],
+            [
+                'Street' => $request->Street,
+                'City' => $request->City,
+                'County' => $request->County,
+                'Country' => $request->Country,
+                'ZIP' => $request->Post_Code,
+            ]
+        );
+        $order = Order::where('Account_ID', auth()->user()->id)
+        ->where('Order_Status', 'Basket')
+        ->first();
 
-        $order_ID = Order::where('Account_ID', auth()->user()->id)
-       ->where('Order_Status', 'Basket')
-       ->value('Order_ID');
-
-       $order = Order::find($order_ID);
-       $order->Order_Status = 'Processing';
-       $order->save();
+        $order->Order_Status = 'Processing';
+        $order->save();
 
         // Retrieve the order items for the current order
-        $orderItems = OrderItem::where('Order_ID', $order->Order_ID)->get();
+        $orderItems = $order->orderItems;
+
+           // Deduct the ordered quantities from the product stock
+        foreach ($orderItems as $item) {
+         $product = Product::find($item->Product_ID);
+         $product->Amount -= $item->Amount;
+         $product->save();
+         }
+
+        return redirect()->route('order-summary', ['order_id' => $order->Order_ID]);
+    }
+
+
+    public function showOrderSummary($order_id){
+        if(Auth::check()){
+        $user = Auth::user();
+        $order = Order::where('Account_ID', $user->id)
+        ->where('Order_ID', $order_id)
+        ->where('Order_Status', 'Processing')
+        ->first();
+
+
+        if(!$order){
+            return redirect("/product");
+        }
+
+        $orderItems = $order->orderItems;
+        $address = Address::where('Account_ID', $user->id)->first();
 
         return view('order-summary')->with([
             'order' => $order,
             'orderItems' => $orderItems,
             'address' => $address,
         ]);
+    } else{
+        return redirect("/cart")->with('checkouterr', 'An error has occured while checking out');
+    }
     }
 }

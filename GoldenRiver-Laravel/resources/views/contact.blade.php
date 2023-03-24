@@ -30,10 +30,11 @@
         </form>
       </div>
       <div class="reach-us">
-        <p><strong>Reach Us</strong></p>
-        <p>Email: info@goldenriver.com</p>
-        <p>Phone: +44 123 456 7890</p>
+        <br><h2><strong>Reach Us</strong></h2><br><br>
+        <p><b>Email:</b><br> <small>info@goldenriver.com</small></p><br>
+        <p><b>Phone:</b><br> <small>+44 123 456 7890</small></p><br>
         <p>For general queries, visit our <a href="faq"><u>FAQ</u></a> page.</p>
+      </div>
 
     </main>
   </body>
