@@ -544,16 +544,17 @@ body {
 #sustainability-img {
     background-image: url("https://cdn.pixabay.com/photo/2023/02/14/18/55/flowers-7790227_960_720.jpg");
     background-position: center;
+    background-size: cover;
 }
 
 #sustainbility-txt {
-    color: #b29758;
+    color: #000;
     height: fit-content;
     min-height: 170px;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: #191c40;
+    background-color: #e0e0e0;
 }
 
 @media screen and (max-width: 799px) {
