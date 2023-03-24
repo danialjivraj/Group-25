@@ -777,7 +777,6 @@ input[type="text"] {
     font: 500 1rem 'Quicksand', cambria math;
     font-weight: 600;
     font-size: 30px;
-    padding: 1rem;
 }
 
 .reg__container{
@@ -795,9 +794,9 @@ input[type="text"] {
 
 .errorlog {
   position: absolute;
-  height: 20px;
+  height: 10px;
   font-size: 14px;
-  margin-top: -10px;
+  margin-top: -17px;
 }
 
 .error {
@@ -830,7 +829,7 @@ button[disabled] {
 .form__input{
     display: block;
     width: 100%;
-    padding: 1rem;
+    padding:1rem;
     box-sizing: border-box;
     border-radius: var(--border-radius);
     border: 1px solid #dddddd;
