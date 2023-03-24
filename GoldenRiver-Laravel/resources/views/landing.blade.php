@@ -2,40 +2,83 @@
 
 @section('css')
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script type="text/javascript" src="js/components/landing.js"></script>
 @endsection
 
 @section('body')
 <section class="main-viewport">
-        <!-- landing images -->
-        <div class="viewport-container">
-            <div class="main">
-                <a href="/product" id="main-button">View All Products</a>
-            </div>
-            <!-- <a href="/product" class="main"><div id="main-text">View All Products</div></a> -->
-            <div class="viewport-subcontainer">
-                <div class="diamond"><a href="/product">Shop Diamond Jewellery</a></div>
-                <div class="gold"><a href="/product">Shop Gold Jewellery</a></div>
-            </div>
+    <!-- landing images -->
+    <div class="viewport-container">
+        <div class="main">
+            <a href="/product" id="main-button">View All Products</a>
         </div>
+        <!-- <a href="/product" class="main"><div id="main-text">View All Products</div></a> -->
+        <div class="viewport-subcontainer">
+            <div class="diamond"><a href="/product">Shop Diamond Jewellery</a></div>
+            <div class="gold"><a href="/product">Shop Gold Jewellery</a></div>
+        </div>
+    </div>
 
-        <!-- category -->
-        <div class="category-container">
-            <!-- category product pages not completed yet -->
-            <a href="/product?filter_by_category=8" class="category-item"><div id="rings"></div><p class="category-text">Rings</p></a>
-            <a href="/product?filter_by_category=6" class="category-item"><div id="necklaces"></div><p class="category-text">Necklaces</p></a>
-            <a href="/product?filter_by_category=5" class="category-item"><div id="earrings"></div><p class="category-text">Earrings</p></a>
-            <a href="/product?filter_by_category=7" class="category-item"><div id="bracelets"></div><p class="category-text">Bracelets</p></a>
-            <a href="/product?filter_by_category=9" class="category-item"><div id="exclusiveSets"></div><p class="category-text">Exclusive Sets</p></a>
+    <!-- category -->
+    <div class="category-container">
+    <div class="category-track" data-mouse-down-at="0" data-prev-percentage="0">
+        <div class="category-item">
+            <img class="category-image" src="../images/allProductImages/34.jpg" draggable="false">
+            <a href="/product?filter_by_category=8">Rings</a>
         </div>
-        
-        <!-- featured -->
-        <div class="featured-container">
+        <div class="category-item">
+            <img class="category-image" src="../images/allProductImages/4.jpg" draggable="false">
+            <a href="/product?filter_by_category=6">Necklaces</a>
+        </div>
+        <div class="category-item">
+            <img class="category-image" src="../images/allProductImages/16.jpg" draggable="false">
+            <a href="/product?filter_by_category=5">Earrings</a>
+        </div>
+        <div class="category-item">
+            <img class="category-image" src="../images/allProductImages/22.jpg" draggable="false">
+            <a href="/product?filter_by_category=7">Bracelets</a>
+        </div>
+        <div class="category-item">
+            <img class="category-image" src="../images/allProductImages/38.jpg" draggable="false">
+            <a href="/product?filter_by_category=9">Exclusive Sets</a>
+        </div>
+    </div>
+    </div>
+
+    <!-- Featured -->
+    <div class="featured-container">
+    <div class="featured-track" data-mouse-down-at="0" data-prev-percentage="0">
+        <div class="featured-item">
+            <img class="featured-image" src="../images/allProductImages/39.jpg" draggable="false">
+            <a href="/product/39">Solitaire Squared Set</a>
+        </div>
+        <div class="featured-item">
+            <img class="featured-image" src="../images/allProductImages/43.jpg" draggable="false">
+            <a href="/product/43">Evergreen Stonework Set</a>
+        </div>
+        <div class="featured-item">
+            <img class="featured-image" src="../images/allProductImages/22.jpg" draggable="false">
+            <a href="/product/22">Pearl Bracelet</a>
+        </div>
+        <div class="featured-item">
+            <img class="featured-image" src="../images/allProductImages/23.jpg" draggable="false">
+            <a href="/product/23">Golden Slider Bracelet</a>
+        </div>
+        <div class="featured-item">
+            <img class="featured-image" src="../images/allProductImages/6.jpg" draggable="false">
+            <a href="/product/6">White and Blue Crystal Necklace</a>
+        </div>
+    </div>
+    </div>
+
+
+        <!-- <div class="featured-container">
             <a href="/product/39" class="featured-item"><div id="featured1"></div><p class="featured-text">Solitaire Squared Set</p></a>
             <a href="/product/43" class="featured-item"><div id="featured2"></div><p class="featured-text">Evergreen Stonework Set</p></a>
             <a href="/product/22" class="featured-item"><div id="featured3"></div><p class="featured-text">Pearl Bracelet</p></a>
             <a href="/product/23" class="featured-item"><div id="featured4"></div><p class="featured-text">Golden Slider Bracelet</p></a>
             <a href="/product/6" class="featured-item"><div id="featured5"></div><p class="featured-text">White and Blue Crystal Necklace</p></a>
-        </div>
+        </div> -->
 
         <!-- Sustainability -->
         <div class="sustainability-container">
