@@ -80,7 +80,7 @@
                 </div>
                 
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 3-->
+            <div class="col-sm-12 col-md-12 col-lg-3"><!--sec 3-->
                 <form method="get" action="{{ 'product' }}" class="filter-form">
                     <label for="category-select" class="form-label">Category:</label>
                     <select name="filter_by_category" id="category-select" class="form-select">
@@ -93,6 +93,12 @@
                     <label for="stock-checkbox" class="form-label">In Stock:</label>
                     <input type="checkbox" id="stock-checkbox" name="filter_by_stock" value="1" class="form-checkbox">
 
+                    <!--<button type="submit" class="form-button">Filter</button>
+                    <a href="/product" class="form-link">Clear Filters</a>-->
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-2"><!--sec 4-->
+                <form method="get" action="{{ 'product' }}" class="filter-form">
                     <button type="submit" class="form-button">Filter</button>
                     <a href="/product" class="form-link">Clear Filters</a>
                 </form>

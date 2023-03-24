@@ -37,7 +37,7 @@
     </div>
     -->
 
-    <nav class="footercontainer">
+    <nav class="navcontainer">
 		<div class="logo">
 			<img src="{{asset('images/logo.png')}}" alt="Logo">
 		</div>
@@ -60,7 +60,7 @@
 			
 		</ul>
 
-
+    </nav>
 
 
 </header>
