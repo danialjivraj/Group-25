@@ -26,7 +26,7 @@
         </form>
     </div>
 
-    <hr> 
+    <hr>
     <a href="{{ URL::current() }}" class="filter-option">All</a>
     <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
     <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
@@ -59,7 +59,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-2"><!--sec 1-->
-                
+
                 <div class="search-container">
                     <form class="search-form" type="get" action="{{ url('/product') }}">
                         @csrf
@@ -78,7 +78,7 @@
                     <a href="{{ URL::current()."?sort=prod_cat" }}" class="filter-option">Category</a>
                     <a href="{{ URL::current()."?sort=popularity" }}" class="filter-option">Popularity</a>
                 </div>
-                
+
             </div>
             <div class="col-sm-12 col-md-12 col-lg-3"><!--sec 3-->
                 <form method="get" action="{{ 'product' }}" class="filter-form">
@@ -93,16 +93,16 @@
                     <label for="stock-checkbox" class="form-label">In Stock:</label>
                     <input type="checkbox" id="stock-checkbox" name="filter_by_stock" value="1" class="form-checkbox">
 
-                    <!--<button type="submit" class="form-button">Filter</button>
-                    <a href="/product" class="form-link">Clear Filters</a>-->
-                </form>
-            </div>
-            <div class="col-sm-12 col-md-12 col-lg-2"><!--sec 4-->
-                <form method="get" action="{{ 'product' }}" class="filter-form">
                     <button type="submit" class="form-button">Filter</button>
                     <a href="/product" class="form-link">Clear Filters</a>
                 </form>
             </div>
+            <!-- <div class="col-sm-12 col-md-12 col-lg-2">sec 4-->
+                <!-- <form method="get" action="{{ 'product' }}" class="filter-form">
+                    <button type="submit" class="form-button">Filter</button>
+                    <a href="/product" class="form-link">Clear Filters</a>
+                </form>
+            </div>  -->
         </div>
 
     </div>
