@@ -28,7 +28,7 @@
     </div>
     @endif
 
-    <h1>Account</h1>
+    <h1 class="basketheader">Account</h1>
 
     <div class="reg__container form-box">
         <div class="margin_space">

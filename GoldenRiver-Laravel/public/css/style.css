@@ -663,6 +663,7 @@ body{
 .basketheader{
     text-align: center;
     font-weight: bold;
+    font-size: 38px;
     font-family: inherit;
     padding: 20px;
 }
@@ -855,7 +856,7 @@ h1{
 }
 
 .reg__container{
-    width: 400px;
+    width: 80%;
     max-width: 500px;
     margin: 1rem;
     padding: 2rem;
@@ -864,7 +865,7 @@ h1{
     background: #ffffff;
     margin: auto;
     margin-bottom: 5rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .errorlog {
