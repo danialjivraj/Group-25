@@ -15,7 +15,7 @@
     <form class="form" form action="/userRegistration" method="post" class="signin-inputs" id="registration">
         @csrf
         <div class="form__input-group">
-            <input type="text" class="form__input" name="Fullname" placeholder="Full Name" required /><br>
+            <input type="textBox" class="form__input" name="Fullname" placeholder="Full Name" required /><br>
             <div class="errorlog">
 
                 <br>
