@@ -35,10 +35,7 @@
                         <div class="form__input-group">
                             <input type="email" class="form__input" name="email" placeholder="Email Address"  required /><br>
                             <div class="errorlog">
-                                            @error('email')
-                                            {{ $message }}
-                                            <br>
-                                            @enderror
+ 
                             </div>
                             </div>
                         <div class="form__input-group">

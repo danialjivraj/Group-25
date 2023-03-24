@@ -340,6 +340,21 @@
 }
 
 @media (max-width: 768px) {
+  .filter-form button[type="submit"],
+  .filter-form a.form-link {
+    background-color: #c4c2c2;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
   .productname {
     font-size: 12px;
   }
