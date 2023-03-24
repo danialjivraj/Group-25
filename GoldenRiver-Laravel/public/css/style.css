@@ -338,8 +338,9 @@ body{
 #main-button {
     position: relative;
     margin: 0 auto;
-    height: 40px;
-    width: 200px;
+    height: fit-content;
+    width: fit-content;
+    padding: 1%;
     font-size: 20px;
     text-decoration: none;
     color: #000;
@@ -392,8 +393,9 @@ body{
 .diamond a {
     position: relative;
     margin: 0 auto;
-    height: 40px;
-    width: 260px;
+    height: fit-content;
+    width: fit-content;
+    padding: 1%;
     font-size: 20px;
     text-decoration: none;
     color: #000;
@@ -425,8 +427,9 @@ body{
 .gold a {
     position: relative;
     margin: 0 auto;
-    height: 40px;
-    width: 260px;
+    height: fit-content;
+    width: fit-content;
+    padding: 1%;
     font-size: 20px;
     text-decoration: none;
     color: #000;
@@ -446,7 +449,7 @@ body{
 }
 
 
-/* category */
+/* Category */
 
 .category-container {
     margin: 0 auto;
@@ -534,6 +537,8 @@ body{
     background-size: cover;
     background-position-y: center;
 }
+
+/* Featured  */
 
 .featured-container {
     margin: 0 auto;
@@ -635,12 +640,17 @@ body{
     padding-bottom: 30px;
 }
 
+.sustainability-container > div {
+    width: 30%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
 .sustainability-content {
     width: 30%;
-    height: 250px;  
     margin-top: 20px;
     margin-bottom: 90px;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    
 }
 
 #sustainability-img {
@@ -650,10 +660,22 @@ body{
 
 #sustainbility-txt {
     color: #b29758;
+    height: fit-content;
+    min-height: 170px;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     background-color: #191c40;
+}
+
+@media screen and (max-width: 799px) {
+    #sustainability-img {
+        display: none;
+    }
+
+    #sustainbility-txt {
+        width: fit-content;
+    }
 }
 
 
