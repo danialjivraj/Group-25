@@ -64,11 +64,13 @@
                 <form class="search-form" type="get" action="{{ url('/product') }}">
                     @csrf
                     <div class="search-box">
-                        <input class="search-input" type="text" name="search" id="search" name="search" placeholder="Search...">
+                        <input class="search-input" type="text" name="search" id="search" placeholder="Search..." value="{{ isset($searchTerm) ? $searchTerm : '' }}">
                         <button class="search-submit" type="submit"><i class="fa fa-search"></i></button>
                     </div>
                 </form>
+
             </div>
+
         </div>
         <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 2-->
             <div class="filtersection2">

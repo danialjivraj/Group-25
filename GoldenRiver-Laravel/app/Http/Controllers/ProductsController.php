@@ -13,41 +13,44 @@ class ProductsController extends Controller
     {
         $perPage = 16; // Number of products to display per page
         $query = Product::query();
-    
+
+        $searchTerm = $request->input('search');
+
         // Apply search filter if query present
-        if ($request->has('search')) {
-            $query->where(function ($query) use ($request) {
-                $query->where('Product_Name', 'like', '%' . $request->input('search') . '%')
-                    ->orWhere('Description', 'like', '%' . $request->input('search') . '%');
+        if ($searchTerm) {
+            $query->where(function ($query) use ($searchTerm) {
+                $query->where('Product_Name', 'like', '%' . $searchTerm . '%')
+                    ->orWhere('Description', 'like', '%' . $searchTerm . '%');
             });
         }
-    
+
         // Apply filters
         if ($request->filter_by_category != null || $request->filter_by_stock != null) {
             $query->where('Category_ID', $request->filter_by_category ?? 0)
                 ->where('Amount', '>=', $request->filter_by_stock ?? 0);
         }
-    
+
         // Apply sorting
         if ($request->get('sort') == 'price_ascending') {
             $query->orderBy('Product_Price', 'asc');
-        } elseif ($request->get('sort') =='price_descending') {
+        } elseif ($request->get('sort') == 'price_descending') {
             $query->orderBy('Product_Price', 'desc');
-        } elseif ($request->get('sort') =='prod_cat') {
+        } elseif ($request->get('sort') == 'prod_cat') {
             $query->orderBy('Category_ID', 'asc');
-        } elseif ($request->get('sort') =='popularity') {
+        } elseif ($request->get('sort') == 'popularity') {
             $query->orderBy('Amount', 'asc');
         }
-    
-        $searchTerm = $request->input('search');
-        $products = $query->paginate($perPage);
-        $products->appends(['search' => $searchTerm]); // Add search term to pagination links
-    
-        return view('product', ['products' => $products]);
-    }
-    
-    
 
+        $products = $query->paginate($perPage);
+
+        // Add sort parameter to pagination links
+        $products->appends([
+            'search' => $searchTerm,
+            'sort' => $request->get('sort'),
+        ]);
+
+        return view('product', ['products' => $products, 'searchTerm' => $searchTerm]);
+    }
 
     public function aProduct($Product_ID)
     {
@@ -62,10 +65,9 @@ class ProductsController extends Controller
             $product = Product::where('Product_Name', 'LIKE', '%' . $search . '%')
                 ->orWhere('Description', 'LIKE', '%' . $search . '%')
                 ->get();
-           return view('/search', compact('product'));
+            return view('/search', compact('product'));
         } else {
             return redirect('/product');
         }
     }
-    
 }
