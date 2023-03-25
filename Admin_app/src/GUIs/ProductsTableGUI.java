@@ -52,6 +52,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         model.addColumn("Stock");
         model.addColumn("In/Out of/Low Stock");
         model.addColumn("Description");
+        model.addColumn("More Details");
 
 
         // Add data to the table model
@@ -62,7 +63,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
             	String amount = rs.getString("Amount");
                 Object[] row = new Object[]{
                         rs.getInt("Product_ID"),
-                        rs.getString("Category_ID"),
+                        dba.getCategoryName(rs.getString("Category_ID")),
                         rs.getString("Product_Name"),
                         "\u00A3"+ rs.getString("Product_Price"),
                         amount,
@@ -95,7 +96,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         //
         JPanel filterPanel = new JPanel(new BorderLayout());
         JLabel filterLabel = new JLabel("Filter by Categories: ");
-        String[] filterOptions = {"All", "5", "6", "7", "8", "9"};
+        String[] filterOptions = {"All", "Earrings", "Necklace", "Bracelets", "Rings", "Exclusive sets"};
         filterBox = new JComboBox<>(filterOptions);
         filterBox.addActionListener(this);
         filterPanel.add(filterLabel, BorderLayout.WEST);
@@ -149,7 +150,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 
         if (!filterOption.equals("All")) {
             // Create a filter for the selected Order Status
-            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("(?i)" + filterOption, 1);
+            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("^" + filterOption + "$", 1);
             filters.add(statusFilter);
         }
 

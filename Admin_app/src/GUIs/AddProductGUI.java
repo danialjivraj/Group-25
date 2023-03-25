@@ -100,7 +100,7 @@ public class AddProductGUI implements ActionListener {
 		
 		frame.add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		frame.setTitle("Main menu");
+		frame.setTitle("Add a Product");
 		frame.pack();
 		frame.setVisible(true);
 		addProduct.addActionListener(this);

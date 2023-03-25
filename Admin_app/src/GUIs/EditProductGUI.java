@@ -73,7 +73,7 @@ public class EditProductGUI implements ActionListener {
 	
 	frame.add(panel,BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setTitle("Product editor");
+	frame.setTitle("Edit a Product");
 	frame.pack();
 	frame.setVisible(true);
 }

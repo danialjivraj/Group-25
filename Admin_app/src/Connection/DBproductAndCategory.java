@@ -136,5 +136,22 @@ public class DBproductAndCategory extends DataBaseConn{
 		    ResultSet rs = getStmt().executeQuery(sql);
 		    return rs;
 	}
+	
+	public String getCategoryName(String categoryId) {
+	    switch (categoryId) {
+	        case "5":
+	            return "Earrings";
+	        case "6":
+	            return "Necklace";
+	        case "7":
+	            return "Bracelets";
+	        case "8":
+	            return "Rings";
+	        case "9":
+	            return "Exclusive sets";
+	        default:
+	            return "Unknown category";
+	    }
+	}
 
 }
