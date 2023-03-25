@@ -12,11 +12,7 @@
 
 @section('body')
 
-@if (session('loginToAddCart'))
-    <div class="alert alert-danger">
-        {{ session('loginToAddCart') }}
-    </div>
-@endif
+
 <div class="container">
     <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12">
@@ -35,7 +31,10 @@
                         <div class="form__input-group">
                             <input type="email" class="form__input" name="email" placeholder="Email Address"  required /><br>
                             <div class="errorlog">
- 
+                                            @error('email')
+                                            {{ $message }}
+                                            <br>
+                                            @enderror
                             </div>
                             </div>
                         <div class="form__input-group">

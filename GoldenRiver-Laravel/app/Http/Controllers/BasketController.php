@@ -15,7 +15,7 @@ class BasketController extends Controller
     public function addToBasket(Request $request){
         //dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
     if (!Auth::check()) {
-            return redirect('login')->with('loginToAddCart', 'You need to Login to add to Cart');
+            return redirect()->back()->with('loginToAddCart', 'You need to Login to add to Cart');
     }
 
         $productPrice = Product::where('Product_ID', $request->Product_ID)
