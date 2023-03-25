@@ -57,9 +57,16 @@ public class DBorder extends DataBaseConn{
 	}
 	
 	public ResultSet getAllOrders() throws SQLException {
-	    String sql = "SELECT * FROM orderb";
+	  String sql = "SELECT * FROM orderb";
 	    ResultSet rs = getStmt().executeQuery(sql);
 	    return rs;
 	}
+	
+	public ResultSet getOrderById(String ID) throws SQLException {
+	  String sql = "SELECT * FROM linked_product_order WHERE Order_ID='"+ID+"'";
+	  ResultSet rs = getStmt().executeQuery(sql);
+      return rs;
+	}
+	
 
 }
