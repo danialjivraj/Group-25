@@ -83,6 +83,7 @@
                         <div class="ibox-content">
                             <h4>Address:</h4><br>
                             <!-- add the subtotal here -->
+                            <p>Phone Number: {{ $user->Phone_Number }}</p>
                             <p>House No. & Street Name: <b>{{ $address->Street }}</b></p>
                             <p>City: {{ $address->City }}</p>
                             <p>County: {{ $address->County }}</p>

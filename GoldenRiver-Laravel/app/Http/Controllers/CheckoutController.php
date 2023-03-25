@@ -15,14 +15,14 @@ class CheckoutController extends Controller
 {
     public function processCheckout(Request $request){
 
-        $request->validate([
-            'Phone_Number' => 'required|regex:/^[0-9]{1,12}$/',
-            'Street' => 'required|max:40',
-            'City' => 'required|max:40',
-            'County' => 'required|max:20',
-            'Country' => 'required|max:40',
-            'Post_Code' => 'required|max:10',
-        ]);
+        $request->validate(['Phone_Number' => ['required','regex:/^(\+44|0)7\d{9}$/'],
+        'Street' => 'required|max:40|regex:/^[a-zA-Z0-9\s]+$/',
+        'City' => 'required|max:40|regex:/^[a-zA-Z\s]+$/',
+        'County' => 'required|max:20|regex:/^[a-zA-Z\s]+$/',
+        'Country' => 'required|max:40|regex:/^[a-zA-Z\s]+$/',
+        'Post_Code' => 'required|max:10|regex:/^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][ABD-HJLNP-UW-Z]{2}$/i',
+    ]);
+    
 
         $user = User::find(Auth::user()->id);
         $user->Phone_Number = $request->Phone_Number;
@@ -37,6 +37,7 @@ class CheckoutController extends Controller
                 'County' => $request->County,
                 'Country' => $request->Country,
                 'ZIP' => $request->Post_Code,
+                'Phone_Number' => $request->Phone_Number,
             ]
         );
         $order = Order::where('Account_ID', auth()->user()->id)
@@ -80,6 +81,7 @@ class CheckoutController extends Controller
             'order' => $order,
             'orderItems' => $orderItems,
             'address' => $address,
+            'user' => $user,
         ]);
     } else{
         return redirect("/cart")->with('checkouterr', 'An error has occured while checking out');
