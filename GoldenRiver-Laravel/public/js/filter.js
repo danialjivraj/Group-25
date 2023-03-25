@@ -1,14 +1,14 @@
-// Get the form and its elements
+// this is used to get the form and its elements
 const filterForm = document.querySelector('.filter-form');
 const categorySelect = document.querySelector('#category-select');
 const stockCheckbox = document.querySelector('#stock-checkbox');
 
-// Listen for changes to the form elements
+// this is used for listen for changes to the form elements
 filterForm.addEventListener('submit', (event) => {
   // Prevent the default form submission behavior
   event.preventDefault();
 
-  // Build the query string based on the form element values
+  // i used this to build the query string based on the form element values
   let queryString = '';
   if (categorySelect.value !== '') {
     queryString += `filter_by_category=${categorySelect.value}&`;
@@ -17,15 +17,15 @@ filterForm.addEventListener('submit', (event) => {
     queryString += 'filter_by_stock=1&';
   }
 
-  // Remove the trailing '&' character
+  
   queryString = queryString.slice(0, -1);
 
-  // Update the URL with the new query string
+  // update the URL with the new query string
   const url = `${window.location.pathname}?${queryString}`;
   window.location.href = url;
 });
 
-// Set the initial state of the form elements based on the query string
+// this will set the initial state of the form elements based on the query string
 const queryParams = new URLSearchParams(window.location.search);
 const category = queryParams.get('filter_by_category');
 const inStock = queryParams.get('filter_by_stock');
