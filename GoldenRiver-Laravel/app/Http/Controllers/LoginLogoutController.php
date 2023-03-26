@@ -17,7 +17,7 @@ class LoginLogoutController extends Controller
         auth()->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login')->with('success', 'You\'ve logged out successfully!');
+        return redirect('/login')->with('logoutSuccess', 'You\'ve logged out successfully!');
     }
 
     public function showLogin(Request $request)
@@ -39,9 +39,7 @@ class LoginLogoutController extends Controller
         auth()->attempt($request->only('email', 'password'));
         $request->session()->put('user', $user);
 
-        $request->session()->flash('message', 'You are logged in!');
-
-            return redirect('/product');
+            return redirect('/product')->with('loginSuccessMsg', 'Login Successful!');;
         }
         else{
             return redirect('/login')->with('loginerrmsg', 'Login unsuccessful!');

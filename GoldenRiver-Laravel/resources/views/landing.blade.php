@@ -6,6 +6,9 @@
 @endsection
 
 @section('body')
+
+
+
 <section class="main-viewport">
     <!-- landing images -->
     <div class="viewport-container">

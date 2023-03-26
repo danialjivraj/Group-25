@@ -15,6 +15,11 @@
 
 @section('body')
 
+@if(session()->has('loginSuccessMsg'))
+<div class="alert alert-success" role="alert" id="go-to-basket">
+    {{session()->get('loginSuccessMsg')}}
+</div>
+@endif
 
 <hr><!--VERSION 2: bootstrap used to make responsive-->
 <!-- search box -->

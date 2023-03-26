@@ -12,6 +12,12 @@
 
 @section('body')
 
+@if(session()->has('logoutSuccess'))
+<div class="alert alert-success" role="alert" id="go-to-basket">
+    {{session()->get('logoutSuccess')}}
+</div>
+@endif
+
 
 <div class="container">
     <div class="row">
