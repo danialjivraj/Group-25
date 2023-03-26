@@ -24,6 +24,7 @@ public class DBorder extends DataBaseConn{
 		
 	}
 	
+	//Uses an int as status
 	public String statusMaker(int Status) {
 		
 		//Used to set a status
@@ -56,6 +57,8 @@ public class DBorder extends DataBaseConn{
 		
 	}
 	
+	
+	//Uses a String as status
 	public int getStatus(String status) {
 	    switch (status) {
 	        case "Processing":
