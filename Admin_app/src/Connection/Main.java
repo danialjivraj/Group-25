@@ -36,6 +36,7 @@ public class Main {
 		//DBproductAndCategory DAC= new DBproductAndCategory();
 		//System.out.println(DAC.textToIDCat("Necklace"));
 		
+		//test
 		DBproductAndCategory DBPC= new DBproductAndCategory();
 		ResultSet rs = DBPC.findProduct("20");
 		
