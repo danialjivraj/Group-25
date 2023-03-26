@@ -9,6 +9,42 @@
   margin: 10px;
 }
 
+@media (max-width: 1400px) {
+  .product-container {
+    flex-basis: calc(25% - 16px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-container {
+    flex-basis: calc(33.33% - 16px);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-container {
+    flex-basis: calc(40% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    flex-basis: calc(50% - 16px);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-container {
+    flex-basis: calc(66.66% - 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    flex-basis: calc(100% - 16px);
+  }
+}
+
 .product-box {
   width: 100%;
   margin-bottom: 20px;
@@ -76,6 +112,37 @@
 
 .productname {
   font-size: 18px;
+}
+
+
+@media (min-width: 500%) {
+  .productname {
+    font-size: 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .productname {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .productname {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .productname {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .productname {
+    font-size: 13px;
+  }
 }
 
 .product-box:hover .shop-button {
@@ -299,54 +366,7 @@
   align-items: center;
 }
 
-@media (max-width: 768px) {
 
-  .filter-form button[type="submit"],
-  .filter-form a.form-link {
-    background-color: #c4c2c2;
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-
-  #category-select {
-    width: 0px;
-  }
-
-  .productname {
-    font-size: 12px;
-  }
-
-  .product-image img {
-    display: block;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
-    object-fit: cover;
-    object-position: center;
-    transition: all 0.3s ease-in-out;
-    max-width: none;
-  }
-
-  .product-box {
-    width: 300px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-    position: relative;
-    height: 610px;
-  }
-
-}
 
 /********************************************************* END OF FILTER CSS ****************************************************************************************/
 
