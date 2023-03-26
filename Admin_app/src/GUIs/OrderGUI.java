@@ -5,6 +5,8 @@ import Connection.DBorder;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.TableRowSorter;
@@ -75,6 +77,12 @@ public class OrderGUI extends JFrame implements ActionListener {
 
         // create table with model
         table = new JTable(model);
+        String[] orderStatuses = {"Processing", "Shipped", "Delivered", "Canceled"};
+        JComboBox<String> orderStatusComboBox = new JComboBox<String>(orderStatuses);
+        TableColumn orderStatusColumn = table.getColumnModel().getColumn(3);
+        orderStatusColumn.setCellEditor(new DefaultCellEditor(orderStatusComboBox));
+        
+        
         JScrollPane scrollPane = new JScrollPane(table);
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
