@@ -11,7 +11,7 @@ class ProductsController extends Controller
 {
     public function showProducts(Request $request)
     {
-        $perPage = 16; // Number of products to display per page
+        $perPage = $request->input('per_page', 16);
         $query = Product::query();
 
         $searchTerm = $request->input('search');
