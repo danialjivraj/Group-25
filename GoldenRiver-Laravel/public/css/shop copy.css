@@ -357,6 +357,10 @@
     cursor: pointer;
     border-radius: 5px;
   }
+
+#category-select {
+    width: 0px;
+}
   
   .productname {
     font-size: 12px;
