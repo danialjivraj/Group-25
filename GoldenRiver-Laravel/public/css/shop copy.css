@@ -145,6 +145,7 @@
   }
 }
 
+
 .product-box:hover .shop-button {
   opacity: 1;
 }
@@ -366,7 +367,16 @@
   align-items: center;
 }
 
+@media screen and (max-width: 483px) {
+  .filter-form {
+    flex-direction: column; /* stack items vertically */
+  }
 
+  .form-button,
+  .form-link {
+    margin-top: 0; /* remove margin */
+  }
+}
 
 /********************************************************* END OF FILTER CSS ****************************************************************************************/
 
