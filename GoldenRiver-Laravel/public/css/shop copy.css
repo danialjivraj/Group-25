@@ -74,7 +74,7 @@
   font-size: 1px;
 }
 
-.productname{
+.productname {
   font-size: 18px;
 }
 
@@ -86,7 +86,7 @@
   margin: 10px 0;
 }
 
-/******************************************************************* SEARCH******************************************************************/
+/******************************************************************* SEARCH CSS******************************************************************/
 .search-box {
   position: relative;
   margin-top: 1rem;
@@ -161,58 +161,14 @@
   transform: scale(1.2);
 }
 
-/******************************************************************* END OF SEARCH******************************************************************/
+/******************************************************************* END OF SEARCH CSS******************************************************************/
 
 /********************************************************* FILTER CSS ****************************************************************************************/
 
 /* Filter Styles */
-
-
 #category-select {
-  width: 200px; /* adjust the value as needed */
-}
-
-
-/********************************************************* END OF FILTER CSS ****************************************************************************************/
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin-top: 30px;
-}
-
-.pagination li {
-  margin: 0 10px;
-}
-
-.pagination li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.pagination li.active a {
-  color: #333;
-  font-weight: bold;
-  background-color: #fff;
-  border-color: #ccc;
-}
-
-.pagination li.disabled a {
-  color: #ccc;
-  pointer-events: none;
-}
-
-.pagination li a:hover {
-  color: #fff;
-  background-color: #333;
-  border-color: #333;
-  cursor: pointer;
+  width: 200px;
+  /* adjust the value as needed */
 }
 
 .filter-container {
@@ -220,10 +176,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px; /* Add padding to both left and right */
+  padding: 0 10px;
+  /* Add padding to both left and right */
 }
 
-.filtersection2{
+.filtersection2 {
   padding-top: 15px;
 }
 
@@ -343,6 +300,7 @@
 }
 
 @media (max-width: 768px) {
+
   .filter-form button[type="submit"],
   .filter-form a.form-link {
     background-color: #c4c2c2;
@@ -358,14 +316,14 @@
     border-radius: 5px;
   }
 
-#category-select {
+  #category-select {
     width: 0px;
-}
-  
+  }
+
   .productname {
     font-size: 12px;
   }
-  
+
   .product-image img {
     display: block;
     border: 1px solid #ddd;
@@ -377,7 +335,7 @@
     transition: all 0.3s ease-in-out;
     max-width: none;
   }
-  
+
   .product-box {
     width: 300px;
     margin-bottom: 20px;
@@ -389,3 +347,50 @@
   }
 
 }
+
+/********************************************************* END OF FILTER CSS ****************************************************************************************/
+
+
+/********************************************************* PAGINATION CSS ****************************************************************************************/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin-top: 30px;
+}
+
+.pagination li {
+  margin: 0 10px;
+}
+
+.pagination li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.pagination li.active a {
+  color: #333;
+  font-weight: bold;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.pagination li.disabled a {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.pagination li a:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+  cursor: pointer;
+}
+
+/********************************************************* END OF PAGINATION CSS ****************************************************************************************/
