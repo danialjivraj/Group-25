@@ -57,7 +57,7 @@ public class DBorder extends DataBaseConn{
 	}
 	
 	public ResultSet getAllOrders() throws SQLException {
-	  String sql = "SELECT * FROM orderb";
+		String sql = "SELECT * FROM orderb WHERE Order_Status <> 'Basket'";
 	    ResultSet rs = getStmt().executeQuery(sql);
 	    return rs;
 	}

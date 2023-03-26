@@ -17,7 +17,7 @@ public abstract class DataBaseConn {
 		
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
-		 c=DriverManager.getConnection("jdbc:mysql://localhost/goldenriver2","root","");
+		 c=DriverManager.getConnection("jdbc:mysql://localhost/goldenriver","root","");
 		 setStmt(c.createStatement());
 		
 		System.out.println("Connection is successful..");
