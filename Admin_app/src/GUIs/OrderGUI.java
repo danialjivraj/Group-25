@@ -27,6 +27,7 @@ public class OrderGUI extends JFrame implements ActionListener {
     private JComboBox<String> filterBox;
     private JButton submitButton;
     private DefaultTableModel model;
+    private JComboBox<String> orderStatusComboBox;
 
 
     public OrderGUI() throws SQLException{
@@ -78,7 +79,8 @@ public class OrderGUI extends JFrame implements ActionListener {
         // create table with model
         table = new JTable(model);
         String[] orderStatuses = {"Processing", "Shipped", "Delivered", "Canceled"};
-        JComboBox<String> orderStatusComboBox = new JComboBox<String>(orderStatuses);
+       orderStatusComboBox = new JComboBox<String>(orderStatuses);
+        orderStatusComboBox.addActionListener(this);
         TableColumn orderStatusColumn = table.getColumnModel().getColumn(3);
         orderStatusColumn.setCellEditor(new DefaultCellEditor(orderStatusComboBox));
         
@@ -120,32 +122,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 
         setVisible(true);
     }
-   
-//    //filters the table based on search query or selected filters
-//    private void filterTable() {
-//    	// Get the search query and filter option from the GUI elements
-//    	String searchQuery = searchField.getText().trim();
-//    	String filterOption = (String) filterBox.getSelectedItem();
-//
-//    	
-//    	// Create a TableRowSorter for the JTable
-//    	TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
-//    	table.setRowSorter(sorter);
-//
-//    	// Set up the filter
-//    	ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>();
-//    	filters.add(RowFilter.regexFilter("(?i)" + searchQuery)); // Case-insensitive search query filter
-//
-//    	if (filterOption != "All") {
-//    	    // Create a filter for the selected Order Status
-//    	    RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("(?i)" + filterOption, 3); 
-//    	    filters.add(statusFilter);
-//    	}
-//
-//    	// Apply the filters to the TableRowSorter
-//    	sorter.setRowFilter(RowFilter.andFilter(filters));
-//            
-//        }
+
     
   //filters the table based on search query or selected filters
     private void filterTable() {
@@ -178,6 +155,26 @@ public class OrderGUI extends JFrame implements ActionListener {
     		filterTable();
     		} else if (e.getSource() == submitButton) {
     		filterTable();
+    		}else if(e.getSource() == orderStatusComboBox){
+    			// Get the selected status from the dropdown
+    	        String selectedStatus = (String) orderStatusComboBox.getSelectedItem();
+    	        System.out.println(selectedStatus);
+    	        try {
+    	            // Get the ID of the selected order from the table
+    	            int selectedRow = table.getSelectedRow();
+    	            
+    	           String orderID = table.getModel().getValueAt(selectedRow, 0).toString();
+    	            System.out.println(orderID);
+    	            // Update the status of the selected order in the database
+    	            DBorder db = new DBorder();
+    	            int status = db.getStatus(selectedStatus);
+    	            db.changeStatusOfOrder(orderID, status);
+   	            
+    	            // Refresh the table to display the updated order status
+    	           // refreshTable();
+    	        } catch (Exception ex) {
+    	            ex.printStackTrace();
+    	        }
     		}
     		}
     

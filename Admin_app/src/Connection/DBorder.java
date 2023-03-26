@@ -56,6 +56,22 @@ public class DBorder extends DataBaseConn{
 		
 	}
 	
+	public int getStatus(String status) {
+	    switch (status) {
+	        case "Processing":
+	            return 1;
+	        case "Shipped":
+	            return 2;
+	        case "Delivered":
+	            return 3;
+	        case "Canceled":
+	            return 4;
+	        default:
+	            throw new IllegalArgumentException("Invalid status: " + status);
+	    }
+	}
+
+	
 	public ResultSet getAllOrders() throws SQLException {
 		String sql = "SELECT * FROM orderb WHERE Order_Status <> 'Basket'";
 	    ResultSet rs = getStmt().executeQuery(sql);
