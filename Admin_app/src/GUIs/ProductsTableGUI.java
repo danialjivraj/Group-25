@@ -227,11 +227,4 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 		
 	}
 	
-//	public class ImageRenderer extends DefaultTableCellRenderer {
-//		imageLabel = new  
-//	    @Override
-//	    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-//	     
-//	}
-//}
 }

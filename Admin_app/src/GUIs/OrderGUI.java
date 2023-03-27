@@ -9,7 +9,9 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.TableRowSorter;
@@ -26,8 +28,8 @@ public class OrderGUI extends JFrame implements ActionListener {
 	private JTable table;
 	private JTextField searchField;
 	private JComboBox<String> filterBox;
-	private JButton submitButton;
-	private JButton submitButton2;
+	private JButton searchBtn;
+	private JButton changeOrderStatusBtn;
 	private DefaultTableModel model;
 	private JComboBox<String> orderStatusComboBox;
 	private JButton viewMoreBtn;
@@ -83,8 +85,8 @@ public class OrderGUI extends JFrame implements ActionListener {
 		String[] orderStatuses = { "Processing", "Shipped", "Delivered", "Canceled" };
 		orderStatusComboBox = new JComboBox<String>(orderStatuses);
 		orderStatusComboBox.addActionListener(this);
-		TableColumn orderStatusColumn = table.getColumnModel().getColumn(3);
-		orderStatusColumn.setCellEditor(new DefaultCellEditor(orderStatusComboBox));
+//		TableColumn orderStatusColumn = table.getColumnModel().getColumn(3);
+//		orderStatusColumn.setCellEditor(new DefaultCellEditor(orderStatusComboBox));
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -116,17 +118,32 @@ public class OrderGUI extends JFrame implements ActionListener {
 		viewMoreBtn.addActionListener(this);
 		
 		// create submit button for Changing order Status
-		submitButton2 = new JButton("Change Order Status");
-		submitButton2.addActionListener(this);
+		changeOrderStatusBtn = new JButton("Change Order Status");
+		changeOrderStatusBtn.addActionListener(this);
 
 		// create submit button for Searching
-		submitButton = new JButton("Search");
-		submitButton.addActionListener(this);
+		searchBtn = new JButton("Search");
+		searchBtn.addActionListener(this);
 
 		JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+//		submitPanel.add(orderStatusComboBox);
+//		submitPanel.add(changeOrderStatusBtn);
+		
+		JPanel orderStatusPanel = new JPanel(new BorderLayout());
+		orderStatusPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2)); // set colored border
+
+		JLabel orderStatusLabel = new JLabel("Order Status Options"); // create label
+		
+		orderStatusPanel.add(orderStatusLabel, BorderLayout.NORTH); // add label to panel
+		
+		orderStatusPanel.add(orderStatusComboBox, BorderLayout.CENTER); // add comboBox to panel
+		orderStatusPanel.add(changeOrderStatusBtn, BorderLayout.EAST); // add button to panel
+
+		submitPanel.add(orderStatusPanel); // add the panel with the components to the submitPanel
 		submitPanel.add(viewMoreBtn);
-		submitPanel.add(submitButton2);
-		submitPanel.add(submitButton);
+		submitPanel.add(searchBtn);
+		
+		
 		
 		// add searchFilterPanel and submitPanel to contentPane
 		contentPane.add(searchFilterPanel, BorderLayout.NORTH);
@@ -162,9 +179,9 @@ public class OrderGUI extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == searchField || e.getSource() == filterBox || e.getSource() == submitButton) {
+		if (e.getSource() == searchField || e.getSource() == filterBox || e.getSource() == searchBtn) {
 			filterTable();
-		} else if (e.getSource() == submitButton) {
+		} else if (e.getSource() == searchBtn) {
 			filterTable();
 			
 //			 String searchText = searchField.getText();
@@ -174,7 +191,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 //			        filterTable();
 //			    }
 			
-		} else if (e.getSource() == submitButton2) {
+		} else if (e.getSource() == changeOrderStatusBtn) {
 			// Get the selected status from the dropdown
 			String selectedStatus = (String) orderStatusComboBox.getSelectedItem();
 			int selectedRow = table.getSelectedRow();
