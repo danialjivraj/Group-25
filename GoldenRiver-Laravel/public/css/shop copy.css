@@ -121,6 +121,158 @@
   }
 }
 
+@media screen and (min-width: 992px) and (max-width: 1128px) {
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .filtersection2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-label,
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    width: 100%;
+  }
+
+  .col-sm-12.col-md-12.col-lg-2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .col-sm-12.col-md-12.col-lg-5 .filter-option {
+    display: inline-block;
+    width: calc(50% - 5px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .col-sm-12.col-md-12.col-lg-5 .filter-option:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+
+
+
+
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .filtersection2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .form-label,
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 250px;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .filter-option {
+    display: inline-block;
+    width: calc(50% - 5px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .filter-option:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .col-sm-12.col-md-12.col-lg-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 810px) {
+  .navcontainer ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navcontainer li {
+    margin: 10px 0;
+  }
+
+  .navcontainer a {
+    color: #b29758;
+    text-decoration: none;
+    font-size: 15px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (min-width: 481px) and (max-width: 767px) {
   .productname {
     font-size: 12px;
@@ -369,12 +521,40 @@
 
 @media screen and (max-width: 483px) {
   .filter-form {
-    flex-direction: column; /* stack items vertically */
+    flex-direction: column;
+    /* stack items vertically */
   }
 
   .form-button,
   .form-link {
-    margin-top: 0; /* remove margin */
+    margin-top: 0;
+    /* remove margin */
+  }
+
+  .filtersection2 {
+    text-align: center;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Optional: adjust the width of the search box */
+  .search-input {
+    width: 200px;
   }
 }
 

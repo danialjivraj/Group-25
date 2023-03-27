@@ -64,11 +64,9 @@
                 <button type="submit" class="form-button">Filter</button>
                 <a href="/product" class="form-link">Clear Filters</a>
             </form>
-
         </div>
-
+        
     </div>
-
 </div>
 <hr>
 
