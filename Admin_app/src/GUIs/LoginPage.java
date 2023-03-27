@@ -3,6 +3,7 @@ package GUIs;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -18,6 +19,10 @@ import javax.swing.JTextField;
 
 import Connection.DBaccount;
 import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
 
 public class LoginPage  implements ActionListener {
 	private JFrame frame;
@@ -25,6 +30,7 @@ public class LoginPage  implements ActionListener {
 	private JTextField loginTx,passTx;
 	 private JLabel labelInfo1Login,labelInfo2Password;
 	 private JButton ChButton;
+	 private JLabel lblNewLabel;
 
 	 //variables
 	public LoginPage() {
@@ -33,13 +39,23 @@ public class LoginPage  implements ActionListener {
 		panel.setBackground(new Color(255, 228, 181));
 		
 		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-		panel.setLayout(new GridLayout(0,1));
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(LoginPage.class.getResource("/Logo/logo.png")));
+		panel.add(lblNewLabel);
+		ImageIcon originalIcon = new ImageIcon("C:\\Group25\\Group-25\\GoldenRiver-Laravel\\public\\images\\logo.png");
+		Image originalImage = originalIcon.getImage();
+		Image scaledImage = originalImage.getScaledInstance(100, 200, Image.SCALE_SMOOTH);
+		ImageIcon scaledIcon = new ImageIcon(scaledImage);
+		lblNewLabel.setIcon(scaledIcon);
+		
 
 		labelInfo1Login = new JLabel("Login :");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(labelInfo1Login);
 		
-		loginTx = new JTextField(30);
+		loginTx = new JTextField(15);
 		//loginTx.setBounds(WIDTH/2,70,100,25);
 		panel.add(loginTx);
 		
@@ -47,7 +63,7 @@ public class LoginPage  implements ActionListener {
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(labelInfo2Password);
 		
-		passTx = new JPasswordField(30);
+		passTx = new JPasswordField(15);
 		//passTx.setBounds(WIDTH/2,70+GAP,100,25);
 		panel.add(passTx);
 		
