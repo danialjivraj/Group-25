@@ -1,12 +1,18 @@
 package Connection;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import GUIs.StockAlertGUI;
 
@@ -181,5 +187,22 @@ public class DBproductAndCategory extends DataBaseConn{
 //		db.delProduct("50");
 //	}
 
+	public void editImageOfProduct(String ID) throws IOException {
+		BufferedImage image = new BufferedImage(300,300,BufferedImage.TYPE_INT_ARGB);
+		
+		JFileChooser fc= new JFileChooser("*.jpg");
+		fc.setAcceptAllFileFilterUsed(false);
+		 FileNameExtensionFilter restrict = new FileNameExtensionFilter("Only .jpg files", "jpg");
+		 fc.addChoosableFileFilter(restrict);
+		
+		int response=fc.showOpenDialog(null);
+		if(response==JFileChooser.APPROVE_OPTION) {
+			File file=new File(fc.getSelectedFile().getAbsolutePath());
+			
+			image = ImageIO.read(file);
+			file = new File("..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\"+ID+".jpg");
+			ImageIO.write(image, "jpg", file);
+		}
+	}
 
 }

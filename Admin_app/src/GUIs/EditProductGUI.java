@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -22,7 +23,7 @@ import java.awt.Color;
 public class EditProductGUI implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
-	private JButton EditPr_B;
+	private JButton EditPr_B,Edit_Image_B;
 	private JLabel Product_Name_L,Product_Price_L,Amount_L,Description_L,ID_L;
 	private JTextField Product_Name_T,Product_Price_T,Amount_T,Description_T,ID_T;
 	DBproductAndCategory DBPC;
@@ -68,6 +69,10 @@ public class EditProductGUI implements ActionListener {
 	Description_T = new JTextField(30);
 	panel.add(Description_T);
 	
+	Edit_Image_B=new JButton("Edit image");
+	panel.add(Edit_Image_B);
+	Edit_Image_B.addActionListener(this);
+	
 	EditPr_B=new JButton("Edit product");
 	panel.add(EditPr_B);
 	EditPr_B.addActionListener(this);
@@ -87,7 +92,26 @@ public class EditProductGUI implements ActionListener {
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-	
+	if(e.getSource()==Edit_Image_B) {
+		
+		try {
+			DBPC.editImageOfProduct( ID);
+			
+			JOptionPane.showMessageDialog(null,
+	                "Successful image upload!",
+	                "Sys",
+	                JOptionPane.INFORMATION_MESSAGE);
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+	                e1,
+	                "Sys",
+	                JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+	}
 		 if(e.getSource()==EditPr_B) {
 			 String sql1="";
 			
