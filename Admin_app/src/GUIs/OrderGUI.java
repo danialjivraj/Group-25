@@ -5,6 +5,7 @@ import Connection.DBproductAndCategory;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -40,14 +41,21 @@ public class OrderGUI extends JFrame implements ActionListener {
 		setIconImage(new ImageIcon("Image_Icon/Favicon.jpg").getImage());
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 800, 600);
+		setBounds(200, 200, 1200, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
 
 		// create table model with columns
-		model = new DefaultTableModel();
+		model = new DefaultTableModel(){
+        	//makes cells uneditable
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // make all cells non-editable
+            }
+        };
+        
 		model.addColumn("Order ID");
 		model.addColumn("Account ID");
 		model.addColumn("Address ID");
@@ -87,10 +95,22 @@ public class OrderGUI extends JFrame implements ActionListener {
 		orderStatusComboBox.addActionListener(this);
 //		TableColumn orderStatusColumn = table.getColumnModel().getColumn(3);
 //		orderStatusColumn.setCellEditor(new DefaultCellEditor(orderStatusComboBox));
-
+		DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
+        table.getColumnModel().getColumn(0).setCellRenderer(renderer); // Set the renderer for column 0
+        table.getColumnModel().getColumn(1).setCellRenderer(renderer);
+        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
+        table.getColumnModel().getColumn(3).setCellRenderer(renderer);
+        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
+        
 		JScrollPane scrollPane = new JScrollPane(table);
 		contentPane.add(scrollPane, BorderLayout.CENTER);
-
+		table.setRowHeight(60);
+        Font font = new Font("Calibri", Font.BOLD, 17);
+        table.setFont(font);
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        //columns cannot be reordered
+        table.getTableHeader().setReorderingAllowed(false);
 		// create search bar and filter by section
 		JPanel searchPanel = new JPanel(new BorderLayout());
 		JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
@@ -125,29 +145,30 @@ public class OrderGUI extends JFrame implements ActionListener {
 		searchBtn = new JButton("Search");
 		searchBtn.addActionListener(this);
 
-		JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-//		submitPanel.add(orderStatusComboBox);
-//		submitPanel.add(changeOrderStatusBtn);
+		JPanel submitPanel = new JPanel(new BorderLayout());
 		
 		JPanel orderStatusPanel = new JPanel(new BorderLayout());
-		orderStatusPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2)); // set colored border
+	//	orderStatusPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2)); // set colored border
 
 		JLabel orderStatusLabel = new JLabel("Order Status Options"); // create label
-		
+
 		orderStatusPanel.add(orderStatusLabel, BorderLayout.NORTH); // add label to panel
-		
+
 		orderStatusPanel.add(orderStatusComboBox, BorderLayout.CENTER); // add comboBox to panel
 		orderStatusPanel.add(changeOrderStatusBtn, BorderLayout.EAST); // add button to panel
 
-		submitPanel.add(orderStatusPanel); // add the panel with the components to the submitPanel
-		submitPanel.add(viewMoreBtn);
-		submitPanel.add(searchBtn);
-		
-		
-		
+		submitPanel.add(orderStatusPanel, BorderLayout.WEST); // add the panel with the components to the submitPanel
+
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		buttonPanel.add(viewMoreBtn);
+		buttonPanel.add(searchBtn);
+
+		submitPanel.add(buttonPanel, BorderLayout.EAST);
+
 		// add searchFilterPanel and submitPanel to contentPane
 		contentPane.add(searchFilterPanel, BorderLayout.NORTH);
 		contentPane.add(submitPanel, BorderLayout.SOUTH);
+
 
 		setVisible(true);
 	}

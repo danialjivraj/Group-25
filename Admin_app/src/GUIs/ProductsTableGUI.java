@@ -119,7 +119,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         JScrollPane scrollPane = new JScrollPane(table);
         //set height of rows
         table.setRowHeight(150);
-        Font font = new Font("Arial", Font.BOLD, 13);
+        Font font = new Font("Calibri", Font.BOLD, 17);
 
         // set the font for the table
         table.setFont(font);
@@ -214,11 +214,11 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 
         // Set up the filter
         ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>();
-        filters.add(RowFilter.regexFilter("(?i)" + searchQuery, 0, 2)); 
+        filters.add(RowFilter.regexFilter("(?i)" + searchQuery, 1, 3)); 
 
         if (!filterOption.equals("All")) {
             // Create a filter for the selected Order Status
-            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("^" + filterOption + "$", 1);
+            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("^" + filterOption + "$", 2);
             filters.add(statusFilter);
         }
 
