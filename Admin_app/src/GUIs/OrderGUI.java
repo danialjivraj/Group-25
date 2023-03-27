@@ -166,6 +166,14 @@ public class OrderGUI extends JFrame implements ActionListener {
 			filterTable();
 		} else if (e.getSource() == submitButton) {
 			filterTable();
+			
+//			 String searchText = searchField.getText();
+//			    if (searchText.trim().equals("")) {
+//			        JOptionPane.showMessageDialog(this, "Search box is empty.");
+//			    } else {
+//			        filterTable();
+//			    }
+			
 		} else if (e.getSource() == submitButton2) {
 			// Get the selected status from the dropdown
 			String selectedStatus = (String) orderStatusComboBox.getSelectedItem();
