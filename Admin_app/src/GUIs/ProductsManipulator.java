@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 
 import EmailSending.Report;
 import EmailSending.Sender;
+import java.awt.Color;
 
 public class ProductsManipulator implements ActionListener {
 	
@@ -30,6 +31,7 @@ public class ProductsManipulator implements ActionListener {
 public ProductsManipulator(String Email) {
 	frame=new JFrame();
 	panel = new JPanel();
+	panel.setBackground(new Color(255, 228, 181));
 	
 	this.Email=Email;
 	email_L=new JLabel("Email: "+Email);
@@ -80,7 +82,7 @@ public ProductsManipulator(String Email) {
 	panel.add(createReport);
 	
 	
-	frame.add(panel,BorderLayout.CENTER);
+	frame.getContentPane().add(panel,BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setTitle("Main menu");
 	frame.pack();

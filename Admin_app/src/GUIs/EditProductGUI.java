@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import Connection.DBproductAndCategory;
+import java.awt.Color;
 
 
 public class EditProductGUI implements ActionListener {
@@ -31,6 +32,7 @@ public class EditProductGUI implements ActionListener {
 		
 	frame=new JFrame();
 	panel = new JPanel();
+	panel.setBackground(new Color(255, 228, 181));
 	
 	panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 	panel.setLayout(new GridLayout(0,1));
@@ -71,7 +73,7 @@ public class EditProductGUI implements ActionListener {
 	EditPr_B.addActionListener(this);
 	
 	
-	frame.add(panel,BorderLayout.CENTER);
+	frame.getContentPane().add(panel,BorderLayout.CENTER);
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	frame.setTitle("Edit a Product");
 	frame.pack();

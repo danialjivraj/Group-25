@@ -9,6 +9,42 @@
   margin: 10px;
 }
 
+@media (max-width: 1400px) {
+  .product-container {
+    flex-basis: calc(25% - 16px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .product-container {
+    flex-basis: calc(33.33% - 16px);
+  }
+}
+
+@media (max-width: 992px) {
+  .product-container {
+    flex-basis: calc(40% - 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-container {
+    flex-basis: calc(50% - 16px);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-container {
+    flex-basis: calc(66.66% - 16px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-container {
+    flex-basis: calc(100% - 16px);
+  }
+}
+
 .product-box {
   width: 100%;
   margin-bottom: 20px;
@@ -70,13 +106,227 @@
 }
 
 .smallSpace {
-  height: 15px;
+  height: 19px;
   font-size: 1px;
 }
 
-.productname{
+.productname {
   font-size: 18px;
 }
+
+
+@media (min-width: 500%) {
+  .productname {
+    font-size: 10px;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1128px) {
+  .filter-container {
+    flex-direction: column;
+  }
+
+  .filtersection2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-label,
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    width: 100%;
+  }
+
+  .col-sm-12.col-md-12.col-lg-2 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .col-sm-12.col-md-12.col-lg-5 .filter-option {
+    display: inline-block;
+    width: calc(50% - 5px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .col-sm-12.col-md-12.col-lg-5 .filter-option:nth-child(2n) {
+    margin-right: 0;
+  }
+}
+
+
+
+
+
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .filtersection2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .form-label,
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+
+  .form-select,
+  .form-checkbox,
+  .form-button,
+  .form-link {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 250px;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .filter-option {
+    display: inline-block;
+    width: calc(50% - 5px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .filter-option:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .col-sm-12.col-md-12.col-lg-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+
+
+@media (min-width: 484px) and (max-width: 768px) {
+  .filtersection2 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .filter-option {
+    display: inline-block;
+    width: calc(20% - 5px);
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 6px;
+  }
+  
+  .filter-option:nth-child(5n) {
+    margin-right: 0;
+  }
+  
+  .col-sm-12.col-md-12.col-lg-2,
+  .col-sm-12.col-md-12.col-lg-3,
+  .col-sm-12.col-md-12.col-lg-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 250px;
+    font-size: 14px;
+    padding: 8px;
+  }
+  
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .productname {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .productname {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .productname {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .productname {
+    font-size: 13px;
+  }
+}
+
 
 .product-box:hover .shop-button {
   opacity: 1;
@@ -86,7 +336,7 @@
   margin: 10px 0;
 }
 
-/******************************************************************* SEARCH******************************************************************/
+/******************************************************************* SEARCH CSS******************************************************************/
 .search-box {
   position: relative;
   margin-top: 1rem;
@@ -161,58 +411,14 @@
   transform: scale(1.2);
 }
 
-/******************************************************************* END OF SEARCH******************************************************************/
+/******************************************************************* END OF SEARCH CSS******************************************************************/
 
 /********************************************************* FILTER CSS ****************************************************************************************/
 
 /* Filter Styles */
-
-
 #category-select {
-  width: 200px; /* adjust the value as needed */
-}
-
-
-/********************************************************* END OF FILTER CSS ****************************************************************************************/
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  list-style: none;
-  margin-top: 30px;
-}
-
-.pagination li {
-  margin: 0 10px;
-}
-
-.pagination li a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  padding: 8px 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
-
-.pagination li.active a {
-  color: #333;
-  font-weight: bold;
-  background-color: #fff;
-  border-color: #ccc;
-}
-
-.pagination li.disabled a {
-  color: #ccc;
-  pointer-events: none;
-}
-
-.pagination li a:hover {
-  color: #fff;
-  background-color: #333;
-  border-color: #333;
-  cursor: pointer;
+  width: 200px;
+  /* adjust the value as needed */
 }
 
 .filter-container {
@@ -220,10 +426,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px; /* Add padding to both left and right */
+  padding: 0 10px;
+  /* Add padding to both left and right */
 }
 
-.filtersection2{
+.filtersection2 {
   padding-top: 15px;
 }
 
@@ -342,50 +549,88 @@
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .filter-form button[type="submit"],
-  .filter-form a.form-link {
-    background-color: #c4c2c2;
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 5px;
+@media screen and (max-width: 483px) {
+  .filter-form {
+    flex-direction: column;
+    /* stack items vertically */
   }
 
-#category-select {
-    width: 0px;
-}
-  
-  .productname {
-    font-size: 12px;
-  }
-  
-  .product-image img {
-    display: block;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px;
-    width: 150px;
-    object-fit: cover;
-    object-position: center;
-    transition: all 0.3s ease-in-out;
-    max-width: none;
-  }
-  
-  .product-box {
-    width: 300px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
-    position: relative;
-    height: 610px;
+  .form-button,
+  .form-link {
+    margin-top: 0;
+    /* remove margin */
   }
 
+  .filtersection2 {
+    text-align: center;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Optional: adjust the width of the search box */
+  .search-input {
+    width: 200px;
+  }
 }
+
+/********************************************************* END OF FILTER CSS ****************************************************************************************/
+
+
+/********************************************************* PAGINATION CSS ****************************************************************************************/
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  margin-top: 30px;
+}
+
+.pagination li {
+  margin: 0 10px;
+}
+
+.pagination li a {
+  color: #333;
+  text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.pagination li.active a {
+  color: #333;
+  font-weight: bold;
+  background-color: #fff;
+  border-color: #ccc;
+}
+
+.pagination li.disabled a {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.pagination li a:hover {
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
+  cursor: pointer;
+}
+
+/********************************************************* END OF PAGINATION CSS ****************************************************************************************/

@@ -1,17 +1,20 @@
 package GUIs;
 
 import Connection.DBorder;
+import Connection.DBproductAndCategory;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.TableRowSorter;
 
-import java.awt.*;
+//import java.awt.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -24,8 +27,11 @@ public class OrderGUI extends JFrame implements ActionListener {
 	private JTextField searchField;
 	private JComboBox<String> filterBox;
 	private JButton submitButton;
+	private JButton submitButton2;
 	private DefaultTableModel model;
 	private JComboBox<String> orderStatusComboBox;
+	private JButton viewMoreBtn;
+	
 
 	public OrderGUI() throws SQLException {
 		setTitle("Orders");
@@ -63,6 +69,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 				row.add("\u00A3" + rs.getString("Order_Total_Price"));
 				row.add(rs.getString("created_at"));
 				row.add(rs.getString("updated_at"));
+
 				// add row to table model
 				model.addRow(row);
 			}
@@ -103,13 +110,24 @@ public class OrderGUI extends JFrame implements ActionListener {
 		searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
 		searchFilterPanel.add(filterPanel, BorderLayout.CENTER);
 
-		// create submit button for filtering
-		submitButton = new JButton("Submit");
+		
+		// create button for viewing products in order
+		viewMoreBtn = new JButton("View Order Products");
+		viewMoreBtn.addActionListener(this);
+		
+		// create submit button for Changing order Status
+		submitButton2 = new JButton("Change Order Status");
+		submitButton2.addActionListener(this);
+
+		// create submit button for Searching
+		submitButton = new JButton("Search");
 		submitButton.addActionListener(this);
 
 		JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		submitPanel.add(viewMoreBtn);
+		submitPanel.add(submitButton2);
 		submitPanel.add(submitButton);
-
+		
 		// add searchFilterPanel and submitPanel to contentPane
 		contentPane.add(searchFilterPanel, BorderLayout.NORTH);
 		contentPane.add(submitPanel, BorderLayout.SOUTH);
@@ -144,34 +162,58 @@ public class OrderGUI extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == searchField || e.getSource() == filterBox) {
+		if (e.getSource() == searchField || e.getSource() == filterBox || e.getSource() == submitButton) {
 			filterTable();
 		} else if (e.getSource() == submitButton) {
 			filterTable();
-		} else if (e.getSource() == orderStatusComboBox) {
+			
+//			 String searchText = searchField.getText();
+//			    if (searchText.trim().equals("")) {
+//			        JOptionPane.showMessageDialog(this, "Search box is empty.");
+//			    } else {
+//			        filterTable();
+//			    }
+			
+		} else if (e.getSource() == submitButton2) {
 			// Get the selected status from the dropdown
 			String selectedStatus = (String) orderStatusComboBox.getSelectedItem();
-			System.out.println(selectedStatus);
-			try {
-				// Get the ID of the selected order from the table
-				int selectedRow = table.getSelectedRow();
-
-				String orderID = table.getModel().getValueAt(selectedRow, 0).toString();
-				System.out.println(orderID);
-				// Update the status of the selected order in the database
-				DBorder db = new DBorder();
-				int status = db.getStatus(selectedStatus);
-				db.changeStatusOfOrder(orderID, status);
-
-				// Refresh the table to display the updated order status
-				// refreshTable();
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			int selectedRow = table.getSelectedRow();
+			if (selectedRow == -1) { // if No show is selected and submitButton2 is pressed it is gonna show an error
+				JOptionPane.showMessageDialog(this, "Please select a row to update.");
+			} else {
+				String orderId = model.getValueAt(selectedRow, 0).toString();
+				try {
+					DBorder db = new DBorder();
+					int status = db.getStatus(selectedStatus);
+					db.changeStatusOfOrder(orderId, status);
+					// Update the status in the table model
+					model.setValueAt(selectedStatus, selectedRow, 3);
+				} catch (SQLException ex) {
+					JOptionPane.showMessageDialog(this, "Error updating order status: " + ex.getMessage());
+				}
 			}
-		}
-	}
+		} else if (e.getSource() == viewMoreBtn) {
+			 int selectedRow = table.getSelectedRow();
+			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is gonna show an error
+	            JOptionPane.showMessageDialog(this, "Please select a row to view Order Products.");
+			 }else {
+		        	String orderId = model.getValueAt(selectedRow, 0).toString();
+		            	//show this data in some alert
+			try {
+				DBorder db = new DBorder();
+                String orderProducts = db.getOrderProductById(orderId);
+                JOptionPane.showMessageDialog(this, orderProducts, "Order Products for Order ID " + orderId, JOptionPane.INFORMATION_MESSAGE);
 
-//	public static void main(String[] args) throws SQLException {
-//		new OrderGUI();
-//	}
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+       }
+	}
+}
+	
+
+	public static void main(String[] args) throws SQLException {
+		new OrderGUI();
+	}
 }

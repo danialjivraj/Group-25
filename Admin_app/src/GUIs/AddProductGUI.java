@@ -22,6 +22,7 @@ import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Connection.DBproductAndCategory;
+import java.awt.Color;
 
 public class AddProductGUI implements ActionListener {
 	private JFrame frame;
@@ -41,6 +42,7 @@ public class AddProductGUI implements ActionListener {
 		
 		frame=new JFrame();
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 228, 181));
 		
 		Pr_Name_L = new JLabel("Product name:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
@@ -104,7 +106,7 @@ public class AddProductGUI implements ActionListener {
 		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 		panel.setLayout(new GridLayout(0,1));
 		
-		frame.add(panel,BorderLayout.CENTER);
+		frame.getContentPane().add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Add a Product");
 		frame.pack();

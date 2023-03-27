@@ -23,6 +23,7 @@ public class DBorder extends DataBaseConn{
 		System.out.println("Change of status for order was successful..");
 		
 	}
+
 	
 	//Uses an int as status
 	public String statusMaker(int Status) {
@@ -81,11 +82,24 @@ public class DBorder extends DataBaseConn{
 	    return rs;
 	}
 	
-	public ResultSet getOrderById(String ID) throws SQLException {
+	public String getOrderProductById(String ID) throws SQLException {
 	  String sql = "SELECT * FROM linked_product_order WHERE Order_ID='"+ID+"'";
 	  ResultSet rs = getStmt().executeQuery(sql);
-      return rs;
+	   StringBuilder sb = new StringBuilder();
+	    while (rs.next()) {
+	        String productID = rs.getString("Product_ID");
+	       // String orderID = rs.getString("Order_ID");
+	        int amount = rs.getInt("Amount");
+	        double price = rs.getDouble("Price");
+	        int polID = rs.getInt("POL_ID");
+	        sb.append(String.format("Product # %d\n Product ID: %s\n Quantity: %d\n Price: \u00A3%.2f\n\n", 
+	        		polID, productID, amount, price));
+	    }
+	    return sb.toString();
 	}
 	
-
+//public static void main(String[] args) throws SQLException {
+//	DBorder db = new DBorder();
+//	System.out.println(db.getOrderProductById("1"));
+//}
 }

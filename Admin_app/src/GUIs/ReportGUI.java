@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class ReportGUI {
 	
@@ -18,6 +19,7 @@ public class ReportGUI {
 		
 		frame=new JFrame();
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 228, 181));
 		
 		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 		panel.setLayout(new GridLayout(0,1));
@@ -27,7 +29,7 @@ public class ReportGUI {
 		panel.add(Report_L);
 		
 		
-		frame.add(panel,BorderLayout.CENTER);
+		frame.getContentPane().add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Report");
 		frame.pack();

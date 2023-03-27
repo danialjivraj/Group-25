@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Connection.DBaccount;
+import java.awt.Color;
 
 public class EditUserGUI implements ActionListener {
 	private JFrame frame;
@@ -31,6 +32,7 @@ public class EditUserGUI implements ActionListener {
 		
 		frame=new JFrame();
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 228, 181));
 		
 		ID_L=new JLabel("User ID: "+ID);
 		panel.add(ID_L);
@@ -68,7 +70,7 @@ public class EditUserGUI implements ActionListener {
 		panel.add(EditUs_B);
 		EditUs_B.addActionListener(this);
 		
-		frame.add(panel,BorderLayout.CENTER);
+		frame.getContentPane().add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Edit user");
 		frame.pack();

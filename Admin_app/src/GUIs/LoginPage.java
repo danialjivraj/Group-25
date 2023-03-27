@@ -3,6 +3,7 @@ package GUIs;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -17,6 +18,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Connection.DBaccount;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.BoxLayout;
+import java.awt.FlowLayout;
 
 public class LoginPage  implements ActionListener {
 	private JFrame frame;
@@ -24,20 +30,27 @@ public class LoginPage  implements ActionListener {
 	private JTextField loginTx,passTx;
 	 private JLabel labelInfo1Login,labelInfo2Password;
 	 private JButton ChButton;
+	 private JLabel lblNewLabel;
+	 private JLabel lblNewLabel_1;
 
 	 //variables
 	public LoginPage() {
 		frame=new JFrame();
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 228, 181));
+		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
+		Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		ImageIcon scaledIcon = new ImageIcon(scaledImage);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(scaledIcon);
+		panel.add(lblNewLabel_1);
 		
-		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-		panel.setLayout(new GridLayout(0,1));
 
 		labelInfo1Login = new JLabel("Login :");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(labelInfo1Login);
 		
-		loginTx = new JTextField(30);
+		loginTx = new JTextField(15);
 		//loginTx.setBounds(WIDTH/2,70,100,25);
 		panel.add(loginTx);
 		
@@ -45,7 +58,7 @@ public class LoginPage  implements ActionListener {
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(labelInfo2Password);
 		
-		passTx = new JPasswordField(30);
+		passTx = new JPasswordField(15);
 		//passTx.setBounds(WIDTH/2,70+GAP,100,25);
 		panel.add(passTx);
 		
@@ -54,7 +67,7 @@ public class LoginPage  implements ActionListener {
 		panel.add(ChButton);
 		
 				
-		frame.add(panel,BorderLayout.CENTER);
+		frame.getContentPane().add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Login page");
 		frame.pack();

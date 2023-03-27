@@ -6,6 +6,8 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.TableRowSorter;
+import javax.swing.table.DefaultTableCellRenderer;
+
 
 import Connection.DBaccount;
 import Connection.DBproductAndCategory;
@@ -14,8 +16,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Image;
 
 
 public class ProductsTableGUI extends JFrame implements ActionListener{
@@ -26,6 +30,8 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     private JTextField searchField;
     private JComboBox<String> filterBox;
     private JButton submitButton;
+    private JButton delButton;
+    JLabel imageLabel;
 
     public ProductsTableGUI() throws SQLException{
         setTitle("All Products");
@@ -38,13 +44,21 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         setContentPane(contentPane);
 
         // Create table model
-        model = new DefaultTableModel();
+        model = new DefaultTableModel(){
+        	//makes cells uneditable
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false; // make all cells non-editable
+            }
+        };
         table = new JTable(model);
+
      // Increase font size for table
         Font tableFont = new Font(table.getFont().getName(), Font.PLAIN,15);
         table.setFont(tableFont);
 
         // Add columns to the table model
+        model.addColumn("Product Image");
         model.addColumn("Product ID");
         model.addColumn("Category ID");
         model.addColumn("Product Name");
@@ -52,7 +66,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         model.addColumn("Stock");
         model.addColumn("In/Out of/Low Stock");
         model.addColumn("Description");
-        model.addColumn("More Details");
 
 
         // Add data to the table model
@@ -60,9 +73,25 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         	DBproductAndCategory dba = new DBproductAndCategory();
             ResultSet rs = dba.getProducts();
             while (rs.next()) {
+            	 int productID = rs.getInt("Product_ID");
+            	    String imageFileName = productID + ".jpg";
+            	    String imagePath = "ProductImages/" + imageFileName;
+            	    
+            	 // Load the original image from file
+            	    ImageIcon originalIcon = new ImageIcon(imagePath);
+            	    Image originalImage = originalIcon.getImage();
+
+            	    int newWidth = 120; 
+            	    int newHeight = 140; 
+            	    Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+
+            	    // Create a new ImageIcon object from the scaled image
+            	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            	     
             	String amount = rs.getString("Amount");
                 Object[] row = new Object[]{
-                        rs.getInt("Product_ID"),
+                		scaledIcon,
+                		productID,
                         dba.getCategoryName(rs.getString("Category_ID")),
                         rs.getString("Product_Name"),
                         "\u00A3"+ rs.getString("Product_Price"),
@@ -76,13 +105,26 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
             e.printStackTrace();
         }
 
-//        // Add the table to the frame
-//        add(new JScrollPane(table));
-//
-//        setVisible(true);
-        // create table with model
         table = new JTable(model);
+        table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
+        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
+        table.getColumnModel().getColumn(1).setCellRenderer(renderer); // Set the renderer for column 0
+        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
+        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
+        table.getColumnModel().getColumn(5).setCellRenderer(renderer);
+        table.getColumnModel().getColumn(6).setCellRenderer(renderer);
+        
         JScrollPane scrollPane = new JScrollPane(table);
+        //set height of rows
+        table.setRowHeight(150);
+        Font font = new Font("Arial", Font.BOLD, 13);
+
+        // set the font for the table
+        table.setFont(font);
+        //columns cannot be reordered
+        table.getTableHeader().setReorderingAllowed(false);
+        
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         // create search bar and filter by section
@@ -106,11 +148,16 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
         searchFilterPanel.add(filterPanel, BorderLayout.CENTER);
 
+     // create submit button for Changing order Status
+        delButton = new JButton("Delete Product");
+ 		delButton.addActionListener(this);
         // create submit button for filtering
-        submitButton = new JButton("Submit");
+        submitButton = new JButton("Search");
         submitButton.addActionListener(this);
 
+        
         JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        submitPanel.add(delButton);
         submitPanel.add(submitButton);
 
         // add searchFilterPanel and submitPanel to contentPane
@@ -132,8 +179,28 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     		} else if (e.getSource() == submitButton) {
     		filterTable();
     		}
-		
-	}
+    		else if (e.getSource() == delButton) {
+    			 int selectedRow = table.getSelectedRow();
+    			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is gonna show an error
+		            JOptionPane.showMessageDialog(this, "Please select a row to Delete.");
+    			 }else {
+			        	String prodID = model.getValueAt(selectedRow, 0).toString();  //maybe Change this later as Product Image is now first column
+			            int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Product ID?" + prodID);
+			            	
+	        	//Give pop up saying are you sure you want to remove this product if yes then delete it
+			            if (option == JOptionPane.YES_OPTION) {
+    			DBproductAndCategory db = new DBproductAndCategory();
+    			try {
+					db.delProduct(prodID);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+		}
+	 }
+}
+	
 
 	private void filterTable() {
 	     // Get the search query and filter option from the GUI elements
@@ -158,4 +225,12 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         sorter.setRowFilter(RowFilter.andFilter(filters));
 		
 	}
+	
+//	public class ImageRenderer extends DefaultTableCellRenderer {
+//		imageLabel = new  
+//	    @Override
+//	    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+//	     
+//	}
+//}
 }

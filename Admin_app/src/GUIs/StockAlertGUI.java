@@ -6,12 +6,14 @@ import java.util.Map;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.awt.Color;
 
 
 public class StockAlertGUI extends JFrame{
 	    private JLabel stockLabel;
 
 	    public StockAlertGUI() {
+	    	getContentPane().setBackground(new Color(255, 228, 181));
 	        stockLabel = new JLabel("Stock: 0");
 	        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	        setSize(300, 100);        
