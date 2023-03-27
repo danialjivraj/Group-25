@@ -106,6 +106,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         }
 
         table = new JTable(model);
+        
         table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
         DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
         renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
@@ -184,7 +185,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is gonna show an error
 		            JOptionPane.showMessageDialog(this, "Please select a row to Delete.");
     			 }else {
-			        	String prodID = model.getValueAt(selectedRow, 0).toString();  //maybe Change this later as Product Image is now first column
+			        	String prodID = model.getValueAt(selectedRow, 1).toString();  //maybe Change this later as Product Image is now first column
 			            int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Product ID?" + prodID);
 			            	
 	        	//Give pop up saying are you sure you want to remove this product if yes then delete it
