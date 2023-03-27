@@ -4,16 +4,22 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Connection.DBproductAndCategory;
 
@@ -102,6 +108,8 @@ public class AddProductGUI implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Add a Product");
 		frame.pack();
+		//frame.setSize(600, 400);
+		frame.setResizable(false);
 		frame.setVisible(true);
 		addProduct.addActionListener(this);
 	}
@@ -112,13 +120,36 @@ public class AddProductGUI implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==addProduct) {
 			try {
-				DAC.createProduct(categories.getSelectedItem().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
+				//
+				BufferedImage image = new BufferedImage(300,300,BufferedImage.TYPE_INT_ARGB);
+				
+				JFileChooser fc= new JFileChooser("*.jpg");
+				fc.setAcceptAllFileFilterUsed(false);
+				 FileNameExtensionFilter restrict = new FileNameExtensionFilter("Only .jpg files", "jpg");
+				 fc.addChoosableFileFilter(restrict);
+				
+				int response=fc.showOpenDialog(null);
+				if(response==JFileChooser.APPROVE_OPTION) {
+					File file=new File(fc.getSelectedFile().getAbsolutePath());
+					
+					image = ImageIO.read(file);
+					
+					DAC.createProduct(categories.getSelectedItem().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
+					
+					file = new File("..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\"+DAC.getLast()+".jpg");
+					ImageIO.write(image, "jpg", file);
+				}
+				//
+				
 				
 				frame.dispose();
 			} catch (NumberFormatException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}

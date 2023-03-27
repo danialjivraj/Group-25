@@ -73,6 +73,7 @@ public class EditUserGUI implements ActionListener {
 		frame.setTitle("Edit user");
 		frame.pack();
 		frame.setVisible(true);
+		frame.setResizable(false);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {

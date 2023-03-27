@@ -76,6 +76,7 @@ public class EditProductGUI implements ActionListener {
 	frame.setTitle("Edit a Product");
 	frame.pack();
 	frame.setVisible(true);
+	frame.setResizable(false);
 }
 	public static String removeLastChar(String s) {
 	    return (s == null || s.length() == 0)

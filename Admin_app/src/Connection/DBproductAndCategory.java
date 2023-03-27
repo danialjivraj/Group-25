@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JOptionPane;
+
 import GUIs.StockAlertGUI;
 
 public class DBproductAndCategory extends DataBaseConn{
@@ -22,6 +24,12 @@ public class DBproductAndCategory extends DataBaseConn{
 		ResultSet rs = getStmt().executeQuery(sql);
 		if(!rs.next()) {
 			System.out.println("Error");
+			
+			JOptionPane.showMessageDialog(null,
+	                "Product were not found!",
+	                "Sys",
+	                JOptionPane.INFORMATION_MESSAGE);
+			
 		}else {System.out.println("True");}
 		return rs;
 	}
@@ -152,6 +160,13 @@ public class DBproductAndCategory extends DataBaseConn{
 	        default:
 	            return "Unknown category";
 	    }
+	}
+	public String getLast() throws SQLException{
+		String sql= "select *from product ORDER BY Product_ID DESC LIMIT 1;";
+		 ResultSet rs = getStmt().executeQuery(sql);
+		 rs.next();
+		 return rs.getString("Product_ID");
+		 
 	}
 
 }

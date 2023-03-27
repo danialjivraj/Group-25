@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
+import javax.swing.JOptionPane;
+
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
 
@@ -126,6 +128,12 @@ public class DBaccount extends DataBaseConn{
 	    ResultSet rs = getStmt().executeQuery(sql);
 	    if(!rs.next()) {
 			System.out.println("Error");
+			
+			JOptionPane.showMessageDialog(null,
+	                "User were not found!",
+	                "Sys",
+	                JOptionPane.INFORMATION_MESSAGE);
+			
 		}else {System.out.println("True");}
 		
 	    return rs;
@@ -137,6 +145,7 @@ public class DBaccount extends DataBaseConn{
 	    ResultSet rs = getStmt().executeQuery(sql);
 	    return rs;
 	}
+
 
 
 	

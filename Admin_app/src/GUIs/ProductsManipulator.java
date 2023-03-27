@@ -85,6 +85,7 @@ public ProductsManipulator(String Email) {
 	frame.setTitle("Main menu");
 	frame.pack();
 	frame.setVisible(true);
+	frame.setResizable(false);
 }
 
 @Override
