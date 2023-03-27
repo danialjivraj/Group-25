@@ -153,5 +153,15 @@ public class DBproductAndCategory extends DataBaseConn{
 	            return "Unknown category";
 	    }
 	}
+	
+	public void delProduct(String pID) throws SQLException {
+		  String sql = "DELETE FROM product WHERE Product_ID='"+pID+"'";
+		  getStmt().executeUpdate(sql);
+		}
+	
+//	public static void main(String[] args) throws SQLException {
+//		DBproductAndCategory db = new DBproductAndCategory();
+//		db.delProduct("50");
+//	}
 
 }

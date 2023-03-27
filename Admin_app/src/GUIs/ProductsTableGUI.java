@@ -26,6 +26,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     private JTextField searchField;
     private JComboBox<String> filterBox;
     private JButton submitButton;
+    private JButton delButton;
 
     public ProductsTableGUI() throws SQLException{
         setTitle("All Products");
@@ -52,7 +53,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         model.addColumn("Stock");
         model.addColumn("In/Out of/Low Stock");
         model.addColumn("Description");
-        model.addColumn("More Details");
 
 
         // Add data to the table model
@@ -76,11 +76,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
             e.printStackTrace();
         }
 
-//        // Add the table to the frame
-//        add(new JScrollPane(table));
-//
-//        setVisible(true);
-        // create table with model
         table = new JTable(model);
         JScrollPane scrollPane = new JScrollPane(table);
         contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -106,11 +101,16 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
         searchFilterPanel.add(filterPanel, BorderLayout.CENTER);
 
+     // create submit button for Changing order Status
+        delButton = new JButton("Delete Product");
+ 		delButton.addActionListener(this);
         // create submit button for filtering
-        submitButton = new JButton("Submit");
+        submitButton = new JButton("Search");
         submitButton.addActionListener(this);
 
+        
         JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        submitPanel.add(delButton);
         submitPanel.add(submitButton);
 
         // add searchFilterPanel and submitPanel to contentPane
@@ -132,8 +132,28 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     		} else if (e.getSource() == submitButton) {
     		filterTable();
     		}
-		
-	}
+    		else if (e.getSource() == delButton) {
+    			 int selectedRow = table.getSelectedRow();
+    			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is gonna show an error
+		            JOptionPane.showMessageDialog(this, "Please select a row to Delete.");
+    			 }else {
+			        	String prodID = model.getValueAt(selectedRow, 0).toString();
+			            int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Product ID?" + prodID);
+			            	
+	        	//Give pop up saying are you sure you want to remove this product if yes then delete it
+			            if (option == JOptionPane.YES_OPTION) {
+    			DBproductAndCategory db = new DBproductAndCategory();
+    			try {
+					db.delProduct(prodID);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+            }
+		}
+	 }
+}
+	
 
 	private void filterTable() {
 	     // Get the search query and filter option from the GUI elements

@@ -17,6 +17,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Connection.DBaccount;
+import java.awt.Color;
 
 public class LoginPage  implements ActionListener {
 	private JFrame frame;
@@ -29,6 +30,7 @@ public class LoginPage  implements ActionListener {
 	public LoginPage() {
 		frame=new JFrame();
 		panel = new JPanel();
+		panel.setBackground(new Color(255, 228, 181));
 		
 		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 		panel.setLayout(new GridLayout(0,1));
@@ -54,7 +56,7 @@ public class LoginPage  implements ActionListener {
 		panel.add(ChButton);
 		
 				
-		frame.add(panel,BorderLayout.CENTER);
+		frame.getContentPane().add(panel,BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Login page");
 		frame.pack();
