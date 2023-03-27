@@ -31,24 +31,19 @@ public class LoginPage  implements ActionListener {
 	 private JLabel labelInfo1Login,labelInfo2Password;
 	 private JButton ChButton;
 	 private JLabel lblNewLabel;
+	 private JLabel lblNewLabel_1;
 
 	 //variables
 	public LoginPage() {
 		frame=new JFrame();
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 181));
-		
-		panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
-		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(LoginPage.class.getResource("/Logo/logo.png")));
-		panel.add(lblNewLabel);
-		ImageIcon originalIcon = new ImageIcon("C:\\Group25\\Group-25\\GoldenRiver-Laravel\\public\\images\\logo.png");
-		Image originalImage = originalIcon.getImage();
-		Image scaledImage = originalImage.getScaledInstance(100, 200, Image.SCALE_SMOOTH);
+		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
+		Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
-		lblNewLabel.setIcon(scaledIcon);
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(scaledIcon);
+		panel.add(lblNewLabel_1);
 		
 
 		labelInfo1Login = new JLabel("Login :");
