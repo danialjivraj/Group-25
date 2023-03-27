@@ -161,7 +161,7 @@ public class DBproductAndCategory extends DataBaseConn{
 	            return "Unknown category";
 	    }
 	}
-<<<<<<< HEAD
+
 	public String getLast() throws SQLException{
 		String sql= "select *from product ORDER BY Product_ID DESC LIMIT 1;";
 		 ResultSet rs = getStmt().executeQuery(sql);
@@ -169,7 +169,7 @@ public class DBproductAndCategory extends DataBaseConn{
 		 return rs.getString("Product_ID");
 		 
 	}
-=======
+
 	
 	public void delProduct(String pID) throws SQLException {
 		  String sql = "DELETE FROM product WHERE Product_ID='"+pID+"'";
@@ -180,6 +180,6 @@ public class DBproductAndCategory extends DataBaseConn{
 //		DBproductAndCategory db = new DBproductAndCategory();
 //		db.delProduct("50");
 //	}
->>>>>>> 14c3247d14bf4497af8a870e2373559c5ec5fa7a
+
 
 }

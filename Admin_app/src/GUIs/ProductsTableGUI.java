@@ -75,7 +75,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
             while (rs.next()) {
             	 int productID = rs.getInt("Product_ID");
             	    String imageFileName = productID + ".jpg";
-            	    String imagePath = "ProductImages/" + imageFileName;
+            	    String imagePath = "..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\" + imageFileName;
             	    
             	 // Load the original image from file
             	    ImageIcon originalIcon = new ImageIcon(imagePath);

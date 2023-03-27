@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
-import GUIs.ProductsManipulator;
+import GUIs.HomePageGUI;
 
 public class Testet {
 
@@ -14,7 +14,7 @@ public class Testet {
 		// TODO Auto-generated method stub
 		//Report rep=new Report(); 
 		//Sender sender=new Sender("titantop1tap@gmail.com",rep.makeReport());
-		new ProductsManipulator("titantop1tap@gmail.com");
+		new HomePageGUI("titantop1tap@gmail.com");
 	}
 
 }

@@ -90,7 +90,7 @@ public class LoginPage  implements ActionListener {
 				            "Sys",
 				            JOptionPane.INFORMATION_MESSAGE);
 					
-					new ProductsManipulator(loginTx.getText());
+					new HomePageGUI(loginTx.getText());
 					frame.dispose();
 				}
 				else {

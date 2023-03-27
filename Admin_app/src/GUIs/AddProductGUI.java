@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -146,13 +147,24 @@ public class AddProductGUI implements ActionListener {
 				
 				frame.dispose();
 			} catch (NumberFormatException e1) {
-				// TODO Auto-generated catch block
+				JOptionPane.showMessageDialog(null,
+		                "Wrong input: "+e1,
+		                "Sys",
+		                JOptionPane.INFORMATION_MESSAGE);
 				e1.printStackTrace();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
+				JOptionPane.showMessageDialog(null,
+		                e1,
+		                "Sys",
+		                JOptionPane.INFORMATION_MESSAGE);
+				
 				e1.printStackTrace();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
+				JOptionPane.showMessageDialog(null,
+		                e1,
+		                "Sys",
+		                JOptionPane.INFORMATION_MESSAGE);
 				e1.printStackTrace();
 			}
 		}
