@@ -37,7 +37,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         setTitle("All Products");
         setIconImage(new ImageIcon("Image_Icon/Favicon.jpg").getImage());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(1400, 600);
+        setBounds(200, 200, 1400, 600);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
@@ -68,7 +68,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         model.addColumn("Description");
 
 
-        // Add data to the table model
+        // Add data to the table model (This Table uses Array instead of Vector)
         try {
         	DBproductAndCategory dba = new DBproductAndCategory();
             ResultSet rs = dba.getProducts();
@@ -108,13 +108,16 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         table = new JTable(model);
         
         table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
-        table.getColumnModel().getColumn(1).setCellRenderer(renderer); // Set the renderer for column 0
-        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
-        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
-        table.getColumnModel().getColumn(5).setCellRenderer(renderer);
-        table.getColumnModel().getColumn(6).setCellRenderer(renderer);
+//        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+//        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
+//        table.getColumnModel().getColumn(1).setCellRenderer(renderer); // Set the renderer for column 0
+//        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
+//        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
+//        table.getColumnModel().getColumn(5).setCellRenderer(renderer);
+//		  table.getColumnModel().getColumn(6).setCellRenderer(renderer);
+//        table.getColumnModel().getColumn(6).setCellRenderer(new StockCellRenderer());
+        table.setDefaultRenderer(Object.class, new ProductGuiRowRenderer());
+
         
         JScrollPane scrollPane = new JScrollPane(table);
         //set height of rows
