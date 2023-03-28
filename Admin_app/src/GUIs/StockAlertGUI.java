@@ -17,6 +17,7 @@ public class StockAlertGUI{
 
 	JFrame frame;
 	
+	//alerts if some items are out of stock or low in stock.
 	 public void displayStockAlerts() throws SQLException   {
 	        // Call listOfEndingProducts() method to get the ending products
 	        HashMap<String,Integer> endingProducts = new DBproductAndCategory().listOfEndingProducts();
@@ -34,9 +35,7 @@ public class StockAlertGUI{
 	                lowStockProducts.put(productId, stockAmount);
 	            }
 	        }
-	        ImageIcon icon = new ImageIcon("Image_Icon/Favicon.jpg");
-            Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // set the desired dimensions (50x50)
-            ImageIcon resizedIcon = new ImageIcon(image);
+	        
             
 	        // Display separate alerts for out of stock and low stock products
 	        if (!outOfStockProducts.isEmpty()) {
@@ -45,7 +44,7 @@ public class StockAlertGUI{
 	                outOfStockMessage += "Product with ID " + entry.getKey() + "\n";
 	            }
 	            
-	            JOptionPane.showMessageDialog(frame, outOfStockMessage, "Out of Stock Products", JOptionPane.WARNING_MESSAGE, resizedIcon);
+	            JOptionPane.showMessageDialog(frame, outOfStockMessage, "Out of Stock Products", JOptionPane.WARNING_MESSAGE, getImgIcon());
 	        }
 
 	        if (!lowStockProducts.isEmpty()) {
@@ -53,7 +52,24 @@ public class StockAlertGUI{
 	            for (Map.Entry<String,Integer> entry : lowStockProducts.entrySet()) {
 	                lowStockMessage += "Product with ID " + entry.getKey() + " has only " + entry.getValue() + " items left in stock.\n";
 	            }
-	            JOptionPane.showMessageDialog(frame, lowStockMessage, "Low Stock Products", JOptionPane.WARNING_MESSAGE, resizedIcon);
+	            JOptionPane.showMessageDialog(frame, lowStockMessage, "Low Stock Products", JOptionPane.WARNING_MESSAGE, getImgIcon());
 	        }
 	    }
-}
+	 
+	 //alert if there are Everything in stock
+	 public void allInStckAlert() throws SQLException {
+	        HashMap<String,Integer> endingProducts = new DBproductAndCategory().listOfEndingProducts();
+		 if (endingProducts.isEmpty()) {
+        JOptionPane.showMessageDialog(frame, "All Items Are In Stock", "Stocks", JOptionPane.WARNING_MESSAGE, getImgIcon());
+
+	 }
+	 }
+		 
+	public ImageIcon getImgIcon() {
+		ImageIcon icon = new ImageIcon("Image_Icon/Favicon.jpg");
+        Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // set the desired dimensions (50x50)
+        ImageIcon resizedIcon = new ImageIcon(image);
+		return resizedIcon;
+	}
+	 }
+
