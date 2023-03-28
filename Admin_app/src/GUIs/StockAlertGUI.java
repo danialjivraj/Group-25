@@ -4,11 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import Connection.DBproductAndCategory;
 
-
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import javax.swing.JOptionPane;
 
+import java.awt.Image;
 import java.sql.SQLException;
 
 
@@ -33,14 +34,18 @@ public class StockAlertGUI{
 	                lowStockProducts.put(productId, stockAmount);
 	            }
 	        }
-
+	        ImageIcon icon = new ImageIcon("Image_Icon/Favicon.jpg");
+            Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // set the desired dimensions (50x50)
+            ImageIcon resizedIcon = new ImageIcon(image);
+            
 	        // Display separate alerts for out of stock and low stock products
 	        if (!outOfStockProducts.isEmpty()) {
 	            String outOfStockMessage = "The following products are out of stock:\n";
 	            for (Map.Entry<String,Integer> entry : outOfStockProducts.entrySet()) {
 	                outOfStockMessage += "Product with ID " + entry.getKey() + "\n";
 	            }
-	            JOptionPane.showMessageDialog(frame, outOfStockMessage, "Out of Stock Products", JOptionPane.WARNING_MESSAGE);
+	            
+	            JOptionPane.showMessageDialog(frame, outOfStockMessage, "Out of Stock Products", JOptionPane.WARNING_MESSAGE, resizedIcon);
 	        }
 
 	        if (!lowStockProducts.isEmpty()) {
@@ -48,7 +53,7 @@ public class StockAlertGUI{
 	            for (Map.Entry<String,Integer> entry : lowStockProducts.entrySet()) {
 	                lowStockMessage += "Product with ID " + entry.getKey() + " has only " + entry.getValue() + " items left in stock.\n";
 	            }
-	            JOptionPane.showMessageDialog(frame, lowStockMessage, "Low Stock Products", JOptionPane.WARNING_MESSAGE);
+	            JOptionPane.showMessageDialog(frame, lowStockMessage, "Low Stock Products", JOptionPane.WARNING_MESSAGE, resizedIcon);
 	        }
 	    }
 }
