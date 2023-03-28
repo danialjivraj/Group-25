@@ -66,17 +66,7 @@ public class HomePageGUI implements ActionListener {
 	//loginTx.setBounds(WIDTH/2,70,100,25);
 	panel.add(productFinder);
 	
-<<<<<<< HEAD
-	infoPF=new JButton("Find/Edit user");
-	panel.add(infoPF);
-	infoPF.addActionListener(this);
-	
-	userFinder = new JTextField(30);
-	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(userFinder);
-	
-=======
->>>>>>> 095ff5df77d07c179e59b49b2cd4e4abca0a32bc
+
     statusOfReport=new JLabel("Click it to Generate a report:");
     
 	createReport= new JButton("Generate Report");
