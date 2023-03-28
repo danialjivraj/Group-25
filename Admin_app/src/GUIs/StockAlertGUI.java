@@ -41,7 +41,7 @@ public class StockAlertGUI{
 	        if (!outOfStockProducts.isEmpty()) {
 	            String outOfStockMessage = "The following products are out of stock:\n";
 	            for (Map.Entry<String,Integer> entry : outOfStockProducts.entrySet()) {
-	                outOfStockMessage += "Product with ID " + entry.getKey() + "\n";
+	                outOfStockMessage += "Product ID " + entry.getKey() + "\n";
 	            }
 	            
 	            JOptionPane.showMessageDialog(frame, outOfStockMessage, "Out of Stock Products", JOptionPane.WARNING_MESSAGE, getImgIcon());
@@ -50,7 +50,7 @@ public class StockAlertGUI{
 	        if (!lowStockProducts.isEmpty()) {
 	            String lowStockMessage = "The following products are low on stock:\n";
 	            for (Map.Entry<String,Integer> entry : lowStockProducts.entrySet()) {
-	                lowStockMessage += "Product with ID " + entry.getKey() + " has only " + entry.getValue() + " items left in stock.\n";
+	                lowStockMessage += "Product ID " + entry.getKey() + " only has " + entry.getValue() + " items left in stock.\n";
 	            }
 	            JOptionPane.showMessageDialog(frame, lowStockMessage, "Low Stock Products", JOptionPane.WARNING_MESSAGE, getImgIcon());
 	        }
