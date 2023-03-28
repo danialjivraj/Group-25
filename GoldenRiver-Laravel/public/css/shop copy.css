@@ -1,3 +1,12 @@
+/******************************************************************* SHOP CSS******************************************************************/
+
+.alertLogIn,
+.alertLogOut {
+  text-align: center;
+}
+
+/****************************************** PRODUCT DISPLAY CSS******************************************/
+
 .product-row {
   display: flex;
   flex-wrap: wrap;
@@ -106,7 +115,7 @@
 }
 
 .smallSpace {
-  height: 19px;
+  height: 25px;
   font-size: 1px;
 }
 
@@ -156,31 +165,29 @@
     width: 100%;
   }
 
-  .col-sm-12.col-md-12.col-lg-2 {
-    display: flex;
-    justify-content: center;
-  }
-
   .search-input {
     width: 100%;
     max-width: 300px;
   }
 
-  .col-sm-12.col-md-12.col-lg-5 .filter-option {
-    display: inline-block;
-    width: calc(50% - 5px);
-    margin-right: 10px;
-    margin-bottom: 10px;
+  .filter-option {
+    width: 40%;
+    /* Set the width to 100% to make the button full width */
+    max-width: 300px;
+    /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    /* Center the button horizontally */
+
   }
 
-  .col-sm-12.col-md-12.col-lg-5 .filter-option:nth-child(2n) {
-    margin-right: 0;
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
+
 }
-
-
-
-
 
 
 @media screen and (min-width: 769px) and (max-width: 991px) {
@@ -222,6 +229,7 @@
     margin-bottom: 10px;
     font-size: 14px;
     padding: 6px;
+    text-align: center;
   }
 
   .filter-option:nth-child(2n) {
@@ -249,20 +257,23 @@
     justify-content: center;
     margin-top: 10px;
   }
-  
+
   .filter-option {
     display: inline-block;
     width: calc(20% - 5px);
-    margin-right: 10px;
+    margin-right: 12px;
+    /* adjust the margin-right value to add spacing */
     margin-bottom: 10px;
     font-size: 14px;
     padding: 6px;
+    text-align: center;
   }
-  
+
+
   .filter-option:nth-child(5n) {
     margin-right: 0;
   }
-  
+
   .col-sm-12.col-md-12.col-lg-2,
   .col-sm-12.col-md-12.col-lg-3,
   .col-sm-12.col-md-12.col-lg-5 {
@@ -270,14 +281,14 @@
     justify-content: center;
     align-items: center;
   }
-  
+
   .search-input {
     width: 100%;
     max-width: 250px;
     font-size: 14px;
     padding: 8px;
   }
-  
+
   .filter-form {
     display: flex;
     flex-direction: column;
@@ -335,6 +346,8 @@
 .product-box p {
   margin: 10px 0;
 }
+
+/****************************************** PRODUCT DISPLAY CSS******************************************/
 
 /******************************************************************* SEARCH CSS******************************************************************/
 .search-box {
@@ -586,7 +599,100 @@
   .search-input {
     width: 200px;
   }
+
+  .filter-option {
+    display: inline-block;
+    width: 40%;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-right: 12px;
+    /* adjust the margin-right value to add spacing */
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 6px;
+    text-align: center;
+
+  }
 }
+
+@media screen and (min-width: 100px) and (max-width: 335px) {
+  .filter-form {
+    flex-direction: column;
+    /* stack items vertically */
+  }
+
+  .form-button,
+  .form-link {
+    margin-top: 0;
+    /* remove margin */
+  }
+
+  .filtersection2 {
+    text-align: center;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .search-form {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Optional: adjust the width of the search box */
+  .search-input {
+    width: 200px;
+  }
+
+  .filter-option {
+    display: inline-block;
+    width: 40%;
+    max-width: 300px;
+    margin: 0 auto;
+    margin-right: 12px;
+    /* adjust the margin-right value to add spacing */
+    margin-bottom: 10px;
+    font-size: 14px;
+    padding: 6px;
+    text-align: center;
+    font-size: 10.5px;
+    font-weight: bold;
+  }
+}
+
+
+@media screen and (min-width: 1129px) and (max-width: 1399px) {
+  .filter-option {
+    width: 40%;
+    /* Set the width to 100% to make the button full width */
+    max-width: 300px;
+    /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    /* Center the button horizontally */
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+}
+
+
+
+
+
+
 
 /********************************************************* END OF FILTER CSS ****************************************************************************************/
 

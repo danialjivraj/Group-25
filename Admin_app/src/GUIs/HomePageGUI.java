@@ -6,15 +6,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Connection.DBproductAndCategory;
 import EmailSending.Report;
 import EmailSending.Sender;
 import java.awt.Color;
@@ -24,11 +28,12 @@ public class HomePageGUI implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JButton createReport;
-	private JButton infoPF,infoUF,addProduct, allUsers, allProducts, allOrders;
+	private JButton infoUF,addProduct, allUsers, allProducts, allOrders;
 	private JLabel statusOfReport,email_L;
-	private JTextField productFinder,userFinder;
+	private JTextField productFinder;
 	private String Email;
-public HomePageGUI(String Email) {
+	
+	public HomePageGUI(String Email) throws SQLException {
 	frame=new JFrame();
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
@@ -37,7 +42,7 @@ public HomePageGUI(String Email) {
 	email_L=new JLabel("Email: "+Email);
 	panel.add(email_L);
 	
-	allUsers=new JButton("All Users");
+	allUsers=new JButton("Users");
 	panel.add(allUsers);
 	allUsers.addActionListener(this);
 	
@@ -61,6 +66,7 @@ public HomePageGUI(String Email) {
 	//loginTx.setBounds(WIDTH/2,70,100,25);
 	panel.add(productFinder);
 	
+<<<<<<< HEAD
 	infoPF=new JButton("Find/Edit user");
 	panel.add(infoPF);
 	infoPF.addActionListener(this);
@@ -69,6 +75,8 @@ public HomePageGUI(String Email) {
 	//loginTx.setBounds(WIDTH/2,70,100,25);
 	panel.add(userFinder);
 	
+=======
+>>>>>>> 095ff5df77d07c179e59b49b2cd4e4abca0a32bc
     statusOfReport=new JLabel("Click it to Generate a report:");
     
 	createReport= new JButton("Generate Report");
@@ -88,8 +96,11 @@ public HomePageGUI(String Email) {
 	frame.pack();
 	frame.setVisible(true);
 	frame.setResizable(false);
+	
+	StockAlertGUI sAlert = new StockAlertGUI();
+	sAlert.displayStockAlerts();
 }
-
+	
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stu
@@ -138,20 +149,6 @@ public void actionPerformed(ActionEvent e) {
 			e1.printStackTrace();
 		}
 	}
-	else if(e.getSource()==infoPF) {
-		try {
-			new EditUserGUI(userFinder.getText());
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
-	
-	
-	
-	
-	
-	
 	
 }
 

@@ -5,7 +5,6 @@
 @endsection('title')
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 @endsection
@@ -65,7 +64,7 @@
                                                     <td class="desc">
                                                         <h3>
                                                             <!-- Item Name -->
-                                                        <a class="text-navy">{{ $product->Product_Name }}</a>
+                                                        <a href="{{ url('/product/'.$product->Product_ID) }}" class="text-navy">{{ $product->Product_Name }}</a>
                                                         </h3>
                                                         <dl class="small m-b-none">
                                                             <!--retrieve database info for product description-->

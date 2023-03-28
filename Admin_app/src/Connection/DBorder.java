@@ -1,6 +1,10 @@
 package Connection;
 
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+import com.mysql.jdbc.PreparedStatement;
 
 import java.sql.ResultSet;
 
@@ -82,24 +86,41 @@ public class DBorder extends DataBaseConn{
 	    return rs;
 	}
 	
-	public String getOrderProductById(String ID) throws SQLException {
+	public ResultSet getOrderProductById(String ID) throws SQLException {
 	  String sql = "SELECT * FROM linked_product_order WHERE Order_ID='"+ID+"'";
 	  ResultSet rs = getStmt().executeQuery(sql);
-	   StringBuilder sb = new StringBuilder();
-	    while (rs.next()) {
-	        String productID = rs.getString("Product_ID");
-	       // String orderID = rs.getString("Order_ID");
-	        int amount = rs.getInt("Amount");
-	        double price = rs.getDouble("Price");
-	        int polID = rs.getInt("POL_ID");
-	        sb.append(String.format("Product # %d\n Product ID: %s\n Quantity: %d\n Price: \u00A3%.2f\n\n", 
-	        		polID, productID, amount, price));
-	    }
-	    return sb.toString();
+	  return rs;
 	}
 	
-//public static void main(String[] args) throws SQLException {
-//	DBorder db = new DBorder();
-//	System.out.println(db.getOrderProductById("1"));
-//}
+//	public String getOrdersInAWeek() {
+//	
+//		LocalDateTime now = LocalDateTime.now();
+//		//LocalDate startDate = now.toLocalDate().minusDays(7);
+//	String sql= "SELECT created_at, Order_Total_Price FROM Orderb WHERE created_at BETWEEN"+now+ "AND" + startDate+ ";";
+//	LocalDate startDate = LocalDate.now().minusWeeks(1);
+//	PreparedStatement stmt = ("SELECT created_at, Order_Total_Price FROM Orderb WHERE created_at BETWEEN ? AND ?");
+//	stmt.setDate(1, java.sql.Date.valueOf(startDate));
+//	stmt.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
+//	.setStmt(stmt);
+////		List<Pair<String, Double>> data = new ArrayList<>();
+////		Map<String, Double> salesByDay = new HashMap<>();
+////
+////		while (rs.next()) {
+////		    LocalDate createdDate = rs.getDate("created_at").toLocalDate();
+////		    String dayOfWeek = createdDate.getDayOfWeek().toString();
+////
+////		    Double sales = salesByDay.getOrDefault(dayOfWeek, 0.0);
+////		    salesByDay.put(dayOfWeek, sales + rs.getDouble("Order_Total_Price"));
+////		}
+////
+////		for (DayOfWeek day : DayOfWeek.values()) {
+////		    Double sales = salesByDay.getOrDefault(day.toString(), 0.0);
+////		    data.add(new Pair<>(day.toString(), sales));
+////		}
+//	}
+//	
+
+
+	public static void main(String[] args) {
+	}
 }

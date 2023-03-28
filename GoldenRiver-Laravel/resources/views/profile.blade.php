@@ -42,10 +42,10 @@
                 <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required autofocus maxlength="30" class="form__input" placeholder="Change your name...">
                 <div id="name-error"></div>
             </div>
-            <div class="form__input-group" style="margin-top: 10px;">
+            <div class="form__input-group">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
-              
+
                 <div id="email-error"></div>
             </div>
             <div class="form__input-group">
@@ -54,7 +54,7 @@
         </form>
 
         @if(session('status'))
-        <div style="margin-top: 10px;">
+        <div class="onClickMessageForm1">
             {{ session('status') }}
         </div>
         @endif
@@ -71,7 +71,7 @@
                 <label for="password">New Password</label>
                 <input type="password" name="password" id="password" class="form__input">
             </div>
-            <div class="form__input-group" style="margin-top: 10px;">
+            <div class="form__input-group">
                 <label for="password-confirm">Confirm Password</label>
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
                 <div id="error-message"></div>
@@ -81,7 +81,7 @@
             </div>
         </form>
         @if (session('password_status'))
-        <div style="margin-top: 10px;">
+        <div class="onClickMessageForm2">
             {{ session('password_status') }}
         </div>
         @endif
@@ -111,18 +111,19 @@
                                 @if($order->Order_ID != $prevOrderID)
                                 <tr>
                                     <td>{{$order->Order_ID}}</td>
-                                    <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
+                                    <td class="textOnLeft">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                     <td class="status">
                                         <span>Status:</span>
-                                        <span class="status-label" style="background-color: {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
-                                        ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue')) }}">
+                                        <span class="status-label {{ $order->Order_Status == 'Shipped' ? 'shipped' : 
+                                     ($order->Order_Status == 'Delivered' ? 'delivered' : 
+                                      ($order->Order_Status == 'Canceled' ? 'canceled' : 'default')) }}">
                                             {{ $order->Order_Status }}
-                                            <!-- Ignore errors, works fine -->
                                         </span>
 
                                     </td>
                                     <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
                                 </tr>
+
                                 @php $prevOrderID = $order->Order_ID; @endphp
                                 @endif
                                 @endforeach

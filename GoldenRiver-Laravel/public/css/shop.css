@@ -1,104 +1,3 @@
-/********************************************************* PRODUCT BOX CSS ****************************************************************************************/
-.product {
-  width: calc(25% - 20px);
-  /* this subtracts the margin from 25% to get the 4 products in a row */
-  margin: 10px;
-  /* add some margin between products */
-}
-
-/* DO NOT DELETE */
-.product-container {
-  display: flex;
-  /* flex-wrap: wrap; */
-  justify-content: center;
-  /* make it center if group wants some space on the sides*/
-  padding: 0 10%;
-}
-
-
-.product {
-  flex-basis: 23%;
-  margin: 1%;
-}
-
-
-.product-box {
-  width: calc(25% - 10px);
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-  position: relative;
-  height: 610px;
-}
-
-.product-image {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 80%;
-  /* this leaves space for the SHOP button */
-  display: flex;
-  justify-content: center;
-}
-
-.product-image img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: all 0.3s ease-in-out;
-  max-width: none;
-}
-
-.product-image:hover img {
-  transform: scale(1.1);
-}
-
-.shop-button {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  background-color: transparent;
-  color: #000;
-  transition: opacity 0.3s ease-in-out;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px 0;
-}
-
-.shop-button a {
-  color: black;
-  font-weight: bold;
-  font-size: 15px;
-  display: block;
-}
-
-.shop-button a:active {
-  color: red;
-}
-
-.smallSpace {
-  height: 5px;
-  font-size: 1px;
-}
-
-.product-box:hover .shop-button {
-  opacity: 1;
-}
-
-.product-box p {
-  margin: 10px 0;
-}
-
-
-/********************************************************* END PRODUCT BOX CSS ****************************************************************************************/
-
-
 /********************************************************* PROFILE PAGE ****************************************************************************************/
 
 /*********************************************** UPDATE FORM CSS ******************************************************************************/
@@ -209,18 +108,22 @@ h4.logged-in {
   padding: 20px;
   vertical-align: top;
   width: 300px;
-  height: 370px;
+  height: 420px;
 }
 
 #error-message {
   position: absolute;
   color: red;
+  margin-top: -4px;
 }
 
-#name-error, #email-error {
+#name-error,
+#email-error {
   position: absolute;
   color: red;
+  margin-top: -14px;
 }
+
 
 .form-box form {
   display: flex;
@@ -257,6 +160,55 @@ h4.logged-in {
 .form__input-group3 {
   margin-top: 10px;
 }
+
+.onClickMessageForm1 {
+  margin-top: 10px;
+}
+
+.onClickMessageForm2 {
+  margin-top: 10px;
+}
+
+/************************************ RESPONSIVENESS OF FORM ONCLICK MESSAGES (NAME/EMAIL) ************************************/
+@media (max-width: 439px) {
+  .onClickMessageForm1 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 389px) {
+  .onClickMessageForm1 {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 280px) {
+  .onClickMessageForm1 {
+    font-size: 10px;
+  }
+}
+
+/************************************ END OF RESPONSIVENESS OF FORM ONCLICK MESSAGES (NAME/EMAIL) ************************************/
+
+/************************************ RESPONSIVENESS OF FORM ONCLICK MESSAGES (PASSWORD) ************************************/
+
+@media (max-width: 563px) {
+  .onClickMessageForm2 {
+    font-size: 14px;
+  }
+}
+
+
+
+@media (max-width: 493px) {
+  .onClickMessageForm2 {
+    font-size: 12px;
+  }
+}
+
+/************************************ END OF RESPONSIVENESS OF FORM ONCLICK MESSAGES (PASSWORD) ************************************/
+
+
 /*********************************************** END OF UPDATE FORM CSS ******************************************************************************/
 
 /*********************************************** RECENT ORDERS CSS ******************************************************************************/
@@ -358,9 +310,10 @@ a {
   color: #007bff;
 }
 
-a:hover {
+/*a:hover {
   text-decoration: underline;
 }
+*/
 
 td.status {
   text-transform: uppercase;
@@ -375,10 +328,41 @@ td.status span {
 
 td.status .status-label {
   display: inline-block;
-  background-color: #007bff;
   color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
+}
+
+.shipped {
+  background-color: #BBB117 !important;
+}
+
+.delivered {
+  background-color: green !important;
+}
+
+.canceled {
+  background-color: red !important;
+}
+
+.default {
+  background-color: #007bff !important;
+}
+
+.shipped-label {
+  color: #BBB117;
+}
+
+.delivered-label {
+  color: green;
+}
+
+.canceled-label {
+  color: red;
+}
+
+.default-label {
+  color: blue;
 }
 
 table img {
@@ -403,12 +387,114 @@ table tbody tr:last-child td:first-child {
   padding-top: 20px;
 }
 
-/*********************************************** END OF RECENT ORDERS CSS ******************************************************************************/
+.table-wrap td.textOnLeft {
+  text-align: left;
+}
+
+@media only screen and (max-width: 384px) {
+  .table-wrap table {
+    width: 100%;
+  }
+
+  .table-wrap thead {
+    display: none;
+  }
+
+  .table-wrap td {
+    display: block;
+    text-align: center;
+  }
+
+  .table-wrap td.textOnLeft {
+    text-align: center;
+  }
+}
+
+
+
+/************************************* ERROR SCREEN MEDIA ADJUSTMENT *************************************/
+@media (max-width: 438px) {
+
+  #name-error,
+  #email-error {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 389px) {
+  #name-error {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 348px) {
+  #name-error {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 301px) {
+  #name-error {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 334px) {
+  #email-error {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 301px) {
+  #email-error {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 460px) {
+  #error-message {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 407px) {
+  #error-message {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 365px) {
+  #error-message {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 314px) {
+  #error-message {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 292px) {
+  #error-message {
+    font-size: 8.5px;
+  }
+}
+
+/************************************* END OF ERROR SCREEN MEDIA ADJUSTMENT *************************************/
+
+
+/*********************************************** END OF RECENT ORDERS CSS **************************************************************************/
 
 /********************************************************* END OF PROFILE PAGE ****************************************************************************************/
 
 
+
 /********************************************************* ORDER DETAILS PAGE ****************************************************************************************/
+
+.order-status {
+  text-transform: uppercase;
+}
 
 .show-order-table {
   border-collapse: collapse;
@@ -471,5 +557,82 @@ table tbody tr:last-child td:first-child {
     height: 80px;
   }
 }
+
+@media (max-width: 365px) {
+  .show-order-table {
+    font-size: 0.8em;
+  }
+
+  .show-product-image img {
+    max-width: 60px;
+  }
+
+  .product-info {
+    margin-left: 10px;
+  }
+
+  .go-back-btn-container {
+    text-align: left;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .show-order-table {
+    font-size: 0.6em;
+  }
+
+  .show-product-image img {
+    max-width: 40px;
+  }
+
+  .product-info {
+    margin-left: 6px;
+  }
+
+  .go-back-btn-container {
+    margin-left: 6px;
+  }
+}
+
+
+.go-back-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.go-back-btn {
+  background-color: #b29758;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid #555;
+
+}
+
+.go-back-btn:hover {
+  background: #c8b17a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+
+@media screen and (max-width: 768px) {
+  .go-back-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+
+
+
 
 /********************************************************* END OF ORDER DETAILS PAGE ****************************************************************************************/

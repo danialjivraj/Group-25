@@ -12,17 +12,17 @@
 
 @section('body')
 <br><br><br><br>
+
 <table class="show-order-table">
     <thead>
         <tr>
             <th>Items in this order</th>
-            <th class="status-label" style="color: 
-            {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
-            ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue'))}}">
-                Status: {{ $order->Order_Status }}
-                <!-- Ignore errors, works fine -->
-
+            <th class="status-label {{ $order->Order_Status == 'Shipped' ? 'shipped-label' : 
+                           ($order->Order_Status == 'Delivered' ? 'delivered-label' : 
+                            ($order->Order_Status == 'Canceled' ? 'canceled-label' : 'default-label')) }}">
+                <div class="order-status">Status: {{ $order->Order_Status }}</div>
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -68,7 +68,14 @@
         </tr>
         @endif
     </tbody>
+
 </table>
+<div class="go-back-btn-container">
+    <a href="{{ url()->previous() }}" class="go-back-btn">Go Back</a>
+</div>
+</div>
+
+
 <br><br><br><br><br><br><br>
 
 @endsection

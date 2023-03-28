@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -29,15 +30,16 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     private JPanel contentPane;
     private JTextField searchField;
     private JComboBox<String> filterBox;
-    private JButton submitButton;
+    private JButton searchBtn;
     private JButton delButton;
+    private JButton stkChckBtn;  //btn to check stock levels
     JLabel imageLabel;
 
     public ProductsTableGUI() throws SQLException{
         setTitle("All Products");
         setIconImage(new ImageIcon("Image_Icon/Favicon.jpg").getImage());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setSize(1400, 600);
+        setBounds(200, 200, 1400, 600);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         contentPane.setLayout(new BorderLayout(0, 0));
@@ -68,7 +70,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         model.addColumn("Description");
 
 
-        // Add data to the table model
+        // Add data to the table model (This Table uses Array instead of Vector)
         try {
         	DBproductAndCategory dba = new DBproductAndCategory();
             ResultSet rs = dba.getProducts();
@@ -106,19 +108,23 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         }
 
         table = new JTable(model);
+        
         table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
-        table.getColumnModel().getColumn(1).setCellRenderer(renderer); // Set the renderer for column 0
-        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
-        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
-        table.getColumnModel().getColumn(5).setCellRenderer(renderer);
-        table.getColumnModel().getColumn(6).setCellRenderer(renderer);
+//        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+//        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
+//        table.getColumnModel().getColumn(1).setCellRenderer(renderer); // Set the renderer for column 0
+//        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
+//        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
+//        table.getColumnModel().getColumn(5).setCellRenderer(renderer);
+//		  table.getColumnModel().getColumn(6).setCellRenderer(renderer);
+//        table.getColumnModel().getColumn(6).setCellRenderer(new StockCellRenderer());
+        table.setDefaultRenderer(Object.class, new ProductGuiRowRenderer());
+
         
         JScrollPane scrollPane = new JScrollPane(table);
         //set height of rows
         table.setRowHeight(150);
-        Font font = new Font("Arial", Font.BOLD, 13);
+        Font font = new Font("Calibri", Font.BOLD, 17);
 
         // set the font for the table
         table.setFont(font);
@@ -127,38 +133,56 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
-        // create search bar and filter by section
-        JPanel searchPanel = new JPanel(new BorderLayout());
-        JLabel searchLabel = new JLabel("Search by Product ID Or Product Name: ");
-        searchField = new JTextField();
-        searchField.addActionListener(this);
-        searchPanel.add(searchLabel, BorderLayout.WEST);
-        searchPanel.add(searchField, BorderLayout.CENTER);
+        
+        //OLD SEARCH PANEL (Commented Out)
+//        // create search bar and filter by section
+//        JPanel searchPanel = new JPanel(new BorderLayout());
+//        JLabel searchLabel = new JLabel("Search by Product ID Or Product Name: ");
+//        searchField = new JTextField();
+//        searchField.addActionListener(this);
+//        searchPanel.add(searchLabel, BorderLayout.WEST);
+//        searchPanel.add(searchField, BorderLayout.CENTER);
 
-        //
-        JPanel filterPanel = new JPanel(new BorderLayout());
+        // NEW SEARCH PANEL
+        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel searchLabel = new JLabel("Search by Product ID or Product Name: ");
+        searchField = new JTextField(20);
+        searchField.addActionListener(this);
+        searchBtn = new JButton("Search");
+        searchBtn.addActionListener(this);
+        searchPanel.add(searchLabel);
+        searchPanel.add(searchField);
+        searchPanel.add(searchBtn);
+     
+        JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel filterLabel = new JLabel("Filter by Categories: ");
         String[] filterOptions = {"All", "Earrings", "Necklace", "Bracelets", "Rings", "Exclusive sets"};
         filterBox = new JComboBox<>(filterOptions);
         filterBox.addActionListener(this);
+        
+        stkChckBtn = new JButton("Quick Stock Check");
+        stkChckBtn.addActionListener(this);
+        
         filterPanel.add(filterLabel, BorderLayout.WEST);
         filterPanel.add(filterBox, BorderLayout.CENTER);
+        filterPanel.add(stkChckBtn, BorderLayout.CENTER);
 
         JPanel searchFilterPanel = new JPanel(new BorderLayout());
         searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
         searchFilterPanel.add(filterPanel, BorderLayout.CENTER);
-
+        
+        JLabel optionsLbl = new JLabel("Select a row and use the following option(s):  ");
      // create submit button for Changing order Status
         delButton = new JButton("Delete Product");
  		delButton.addActionListener(this);
-        // create submit button for filtering
-        submitButton = new JButton("Search");
-        submitButton.addActionListener(this);
-
+ 		
+ 		
         
         JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        submitPanel.add(optionsLbl);
         submitPanel.add(delButton);
-        submitPanel.add(submitButton);
+        delButton.setBackground(new Color(0xF86161)); //color Red
+
 
         // add searchFilterPanel and submitPanel to contentPane
         contentPane.add(searchFilterPanel, BorderLayout.NORTH);
@@ -176,7 +200,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 		
 		if (e.getSource() == searchField || e.getSource() == filterBox) {
     		filterTable();
-    		} else if (e.getSource() == submitButton) {
+    		} else if (e.getSource() == searchBtn) {
     		filterTable();
     		}
     		else if (e.getSource() == delButton) {
@@ -184,7 +208,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is gonna show an error
 		            JOptionPane.showMessageDialog(this, "Please select a row to Delete.");
     			 }else {
-			        	String prodID = model.getValueAt(selectedRow, 0).toString();  //maybe Change this later as Product Image is now first column
+			        	String prodID = model.getValueAt(selectedRow, 1).toString();  //maybe Change this later as Product Image is now first column
 			            int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Product ID?" + prodID);
 			            	
 	        	//Give pop up saying are you sure you want to remove this product if yes then delete it
@@ -198,6 +222,15 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 				}
             }
 		}
+	 }else if(e.getSource() == stkChckBtn) {
+		 StockAlertGUI sAlert = new StockAlertGUI();
+			try {
+				
+				sAlert.displayStockAlerts();
+				sAlert.allInStckAlert();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 	 }
 }
 	
@@ -213,11 +246,11 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 
         // Set up the filter
         ArrayList<RowFilter<Object, Object>> filters = new ArrayList<RowFilter<Object, Object>>();
-        filters.add(RowFilter.regexFilter("(?i)" + searchQuery, 0, 2)); 
+        filters.add(RowFilter.regexFilter("(?i)" + searchQuery, 1, 3)); 
 
         if (!filterOption.equals("All")) {
             // Create a filter for the selected Order Status
-            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("^" + filterOption + "$", 1);
+            RowFilter<Object, Object> statusFilter = RowFilter.regexFilter("^" + filterOption + "$", 2);
             filters.add(statusFilter);
         }
 
@@ -226,11 +259,4 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 		
 	}
 	
-//	public class ImageRenderer extends DefaultTableCellRenderer {
-//		imageLabel = new  
-//	    @Override
-//	    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-//	     
-//	}
-//}
 }

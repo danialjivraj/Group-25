@@ -85,7 +85,7 @@ public class DBproductAndCategory extends DataBaseConn{
 
 	public HashMap<String,Integer> listOfEndingProducts() throws SQLException{
 		
-		//Used to make a Hashmap with low stock (stock is low if < 3)
+		//Used to make a Hashmap with low stock (stock is low if < 4)
 		
 		HashMap<String,Integer> records=new HashMap<>();
 		String sql="SELECT * FROM product WHERE Amount<4";
@@ -101,6 +101,7 @@ public class DBproductAndCategory extends DataBaseConn{
 		return records;
 		
 	}
+	
 	public HashMap<String,String> listOfProcessingOrders() throws SQLException{
 		
 		//Used to make a Hashmap of Processing (status of order) orders
@@ -136,15 +137,12 @@ public class DBproductAndCategory extends DataBaseConn{
 	}
 	
 	
-	//added by Faraz - For stock Level Alert
-	public void checkStockLevels() throws SQLException {
-	    HashMap<String,Integer> endingProducts = listOfEndingProducts();
-	    if (!endingProducts.isEmpty()) {
-	        StockAlertGUI stockAlert = new StockAlertGUI();
-	        stockAlert.displayStockAlerts(endingProducts);
-	        stockAlert.setVisible(true);
-	    }
-	}
+//	//added by Faraz - For stock Level Alert
+//	public HashMap<String, Integer> checkStockLevels() throws SQLException {
+//	    HashMap<String,Integer> endingProducts = listOfEndingProducts();
+//	    return endingProducts;
+//	    }
+	
 	public ResultSet getProducts() throws SQLException{
 		   String sql = "SELECT * FROM product;";
 		    ResultSet rs = getStmt().executeQuery(sql);
@@ -181,11 +179,6 @@ public class DBproductAndCategory extends DataBaseConn{
 		  String sql = "DELETE FROM product WHERE Product_ID='"+pID+"'";
 		  getStmt().executeUpdate(sql);
 		}
-	
-//	public static void main(String[] args) throws SQLException {
-//		DBproductAndCategory db = new DBproductAndCategory();
-//		db.delProduct("50");
-//	}
 
 	public void editImageOfProduct(String ID) throws IOException {
 		BufferedImage image = new BufferedImage(300,300,BufferedImage.TYPE_INT_ARGB);
@@ -204,5 +197,7 @@ public class DBproductAndCategory extends DataBaseConn{
 			ImageIO.write(image, "jpg", file);
 		}
 	}
+	
+	
 
 }

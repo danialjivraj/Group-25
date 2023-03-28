@@ -7,13 +7,23 @@ import Connection.DBaccount;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
 
 
-public class UserTableGUI extends JFrame {
+public class UserTableGUI extends JFrame implements ActionListener{
 
     private JTable table;
     private DefaultTableModel model;
+    private JButton infoUF;
+    private JTextField userFinder;
+    private JLabel userFinderLbl;
 
     public UserTableGUI() throws SQLException{
         setTitle("All Users");
@@ -56,15 +66,60 @@ public class UserTableGUI extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+      
+       
+        
+        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        userFinderLbl = new JLabel("Enter User ID To Edit User");
+        infoUF=new JButton("Edit User");
+        userFinder = new JTextField(" Edit User Using User ID ");
+        userFinder.setCaretPosition(0);
+        userFinder.setForeground(Color.GRAY);
 
-        // Add the table to the frame
+        // Add a focus listener to clear the placeholder text when the field is clicked
+        userFinder.addFocusListener(new FocusAdapter() {
+                @Override
+                public void focusGained(FocusEvent e) {
+                    if (userFinder.getText().equals(" Edit User Using User ID ")) {
+                    	userFinder.setText("");
+                    	userFinder.setForeground(Color.BLACK);
+                    }
+                }
+
+                @Override
+                public void focusLost(FocusEvent e) {
+                    if (userFinder.getText().isEmpty()) {
+                    	userFinder.setForeground(Color.GRAY);
+                    	userFinder.setText(" Edit User Using User ID ");
+                    }
+                }
+            });
+        
+        searchPanel.add(userFinderLbl);
+        searchPanel.add(userFinder);
+        searchPanel.add(infoUF);
+        infoUF.addActionListener(this);
+        
+        add(searchPanel, BorderLayout.NORTH);
         add(new JScrollPane(table));
 
         setVisible(true);
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    	if(e.getSource()==infoUF) {
+		try {
+			new EditUserGUI(userFinder.getText());
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+    }
 
 //Remove this main method once testing is done
-//    public static void main(String[] args) {
-//        new UserTableGUI();
-//    }
+    public static void main(String[] args) throws SQLException {
+        new UserTableGUI();
+    }
 }
