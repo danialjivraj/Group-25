@@ -74,7 +74,7 @@
     <div class="go-back-btn-container">
         <a href="{{ url()->previous() }}" class="go-back-btn">Go Back</a>
     </div>
-
+</div>
 
 
 <br><br><br><br><br><br><br>
