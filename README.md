@@ -64,3 +64,31 @@ Now open the .env file and make sure lines 11-16 looks exactly like the followin
 ### 8: In Command prompt or VS code terminal navigate to \Group-25\GoldenRiver-Laravel directory
 - Then to run the website use the following command: ```php artisan serve```
 - This command should display the website in your web browser. If a page saying something along the lines of “generate app key” comes up just select that option.
+
+## Java-Requirements/ Prerequisites
+This next section will be on how to set up Java
+-	Xampp
+-	Java Version 9+ (preferably 16)
+### Step 1
+- Repeat the same steps as Laravel from step 1 – 3.
+### Step2 Download Eclipse 
+- You could use another Ide but Ecplipse is recommended.
+### Step3
+- In Eclipse go to ```File > import > Git > Projects From Git > Existing Local Repository```. 
+- Here choose the location where you cloned the project and select ```finish```.
+	 
+### Step 4 
+- You will then see the project in your workspace
+- Right-Click on the project and then select ```properties```. 
+- A new window will open, select ```Java Build Path```.
+
+### Step5 
+- Click on ```Classpath```, 
+- select ```ADD External JARS``` on the right hand pane, a new window will show asking the path to the JARS. 
+- Navigate to ```\Group-25\Admin_app\External_Jars``` and select all the JARS. 
+
+### Step6
+-Select ```Apply and Close```. Now your view will look something like this Image. 
+- That is all the steps required you should now have the Admin_app running.
+
+
