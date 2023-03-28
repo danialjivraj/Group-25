@@ -12,12 +12,14 @@
 
 
 @section('body')
-<div class="everyFont">
+<div class="alertLogIn">
     @if(session()->has('loginSuccessMsg'))
     <div class="alert alert-success" role="alert" id="go-to-basket">
         {{session()->get('loginSuccessMsg')}}
+        <h4>Welcome, {{ Auth::user()->name }}!</h4>
     </div>
     @endif
+</div>
 
     <hr><!--VERSION 2: bootstrap used to make responsive-->
     <!-- search box -->
@@ -124,5 +126,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"></script>
     <script src="{{ asset('js/filter.js') }}"></script>
-</div>
+
 @endsection
