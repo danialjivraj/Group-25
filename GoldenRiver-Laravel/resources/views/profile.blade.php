@@ -54,7 +54,7 @@
         </form>
 
         @if(session('status'))
-        <div style="margin-top: 10px;">
+        <div class="onClickMessageForm1">
             {{ session('status') }}
         </div>
         @endif
@@ -72,7 +72,7 @@
                 <input type="password" name="password" id="password" class="form__input">
             </div>
             <div class="form__input-group" style="margin-top: 10px;">
-                <label for="password-confirm">Confirm Password</label>
+                <label for="password-confirm">Confirm    Password</label>
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
                 <div id="error-message"></div>
             </div>
@@ -81,7 +81,7 @@
             </div>
         </form>
         @if (session('password_status'))
-        <div style="margin-top: 10px;">
+        <div class="onClickMessageForm2">
             {{ session('password_status') }}
         </div>
         @endif
