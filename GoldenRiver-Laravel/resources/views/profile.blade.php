@@ -42,7 +42,7 @@
                 <input type="text" name="name" id="name" value="{{ Auth::user()->name }}" required autofocus maxlength="30" class="form__input" placeholder="Change your name...">
                 <div id="name-error"></div>
             </div>
-            <div class="form__input-group" style="margin-top: 10px;">
+            <div class="form__input-group">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
 
@@ -71,7 +71,7 @@
                 <label for="password">New Password</label>
                 <input type="password" name="password" id="password" class="form__input">
             </div>
-            <div class="form__input-group" style="margin-top: 10px;">
+            <div class="form__input-group">
                 <label for="password-confirm">Confirm Password</label>
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
                 <div id="error-message"></div>
