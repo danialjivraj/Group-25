@@ -20,7 +20,7 @@
             <th class="status-label {{ $order->Order_Status == 'Shipped' ? 'shipped-label' : 
                            ($order->Order_Status == 'Delivered' ? 'delivered-label' : 
                             ($order->Order_Status == 'Canceled' ? 'canceled-label' : 'default-label')) }}">
-                Status: {{ $order->Order_Status }}
+                <div class="order-status">Status: {{ $order->Order_Status }}</div>
             </th>
 
             <th></th>

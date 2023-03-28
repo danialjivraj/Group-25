@@ -492,6 +492,10 @@ table tbody tr:last-child td:first-child {
 
 /********************************************************* ORDER DETAILS PAGE ****************************************************************************************/
 
+.order-status {
+  text-transform: uppercase;
+}
+
 .show-order-table {
   border-collapse: collapse;
   width: 100%;
