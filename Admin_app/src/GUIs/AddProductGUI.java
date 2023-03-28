@@ -54,6 +54,7 @@ public class AddProductGUI implements ActionListener {
 		panel.add(Pr_Name);
 		
 		
+		
 		Pr_p_L = new JLabel("Product price:");
 		 //labelInfo2.setBounds(20,70+GAP,100,25);
 		panel.add(Pr_p_L);
@@ -137,8 +138,15 @@ public class AddProductGUI implements ActionListener {
 					
 					image = ImageIO.read(file);
 					
-					DAC.createProduct(categories.getSelectedItem().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
 					
+					try {
+					DAC.createProduct(categories.getSelectedItem().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
+					}catch(Exception ec) {
+						JOptionPane.showMessageDialog(null,
+				                "Wrong input: "+ec,
+				                "Sys",
+				                JOptionPane.INFORMATION_MESSAGE);
+					}
 					file = new File("..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\"+DAC.getLast()+".jpg");
 					ImageIO.write(image, "jpg", file);
 				}

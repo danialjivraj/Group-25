@@ -55,6 +55,18 @@ public class DBproductAndCategory extends DataBaseConn{
 		
 		//Used to create product
 		
+		
+		
+		//check limits
+		
+		if(Product_Name.length()>30) {
+			throw new IllegalStateException("The name of a product too long (length>30)");
+		}
+		if((String.valueOf(Product_Discount)).length()>2) {
+			throw new IllegalStateException("The discount of a product too long (length>2)");
+		}
+		//end check
+		
 		String sql="INSERT INTO product (Category_ID,Product_Name,Product_Discount,Product_Price,Amount,Description	) "
 				+ "VALUES ('"+textToIDCat(Category_ID)+"','"+Product_Name+"','"+Product_Discount+"','"+Product_Price+"','"+Amount+"','"+Description+"');";
 		
