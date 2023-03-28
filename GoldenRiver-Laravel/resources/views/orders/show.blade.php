@@ -12,63 +12,71 @@
 
 @section('body')
 <br><br><br><br>
-<table class="show-order-table">
-    <thead>
-        <tr>
-            <th>Items in this order</th>
-            <th class="status-label" style="color: 
+
+    <table class="show-order-table">
+        <thead>
+            <tr>
+                <th>Items in this order</th>
+                <th class="status-label" style="color: 
             {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
             ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue'))}}">
-                Status: {{ $order->Order_Status }}
-                <!-- Ignore errors, works fine -->
+                    Status: {{ $order->Order_Status }}
+                    <!-- Ignore errors, works fine -->
 
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @php
-        $totalItems = 0;
-        $totalAmount = 0;
-        @endphp
-        @if(isset($orderItems) && $orderItems->count() > 0)
-        @foreach($orderItems as $item)
-        <tr>
-            <td>
-                <div class="show-product-image">
-                    <a href="/product/{{$item->product->Product_ID }}"><img src="/images/allProductImages/{{$item->product->Product_ID}}.jpg" alt="productImage"></a>
-                </div>
-                <div class="product-info">
-                    <p><strong>{{ $item->product->Product_Name }}</strong></p>
-                    <p>Qty: {{ $item->Amount }}</p>
-                    <p>£{{ $item->Price }}</p>
-                </div>
-            </td>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
             @php
-            $totalItems += $item->Amount;
-            $totalAmount += $item->Price * $item->Amount;
+            $totalItems = 0;
+            $totalAmount = 0;
             @endphp
-        </tr>
-        @endforeach
-        <tr>
-            <td><strong>{{ $totalItems }} Items</strong></td>
-            <td><strong>£{{ $totalAmount }}</strong></td>
-        </tr>
-        <tr>
-            <td>Shipping:</td>
-            <td>£0.00</td>
-        </tr>
-        <tr>
-            <td><strong>Grand Total:</strong></td>
-            <td><strong>£{{ $totalAmount }}</strong></td>
-        </tr>
-        @else
-        <tr>
-            <td colspan="3">No order items found.</td>
-        </tr>
-        @endif
-    </tbody>
-</table>
+            @if(isset($orderItems) && $orderItems->count() > 0)
+            @foreach($orderItems as $item)
+            <tr>
+                <td>
+                    <div class="show-product-image">
+                        <a href="/product/{{$item->product->Product_ID }}"><img src="/images/allProductImages/{{$item->product->Product_ID}}.jpg" alt="productImage"></a>
+                    </div>
+                    <div class="product-info">
+                        <p><strong>{{ $item->product->Product_Name }}</strong></p>
+                        <p>Qty: {{ $item->Amount }}</p>
+                        <p>£{{ $item->Price }}</p>
+                    </div>
+                </td>
+                @php
+                $totalItems += $item->Amount;
+                $totalAmount += $item->Price * $item->Amount;
+                @endphp
+            </tr>
+            @endforeach
+            <tr>
+                <td><strong>{{ $totalItems }} Items</strong></td>
+                <td><strong>£{{ $totalAmount }}</strong></td>
+            </tr>
+            <tr>
+                <td>Shipping:</td>
+                <td>£0.00</td>
+            </tr>
+            <tr>
+                <td><strong>Grand Total:</strong></td>
+                <td><strong>£{{ $totalAmount }}</strong></td>
+            </tr>
+            @else
+            <tr>
+                <td colspan="3">No order items found.</td>
+            </tr>
+            @endif
+        </tbody>
+
+    </table>
+    <div class="go-back-btn-container">
+        <a href="{{ url()->previous() }}" class="go-back-btn">Go Back</a>
+    </div>
+
+
+
 <br><br><br><br><br><br><br>
 
 @endsection

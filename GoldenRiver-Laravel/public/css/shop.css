@@ -400,6 +400,7 @@ table tbody tr:last-child td:first-child {
     font-size: 8.5px;
   }
 }
+
 /************************************* END OF ERROR SCREEN MEDIA ADJUSTMENT *************************************/
 
 
@@ -472,5 +473,79 @@ table tbody tr:last-child td:first-child {
     height: 80px;
   }
 }
+
+@media (max-width: 365px) {
+  .show-order-table {
+    font-size: 0.8em;
+  }
+
+  .show-product-image img {
+    max-width: 60px;
+  }
+
+  .product-info {
+    margin-left: 10px;
+  }
+
+  .go-back-btn-container {
+    text-align: left;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  .show-order-table {
+    font-size: 0.6em;
+  }
+
+  .show-product-image img {
+    max-width: 40px;
+  }
+
+  .product-info {
+    margin-left: 6px;
+  }
+
+  .go-back-btn-container {
+    margin-left: 6px;
+  }
+}
+
+
+.go-back-btn-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.go-back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  background-color: #b4a072;
+  border-radius: 4px;
+  text-decoration: none;
+  border: 1px solid black;
+
+}
+
+.go-back-btn:hover {
+  color: rgb(20, 19, 19);
+}
+
+.go-back-btn:active {
+  color: rgb(83, 39, 39);
+}
+
+@media screen and (max-width: 768px) {
+  .go-back-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+
+
+
 
 /********************************************************* END OF ORDER DETAILS PAGE ****************************************************************************************/
