@@ -45,7 +45,7 @@
             <div class="form__input-group" style="margin-top: 10px;">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="{{ Auth::user()->email }}" required maxlength="30" class="form__input" placeholder="Change your email...">
-              
+
                 <div id="email-error"></div>
             </div>
             <div class="form__input-group">
@@ -111,18 +111,18 @@
                                 @if($order->Order_ID != $prevOrderID)
                                 <tr>
                                     <td>{{$order->Order_ID}}</td>
-                                    <td style="text-align: left">{{date('d-m-Y', strtotime($order->created_at))}}</td>
+                                    <td class="textOnLeft">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                     <td class="status">
                                         <span>Status:</span>
                                         <span class="status-label" style="background-color: {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
-                                        ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue')) }}">
+                                             ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue')) }}">
                                             {{ $order->Order_Status }}
                                             <!-- Ignore errors, works fine -->
                                         </span>
-
                                     </td>
                                     <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
                                 </tr>
+
                                 @php $prevOrderID = $order->Order_ID; @endphp
                                 @endif
                                 @endforeach
