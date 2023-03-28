@@ -100,9 +100,5 @@ public class DBorder extends DataBaseConn{
 //	    }
 //	    return sb.toString();
 	}
-	
-//public static void main(String[] args) throws SQLException {
-//	DBorder db = new DBorder();
-//	System.out.println(db.getOrderProductById("1"));
-//}
+
 }

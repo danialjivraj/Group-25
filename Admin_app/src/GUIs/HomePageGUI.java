@@ -6,15 +6,19 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import Connection.DBproductAndCategory;
 import EmailSending.Report;
 import EmailSending.Sender;
 import java.awt.Color;
@@ -29,7 +33,7 @@ public class HomePageGUI implements ActionListener {
 	private JTextField productFinder;
 	private String Email;
 	
-	public HomePageGUI(String Email) {
+	public HomePageGUI(String Email) throws SQLException {
 	frame=new JFrame();
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
@@ -81,8 +85,11 @@ public class HomePageGUI implements ActionListener {
 	frame.pack();
 	frame.setVisible(true);
 	frame.setResizable(false);
+	
+	StockAlertGUI sAlert = new StockAlertGUI();
+	sAlert.displayStockAlerts();
 }
-
+	
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stu
@@ -131,7 +138,6 @@ public void actionPerformed(ActionEvent e) {
 			e1.printStackTrace();
 		}
 	}
-
 	
 }
 
