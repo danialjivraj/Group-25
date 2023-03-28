@@ -328,10 +328,41 @@ td.status span {
 
 td.status .status-label {
   display: inline-block;
-  background-color: #007bff;
   color: #fff;
   padding: 5px 10px;
   border-radius: 3px;
+}
+
+.shipped {
+  background-color: #BBB117 !important;
+}
+
+.delivered {
+  background-color: green !important;
+}
+
+.canceled {
+  background-color: red !important;
+}
+
+.default {
+  background-color: #007bff !important;
+}
+
+.shipped-label {
+  color: #BBB117;
+}
+
+.delivered-label {
+  color: green;
+}
+
+.canceled-label {
+  color: red;
+}
+
+.default-label {
+  color: blue;
 }
 
 table img {

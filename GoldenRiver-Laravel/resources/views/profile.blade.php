@@ -72,7 +72,7 @@
                 <input type="password" name="password" id="password" class="form__input">
             </div>
             <div class="form__input-group" style="margin-top: 10px;">
-                <label for="password-confirm">Confirm    Password</label>
+                <label for="password-confirm">Confirm Password</label>
                 <input type="password" name="password_confirmation" id="password-confirm" class="form__input">
                 <div id="error-message"></div>
             </div>
@@ -114,11 +114,12 @@
                                     <td class="textOnLeft">{{date('d-m-Y', strtotime($order->created_at))}}</td>
                                     <td class="status">
                                         <span>Status:</span>
-                                        <span class="status-label" style="background-color: {{ $order->Order_Status == 'Shipped' ? '#BBB117' : 
-                                             ($order->Order_Status == 'Delivered' ? 'green' : ($order->Order_Status == 'Canceled' ? 'red' : 'blue')) }}">
+                                        <span class="status-label {{ $order->Order_Status == 'Shipped' ? 'shipped' : 
+                                     ($order->Order_Status == 'Delivered' ? 'delivered' : 
+                                      ($order->Order_Status == 'Canceled' ? 'canceled' : 'default')) }}">
                                             {{ $order->Order_Status }}
-                                            <!-- Ignore errors, works fine -->
                                         </span>
+
                                     </td>
                                     <td><a href="{{ route('orders.show', ['id' => $order->Order_ID]) }}">View More</a></td>
                                 </tr>
