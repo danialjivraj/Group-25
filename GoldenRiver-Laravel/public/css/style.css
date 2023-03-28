@@ -799,6 +799,29 @@ input[type="text"] {
     text-align: center;
   }
 
+/************************************* ERROR SCREEN MEDIA ADJUSTMENT *************************************/
+
+@media (max-width: 386px) {
+    .errorlog {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 366px) {
+    .errorlog {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 316px) {
+    .errorlog {
+      font-size: 9px;
+    }
+  }
+
+/************************************* END OF ERROR SCREEN MEDIA ADJUSTMENT *************************************/
+
+
 button[disabled] {
     color: #000000;
     /* Change the text color of the disabled button */
