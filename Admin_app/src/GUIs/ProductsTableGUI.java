@@ -32,6 +32,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     private JComboBox<String> filterBox;
     private JButton searchBtn;
     private JButton delButton;
+    private JButton stkChckBtn;  //btn to check stock levels
     JLabel imageLabel;
 
     public ProductsTableGUI() throws SQLException{
@@ -158,8 +159,13 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         String[] filterOptions = {"All", "Earrings", "Necklace", "Bracelets", "Rings", "Exclusive sets"};
         filterBox = new JComboBox<>(filterOptions);
         filterBox.addActionListener(this);
+        
+        stkChckBtn = new JButton("Quick Stock Check");
+        stkChckBtn.addActionListener(this);
+        
         filterPanel.add(filterLabel, BorderLayout.WEST);
         filterPanel.add(filterBox, BorderLayout.CENTER);
+        filterPanel.add(stkChckBtn, BorderLayout.CENTER);
 
         JPanel searchFilterPanel = new JPanel(new BorderLayout());
         searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
@@ -216,6 +222,15 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 				}
             }
 		}
+	 }else if(e.getSource() == stkChckBtn) {
+		 StockAlertGUI sAlert = new StockAlertGUI();
+			try {
+				
+				sAlert.displayStockAlerts();
+				sAlert.allInStckAlert();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 	 }
 }
 	
