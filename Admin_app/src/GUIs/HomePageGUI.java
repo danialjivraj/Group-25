@@ -53,7 +53,7 @@ public HomePageGUI(String Email) {
 	panel.add(addProduct);
 	addProduct.addActionListener(this);
 	
-	infoUF=new JButton("Find product");
+	infoUF=new JButton("Find/Edit product");
 	panel.add(infoUF);
 	infoUF.addActionListener(this);
 	
@@ -61,7 +61,7 @@ public HomePageGUI(String Email) {
 	//loginTx.setBounds(WIDTH/2,70,100,25);
 	panel.add(productFinder);
 	
-	infoPF=new JButton("Find user");
+	infoPF=new JButton("Find/Edit user");
 	panel.add(infoPF);
 	infoPF.addActionListener(this);
 	
