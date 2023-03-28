@@ -82,20 +82,23 @@ public class DBorder extends DataBaseConn{
 	    return rs;
 	}
 	
-	public String getOrderProductById(String ID) throws SQLException {
+	public ResultSet getOrderProductById(String ID) throws SQLException {
 	  String sql = "SELECT * FROM linked_product_order WHERE Order_ID='"+ID+"'";
 	  ResultSet rs = getStmt().executeQuery(sql);
-	   StringBuilder sb = new StringBuilder();
-	    while (rs.next()) {
-	        String productID = rs.getString("Product_ID");
-	       // String orderID = rs.getString("Order_ID");
-	        int amount = rs.getInt("Amount");
-	        double price = rs.getDouble("Price");
-	        int polID = rs.getInt("POL_ID");
-	        sb.append(String.format("Product # %d\n Product ID: %s\n Quantity: %d\n Price: \u00A3%.2f\n\n", 
-	        		polID, productID, amount, price));
-	    }
-	    return sb.toString();
+	  return rs;
+//	   StringBuilder sb = new StringBuilder();
+//	   int productNum = 1;
+//	   while (rs.next()) {
+//	        String productID = rs.getString("Product_ID");
+//	       // String orderID = rs.getString("Order_ID");
+//	        int amount = rs.getInt("Amount");
+//	        double price = rs.getDouble("Price");
+//	        int polID = rs.getInt("POL_ID");
+//	        
+//	        sb.append(String.format("Product #%d\n POL ID: %d\n Product ID: %s\n Quantity: %d\n Price: \u00A3%.2f\n\n", 
+//	        		productNum++, polID, productID, amount, price));
+//	    }
+//	    return sb.toString();
 	}
 	
 //public static void main(String[] args) throws SQLException {

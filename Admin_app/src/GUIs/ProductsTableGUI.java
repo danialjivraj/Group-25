@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -29,7 +30,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     private JPanel contentPane;
     private JTextField searchField;
     private JComboBox<String> filterBox;
-    private JButton submitButton;
+    private JButton searchBtn;
     private JButton delButton;
     JLabel imageLabel;
 
@@ -131,16 +132,28 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
-        // create search bar and filter by section
-        JPanel searchPanel = new JPanel(new BorderLayout());
-        JLabel searchLabel = new JLabel("Search by Product ID Or Product Name: ");
-        searchField = new JTextField();
-        searchField.addActionListener(this);
-        searchPanel.add(searchLabel, BorderLayout.WEST);
-        searchPanel.add(searchField, BorderLayout.CENTER);
+        
+        //OLD SEARCH PANEL (Commented Out)
+//        // create search bar and filter by section
+//        JPanel searchPanel = new JPanel(new BorderLayout());
+//        JLabel searchLabel = new JLabel("Search by Product ID Or Product Name: ");
+//        searchField = new JTextField();
+//        searchField.addActionListener(this);
+//        searchPanel.add(searchLabel, BorderLayout.WEST);
+//        searchPanel.add(searchField, BorderLayout.CENTER);
 
-        //
-        JPanel filterPanel = new JPanel(new BorderLayout());
+        // NEW SEARCH PANEL
+        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel searchLabel = new JLabel("Search by Product ID or Product Name: ");
+        searchField = new JTextField(20);
+        searchField.addActionListener(this);
+        searchBtn = new JButton("Search");
+        searchBtn.addActionListener(this);
+        searchPanel.add(searchLabel);
+        searchPanel.add(searchField);
+        searchPanel.add(searchBtn);
+     
+        JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel filterLabel = new JLabel("Filter by Categories: ");
         String[] filterOptions = {"All", "Earrings", "Necklace", "Bracelets", "Rings", "Exclusive sets"};
         filterBox = new JComboBox<>(filterOptions);
@@ -151,18 +164,19 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         JPanel searchFilterPanel = new JPanel(new BorderLayout());
         searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
         searchFilterPanel.add(filterPanel, BorderLayout.CENTER);
-
+        
+        JLabel optionsLbl = new JLabel("Select a row and use the following option(s):  ");
      // create submit button for Changing order Status
         delButton = new JButton("Delete Product");
  		delButton.addActionListener(this);
-        // create submit button for filtering
-        submitButton = new JButton("Search");
-        submitButton.addActionListener(this);
-
+ 		
+ 		
         
         JPanel submitPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        submitPanel.add(optionsLbl);
         submitPanel.add(delButton);
-        submitPanel.add(submitButton);
+        delButton.setBackground(new Color(0xF86161)); //color Red
+
 
         // add searchFilterPanel and submitPanel to contentPane
         contentPane.add(searchFilterPanel, BorderLayout.NORTH);
@@ -180,7 +194,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 		
 		if (e.getSource() == searchField || e.getSource() == filterBox) {
     		filterTable();
-    		} else if (e.getSource() == submitButton) {
+    		} else if (e.getSource() == searchBtn) {
     		filterTable();
     		}
     		else if (e.getSource() == delButton) {

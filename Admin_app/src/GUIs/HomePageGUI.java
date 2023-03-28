@@ -24,11 +24,12 @@ public class HomePageGUI implements ActionListener {
 	private JFrame frame;
 	private JPanel panel;
 	private JButton createReport;
-	private JButton infoPF,infoUF,addProduct, allUsers, allProducts, allOrders;
+	private JButton infoUF,addProduct, allUsers, allProducts, allOrders;
 	private JLabel statusOfReport,email_L;
-	private JTextField productFinder,userFinder;
+	private JTextField productFinder;
 	private String Email;
-public HomePageGUI(String Email) {
+	
+	public HomePageGUI(String Email) {
 	frame=new JFrame();
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
@@ -37,7 +38,7 @@ public HomePageGUI(String Email) {
 	email_L=new JLabel("Email: "+Email);
 	panel.add(email_L);
 	
-	allUsers=new JButton("All Users");
+	allUsers=new JButton("Users");
 	panel.add(allUsers);
 	allUsers.addActionListener(this);
 	
@@ -60,14 +61,6 @@ public HomePageGUI(String Email) {
 	productFinder = new JTextField(30);
 	//loginTx.setBounds(WIDTH/2,70,100,25);
 	panel.add(productFinder);
-	
-	infoPF=new JButton("Find user");
-	panel.add(infoPF);
-	infoPF.addActionListener(this);
-	
-	userFinder = new JTextField(30);
-	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(userFinder);
 	
     statusOfReport=new JLabel("Click it to Generate a report:");
     
@@ -138,20 +131,7 @@ public void actionPerformed(ActionEvent e) {
 			e1.printStackTrace();
 		}
 	}
-	else if(e.getSource()==infoPF) {
-		try {
-			new EditUserGUI(userFinder.getText());
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}
-	
-	
-	
-	
-	
-	
+
 	
 }
 

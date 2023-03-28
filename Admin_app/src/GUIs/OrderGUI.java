@@ -13,6 +13,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.table.TableRowSorter;
@@ -111,16 +113,28 @@ public class OrderGUI extends JFrame implements ActionListener {
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         //columns cannot be reordered
         table.getTableHeader().setReorderingAllowed(false);
-		// create search bar and filter by section
-		JPanel searchPanel = new JPanel(new BorderLayout());
-		JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
-		searchField = new JTextField();
-		searchField.addActionListener(this);
-		searchPanel.add(searchLabel, BorderLayout.WEST);
-		searchPanel.add(searchField, BorderLayout.CENTER);
+		
+        // create search bar and filter by section
+//		JPanel searchPanel = new JPanel(new BorderLayout());
+//		JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
+//		searchField = new JTextField();
+//		searchField.addActionListener(this);
+//		searchPanel.add(searchLabel, BorderLayout.WEST);
+//		searchPanel.add(searchField, BorderLayout.CENTER);
+        
+        // NEW SEARCH PANEL
+        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
+        searchField = new JTextField(20);
+        searchField.addActionListener(this);
+        searchBtn = new JButton("Search");
+        searchBtn.addActionListener(this);
+        searchPanel.add(searchLabel);
+        searchPanel.add(searchField);
+        searchPanel.add(searchBtn);
 
 		//
-		JPanel filterPanel = new JPanel(new BorderLayout());
+		JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		JLabel filterLabel = new JLabel("Filter by Order Status: ");
 		String[] filterOptions = { "All", "Shipped", "Processing", "Delivered", "Canceled" };
 		filterBox = new JComboBox<>(filterOptions);
@@ -141,10 +155,6 @@ public class OrderGUI extends JFrame implements ActionListener {
 		changeOrderStatusBtn = new JButton("Change Order Status");
 		changeOrderStatusBtn.addActionListener(this);
 
-		// create submit button for Searching
-		searchBtn = new JButton("Search");
-		searchBtn.addActionListener(this);
-
 		JPanel submitPanel = new JPanel(new BorderLayout());
 		
 		JPanel orderStatusPanel = new JPanel(new BorderLayout());
@@ -161,7 +171,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		buttonPanel.add(viewMoreBtn);
-		buttonPanel.add(searchBtn);
+
 
 		submitPanel.add(buttonPanel, BorderLayout.EAST);
 
@@ -239,10 +249,29 @@ public class OrderGUI extends JFrame implements ActionListener {
 		            	//show this data in some alert
 			try {
 				DBorder db = new DBorder();
-                String orderProducts = db.getOrderProductById(orderId);
-                JOptionPane.showMessageDialog(this, orderProducts, "Order Products for Order ID " + orderId, JOptionPane.INFORMATION_MESSAGE);
-
-			} catch (SQLException e1) {
+				 ResultSet rs = db.getOrderProductById(orderId);
+		            JPanel panel = new JPanel(new GridLayout(0, 1)); // create parent panel
+		            int productNum = 1;
+		            while (rs.next()) {
+		                String productID = rs.getString("Product_ID");
+		                int amount = rs.getInt("Amount");
+		                double price = rs.getDouble("Price");
+		                int polID = rs.getInt("POL_ID");
+		                JCheckBox checkBox = new JCheckBox("Product #" + productNum+ "    ");
+		                productNum++;
+		                String productDetails = String.format(" POL ID: %d\n Product ID: %s\n Quantity: %d\n Price: \u00A3%.2f\n\n", polID, productID, amount, price);
+		                JPanel productPanel = new JPanel(new BorderLayout()); // create panel for each product
+		                productPanel.add(checkBox, BorderLayout.NORTH);
+		                JTextArea pDetails = new JTextArea(productDetails);
+		                pDetails.setEditable(false);
+		                productPanel.add(new JScrollPane(pDetails), BorderLayout.CENTER);
+		                panel.add(productPanel); // add product panel to parent panel
+		            }
+		            ImageIcon icon = new ImageIcon("Image_Icon/Favicon.jpg");
+		            Image image = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH); // set the desired dimensions (50x50)
+		            ImageIcon resizedIcon = new ImageIcon(image);
+		            JOptionPane.showMessageDialog(this, panel, "Order Products for Order ID #" + orderId, JOptionPane.INFORMATION_MESSAGE, resizedIcon); // pass parent panel as message
+		        }  catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
