@@ -71,6 +71,7 @@ public class DBproductAndCategory extends DataBaseConn{
 		if((String.valueOf(Product_Name)).length()==0) {
 			throw new IllegalStateException("The Name of a product too short (length=0)");
 		}
+		if(Product_Discount<0 || Product_Price<0 || Amount <0 ) {throw new IllegalStateException("Negative numbers cannot be accepted!");}
 		//end check
 		
 		String sql="INSERT INTO product (Category_ID,Product_Name,Product_Discount,Product_Price,Amount,Description	) "
