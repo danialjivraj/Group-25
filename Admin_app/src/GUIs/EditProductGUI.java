@@ -31,8 +31,8 @@ public class EditProductGUI implements ActionListener {
 	private JTextField Product_Name_T,Product_Price_T,Amount_T,Description_T,ID_T;
 	DBproductAndCategory DBPC;
 	String ID;
-	private Component rigidArea;
 	private Component verticalStrut;
+	private JLabel lblNewLabel;
 	EditProductGUI(String ID) throws SQLException{
 		this.ID=ID;
 		
@@ -73,10 +73,11 @@ public class EditProductGUI implements ActionListener {
 	Description_T = new JTextField(30);
 	panel.add(Description_T);
 	
-	rigidArea = Box.createRigidArea(new Dimension(0, 0));
-	panel.add(rigidArea);
+	lblNewLabel = new JLabel("Add Image");
+	panel.add(lblNewLabel);
 	
-	Edit_Image_B=new JButton("Edit image");
+	Edit_Image_B = new JButton("Edit image");
+	Edit_Image_B.setPreferredSize(new Dimension(0,25));
 	panel.add(Edit_Image_B);
 	Edit_Image_B.addActionListener(this);
 	
