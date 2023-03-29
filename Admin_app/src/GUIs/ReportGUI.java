@@ -18,6 +18,7 @@ public class ReportGUI {
 	public ReportGUI(String ReportStr){
 		
 		frame=new JFrame();
+		frame.setIconImage(ImageIconMaker.createImageIcon());
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 181));
 		

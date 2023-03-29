@@ -42,6 +42,7 @@ public class AddProductGUI implements ActionListener {
 		
 		
 		frame=new JFrame();
+		frame.setIconImage(ImageIconMaker.createImageIcon());
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 181));
 		

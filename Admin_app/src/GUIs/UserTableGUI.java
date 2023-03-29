@@ -30,6 +30,7 @@ public class UserTableGUI extends JFrame implements ActionListener{
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(1400, 600);
         setLocationRelativeTo(null);
+        setIconImage(ImageIconMaker.createImageIcon());
 
         // Create table model
         model = new DefaultTableModel();

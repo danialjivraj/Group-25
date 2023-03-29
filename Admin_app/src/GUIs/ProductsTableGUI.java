@@ -5,6 +5,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 import javax.swing.table.TableRowSorter;
 import javax.swing.table.DefaultTableCellRenderer;
 
@@ -33,11 +38,13 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     private JButton searchBtn;
     private JButton delButton;
     private JButton stkChckBtn;  //btn to check stock levels
-    JLabel imageLabel;
+    JLabel imageLabel, addProduct ;
+    private JButton editProduct;
+    private JTextField productFinder;
 
     public ProductsTableGUI() throws SQLException{
         setTitle("All Products");
-        setIconImage(new ImageIcon("Image_Icon/Favicon.jpg").getImage());
+        setIconImage(ImageIconMaker.createImageIcon());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(200, 200, 1400, 600);
         contentPane = new JPanel();
@@ -58,7 +65,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
      // Increase font size for table
         Font tableFont = new Font(table.getFont().getName(), Font.PLAIN,15);
         table.setFont(tableFont);
-
         // Add columns to the table model
         model.addColumn("Product Image");
         model.addColumn("Product ID");
@@ -107,17 +113,9 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
             e.printStackTrace();
         }
 
-        table = new JTable(model);
-        
+      //  table = new JTable(model);
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
-//        DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
-//        renderer.setHorizontalAlignment(JLabel.CENTER); // Align the image to the center
-//        table.getColumnModel().getColumn(1).setCellRenderer(renderer); // Set the renderer for column 0
-//        table.getColumnModel().getColumn(2).setCellRenderer(renderer);
-//        table.getColumnModel().getColumn(4).setCellRenderer(renderer);
-//        table.getColumnModel().getColumn(5).setCellRenderer(renderer);
-//		  table.getColumnModel().getColumn(6).setCellRenderer(renderer);
-//        table.getColumnModel().getColumn(6).setCellRenderer(new StockCellRenderer());
         table.setDefaultRenderer(Object.class, new ProductGuiRowRenderer());
 
         
@@ -133,26 +131,41 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
-        
-        //OLD SEARCH PANEL (Commented Out)
-//        // create search bar and filter by section
-//        JPanel searchPanel = new JPanel(new BorderLayout());
-//        JLabel searchLabel = new JLabel("Search by Product ID Or Product Name: ");
-//        searchField = new JTextField();
-//        searchField.addActionListener(this);
-//        searchPanel.add(searchLabel, BorderLayout.WEST);
-//        searchPanel.add(searchField, BorderLayout.CENTER);
-
-        // NEW SEARCH PANEL
+        // SEARCH PANEL
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel searchLabel = new JLabel("Search by Product ID or Product Name: ");
         searchField = new JTextField(20);
         searchField.addActionListener(this);
         searchBtn = new JButton("Search");
         searchBtn.addActionListener(this);
+    	
+    	editProduct=new JButton("Edit a product");
+    	
+    	editProduct.addActionListener(this);
+    	
+    	productFinder = new JTextField(30);
+    	//loginTx.setBounds(WIDTH/2,70,100,25);
+    	
+    	addProduct = new JLabel("<html><a href=\"#\">Add A New Product</a></html>");
+    	addProduct.addMouseListener(new MouseAdapter() {
+    	    @Override
+    	    public void mouseClicked(MouseEvent e) {
+    	    	try {
+    				new AddProductGUI();
+    			} catch (SQLException e1) {
+    				e1.printStackTrace();
+    			}
+    	    }
+    	});
         searchPanel.add(searchLabel);
         searchPanel.add(searchField);
         searchPanel.add(searchBtn);
+        searchPanel.add(addProduct);
+        searchPanel.add(editProduct);
+        searchPanel.add(productFinder);
+        
+        JPanel addEditProdPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        addEditProdPanel.setBackground(Color.BLACK);
      
         JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel filterLabel = new JLabel("Filter by Categories: ");
@@ -187,6 +200,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         // add searchFilterPanel and submitPanel to contentPane
         contentPane.add(searchFilterPanel, BorderLayout.NORTH);
         contentPane.add(submitPanel, BorderLayout.SOUTH);
+        
 
         setVisible(true);
     }
@@ -209,13 +223,14 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 		            JOptionPane.showMessageDialog(this, "Please select a row to Delete.");
     			 }else {
 			        	String prodID = model.getValueAt(selectedRow, 1).toString();  //maybe Change this later as Product Image is now first column
-			            int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Product ID?" + prodID);
+			            int option = JOptionPane.showConfirmDialog(this, "Are you sure you want to delete this Product? \nProductID:" + prodID);
 			            	
 	        	//Give pop up saying are you sure you want to remove this product if yes then delete it
 			            if (option == JOptionPane.YES_OPTION) {
     			DBproductAndCategory db = new DBproductAndCategory();
     			try {
 					db.delProduct(prodID);
+					model.removeRow(selectedRow);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -231,7 +246,14 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 			} catch (SQLException e1) {
 				e1.printStackTrace();
 			}
-	 }
+	 }else if(e.getSource()==editProduct) {
+			try {
+				new EditProductGUI(productFinder.getText());
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 }
 	
 

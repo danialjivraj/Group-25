@@ -32,12 +32,11 @@ public class EditProductGUI implements ActionListener {
 		this.ID=ID;
 		
 	frame=new JFrame();
+	frame.setIconImage(ImageIconMaker.createImageIcon());
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
-	
 	panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 	panel.setLayout(new GridLayout(0,1));
-	
     DBPC= new DBproductAndCategory();
 	ResultSet rs = DBPC.findProduct(ID);
 	//rs.next();

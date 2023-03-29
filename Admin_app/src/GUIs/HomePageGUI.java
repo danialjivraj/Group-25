@@ -35,6 +35,7 @@ public class HomePageGUI implements ActionListener {
 	
 	public HomePageGUI(String Email) throws SQLException {
 	frame=new JFrame();
+	frame.setIconImage(ImageIconMaker.createImageIcon());
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
 	
@@ -54,17 +55,17 @@ public class HomePageGUI implements ActionListener {
 	panel.add(allOrders);
 	allOrders.addActionListener(this);
 	
-	addProduct=new JButton("Add product");
-	panel.add(addProduct);
-	addProduct.addActionListener(this);
-	
-	infoUF=new JButton("Find/Edit product");
-	panel.add(infoUF);
-	infoUF.addActionListener(this);
-	
-	productFinder = new JTextField(30);
-	//loginTx.setBounds(WIDTH/2,70,100,25);
-	panel.add(productFinder);
+//	addProduct=new JButton("Add product");
+//	panel.add(addProduct);
+//	addProduct.addActionListener(this);
+//	
+//	infoUF=new JButton("Find/Edit product");
+//	panel.add(infoUF);
+//	infoUF.addActionListener(this);
+//	
+//	productFinder = new JTextField(30);
+//	//loginTx.setBounds(WIDTH/2,70,100,25);
+//	panel.add(productFinder);
 	
 
     statusOfReport=new JLabel("Click it to Generate a report:");
@@ -106,14 +107,15 @@ public void actionPerformed(ActionEvent e) {
 			statusOfReport.setText("The report has not been sent!(Error: "+e1+")");
 		}
 	}
-	else if(e.getSource()==addProduct) {
-		try {
-			new AddProductGUI();
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-	}else if(e.getSource()==allUsers) {
+//	else if(e.getSource()==addProduct) {
+//		try {
+//			new AddProductGUI();
+//		} catch (SQLException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+//	}
+	else if(e.getSource()==allUsers) {
 		try{
 			new UserTableGUI();
 		}catch (SQLException e1) {
@@ -131,14 +133,14 @@ public void actionPerformed(ActionEvent e) {
 		}catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-	}else if(e.getSource()==infoUF) {
-		try {
-			new EditProductGUI(productFinder.getText());
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 	}
+//	else if(e.getSource()==infoUF) {
+//		try {
+//			new EditProductGUI(productFinder.getText());
+//		} catch (SQLException e1) {
+//			e1.printStackTrace();
+//		}
+//	}
 	
 }
 

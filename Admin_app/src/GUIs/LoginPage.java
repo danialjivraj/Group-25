@@ -36,6 +36,7 @@ public class LoginPage  implements ActionListener {
 	 //variables
 	public LoginPage() {
 		frame=new JFrame();
+		frame.setIconImage(ImageIconMaker.createImageIcon());
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 181));
 		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
@@ -95,8 +96,8 @@ public class LoginPage  implements ActionListener {
 				}
 				else {
 					JOptionPane.showMessageDialog(null,
-			                "Wrong input",
-			                "Sys",
+			                "Email or Password Wrong",
+			                "Invalid Credentials",
 			                JOptionPane.INFORMATION_MESSAGE);
 				}
 			} catch (HeadlessException | SQLException e1) {
