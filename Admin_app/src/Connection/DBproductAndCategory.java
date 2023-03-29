@@ -65,6 +65,12 @@ public class DBproductAndCategory extends DataBaseConn{
 		if((String.valueOf(Product_Discount)).length()>2) {
 			throw new IllegalStateException("The discount of a product too long (length>2)");
 		}
+		if((String.valueOf(Description)).length()==0) {
+			throw new IllegalStateException("The Description of a product too short (length=0)");
+		}
+		if((String.valueOf(Product_Name)).length()==0) {
+			throw new IllegalStateException("The Name of a product too short (length=0)");
+		}
 		//end check
 		
 		String sql="INSERT INTO product (Category_ID,Product_Name,Product_Discount,Product_Price,Amount,Description	) "
@@ -88,7 +94,7 @@ public class DBproductAndCategory extends DataBaseConn{
 		
 		getStmt().executeUpdate(sql);	
 		
-		System.out.println("Creation of product was successful..");
+		System.out.println("Creation of category was successful..");
 		
 		//Image is missing!!!!!
 		

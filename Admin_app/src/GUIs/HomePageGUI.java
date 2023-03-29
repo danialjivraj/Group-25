@@ -38,6 +38,7 @@ public class HomePageGUI implements ActionListener {
 	frame.setIconImage(ImageIconMaker.createImageIcon());
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
+	frame.setBounds(900, 400, 1400, 600);
 	
 	this.Email=Email;
 	email_L=new JLabel("Email: "+Email);
@@ -47,11 +48,11 @@ public class HomePageGUI implements ActionListener {
 	panel.add(allUsers);
 	allUsers.addActionListener(this);
 	
-	allProducts=new JButton("All Products");
+	allProducts=new JButton("Products");
 	panel.add(allProducts);
 	allProducts.addActionListener(this);
 	
-	allOrders=new JButton("All Orders");
+	allOrders=new JButton("Orders");
 	panel.add(allOrders);
 	allOrders.addActionListener(this);
 	

@@ -65,6 +65,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
      // Increase font size for table
         Font tableFont = new Font(table.getFont().getName(), Font.PLAIN,15);
         table.setFont(tableFont);
+        
         // Add columns to the table model
         model.addColumn("Product Image");
         model.addColumn("Product ID");
@@ -75,25 +76,17 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         model.addColumn("In/Out of/Low Stock");
         model.addColumn("Description");
 
-
-        // Add data to the table model (This Table uses Array instead of Vector)
         try {
         	DBproductAndCategory dba = new DBproductAndCategory();
             ResultSet rs = dba.getProducts();
             while (rs.next()) {
             	 int productID = rs.getInt("Product_ID");
             	    String imageFileName = productID + ".jpg";
-            	    String imagePath = "..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\" + imageFileName;
-            	    
+            	    String imagePath = "..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\" + imageFileName;   
             	 // Load the original image from file
             	    ImageIcon originalIcon = new ImageIcon(imagePath);
             	    Image originalImage = originalIcon.getImage();
-
-            	    int newWidth = 120; 
-            	    int newHeight = 140; 
-            	    Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-
-            	    // Create a new ImageIcon object from the scaled image
+            	    Image scaledImage = originalImage.getScaledInstance(120, 140, Image.SCALE_SMOOTH);
             	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
             	     
             	String amount = rs.getString("Amount");
@@ -112,23 +105,13 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-      //  table = new JTable(model);
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         table.getColumnModel().getColumn(0).setCellRenderer(new ImageRenderer());
         table.setDefaultRenderer(Object.class, new ProductGuiRowRenderer());
-
-        
-        JScrollPane scrollPane = new JScrollPane(table);
-        //set height of rows
         table.setRowHeight(150);
-        Font font = new Font("Calibri", Font.BOLD, 17);
-
-        // set the font for the table
-        table.setFont(font);
-        //columns cannot be reordered
+        table.setFont(new Font("Calibri", Font.BOLD, 17));
         table.getTableHeader().setReorderingAllowed(false);
-        
+        JScrollPane scrollPane = new JScrollPane(table);
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         // SEARCH PANEL
@@ -163,9 +146,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         searchPanel.add(addProduct);
         searchPanel.add(editProduct);
         searchPanel.add(productFinder);
-        
-        JPanel addEditProdPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        addEditProdPanel.setBackground(Color.BLACK);
      
         JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel filterLabel = new JLabel("Filter by Categories: ");
@@ -200,7 +180,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         // add searchFilterPanel and submitPanel to contentPane
         contentPane.add(searchFilterPanel, BorderLayout.NORTH);
         contentPane.add(submitPanel, BorderLayout.SOUTH);
-        
 
         setVisible(true);
     }
