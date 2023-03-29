@@ -130,7 +130,7 @@ public class EditProductGUI implements ActionListener {
 			 
 			 
 			 //
-			 
+			 try {
 			if(!Product_Name_T.getText().equals("")) {
 				sql1=sql1+"Product_Name="+"'"+Product_Name_T.getText()+"'"+",";
 				}
@@ -149,6 +149,13 @@ public class EditProductGUI implements ActionListener {
 			if(!Description_T.getText().equals("")) {
 				sql1=sql1+"Description="+"'"+Description_T.getText()+"'"+",";
 			}
+			 }catch(Exception et){
+				 
+				 JOptionPane.showMessageDialog(null,
+			                "Error: "+et,
+			                "Sys",
+			                JOptionPane.INFORMATION_MESSAGE);
+			 }
 			if(sql1!="")
 				try {
 					DBPC.editProduct(removeLastChar(sql1),ID);
