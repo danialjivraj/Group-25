@@ -126,16 +126,24 @@ public class EditProductGUI implements ActionListener {
 		 if(e.getSource()==EditPr_B) {
 			 String sql1="";
 			
+			 //check negative
+			 
+			 
+			 //
+			 
 			if(!Product_Name_T.getText().equals("")) {
 				sql1=sql1+"Product_Name="+"'"+Product_Name_T.getText()+"'"+",";
 				}
 			
 			if(!Product_Price_T.getText().equals("")) {
 				sql1=sql1+"Product_Price="+"'"+Product_Price_T.getText()+"'"+",";
+				
+				if(Integer.parseInt(Product_Price_T.getText())<0  ) {throw new IllegalStateException("Negative numbers cannot be accepted!");}
 			}
 			
 			if(!Amount_T.getText().equals("")) {
 				sql1=sql1+"Amount="+"'"+Amount_T.getText()+"'"+",";	
+				if(Integer.parseInt(Amount_T.getText())<0 ) {throw new IllegalStateException("Negative numbers cannot be accepted!");}
 			}
 			
 			if(!Description_T.getText().equals("")) {
