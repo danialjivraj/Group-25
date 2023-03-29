@@ -38,7 +38,7 @@ public class OrderGUI extends JFrame implements ActionListener {
 
 	public OrderGUI() throws SQLException {
 		setTitle("Orders");
-		setIconImage(new ImageIcon("Image_Icon/Favicon.jpg").getImage());
+		setIconImage(ImageIconMaker.createImageIcon());
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(200, 200, 1200, 600);

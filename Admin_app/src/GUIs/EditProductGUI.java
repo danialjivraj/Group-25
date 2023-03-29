@@ -18,6 +18,9 @@ import javax.swing.JTextField;
 
 import Connection.DBproductAndCategory;
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.Box;
+import java.awt.Dimension;
 
 
 public class EditProductGUI implements ActionListener {
@@ -28,16 +31,17 @@ public class EditProductGUI implements ActionListener {
 	private JTextField Product_Name_T,Product_Price_T,Amount_T,Description_T,ID_T;
 	DBproductAndCategory DBPC;
 	String ID;
+	private Component rigidArea;
+	private Component verticalStrut;
 	EditProductGUI(String ID) throws SQLException{
 		this.ID=ID;
 		
 	frame=new JFrame();
+	frame.setIconImage(ImageIconMaker.createImageIcon());
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
-	
 	panel.setBorder(BorderFactory.createEmptyBorder(30,30,10,30));
 	panel.setLayout(new GridLayout(0,1));
-	
     DBPC= new DBproductAndCategory();
 	ResultSet rs = DBPC.findProduct(ID);
 	//rs.next();
@@ -69,9 +73,15 @@ public class EditProductGUI implements ActionListener {
 	Description_T = new JTextField(30);
 	panel.add(Description_T);
 	
+	rigidArea = Box.createRigidArea(new Dimension(0, 0));
+	panel.add(rigidArea);
+	
 	Edit_Image_B=new JButton("Edit image");
 	panel.add(Edit_Image_B);
 	Edit_Image_B.addActionListener(this);
+	
+	verticalStrut = Box.createVerticalStrut(10);
+	panel.add(verticalStrut);
 	
 	EditPr_B=new JButton("Edit product");
 	panel.add(EditPr_B);

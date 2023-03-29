@@ -24,6 +24,9 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import Connection.DBproductAndCategory;
 import java.awt.Color;
+import java.awt.Component;
+import javax.swing.Box;
+import java.awt.Dimension;
 
 public class AddProductGUI implements ActionListener {
 	private JFrame frame;
@@ -34,6 +37,7 @@ public class AddProductGUI implements ActionListener {
 	private JComboBox categories;
 	
 	DBproductAndCategory DAC= new DBproductAndCategory();
+	private Component rigidArea;
 	
 	
 	
@@ -42,6 +46,7 @@ public class AddProductGUI implements ActionListener {
 		
 		
 		frame=new JFrame();
+		frame.setIconImage(ImageIconMaker.createImageIcon());
 		panel = new JPanel();
 		panel.setBackground(new Color(255, 228, 181));
 		
@@ -99,6 +104,9 @@ public class AddProductGUI implements ActionListener {
 		categories= new JComboBox(week);
 		categories.setSelectedIndex(0);
 		panel.add(categories);
+		
+		rigidArea = Box.createRigidArea(new Dimension(10, 10));
+		panel.add(rigidArea);
 		
 		
 		addProduct= new JButton("Add");
