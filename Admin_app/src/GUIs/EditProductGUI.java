@@ -33,6 +33,7 @@ public class EditProductGUI implements ActionListener {
 	String ID;
 	private Component verticalStrut;
 	private JLabel lblNewLabel;
+	
 	EditProductGUI(String ID) throws SQLException{
 		this.ID=ID;
 		
@@ -96,6 +97,8 @@ public class EditProductGUI implements ActionListener {
 	frame.setVisible(true);
 	frame.setResizable(false);
 }
+	
+	
 	public static String removeLastChar(String s) {
 	    return (s == null || s.length() == 0)
 	      ? null 
@@ -108,10 +111,7 @@ public class EditProductGUI implements ActionListener {
 		try {
 			DBPC.editImageOfProduct( ID);
 			
-			JOptionPane.showMessageDialog(null,
-	                "Successful image upload!",
-	                "Sys",
-	                JOptionPane.INFORMATION_MESSAGE);
+			
 			
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -126,21 +126,30 @@ public class EditProductGUI implements ActionListener {
 		 if(e.getSource()==EditPr_B) {
 			 String sql1="";
 			
+			 //check negative
+			 
+			 
+			 //
+			 try {
 			if(!Product_Name_T.getText().equals("")) {
 				sql1=sql1+"Product_Name="+"'"+Product_Name_T.getText()+"'"+",";
 				}
 			
 			if(!Product_Price_T.getText().equals("")) {
 				sql1=sql1+"Product_Price="+"'"+Product_Price_T.getText()+"'"+",";
+				
+				if(Integer.parseInt(Product_Price_T.getText())<0  ) {throw new IllegalStateException("Negative numbers cannot be accepted!");}
 			}
 			
 			if(!Amount_T.getText().equals("")) {
 				sql1=sql1+"Amount="+"'"+Amount_T.getText()+"'"+",";	
+				if(Integer.parseInt(Amount_T.getText())<0 ) {throw new IllegalStateException("Negative numbers cannot be accepted!");}
 			}
 			
 			if(!Description_T.getText().equals("")) {
 				sql1=sql1+"Description="+"'"+Description_T.getText()+"'"+",";
 			}
+		
 			if(sql1!="")
 				try {
 					DBPC.editProduct(removeLastChar(sql1),ID);
@@ -149,7 +158,7 @@ public class EditProductGUI implements ActionListener {
 			                "Has been updated!",
 			                "Sys",
 			                JOptionPane.INFORMATION_MESSAGE);
-				
+					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -159,6 +168,16 @@ public class EditProductGUI implements ActionListener {
 			                JOptionPane.INFORMATION_MESSAGE);
 				}
 			frame.dispose();
+	 }catch(Exception et){
+				 
+				 JOptionPane.showMessageDialog(null,
+			                "Error: "+et,
+			                "Sys",
+			                JOptionPane.INFORMATION_MESSAGE);
+			 }
 		}
+	}
+	public JFrame getFrame () {
+		return frame;
 	}
 }

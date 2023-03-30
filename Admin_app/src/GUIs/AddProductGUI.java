@@ -149,14 +149,15 @@ public class AddProductGUI implements ActionListener {
 					
 					try {
 					DAC.createProduct(categories.getSelectedItem().toString(), Pr_Name.getText(),Integer.parseInt(Pr_Dis.getText()) , Integer.parseInt(Pr_p.getText()), Integer.parseInt(Amount.getText()), Description.getText());
+					file = new File("..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\"+DAC.getLast()+".jpg");
+					ImageIO.write(image, "jpg", file);
 					}catch(Exception ec) {
 						JOptionPane.showMessageDialog(null,
 				                "Wrong input: "+ec,
 				                "Sys",
 				                JOptionPane.INFORMATION_MESSAGE);
 					}
-					file = new File("..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\"+DAC.getLast()+".jpg");
-					ImageIO.write(image, "jpg", file);
+					
 				}
 				//
 				
@@ -168,14 +169,6 @@ public class AddProductGUI implements ActionListener {
 		                "Sys",
 		                JOptionPane.INFORMATION_MESSAGE);
 				e1.printStackTrace();
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(null,
-		                e1,
-		                "Sys",
-		                JOptionPane.INFORMATION_MESSAGE);
-				
-				e1.printStackTrace();
 			} catch (IOException e1) {
 				JOptionPane.showMessageDialog(null,
 		                e1,
@@ -185,6 +178,10 @@ public class AddProductGUI implements ActionListener {
 			}
 		}
 		
+	}
+	
+	public JFrame getFrame() {
+		return frame;
 	}
 	
 }

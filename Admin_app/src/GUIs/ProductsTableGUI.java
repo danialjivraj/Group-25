@@ -2,19 +2,18 @@ package GUIs;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.net.URISyntaxException;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.table.TableRowSorter;
-import javax.swing.table.DefaultTableCellRenderer;
 
-
-import Connection.DBaccount;
 import Connection.DBproductAndCategory;
 
 import java.sql.ResultSet;
@@ -22,7 +21,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
@@ -97,7 +95,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
                         rs.getString("Product_Name"),
                         "\u00A3"+ rs.getString("Product_Price"),
                         amount,
-                        amount.equals("0") ? "Out of Stock" : (Integer.parseInt(amount) < 4 ? "Low Stock" : "In Stock"),
+                        Integer.parseInt(amount) <= 0 ? "Out of Stock" : (Integer.parseInt(amount) < 5 ? "Low Stock" : "In Stock"),
                         rs.getString("Description")
                 };
                 model.addRow(row);
@@ -119,6 +117,24 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         JLabel searchLabel = new JLabel("Search by Product ID or Product Name: ");
         searchField = new JTextField(20);
         searchField.addActionListener(this);
+     // Add a DocumentListener to the search field
+//        searchField.getDocument().addDocumentListener(new DocumentListener() {
+//            @Override
+//            public void insertUpdate(DocumentEvent e) {
+//             //   filterTable();
+//            }
+//
+//            @Override
+//            public void removeUpdate(DocumentEvent e) {
+//                filterTable();
+//            }
+//
+//            @Override
+//            public void changedUpdate(DocumentEvent e) {
+//                filterTable();
+//            }
+//        });
+        
         searchBtn = new JButton("Search");
         searchBtn.addActionListener(this);
     	
@@ -134,7 +150,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     	    @Override
     	    public void mouseClicked(MouseEvent e) {
     	    	try {
-    				new AddProductGUI();
+    	    		addProduct();
     			} catch (SQLException e1) {
     				e1.printStackTrace();
     			}
@@ -187,6 +203,43 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     public static void main(String[] args) throws SQLException {
 		new ProductsTableGUI();
 	}
+    
+    public void refreshTable() {
+        // Clear the table
+        model.setRowCount(0);
+
+        try {
+            DBproductAndCategory dba = new DBproductAndCategory();
+            ResultSet rs = dba.getProducts();
+
+            while (rs.next()) {
+            	 int productID = rs.getInt("Product_ID");
+         	    String imageFileName = productID + ".jpg";
+         	    String imagePath = "..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\" + imageFileName;   
+         	 // Load the original image from file
+         	    ImageIcon originalIcon = new ImageIcon(imagePath);
+         	    Image originalImage = originalIcon.getImage();
+         	    Image scaledImage = originalImage.getScaledInstance(120, 140, Image.SCALE_SMOOTH);
+         	    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+         	     
+         	String amount = rs.getString("Amount");
+             Object[] row = new Object[]{
+             		scaledIcon,
+             		productID,
+                     dba.getCategoryName(rs.getString("Category_ID")),
+                     rs.getString("Product_Name"),
+                     "\u00A3"+ rs.getString("Product_Price"),
+                     amount,
+                     Integer.parseInt(amount) <= 0 ? "Out of Stock" : (Integer.parseInt(amount) < 5 ? "Low Stock" : "In Stock"),
+                     rs.getString("Description")
+             };
+             model.addRow(row);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -209,7 +262,8 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     			DBproductAndCategory db = new DBproductAndCategory();
     			try {
 					db.delProduct(prodID);
-					model.removeRow(selectedRow);
+					refreshTable();
+					//model.removeRow(selectedRow);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -227,14 +281,36 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 			}
 	 }else if(e.getSource()==editProduct) {
 			try {
-				new EditProductGUI(productFinder.getText());
+				editProduct(productFinder.getText());
 			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		}
+		
+		
 }
+	public void editProduct(String productID) throws SQLException {
+	        EditProductGUI editProductGUI = new EditProductGUI(productID);
+	        editProductGUI.getFrame().addWindowListener(new WindowAdapter() {
+	            @Override
+	            public void windowClosed(WindowEvent e) {
+	                refreshTable();
+	            }
+	        });
+	 
+	}
 	
+	/////////
+	public void addProduct() throws SQLException {
+		AddProductGUI addProdGUI = new AddProductGUI();
+		addProdGUI.getFrame().addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosed(WindowEvent e) {
+                refreshTable();
+            }
+        });
+ 
+}
 
 	private void filterTable() {
 	     // Get the search query and filter option from the GUI elements

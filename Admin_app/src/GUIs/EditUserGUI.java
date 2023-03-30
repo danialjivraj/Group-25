@@ -22,6 +22,7 @@ import java.awt.Dimension;
 
 public class EditUserGUI implements ActionListener {
 	private JFrame frame;
+
 	private JPanel panel;
 	private JButton EditUs_B;
 	private String ID;
@@ -45,6 +46,7 @@ public class EditUserGUI implements ActionListener {
 		
 		frame=new JFrame();
 		frame.setIconImage(ImageIconMaker.createImageIcon());
+		frame.setBounds(900, 400, 1400, 600);
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -118,6 +120,10 @@ public class EditUserGUI implements ActionListener {
 		frame.setVisible(true);
 		frame.setResizable(false);
 	}
+	
+	public JFrame getFrame() {
+		return frame;
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==EditUs_B) {
@@ -130,4 +136,6 @@ public class EditUserGUI implements ActionListener {
 		}
 		
 	}
+	
+	
 }

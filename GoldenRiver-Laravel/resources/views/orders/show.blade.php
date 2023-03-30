@@ -51,22 +51,23 @@
         </tr>
         @endforeach
         <tr>
-            <td><strong>{{ $totalItems }} Items</strong></td>
+            <td><strong>{{ $totalItems }} {{ $totalItems == 1 ? 'Item' : 'Items' }}</strong></td>
             <td><strong>£{{ $totalAmount }}</strong></td>
         </tr>
-        <tr>
+
+        @if($totalAmount <= 90) @php $shippingCost=config('shipping.shipping_cost'); $grandTotal=$totalAmount + $shippingCost; @endphp @else @php $shippingCost=0.00; $grandTotal=$totalAmount; @endphp @endif <tr>
             <td>Shipping:</td>
-            <td>£0.00</td>
-        </tr>
-        <tr>
-            <td><strong>Grand Total:</strong></td>
-            <td><strong>£{{ $totalAmount }}</strong></td>
-        </tr>
-        @else
-        <tr>
-            <td colspan="3">No order items found.</td>
-        </tr>
-        @endif
+            <td>£{{ number_format($shippingCost, 2) }}</td>
+            </tr>
+            <tr>
+                <td><strong>Grand Total:</strong></td>
+                <td><strong>£{{ number_format($grandTotal, 2) }}</strong></td>
+            </tr>
+            @else
+            <tr>
+                <td colspan="3">No order items found.</td>
+            </tr>
+            @endif
     </tbody>
 
 </table>
