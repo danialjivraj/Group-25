@@ -180,4 +180,8 @@ public class AddProductGUI implements ActionListener {
 		
 	}
 	
+	public JFrame getFrame() {
+		return frame;
+	}
+	
 }

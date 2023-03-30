@@ -33,6 +33,7 @@ public class EditProductGUI implements ActionListener {
 	String ID;
 	private Component verticalStrut;
 	private JLabel lblNewLabel;
+	
 	EditProductGUI(String ID) throws SQLException{
 		this.ID=ID;
 		
@@ -96,6 +97,8 @@ public class EditProductGUI implements ActionListener {
 	frame.setVisible(true);
 	frame.setResizable(false);
 }
+	
+	
 	public static String removeLastChar(String s) {
 	    return (s == null || s.length() == 0)
 	      ? null 
@@ -155,7 +158,7 @@ public class EditProductGUI implements ActionListener {
 			                "Has been updated!",
 			                "Sys",
 			                JOptionPane.INFORMATION_MESSAGE);
-				
+					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -173,5 +176,8 @@ public class EditProductGUI implements ActionListener {
 			                JOptionPane.INFORMATION_MESSAGE);
 			 }
 		}
+	}
+	public JFrame getFrame () {
+		return frame;
 	}
 }
