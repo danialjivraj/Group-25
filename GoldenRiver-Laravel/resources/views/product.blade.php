@@ -41,7 +41,7 @@
             </div>
             <div class="col-sm-12 col-md-12 col-lg-5"><!--sec 2-->
                 <div class="filtersection2">
-                    <a href="{{ URL::current().'?sort=all&per_page=40' }}" class="filter-option">All</a>
+                    <a href="{{ URL::current().'?sort=all&per_page=69420' }}" class="filter-option">All</a>
                     <a href="{{ URL::current()."?sort=price_ascending" }}" class="filter-option">Price - Ascending</a>
                     <a href="{{ URL::current()."?sort=price_descending" }}" class="filter-option">Price - Descending</a>
                     <a href="{{ URL::current()."?sort=prod_cat" }}" class="filter-option">Category</a>
