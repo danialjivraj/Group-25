@@ -110,11 +110,13 @@ class BasketController extends Controller
         //AddressID is the same as UserID
         $address = Address::where('Account_ID', Auth::user()->id)->first();
 
+        $shippingCost = config('shipping.shipping_cost');
 
         return view('cart', [
             'products' => $products,
             'order' => $order,
             'address' => $address,
+            'shippingCost' => $shippingCost,
         ]);
     }
 
