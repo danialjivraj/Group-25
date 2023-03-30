@@ -2,6 +2,7 @@ package GUIs;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.Map;
 
 import javax.mail.MessagingException;
 import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -22,6 +24,8 @@ import Connection.DBproductAndCategory;
 import EmailSending.Report;
 import EmailSending.Sender;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 public class HomePageGUI implements ActionListener {
 	
@@ -39,6 +43,18 @@ public class HomePageGUI implements ActionListener {
 	panel = new JPanel();
 	panel.setBackground(new Color(255, 228, 181));
 	frame.setBounds(900, 400, 1400, 600);
+	
+	ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
+	Image scaledImage = icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+	ImageIcon scaledIcon = new ImageIcon(scaledImage);
+	JLabel label = new JLabel(scaledIcon);
+	JPanel panel = new JPanel(new GridBagLayout());
+	GridBagConstraints gb = new GridBagConstraints();
+	gb.anchor = GridBagConstraints.CENTER;
+	panel.add(label, gb);
+	Color backgroundColor = Color.decode("#ffe4b5");
+	panel.setBackground(backgroundColor);
+
 	
 	this.Email=Email;
 	email_L=new JLabel("Email: "+Email);
