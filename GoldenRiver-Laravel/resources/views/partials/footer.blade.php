@@ -20,11 +20,7 @@
                 </div>
                 <ul class="list">
                     <li>
-<<<<<<< HEAD
-                        <a href="delivery">Delivery Policy<br><span>Free delivery on orders over £90</span></a>
-=======
-                        <a href="/delivery">Free Delivery<br><span>Free delivery on orders over £90</span></a>
->>>>>>> f3fb5982878d3e120267fcfe5eef14e26e9cfce9
+                        <a href="/delivery">Delivery Policy<br><span>Free delivery on orders over £90</span></a>
                     </li>
                     <li>
                         <a href="contact">Support<br><span>Visit Contact Us for customer support</span></a>
