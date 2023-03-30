@@ -2,8 +2,15 @@ package Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+
+
+import java.sql.Date;
+
 
 public abstract class DataBaseConn {
 	// The class is used to create a connection to the database
@@ -11,13 +18,16 @@ public abstract class DataBaseConn {
 	
 	private Connection c;
 	private Statement stmt;
+	 PreparedStatement preparedStmt;
 	
+
+
 	DataBaseConn(){
 		//Connection to the database
 		
 		try {
 		Class.forName("com.mysql.jdbc.Driver");
-		 c=DriverManager.getConnection("jdbc:mysql://localhost/goldenriver2","root","");
+		 c=DriverManager.getConnection("jdbc:mysql://localhost/goldenriver","root","");
 		 setStmt(c.createStatement());
 		
 		System.out.println("Connection is successful..");
@@ -32,6 +42,10 @@ public abstract class DataBaseConn {
 		//Used to close connection of the DB
 		c.close();
 	}
+	
+	public Connection getConnection() {
+		return c;
+	}
 
 	
 	public Statement getStmt() {
@@ -40,6 +54,14 @@ public abstract class DataBaseConn {
 
 	public void setStmt(Statement stmt) {
 		this.stmt = stmt;
+	}
+	
+	public PreparedStatement getPreparedStmt() {
+		return preparedStmt;
+	}
+
+	public void setPreparedStmt(PreparedStatement preparedStmt) {
+		this.preparedStmt = preparedStmt;
 	}
 	
 
