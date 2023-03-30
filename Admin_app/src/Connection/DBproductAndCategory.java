@@ -214,6 +214,11 @@ public class DBproductAndCategory extends DataBaseConn{
 			image = ImageIO.read(file);
 			file = new File("..\\GoldenRiver-Laravel\\public\\images\\allProductImages\\"+ID+".jpg");
 			ImageIO.write(image, "jpg", file);
+			
+			JOptionPane.showMessageDialog(null,
+	                "Successful image upload!",
+	                "Sys",
+	                JOptionPane.INFORMATION_MESSAGE);
 		}
 	}
 	

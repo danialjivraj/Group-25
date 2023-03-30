@@ -108,10 +108,7 @@ public class EditProductGUI implements ActionListener {
 		try {
 			DBPC.editImageOfProduct( ID);
 			
-			JOptionPane.showMessageDialog(null,
-	                "Successful image upload!",
-	                "Sys",
-	                JOptionPane.INFORMATION_MESSAGE);
+			
 			
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
@@ -130,7 +127,7 @@ public class EditProductGUI implements ActionListener {
 			 
 			 
 			 //
-			 
+			 try {
 			if(!Product_Name_T.getText().equals("")) {
 				sql1=sql1+"Product_Name="+"'"+Product_Name_T.getText()+"'"+",";
 				}
@@ -149,6 +146,7 @@ public class EditProductGUI implements ActionListener {
 			if(!Description_T.getText().equals("")) {
 				sql1=sql1+"Description="+"'"+Description_T.getText()+"'"+",";
 			}
+		
 			if(sql1!="")
 				try {
 					DBPC.editProduct(removeLastChar(sql1),ID);
@@ -167,6 +165,13 @@ public class EditProductGUI implements ActionListener {
 			                JOptionPane.INFORMATION_MESSAGE);
 				}
 			frame.dispose();
+	 }catch(Exception et){
+				 
+				 JOptionPane.showMessageDialog(null,
+			                "Error: "+et,
+			                "Sys",
+			                JOptionPane.INFORMATION_MESSAGE);
+			 }
 		}
 	}
 }
