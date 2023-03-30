@@ -1,71 +1,105 @@
+/* Set up basic styles for the body */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-  }
-  
- 
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+}
+
+/* Set up styles for the main content area */
+main {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  background-color: #FFFFFF;
+  padding: 20px;
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Set up styles for the main content area on smaller screens */
+@media (max-width: 768px) {
   main {
-    display: flex;
-    background-color: #FFFFFF;
-    padding: 20px;
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 10px;
-    box-shadow:  0 0 40px rgba(0, 0, 0, 0.2);;
+    flex-direction: column; /* Stack items on smaller screens */
+    width: 90%;
   }
-  
- 
-  .content {
-    width: 60%;
-    padding-right: 20px;
-    text-align: left;
-  }
-  
- 
-  .reach-us {
-    width: 40%;
-    background-color: #C8B17A;
-    color: black;
-    text-align: center;
-    border-left: 1px solid #BBBBBB;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin: 0 auto;
-  }
-  
-  
-  label, input[type="submit"] {
-    width: 100%;
-    margin-bottom: 10px;
+}
+
+/* Set up styles for the main content area on even smaller screens */
+@media (max-width: 480px) {
+  main {
     padding: 10px;
   }
-  
-  
-  input[type="text"], input[type="email"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    border: 1px solid #BBBBBB;
-  }
-  
-  
-  input[type="submit"] {
-    background-color: #C8B17A;
-    color: black;
-    border-radius: 50px;
-    border: none;
-    cursor: pointer;
-    width: 25%;
+}
+
+/* Set up styles for the main content area on very small screens */
+@media (max-width: 320px) {
+  main {
     padding: 5px;
   }
+}
+
+/* Set up styles for the main content area's content section */
+.content {
+  width: 60%;
+  padding-right: 20px;
+  text-align: left;
+}
+
+/* Set up styles for the main content area's reach-us section */
+.reach-us {
+  width: 40%;
+  background-color: #C8B17A;
+  color: black;
+  text-align: center;
+  border-left: 1px solid #BBBBBB;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* Set up styles for the form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Set up styles for the form's label and submit button */
+label,
+input[type="submit"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+/* Set up styles for the form's text input fields and textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #BBBBBB;
+}
+
+/* Set up styles for the form's submit button */
+input[type="submit"] {
+  background-color: #C8B17A;
+  color: black;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Set up styles for the form's submit button on smaller screens */
+@media (max-width: 480px) {
+  input[type="submit"] {
+    width: 50%;
+  }
+}
