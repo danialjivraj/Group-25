@@ -109,21 +109,22 @@
                             <!-- add the subtotal here -->
                             <span>£{{ $order->Order_Total_Price }}</span>
 
-                            <hr>
                             @php
-                            $shipping = ($order->Order_Total_Price <= 90) ? $shippingCost : 0; 
-                            $totalPrice=$order->Order_Total_Price + $shipping;
+                            $shipping = ($order->Order_Total_Price <= 90) ? $shippingCost : 0; $totalPrice=$order->Order_Total_Price + $shipping;
+                                $totalText = ($shipping == 0) ? 'TOTAL WITH FREE SHIPPING' : 'TOTAL WITH SHIPPING';
                                 @endphp
 
-
+                                <hr>
                                 <span class="font-bold">SHIPPING</span>
                                 <hr>
                                 <p>£{{ number_format($shipping, 2) }}</p>
                                 <hr>
-                                <span class="font-bold">TOTAL WITH SHIPPING</span>
+                                <span class="font-bold">{{ $totalText }}</span>
                                 <hr>
                                 <h2 class="font-bold">£{{ number_format($totalPrice, 2) }}</h2>
                                 <hr>
+
+
                                 <form method="post" action="{{ url('checkout') }}">
                                     @csrf
                                     <span class="font-bold">ADDRESS</span>
