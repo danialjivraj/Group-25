@@ -36,6 +36,10 @@ Route::get('/faq', function(){
     return view('faq');
 });
 
+Route::get('/delivery', function () {
+    return view('delivery');
+});
+
 Route::get('/privacy', function(){
     return view('privacy');
 });
