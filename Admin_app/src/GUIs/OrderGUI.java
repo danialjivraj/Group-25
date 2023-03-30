@@ -70,20 +70,18 @@ public class OrderGUI extends JFrame implements ActionListener {
 			ResultSet rs = orders.getAllOrders();
 
 			while (rs.next()) {
-				// creating Vector with data for each row
-				Vector<String> row = new Vector<>();
-				row.add(rs.getString("Order_ID"));
-				row.add(rs.getString("Account_ID"));
-				row.add(rs.getString("Address_ID"));
-				row.add(rs.getString("Order_Status"));
-				row.add("\u00A3" + rs.getString("Order_Total_Price"));
-				row.add(rs.getString("created_at"));
-				row.add(rs.getString("updated_at"));
-
-				// add row to table model
+				Object[] row = new Object[]{
+				rs.getInt("Order_ID"),
+				rs.getString("Account_ID"),
+				rs.getString("Address_ID"),
+				rs.getString("Order_Status"),
+				"\u00A3" + rs.getString("Order_Total_Price"),
+				rs.getString("created_at"),
+				rs.getString("updated_at")	
+			};
 				model.addRow(row);
 			}
-			orders.closeConnection();
+	//		orders.closeConnection();
 		} catch (SQLException e) {
 			JOptionPane.showMessageDialog(null, "Error retrieving orders from database: " + e.getMessage());
 		}
@@ -122,7 +120,7 @@ public class OrderGUI extends JFrame implements ActionListener {
         
         // NEW SEARCH PANEL
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
+        JLabel searchLabel = new JLabel("Search by Order/Account ID: ");
         searchField = new JTextField(20);
         searchField.addActionListener(this);
         searchBtn = new JButton("Search");
@@ -205,6 +203,23 @@ public class OrderGUI extends JFrame implements ActionListener {
 		// Apply the filters to the TableRowSorter
 		sorter.setRowFilter(RowFilter.andFilter(filters));
 	}
+	
+	public void refreshTable() {
+			
+		   // Clear the table
+        model.setRowCount(0);
+		try {
+					DBorder orders = new DBorder();
+					ResultSet rs = orders.getAllOrders();
+
+					while (rs.next()) {
+						
+					}
+//					orders.closeConnection();
+				} catch (SQLException e) {
+					JOptionPane.showMessageDialog(null, "Error retrieving orders from database: " + e.getMessage());
+				}
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -232,7 +247,8 @@ public class OrderGUI extends JFrame implements ActionListener {
 					DBorder db = new DBorder();
 					int status = db.getStatus(selectedStatus);
 					db.changeStatusOfOrder(orderId, status);
-					// Update the status in the table model
+
+//					 Update the status in the table model
 					model.setValueAt(selectedStatus, selectedRow, 3);
 				} catch (SQLException ex) {
 					JOptionPane.showMessageDialog(this, "Error updating order status: " + ex.getMessage());
