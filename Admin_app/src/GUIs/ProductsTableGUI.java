@@ -7,14 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.net.URISyntaxException;
 
 import javax.swing.table.TableRowSorter;
-import javax.swing.table.DefaultTableCellRenderer;
 
-
-import Connection.DBaccount;
 import Connection.DBproductAndCategory;
 
 import java.sql.ResultSet;
@@ -22,7 +17,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;

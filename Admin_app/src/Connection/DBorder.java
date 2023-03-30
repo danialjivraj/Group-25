@@ -1,12 +1,18 @@
 package Connection;
 
 import java.sql.SQLException;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.mysql.jdbc.PreparedStatement;
 
+import java.sql.Date;
 import java.sql.ResultSet;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class DBorder extends DataBaseConn{
@@ -92,35 +98,58 @@ public class DBorder extends DataBaseConn{
 	  return rs;
 	}
 	
-//	public String getOrdersInAWeek() {
-//	
-//		LocalDateTime now = LocalDateTime.now();
-//		//LocalDate startDate = now.toLocalDate().minusDays(7);
-//	String sql= "SELECT created_at, Order_Total_Price FROM Orderb WHERE created_at BETWEEN"+now+ "AND" + startDate+ ";";
-//	LocalDate startDate = LocalDate.now().minusWeeks(1);
-//	PreparedStatement stmt = ("SELECT created_at, Order_Total_Price FROM Orderb WHERE created_at BETWEEN ? AND ?");
-//	stmt.setDate(1, java.sql.Date.valueOf(startDate));
-//	stmt.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
-//	.setStmt(stmt);
-////		List<Pair<String, Double>> data = new ArrayList<>();
-////		Map<String, Double> salesByDay = new HashMap<>();
-////
-////		while (rs.next()) {
-////		    LocalDate createdDate = rs.getDate("created_at").toLocalDate();
-////		    String dayOfWeek = createdDate.getDayOfWeek().toString();
-////
-////		    Double sales = salesByDay.getOrDefault(dayOfWeek, 0.0);
-////		    salesByDay.put(dayOfWeek, sales + rs.getDouble("Order_Total_Price"));
-////		}
-////
-////		for (DayOfWeek day : DayOfWeek.values()) {
-////		    Double sales = salesByDay.getOrDefault(day.toString(), 0.0);
-////		    data.add(new Pair<>(day.toString(), sales));
-////		}
-//	}
-//	
+	public void getOrdersInAWeek() throws SQLException {
+
+		 LocalDate startDate = LocalDate.now().minusWeeks(1);
+		 
+			//make an sql statement
+		  // Construct the SQL query to count the number of orders for each date
+	        String sql = "SELECT DATE(created_at) AS date, COUNT(*) AS count FROM orderb "
+	                   + "WHERE created_at BETWEEN ? AND ?"
+	                   + "GROUP BY date ORDER BY date ASC;";		//create a preepared stmt
+			preparedStmt = getConnection().prepareStatement(sql);
+		//Insert Parameter Value(s) into prepared stmt
+			 
+			preparedStmt.setDate(1, Date.valueOf(startDate));
+			preparedStmt.setDate(2, Date.valueOf(LocalDate.now()));
+			
+			//execute the query
+			ResultSet rs = preparedStmt.executeQuery();
+			 HashMap<String, Integer> data = new HashMap<>();
+			while(rs.next()) {
+		         String date = rs.getString("date");
+		            int count = rs.getInt("count");
+		            data.put(date, count);
+		            
+		            System.out.println(date +" ++ " + "Count: " + count);
+			}
+//	List<Pair<String, Double>> data = new ArrayList<>();
+//		Map<String, Double> salesByDay = new HashMap<>();
+
+//		while (rs.next()) {
+//		    LocalDate createdDate = rs.getDate("created_at").toLocalDate();
+//		    String dayOfWeek = createdDate.getDayOfWeek().toString();
+//
+//		    Double sales = salesByDay.getOrDefault(dayOfWeek, 0.0);
+//		    salesByDay.put(dayOfWeek, sales + rs.getDouble("Order_Total_Price"));
+//		}
+//
+//		for (DayOfWeek day : DayOfWeek.values()) {
+//		    Double sales = salesByDay.getOrDefault(day.toString(), 0.0);
+//		    data.add(new Pair<>(day.toString(), sales));
+//		}
+	}
+	
 
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
+	DBorder db = new DBorder();
+	
+	try {
+		db.getOrdersInAWeek();
+	} catch (SQLException e) {
+	    // handle the exception here
+	    System.out.println("SQLException occurred: " + e.getMessage());
+	}
 	}
 }

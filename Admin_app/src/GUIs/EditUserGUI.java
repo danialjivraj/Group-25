@@ -45,6 +45,7 @@ public class EditUserGUI implements ActionListener {
 		
 		frame=new JFrame();
 		frame.setIconImage(ImageIconMaker.createImageIcon());
+		frame.setBounds(900, 400, 1400, 600);
 		panel = new JPanel();
 		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
