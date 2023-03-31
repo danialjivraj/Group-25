@@ -91,7 +91,8 @@ public class LoginPage  implements ActionListener {
 				            "Sys",
 				            JOptionPane.INFORMATION_MESSAGE);
 					
-					new HomePageGUI(loginTx.getText());
+					HomePageGUI homePage = new HomePageGUI(loginTx.getText());
+					homePage.setVisible(true);
 					frame.dispose();
 				}
 				else {
