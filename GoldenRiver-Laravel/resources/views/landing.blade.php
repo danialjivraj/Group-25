@@ -19,8 +19,8 @@
         </div>
         <!-- <a href="/product" class="main"><div id="main-text">View All Products</div></a> -->
         <div class="viewport-subcontainer">
-            <div class="diamond"><a href="/product">Shop Diamond Jewellery</a></div>
-            <div class="gold"><a href="/product">Shop Gold Jewellery</a></div>
+            <div class="diamond"><a href="/product?_token=q8jSrlDiQQxNw5tAMgMdyK3yWRbmJJWXcxcXh8vN&search=diamond">Shop Diamond Jewellery</a></div>
+            <div class="gold"><a href="/product?_token=q8jSrlDiQQxNw5tAMgMdyK3yWRbmJJWXcxcXh8vN&search=gold">Shop Gold Jewellery</a></div>
         </div>
     </div>
 
