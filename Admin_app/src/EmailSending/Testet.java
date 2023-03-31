@@ -14,8 +14,8 @@ public class Testet {
 		// TODO Auto-generated method stub
 		//Report rep=new Report(); 
 		//Sender sender=new Sender("titantop1tap@gmail.com",rep.makeReport());
-		HomePageGUI homePage = new HomePageGUI("titantop1tap@gmail.com");
-		homePage.setVisible(true);
+		new HomePageGUI("titantop1tap@gmail.com");
+
 	}
 
 }

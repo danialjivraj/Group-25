@@ -14,34 +14,18 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Image;
-import javax.swing.SwingConstants;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
+
 
 import javax.mail.MessagingException;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
-import Connection.DBproductAndCategory;
 import EmailSending.Report;
 import EmailSending.Sender;
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+
 
 public class HomePageGUI extends JFrame implements ActionListener{
 
@@ -74,10 +58,13 @@ public class HomePageGUI extends JFrame implements ActionListener{
 	 */
 	public HomePageGUI(String Email) throws SQLException{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 690, 600);
+		setBounds(700, 250, 690, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		setResizable(false);
+		setIconImage(ImageIconMaker.createImageIcon());
+		setTitle("Home Page");
+		
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		panel.setBounds(0, 0, 676, 563);
@@ -87,18 +74,21 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		panel.setBackground(backgroundColor);
 		
 		allUsers = new JButton("Users");
+		allUsers.setBackground(Color.WHITE);
 		allUsers.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		allUsers.setBounds(257, 175, 148, 47);
 		panel.add(allUsers);
 		allUsers.addActionListener(this);
 		
 		 allProducts = new JButton("Products");
+		 allProducts.setBackground(Color.WHITE);
 		 allProducts.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		allProducts.setBounds(257, 243, 148, 47);
 		panel.add(allProducts);
 		allProducts.addActionListener(this);
 		
 		allOrders = new JButton("Orders");
+		allOrders.setBackground(Color.WHITE);
 		allOrders.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		allOrders.setBounds(257, 314, 148, 47);
 		panel.add(allOrders);
@@ -111,27 +101,30 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		createReport.addActionListener(this);
 		
 		JLabel pgHeading = new JLabel("HomePage");
-		pgHeading.setFont(new Font("Tahoma", Font.BOLD, 22));
-		pgHeading.setBounds(274, 66, 148, 35);
+		pgHeading.setFont(new Font("Segoe UI", Font.BOLD, 22));
+		pgHeading.setBounds(275, 91, 114, 36);
 		panel.add(pgHeading);
 		
 		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
-		Image scaledImage = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+		Image scaledImage = icon.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 		JLabel imgLabel = new JLabel(scaledIcon);
-		imgLabel.setBounds(61, 22, 107, 81);
+		imgLabel.setBounds(10, 10, 120, 117);
 		panel.add(imgLabel);
 		
 		statusOfReport = new JLabel("Generate A Report:");
-		statusOfReport.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		statusOfReport.setBounds(257, 398, 179, 19);
+		statusOfReport.setFont(new Font("Segoe UI", Font.PLAIN, 15));
+		statusOfReport.setBounds(264, 398, 214, 19);
 		panel.add(statusOfReport);
 		
 		this.Email=Email;
 		email_L = new JLabel("Email: "+Email);
-		email_L.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		email_L.setBounds(492, 22, 174, 19);
+		email_L.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+		email_L.setBounds(460, 22, 206, 19);
 		panel.add(email_L);
+		setVisible(true);
+		StockAlertGUI sAlert = new StockAlertGUI();
+		sAlert.displayStockAlerts();
 	}
 	
 	@Override
