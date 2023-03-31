@@ -15,6 +15,7 @@ public class Testet {
 		//Report rep=new Report(); 
 		//Sender sender=new Sender("titantop1tap@gmail.com",rep.makeReport());
 		new HomePageGUI("titantop1tap@gmail.com");
+
 	}
 
 }

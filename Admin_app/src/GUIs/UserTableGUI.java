@@ -1,6 +1,8 @@
 package GUIs;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 
 import Connection.DBaccount;
@@ -77,29 +79,43 @@ public class UserTableGUI extends JFrame implements ActionListener{
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         userFinderLbl = new JLabel("Enter User ID To Edit User");
         infoUF=new JButton("Edit User");
-        userFinder = new JTextField(" Edit User Using User ID ");
-        userFinder.setCaretPosition(0);
+        userFinder = new JTextField(20);
         userFinder.setForeground(Color.GRAY);
+        userFinder.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+             //   filterTable();
+            }
 
-        // Add a focus listener to clear the placeholder text when the field is clicked
-        userFinder.addFocusListener(new FocusAdapter() {
-                @Override
-                public void focusGained(FocusEvent e) {
-                    if (userFinder.getText().equals(" Edit User Using User ID ")) {
-                    	userFinder.setText("");
-                    	userFinder.setForeground(Color.BLACK);
-                    }
-                }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+               
+            }
 
-                @Override
-                public void focusLost(FocusEvent e) {
-                    if (userFinder.getText().isEmpty()) {
-                    	userFinder.setForeground(Color.GRAY);
-                    	userFinder.setText(" Edit User Using User ID ");
-                    }
-                }
-            });
-        
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+               
+            }
+        });
+//        // Add a focus listener to clear the placeholder text when the field is clicked
+//        userFinder.addFocusListener(new FocusAdapter() {
+//                @Override
+//                public void focusGained(FocusEvent e) {
+//                    if (userFinder.getText().equals(" Edit User Using User ID ")) {
+//                    	userFinder.setText("");
+//                    	userFinder.setForeground(Color.BLACK);
+//                    }
+//                }
+//
+//                @Override
+//                public void focusLost(FocusEvent e) {
+//                    if (userFinder.getText().isEmpty()) {
+//                    	userFinder.setForeground(Color.GRAY);
+//                    	userFinder.setText(" Edit User Using User ID ");
+//                    }
+//                }
+//            });
+//        
         searchPanel.add(userFinderLbl);
         searchPanel.add(userFinder);
         searchPanel.add(infoUF);
