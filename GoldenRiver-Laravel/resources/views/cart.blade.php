@@ -72,6 +72,7 @@
                                                 <dt>Description: {{ $product->Description }}</dt>
                                                 <!--retrieve database info for product Quantity-->
                                                 <dd>Quantity: x{{ $product->pivot->Amount }}</dd>
+                                                <dd>Individual Price: £{{ number_format($product->Product_Price, 2) }}
                                             </dl>
 
                                             <div class="m-t-sm">

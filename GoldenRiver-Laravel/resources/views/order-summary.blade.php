@@ -47,12 +47,13 @@
                                             <dt>Description: {{ $orderItem->product->Description }}</dt>
                                             <!--retrieve database info for product Quantity-->
                                             <dd>Quantity: x{{ $orderItem->Amount }}</dd>
+                                            <dd>Individual Price: £{{ $orderItem->Price }}</dd>
+
                                         </dl>
                                     </td>
                                     <!-- Product Price -->
                                     <td>
-                                        <h4>£{{ $orderItem->Price }}</h4>
-                                    </td>
+                                    <h4>£{{ number_format($orderItem->product->Product_Price * $orderItem->Amount, 2) }}</h4>
                                 </tr>
                                 @endforeach
                             </tbody>
