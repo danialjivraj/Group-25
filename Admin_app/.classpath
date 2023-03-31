@@ -6,9 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/xampp/htdocs/Group-25/Admin_app/External_Jars/activation-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/xampp/htdocs/Group-25/Admin_app/External_Jars/javax.mail.jar"/>
-	<classpathentry kind="lib" path="C:/xampp/htdocs/Group-25/Admin_app/External_Jars/mysql-connector.jar"/>
-	<classpathentry kind="lib" path="C:/xampp/htdocs/Group-25/Admin_app/External_Jars/spring-security-crypto-6.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/faraz/Git Projects/Group-25/Admin_app/External_Jars/activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/faraz/Git Projects/Group-25/Admin_app/External_Jars/javax.mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/faraz/Git Projects/Group-25/Admin_app/External_Jars/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="C:/Users/faraz/Git Projects/Group-25/Admin_app/External_Jars/spring-security-crypto-6.0.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
