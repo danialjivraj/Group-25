@@ -23,6 +23,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 
 
@@ -44,10 +45,12 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         setTitle("All Products");
         setIconImage(ImageIconMaker.createImageIcon());
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(200, 200, 1400, 600);
+        setBounds(200, 200, 1400, 830);
         contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
         contentPane.setLayout(new BorderLayout(0, 0));
+        Color backgroundColor = Color.decode("#ffe4b5");
+        contentPane.setBackground(backgroundColor);
         setContentPane(contentPane);
 
         // Create table model
@@ -113,8 +116,8 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         // SEARCH PANEL
-        JPanel searchPanel = new JPanel();   
-        JLabel searchLabel = new JLabel("Search by Product ID or Product Name: ");
+        JPanel searchPanel = new JPanel(new BorderLayout());   
+        JLabel searchLabel = new JLabel("Search: ");
         searchField = new JTextField(20);
         searchField.addActionListener(this);
      // Add a DocumentListener to the search field
@@ -141,7 +144,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     	editProduct=new JButton("Edit a product");
     	editProduct.addActionListener(this);
     	
-    	JLabel productFinderlbl = new JLabel("Enter User ID To Edit");
+    	JLabel productFinderlbl = new JLabel("Enter Product ID To Edit: ");
     	
     	productFinder = new JTextField(30);
     	addProduct = new JLabel("<html><a href=\"#\">Add A New Product</a></html>");
@@ -161,16 +164,34 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     	searchComponentsPanel.add(searchLabel);
     	searchComponentsPanel.add(searchField);
     	searchComponentsPanel.add(searchBtn);
-    	searchPanel.add(searchComponentsPanel);
+    	searchPanel.add(searchComponentsPanel, BorderLayout.WEST);
     	
     	
-    	 // Create a sub-panel for the editProduct, productFinder, and addProduct components
-        JPanel subPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        subPanel.add(productFinderlbl);
-        subPanel.add(productFinder);
-        subPanel.add(editProduct);
-        subPanel.add(addProduct);
-        searchPanel.add(subPanel);
+//    	 // Create a sub-panel for the editProduct, productFinder, and addProduct components
+//        JPanel subPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+//        subPanel.add(productFinderlbl);
+//        subPanel.add(productFinder);
+//        subPanel.add(editProduct);
+//        subPanel.add(addProduct);
+//        searchPanel.add(subPanel, BorderLayout.EAST);
+    	JPanel subPanel = new JPanel(new BorderLayout());
+
+    	// Panel for productFinder and editProduct with FlowLayout set to LEFT
+    	JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    	topPanel.add(productFinderlbl);
+    	topPanel.add(productFinder);
+    	topPanel.add(editProduct);
+
+    	// Panel for addProduct with FlowLayout set to CENTER
+    	JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+    	bottomPanel.add(addProduct);
+
+    	subPanel.add(topPanel, BorderLayout.NORTH); // add topPanel to the NORTH
+    	subPanel.add(Box.createVerticalStrut(5), BorderLayout.CENTER); // add some space between the panels
+    	topPanel.add(bottomPanel, BorderLayout.SOUTH); // add bottomPanel to the SOUTH
+   // 	topPanel.setBorder(BorderFactory.createEmptyBorder(0,0,0,5));
+    	searchPanel.add(subPanel, BorderLayout.EAST); // add subPanel to searchPanel in the EAST
+
     	
     	///////////////
      
@@ -182,7 +203,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         
         stkChckBtn = new JButton("Quick Stock Check");
         stkChckBtn.addActionListener(this);
-        
+        filterPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 10, 10)); 
         filterPanel.add(filterLabel, BorderLayout.WEST);
         filterPanel.add(filterBox, BorderLayout.CENTER);
         filterPanel.add(stkChckBtn, BorderLayout.CENTER);
