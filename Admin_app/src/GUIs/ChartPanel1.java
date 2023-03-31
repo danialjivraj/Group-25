@@ -11,6 +11,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.StandardChartTheme;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 
@@ -38,6 +39,7 @@ public class ChartPanel1 extends JPanel {
         
         chart.setAntiAlias(true); // enable anti-aliasing
         chart.setTextAntiAlias(true); // enable text anti-aliasing
+        ChartFactory.setChartTheme(StandardChartTheme.createLegacyTheme());
         ChartUtilities.applyCurrentTheme(chart);
         BufferedImage image = chart.createBufferedImage(800, 600);
         //these lines add graph to Panel

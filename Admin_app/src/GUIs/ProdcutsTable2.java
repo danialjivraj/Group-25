@@ -80,12 +80,15 @@ public class ProdcutsTable2 extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(200, 55, 1277, 700);
 		panel.add(scrollPane);
+		add(panel);
+		setVisible(true);
 		
 		mainTable = new JTable();
 		DefaultTableModel model = new DefaultTableModel(new Object[][] {}, new String[] {
 		    "Product Image", "Product ID", "Category ID", "Product Name", "Product Price", "Stock", "In/Out of/Low Stock", "Descripton"
 		});
 		mainTable.setModel(model);
+		
 
 		try {
 		    DBproductAndCategory dba = new DBproductAndCategory();
