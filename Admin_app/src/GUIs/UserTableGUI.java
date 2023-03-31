@@ -75,7 +75,7 @@ public class UserTableGUI extends JFrame implements ActionListener{
         }
       
        
-        
+
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         userFinderLbl = new JLabel("Enter User ID To Edit User");
         infoUF=new JButton("Edit User");
@@ -120,9 +120,14 @@ public class UserTableGUI extends JFrame implements ActionListener{
         searchPanel.add(userFinder);
         searchPanel.add(infoUF);
         infoUF.addActionListener(this);
+        searchPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
         
         add(searchPanel, BorderLayout.NORTH);
-        add(new JScrollPane(table));
+        JScrollPane tableSPane = new JScrollPane(table);
+        tableSPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        add(tableSPane);
 
         setVisible(true);
     }
