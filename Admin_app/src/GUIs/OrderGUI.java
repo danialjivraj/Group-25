@@ -141,35 +141,28 @@ public class OrderGUI extends JFrame implements ActionListener {
 		JPanel searchFilterPanel = new JPanel(new BorderLayout());
 		searchFilterPanel.add(searchPanel, BorderLayout.NORTH);
 		searchFilterPanel.add(filterPanel, BorderLayout.CENTER);
-
 		
 		// create button for viewing products in order
 		viewMoreBtn = new JButton("View Order Products");
 		viewMoreBtn.addActionListener(this);
-		
+
 		// create submit button for Changing order Status
 		changeOrderStatusBtn = new JButton("Change Order Status");
 		changeOrderStatusBtn.addActionListener(this);
 
+		// create label for options
+		JLabel optionsLbl = new JLabel("Select a row and use the following option(s):       ");
+
+		// create panel for options
+		JPanel optionsPanel = new JPanel();
+		optionsPanel.add(optionsLbl);
+		optionsPanel.add(orderStatusComboBox);
+		optionsPanel.add(changeOrderStatusBtn);
+		optionsPanel.add(viewMoreBtn);
+
+		// create panel for submit button
 		JPanel submitPanel = new JPanel(new BorderLayout());
-		
-		JPanel orderStatusPanel = new JPanel(new BorderLayout());
-	//	orderStatusPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE, 2)); // set colored border
-
-		JLabel orderStatusLabel = new JLabel("Order Status Options"); // create label
-
-		orderStatusPanel.add(orderStatusLabel, BorderLayout.NORTH); // add label to panel
-
-		orderStatusPanel.add(orderStatusComboBox, BorderLayout.CENTER); // add comboBox to panel
-		orderStatusPanel.add(changeOrderStatusBtn, BorderLayout.EAST); // add button to panel
-
-		submitPanel.add(orderStatusPanel, BorderLayout.WEST); // add the panel with the components to the submitPanel
-
-		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		buttonPanel.add(viewMoreBtn);
-
-
-		submitPanel.add(buttonPanel, BorderLayout.EAST);
+		submitPanel.add(optionsPanel, BorderLayout.EAST);
 
 		// add searchFilterPanel and submitPanel to contentPane
 		contentPane.add(searchFilterPanel, BorderLayout.NORTH);
