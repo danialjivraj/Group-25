@@ -5,6 +5,8 @@ import Connection.DBorder;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -123,6 +125,22 @@ public class OrderGUI extends JFrame implements ActionListener {
         JLabel searchLabel = new JLabel("Search by Order/Account ID: ");
         searchField = new JTextField(20);
         searchField.addActionListener(this);
+        searchField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+//                filterTable();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+            	 filterTable();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+            	 filterTable();
+            }
+        });
         searchBtn = new JButton("Search");
         searchBtn.addActionListener(this);
         searchPanel.add(searchLabel);

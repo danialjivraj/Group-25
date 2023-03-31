@@ -118,22 +118,22 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         searchField = new JTextField(20);
         searchField.addActionListener(this);
      // Add a DocumentListener to the search field
-//        searchField.getDocument().addDocumentListener(new DocumentListener() {
-//            @Override
-//            public void insertUpdate(DocumentEvent e) {
-//             //   filterTable();
-//            }
-//
-//            @Override
-//            public void removeUpdate(DocumentEvent e) {
-//                filterTable();
-//            }
-//
-//            @Override
-//            public void changedUpdate(DocumentEvent e) {
-//                filterTable();
-//            }
-//        });
+        searchField.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+             //   filterTable();
+            }
+
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                filterTable();
+            }
+
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                filterTable();
+            }
+        });
         
         searchBtn = new JButton("Search");
         searchBtn.addActionListener(this);

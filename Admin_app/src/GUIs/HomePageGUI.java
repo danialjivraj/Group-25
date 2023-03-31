@@ -100,9 +100,9 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		panel.add(createReport);
 		createReport.addActionListener(this);
 		
-		JLabel pgHeading = new JLabel("HomePage");
-		pgHeading.setFont(new Font("Segoe UI", Font.BOLD, 22));
-		pgHeading.setBounds(275, 91, 114, 36);
+		JLabel pgHeading = new JLabel("Home Page");
+		pgHeading.setFont(new Font("Segoe UI Variable", Font.BOLD, 22));
+		pgHeading.setBounds(275, 81, 130, 36);
 		panel.add(pgHeading);
 		
 		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));

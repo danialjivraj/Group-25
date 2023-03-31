@@ -129,6 +129,7 @@ public class EditUserGUI implements ActionListener {
 		if(e.getSource()==EditUs_B) {
 			try {
 				DBA.changeStatusTo(ID,Status.getSelectedItem().toString());
+				frame.dispose();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
