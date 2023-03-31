@@ -81,7 +81,9 @@
                                         </td>
                                         <!-- Product Price -->
                                         <td>
-                                            <h4>£{{ number_format($product->Product_Price, 2) }}</h4>
+                                        <td>
+                                            <h4>£{{ number_format($product->Product_Price * $product->pivot->Amount, 2) }}</h4>
+                                        </td>
                                         </td>
                                     </tr>
                                 </tbody>
