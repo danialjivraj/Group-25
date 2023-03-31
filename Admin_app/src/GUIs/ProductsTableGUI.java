@@ -113,7 +113,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         contentPane.add(scrollPane, BorderLayout.CENTER);
 
         // SEARCH PANEL
-        JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel searchPanel = new JPanel();   
         JLabel searchLabel = new JLabel("Search by Product ID or Product Name: ");
         searchField = new JTextField(20);
         searchField.addActionListener(this);
@@ -139,12 +139,11 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
         searchBtn.addActionListener(this);
     	
     	editProduct=new JButton("Edit a product");
-    	
     	editProduct.addActionListener(this);
     	
-    	productFinder = new JTextField(30);
-    	//loginTx.setBounds(WIDTH/2,70,100,25);
+    	JLabel productFinderlbl = new JLabel("Enter User ID To Edit");
     	
+    	productFinder = new JTextField(30);
     	addProduct = new JLabel("<html><a href=\"#\">Add A New Product</a></html>");
     	addProduct.addMouseListener(new MouseAdapter() {
     	    @Override
@@ -156,12 +155,24 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     			}
     	    }
     	});
-        searchPanel.add(searchLabel);
-        searchPanel.add(searchField);
-        searchPanel.add(searchBtn);
-        searchPanel.add(addProduct);
-        searchPanel.add(editProduct);
-        searchPanel.add(productFinder);
+    	
+    	// Add the search components to the searchPanel
+    	JPanel searchComponentsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    	searchComponentsPanel.add(searchLabel);
+    	searchComponentsPanel.add(searchField);
+    	searchComponentsPanel.add(searchBtn);
+    	searchPanel.add(searchComponentsPanel);
+    	
+    	
+    	 // Create a sub-panel for the editProduct, productFinder, and addProduct components
+        JPanel subPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        subPanel.add(productFinderlbl);
+        subPanel.add(productFinder);
+        subPanel.add(editProduct);
+        subPanel.add(addProduct);
+        searchPanel.add(subPanel);
+    	
+    	///////////////
      
         JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel filterLabel = new JLabel("Filter by Categories: ");
