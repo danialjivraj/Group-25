@@ -117,3 +117,6 @@ Route::post('/checkout', [CheckoutController::class, 'processCheckout'])->name('
 Route::get('/order-summary/{order_id}', [CheckoutController::class, 'showOrderSummary'])
     ->name('order-summary')
     ->middleware('protectPages');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
