@@ -505,6 +505,7 @@
 
 .filter-option:hover {
   background-color: #b29758;
+  color:#000
 }
 
 .filter-form {
@@ -737,5 +738,14 @@
   border-color: #333;
   cursor: pointer;
 }
+
+.page-link{
+  background-color: #b29758;
+}
+
+.page-item.active .page-link {
+  background-color: #b29758;
+  border: #000;
+  }
 
 /********************************************************* END OF PAGINATION CSS ****************************************************************************************/
