@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import org.jfree.chart.ChartFactory;
-
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
@@ -24,6 +24,7 @@ import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 import GUIs.HomePageGUI;
 import GUIs.ChartPanel1;
+import GUIs.ChartPanel2;
 
 
 
@@ -138,19 +139,41 @@ public class DBorder extends DataBaseConn{
 	    }
 	    chartPanel.updateDataset(data);
 	}
+	
+	
+	public void getOrderStatusDistributionInAWeek(ChartPanel2 chartPanel) throws SQLException {
+	    LocalDate startDate = LocalDate.now().minusWeeks(1);
 
-	
-	
-	
-			
-	
+	    // Construct the SQL query to count the number of orders for each status
+	    String sql = "SELECT order_status AS status, COUNT(*) AS count FROM orderb "
+	            + "WHERE created_at BETWEEN ? AND ? AND order_status <> 'Basket'"
+	            + "GROUP BY order_status ORDER BY order_status ASC;";
 
+	    // Create a prepared statement
+	    preparedStmt = getConnection().prepareStatement(sql);
+
+	    // Set the parameter values
+	    preparedStmt.setDate(1, Date.valueOf(startDate));
+	    preparedStmt.setDate(2, Date.valueOf(LocalDate.now()));
+
+	    // Execute the query and update the dataset 
+	    ResultSet rs = preparedStmt.executeQuery();
+	    HashMap<String, Integer> data = new HashMap<>();
+	    while (rs.next()) {
+	        String status = rs.getString("status");
+	        int count = rs.getInt("count");
+	        System.out.println(status +" ++ " + count);
+	        data.put(status, count);
+	    }
+	    chartPanel.updateDataset(data);
+	}
+	
 
 //	public static void main(String[] args) throws SQLException {
 //	DBorder db = new DBorder();
 //	
 //	try {
-//		db.getOrdersInAWeek();
+//		db.getOrderStatusDistributionInAWeek();
 //	} catch (SQLException e) {
 //	    // handle the exception here
 //	    System.out.println("SQLException occurred: " + e.getMessage());

@@ -44,6 +44,8 @@ public class HomePageGUI extends JFrame implements ActionListener{
 	private JLabel email_L;
 	private JPanel graphPanel;
 	private ChartPanel1 chartPanel;
+	private ChartPanel2 chartPanel2;
+	private JPanel graphPanel2;
 	/**
 	 * Launch the application.
 	 */
@@ -65,7 +67,7 @@ public class HomePageGUI extends JFrame implements ActionListener{
 	 */
 	public HomePageGUI(String Email) throws SQLException{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(700, 250, 1263, 906);
+		setBounds(400, 150, 1263, 906);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setResizable(false);
@@ -108,15 +110,15 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		createReport.addActionListener(this);
 		
 		JLabel pgHeading = new JLabel("Home Page");
-		pgHeading.setFont(new Font("Segoe UI Variable", Font.BOLD, 22));
-		pgHeading.setBounds(540, 72, 130, 36);
+		pgHeading.setFont(new Font("Segoe UI Variable", Font.BOLD, 26));
+		pgHeading.setBounds(518, 58, 193, 43);
 		panel.add(pgHeading);
 		
 		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
 		Image scaledImage = icon.getImage().getScaledInstance(140, 140, Image.SCALE_SMOOTH);
 		ImageIcon scaledIcon = new ImageIcon(scaledImage);
 		JLabel imgLabel = new JLabel(scaledIcon);
-		imgLabel.setBounds(10, 10, 120, 117);
+		imgLabel.setBounds(40, 34, 120, 117);
 		panel.add(imgLabel);
 		
 		statusOfReport = new JLabel("Generate A Report:");
@@ -127,11 +129,11 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		this.Email=Email;
 		email_L = new JLabel("Email: "+Email);
 		email_L.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		email_L.setBounds(1008, 23, 206, 19);
+		email_L.setBounds(995, 23, 224, 36);
 		panel.add(email_L);
 		
-		JLabel graphLabel = new JLabel("Sales Graph");
-		graphLabel.setFont(new Font("Segoe UI", Font.PLAIN, 21));
+		JLabel graphLabel = new JLabel("Weekly Sales Graphs");
+		graphLabel.setFont(new Font("Segoe UI", Font.BOLD, 21));
 		graphLabel.setBounds(824, 149, 214, 36);
 		panel.add(graphLabel);
 		
@@ -139,12 +141,26 @@ public class HomePageGUI extends JFrame implements ActionListener{
         chartPanel = new ChartPanel1();
 		graphPanel = new JPanel();
 		graphPanel.setBackground(Color.WHITE);
-		graphPanel.setBounds(664, 209, 510, 310);
+		graphPanel.setBounds(660, 207, 510, 310);
 		panel.add(graphPanel);
 		graphPanel.add(chartPanel);
 		  // update the dataset with the data retrieved from the database
         DBorder db = new DBorder();
         db.getOrdersInAWeek(chartPanel);
+        
+        chartPanel2 = new ChartPanel2();
+        graphPanel2 = new JPanel();
+        graphPanel2.setBackground(Color.WHITE);
+        graphPanel2.setBounds(660, 535, 507, 310);
+        panel.add(graphPanel2);
+        graphPanel2.add(chartPanel2);
+        db.getOrderStatusDistributionInAWeek(chartPanel2);
+        
+        JLabel pagesLbl = new JLabel("Options:");
+        pagesLbl.setFont(new Font("Segoe UI", Font.BOLD, 21));
+        pagesLbl.setBounds(256, 206, 82, 36);
+        panel.add(pagesLbl);
+        
 		setVisible(true);
 		StockAlertGUI sAlert = new StockAlertGUI();
 		sAlert.displayStockAlerts();

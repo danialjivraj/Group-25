@@ -13,8 +13,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import java.util.ArrayList;
-import java.util.List;
+
 
 
 
@@ -51,7 +50,7 @@ public class ChartPanel1 extends JPanel {
         DefaultCategoryDataset dataset = (DefaultCategoryDataset) chart.getCategoryPlot().getDataset();
         dataset.clear();
         for (Map.Entry<String, Integer> entry : data.entrySet()) {
-        	System.out.println("Adding data point: " + entry.getKey() + ", " + entry.getValue());
+//        	System.out.println("Adding data point: " + entry.getKey() + ", " + entry.getValue());
             dataset.addValue(entry.getValue(), "Orders", entry.getKey());
         }
     }
