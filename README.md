@@ -72,7 +72,7 @@ This next section will be on how to set up Java
 ### Step 1
 - Repeat the same steps as Laravel from step 1 – 3.
 ### Step2 Download Eclipse 
-- You could use another Ide but Ecplipse is recommended.
+- You could use another Ide but Eclipse is recommended.
 ### Step3
 - In Eclipse go to ```File > import > Git > Projects From Git > Existing Local Repository```. 
 - Here choose the location where you cloned the project and select ```finish```.
