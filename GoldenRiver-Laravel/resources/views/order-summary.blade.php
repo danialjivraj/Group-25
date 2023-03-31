@@ -40,7 +40,7 @@
                                     <td class="desc">
                                         <h3>
                                             <!-- Item Name -->
-                                            <a class="text-navy">{{ $orderItem->product->Product_Name }}</a>
+                                            <a href="{{ url('/product/'.$orderItem->product->Product_ID) }}" class="text-navy">{{ $orderItem->product->Product_Name }}</a>
                                         </h3>
                                         <dl class="small m-b-none">
                                             <!--retrieve database info for product description-->
