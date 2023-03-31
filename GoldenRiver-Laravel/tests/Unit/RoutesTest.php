@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginLogoutController;
 
 
 
@@ -15,12 +16,12 @@ class RoutesTest extends TestCase
      * @return void
      */
 
-    public function testUpdateUserRoute()
+    public function testLogoutRoute()
     {
         //tests whether the /logout succesfuly redirects
-        $response = $this->get('/user.update');
+        $response = $this->get('/logout');
 
-        $response->assertStatus(404);
+        $response->assertStatus(302);
     }
 
     // public function testloginRoute()
