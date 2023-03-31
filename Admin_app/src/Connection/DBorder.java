@@ -13,6 +13,19 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.jfree.chart.ChartFactory;
+
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import GUIs.HomePageGUI;
+import GUIs.ChartPanel1;
+
+
 
 
 public class DBorder extends DataBaseConn{
@@ -98,58 +111,49 @@ public class DBorder extends DataBaseConn{
 	  return rs;
 	}
 	
-	public void getOrdersInAWeek() throws SQLException {
+	
+	public void getOrdersInAWeek(ChartPanel1 chartPanel) throws SQLException {
+	    LocalDate startDate = LocalDate.now().minusWeeks(1);
 
-		 LocalDate startDate = LocalDate.now().minusWeeks(1);
-		 
-			//make an sql statement
-		  // Construct the SQL query to count the number of orders for each date
-	        String sql = "SELECT DATE(created_at) AS date, COUNT(*) AS count FROM orderb "
-	                   + "WHERE created_at BETWEEN ? AND ?"
-	                   + "GROUP BY date ORDER BY date ASC;";		//create a preepared stmt
-			preparedStmt = getConnection().prepareStatement(sql);
-		//Insert Parameter Value(s) into prepared stmt
-			 
-			preparedStmt.setDate(1, Date.valueOf(startDate));
-			preparedStmt.setDate(2, Date.valueOf(LocalDate.now()));
+	    // make an sql statement
+	    // Construct the SQL query to count the number of orders for each date
+	    String sql = "SELECT DATE(created_at) AS date, COUNT(*) AS count FROM orderb "
+	            + "WHERE created_at BETWEEN ? AND ?"
+	            + "GROUP BY date ORDER BY date ASC;";
+
+	    // create a prepared statement
+	    preparedStmt = getConnection().prepareStatement(sql);
+
+	    // set the parameter values
+	    preparedStmt.setDate(1, Date.valueOf(startDate));
+	    preparedStmt.setDate(2, Date.valueOf(LocalDate.now()));
+
+	    // execute the query and update the dataset 
+	    ResultSet rs = preparedStmt.executeQuery();
+	    HashMap<String, Integer> data = new HashMap<>();
+	    while (rs.next()) {
+	        String date = rs.getString("date");
+	        int count = rs.getInt("count");
+	        data.put(date, count);
+	    }
+	    chartPanel.updateDataset(data);
+	}
+
+	
+	
+	
 			
-			//execute the query
-			ResultSet rs = preparedStmt.executeQuery();
-			 HashMap<String, Integer> data = new HashMap<>();
-			while(rs.next()) {
-		         String date = rs.getString("date");
-		            int count = rs.getInt("count");
-		            data.put(date, count);
-		            
-		            System.out.println(date +" ++ " + "Count: " + count);
-			}
-//	List<Pair<String, Double>> data = new ArrayList<>();
-//		Map<String, Double> salesByDay = new HashMap<>();
-
-//		while (rs.next()) {
-//		    LocalDate createdDate = rs.getDate("created_at").toLocalDate();
-//		    String dayOfWeek = createdDate.getDayOfWeek().toString();
-//
-//		    Double sales = salesByDay.getOrDefault(dayOfWeek, 0.0);
-//		    salesByDay.put(dayOfWeek, sales + rs.getDouble("Order_Total_Price"));
-//		}
-//
-//		for (DayOfWeek day : DayOfWeek.values()) {
-//		    Double sales = salesByDay.getOrDefault(day.toString(), 0.0);
-//		    data.add(new Pair<>(day.toString(), sales));
-//		}
-	}
 	
 
 
-	public static void main(String[] args) throws SQLException {
-	DBorder db = new DBorder();
-	
-	try {
-		db.getOrdersInAWeek();
-	} catch (SQLException e) {
-	    // handle the exception here
-	    System.out.println("SQLException occurred: " + e.getMessage());
-	}
-	}
+//	public static void main(String[] args) throws SQLException {
+//	DBorder db = new DBorder();
+//	
+//	try {
+//		db.getOrdersInAWeek();
+//	} catch (SQLException e) {
+//	    // handle the exception here
+//	    System.out.println("SQLException occurred: " + e.getMessage());
+//	}
+//	}
 }

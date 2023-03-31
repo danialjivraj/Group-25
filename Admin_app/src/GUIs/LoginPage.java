@@ -30,8 +30,7 @@ public class LoginPage  implements ActionListener {
 	private JTextField loginTx,passTx;
 	 private JLabel labelInfo1Login,labelInfo2Password;
 	 private JButton ChButton;
-	 private JLabel lblNewLabel;
-	 private JLabel lblNewLabel_1;
+
 
 	 //variables
 	public LoginPage() {
