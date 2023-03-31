@@ -104,6 +104,7 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		allOrders.addActionListener(this);
 		
 		createReport = new JButton("Generate Report");
+		createReport.setBackground(new Color(245, 245, 220));
 		createReport.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		createReport.setBounds(194, 607, 224, 43);
 		panel.add(createReport);
@@ -111,7 +112,7 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		
 		JLabel pgHeading = new JLabel("Home Page");
 		pgHeading.setFont(new Font("Segoe UI Variable", Font.BOLD, 26));
-		pgHeading.setBounds(518, 58, 193, 43);
+		pgHeading.setBounds(509, 57, 193, 43);
 		panel.add(pgHeading);
 		
 		ImageIcon icon = new ImageIcon(LoginPage.class.getResource("/Logo/logo.png"));
@@ -123,13 +124,13 @@ public class HomePageGUI extends JFrame implements ActionListener{
 		
 		statusOfReport = new JLabel("Generate A Report:");
 		statusOfReport.setFont(new Font("Segoe UI", Font.PLAIN, 15));
-		statusOfReport.setBounds(231, 568, 214, 19);
+		statusOfReport.setBounds(228, 578, 248, 19);
 		panel.add(statusOfReport);
 		
 		this.Email=Email;
 		email_L = new JLabel("Email: "+Email);
 		email_L.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-		email_L.setBounds(995, 23, 224, 36);
+		email_L.setBounds(915, 24, 224, 36);
 		panel.add(email_L);
 		
 		JLabel graphLabel = new JLabel("Weekly Sales Graphs");
