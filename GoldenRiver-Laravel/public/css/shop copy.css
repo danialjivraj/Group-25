@@ -734,18 +734,19 @@
 
 .pagination li a:hover {
   color: #fff;
-  background-color: #333;
+  background-color: #8f7946;
   border-color: #333;
   cursor: pointer;
 }
 
-.page-link{
+/*.page-link{
   background-color: #b29758;
-}
+}*/
 
 .page-item.active .page-link {
-  background-color: #b29758;
+  background-color: #c8b17a;
   border: #000;
+  border-color: #333;
   }
 
 /********************************************************* END OF PAGINATION CSS ****************************************************************************************/
