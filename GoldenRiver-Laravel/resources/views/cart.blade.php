@@ -15,10 +15,13 @@
 @if ($products !== null && $products->count() > 0)
 
 @if(session()->has('loginToAddCart'))
-<div class="alert alert-success" role="alert" id="go-to-basket">
-    {{session()->get('loginToAddCart')}} 
+<div class="alert alert-danger" role="alert">
+    <h4>{!! session()->get('loginToAddCart') !!}</h4>
 </div>
 @endif
+
+
+
 
 @if(session()->has('checkouterr'))
 <div class="alert alert-success" role="alert" id="go-to-basket">

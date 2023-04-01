@@ -9,13 +9,14 @@ use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\Address;
+use Illuminate\Support\HtmlString;
 
 class BasketController extends Controller
 {
     public function addToBasket(Request $request){
         //dd(Order::where('Account_ID', Auth::user()->id)->where('Order_Status', 'Basket')->first()->Order_ID);
     if (!Auth::check()) {
-            return redirect()->back()->with('loginToAddCart', 'You need to Login to add to Cart');
+        return redirect()->back()->with('loginToAddCart', new HtmlString('You need to <a href="/login" style="color:#842029">Login</a> to add to Cart'));
     }
 
         $productPrice = Product::where('Product_ID', $request->Product_ID)
