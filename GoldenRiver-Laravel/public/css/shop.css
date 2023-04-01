@@ -410,7 +410,14 @@ table tbody tr:last-child td:first-child {
   }
 }
 
+.shopNowCSS{
+  color: black;
+  text-decoration: underline;
+}
 
+.shopNowCSS:hover{
+  color: #b29758;
+}
 
 /************************************* ERROR SCREEN MEDIA ADJUSTMENT *************************************/
 @media (max-width: 438px) {

@@ -129,7 +129,7 @@
                                 @endforeach
                                 @else
                                 <tr>
-                                    <td colspan="4">No orders available.</td>
+                                    <td colspan="4">You haven't made any orders yet. Click <a href="/product" class="shopNowCSS">here</a> to start shopping!</td>
                                 </tr>
                                 @endif
                             </tbody>
