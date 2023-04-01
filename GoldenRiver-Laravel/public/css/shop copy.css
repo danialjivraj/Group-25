@@ -108,10 +108,12 @@
   font-weight: bold;
   font-size: 15px;
   display: block;
+  text-decoration: none;
 }
 
 .shop-button a:active {
-  color: red;
+  color: #b29758;
+  text-decoration: none;
 }
 
 .smallSpace {

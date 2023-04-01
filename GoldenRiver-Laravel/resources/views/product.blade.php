@@ -92,7 +92,7 @@
                     <p>£{{ $prod->Product_Price }}</p>
                 </div>
                 <div class="shop-button">
-                    <a href="#">SHOP</a>
+                    <a href="/product/{{ $prod->Product_ID }}">SHOP</a>
                 </div>
             </div>
         </div>
@@ -111,7 +111,7 @@
                     <p>£{{ $prod->Product_Price }}</p>
                 </div>
                 <div class="shop-button">
-                    <a href="#">SHOP</a>
+                    <a href="/product/{{ $prod->Product_ID }}">SHOP</a>
                 </div>
             </div>
             @endif
