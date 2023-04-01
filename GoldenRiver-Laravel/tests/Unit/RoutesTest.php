@@ -23,14 +23,8 @@ class RoutesTest extends TestCase
 
         $response->assertStatus(302);
     }
-
-    // public function testloginRoute()
-    // {
-    //     //tests whether the /logout succesfuly redirects
-    //     $response = $this->get('/profile');
-
-    //     $response->assertStatus(200);
-    // }
-
-
 }
+
+
+
+

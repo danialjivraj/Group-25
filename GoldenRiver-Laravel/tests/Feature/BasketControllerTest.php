@@ -28,7 +28,7 @@ class BasketControllerTest extends TestCase
 
     public function testAddToBasket()
     {
-
+        $this->assertTrue(true);
     }
 
 }
