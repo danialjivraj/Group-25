@@ -51,6 +51,12 @@
             <div class="form__input-group">
                 <button type="submit" name="update_emailname" class="form__button">Update!</button>
             </div>
+            <div class="error">
+            @error('email')
+            {{$message}}
+            @enderror
+        </div>
+
         </form>
 
         @if(session('status'))

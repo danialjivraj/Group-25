@@ -410,12 +410,12 @@ table tbody tr:last-child td:first-child {
   }
 }
 
-.shopNowCSS{
+.shopNowCSS {
   color: black;
   text-decoration: underline;
 }
 
-.shopNowCSS:hover{
+.shopNowCSS:hover {
   color: #b29758;
 }
 
@@ -443,6 +443,12 @@ table tbody tr:last-child td:first-child {
 @media (max-width: 301px) {
   #name-error {
     font-size: 9px;
+  }
+
+  .error {
+    font-size: 12px;
+    color: red;
+    text-align: center;
   }
 }
 
