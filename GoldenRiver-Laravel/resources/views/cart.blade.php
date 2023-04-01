@@ -14,9 +14,9 @@
 
 @if ($products !== null && $products->count() > 0)
 
-@if(session()->has('rmvcartmsg'))
+@if(session()->has('loginToAddCart'))
 <div class="alert alert-success" role="alert" id="go-to-basket">
-    {{session()->get('rmvcartmsg')}}
+    {{session()->get('loginToAddCart')}} 
 </div>
 @endif
 
@@ -28,11 +28,11 @@
 
 @if(session()->has('cartstockmsg'))
 <div class="alert alert-danger" role="alert">
-    {{ session()->get('cartstockmsg') }}
+    <h4>{{ session()->get('cartstockmsg') }}</h4>
     <script>
         setTimeout(function() {
             location.reload();
-        }, 3000); // Reload page after 3 seconds (3000 milliseconds)
+        }, 3000); // Reload page after 3 seconds (3000 milliseconds)    
     </script>
 </div>
 @endif

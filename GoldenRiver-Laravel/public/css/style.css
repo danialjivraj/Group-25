@@ -952,6 +952,10 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 
+  .alert-danger, .alert-success{
+    text-align: center;
+  }
+
   .text-muted{
         color: black;
         text-decoration: none;

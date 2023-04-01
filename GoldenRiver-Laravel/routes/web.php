@@ -117,3 +117,4 @@ Route::post('/checkout', [CheckoutController::class, 'processCheckout'])->name('
 Route::get('/order-summary/{order_id}', [CheckoutController::class, 'showOrderSummary'])
     ->name('order-summary')
     ->middleware('protectPages');
+
