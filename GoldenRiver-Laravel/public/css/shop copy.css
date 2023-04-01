@@ -301,24 +301,12 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 200px) and (max-width: 768px) {
   .productname {
     font-size: 14px;
+  }
+  .smallSpace{
+    height: 23px;
   }
 }
 
@@ -326,11 +314,17 @@
   .productname {
     font-size: 14px;
   }
+  .smallSpace{
+    height: 23px;
+  }
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
   .productname {
     font-size: 12px;
+  }
+  .smallSpace{
+    height: 26px;
   }
 }
 
