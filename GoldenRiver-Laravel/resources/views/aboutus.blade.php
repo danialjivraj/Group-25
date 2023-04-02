@@ -1,13 +1,9 @@
 
 @extends('partials.nav')
 
-@section('title')
-<title>About Us</title>
-@endsection('title')
-
 @section('css')
-
 <link rel="stylesheet" href="{{asset('css/about.css')}}">
+<title>GoldenRiver | About Us</title>
 @endsection
 
 

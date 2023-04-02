@@ -1,9 +1,5 @@
 @extends('partials.nav')
 
-@section('title')
-<title>GoldenRiver | Profile</title>
-@endsection('title')
-
 @section('css')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/shop.css')}}">
@@ -14,7 +10,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" href="\tableCSS\css\style.css">
-
+<title>GoldenRiver | Profile</title>
 @endsection
 
 @section('body')

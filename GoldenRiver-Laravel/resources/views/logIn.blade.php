@@ -1,12 +1,10 @@
 @extends('partials.nav')
 
-@section('title')
-<title> Golden River | Log in</title>
-@endsection('title')
 
 @section('css')
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="{{asset('css/shop copy.css')}}">
+<title> Golden River | Log in</title>
 @section('css')
 
 

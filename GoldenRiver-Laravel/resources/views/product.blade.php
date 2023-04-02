@@ -1,13 +1,10 @@
 @extends('partials.nav')
 
-@section('title')
-<title>GoldenRiver | Shop</title>
-@endsection('title')
-
 @section('css')
 <link rel="stylesheet" href="{{asset('css/shop copy.css')}}">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.css">
+<title>GoldenRiver | Shop</title>
 @endsection
 
 

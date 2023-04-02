@@ -1,13 +1,12 @@
 @extends('partials.nav')
 
-@section('title')
 
-<title>Delivery Policy</title>
-@endsection('title')
 @section('css')
-
 <link rel="stylesheet" href="{{asset('css/privacy.css')}}">
+<title>GoldenRiver | Delivery Policy</title>
 @endsection
+
+
 @section('body')
 
 <body>

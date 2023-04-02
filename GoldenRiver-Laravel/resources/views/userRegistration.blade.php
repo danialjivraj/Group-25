@@ -1,11 +1,8 @@
 @extends('partials.nav')
 
-@section('title')
-<title> Golden River | Registration</title>
-@endsection('title')
-
 @section('css')
 <link rel="stylesheet" href="style.css">
+<title> Golden River | Registration</title>
 @section('css')
 
 

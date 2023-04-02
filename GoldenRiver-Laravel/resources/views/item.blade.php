@@ -1,14 +1,9 @@
 @extends('partials.nav')
 
-
-@section('title')
-<title> Golden River | Item</title>
-@endsection('title')
-
-
 @section('css')
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<title> Golden River | Product</title>
 @endsection
 
 
