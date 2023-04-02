@@ -50,7 +50,7 @@
                                     </td>
                                     <!-- Product Price -->
                                     <td>
-                                    <h4>£{{ number_format($orderItem->product->Product_Price * $orderItem->Amount, 2) }}</h4>
+                                        <h4>£{{ number_format($orderItem->product->Product_Price * $orderItem->Amount, 2) }}</h4>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -85,36 +85,23 @@
                         <h5>Delivery Address</h5>
                     </div>
                     <div class="ibox-content">
-                        <h4>Address:</h4><br>
+                        <h4>Details:</h4><br>
                         <!-- add the subtotal here -->
-                        <p>Phone Number: {{ $user->Phone_Number }}</p>
-                        <p>House No. & Street Name: <b>{{ $address->Street }}</b></p>
-                        <p>City: {{ $address->City }}</p>
-                        <p>County: {{ $address->County }}</p>
-                        <p>Country: {{ $address->Country }}</p>
-                        <p>Post Code: {{ $address->ZIP }}</p>
+                        <h5><b>Phone Number:</b> {{ $user->Phone_Number }}</h5>
+                        <h5><b>House No. & Street Name:</b> {{ $address->Street }}</h5>
+                        <h5><b>City:</b> {{ $address->City }}</h5>
+                        <h5><b>County:</b> {{ $address->County }}</h5>
+                        <h5><b>Country:</b> {{ $address->Country }}</h5>
+                        <h5><b>Post Code:</b> {{ $address->ZIP }}</h5>
                     </div>
                 </div>
 
             </div>
         </div>
-        <!--<div class="col-sm-12 col-md-4">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <h5>Delivery Address</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <span>Address</span>
-                        
-                        <h2 class="font-bold">House No. & Street Name: {{ $address->Street }}</h2>
-                        <p>City: {{ $address->City }}</p>
-                        <p>County: {{ $address->County }}</p>
-                        <p>Country: {{ $address->Country }}</p>
-                        <p>Post Code: {{ $address->ZIP }}</p>
-                    </div>
-                </div>
-            </div>-->
+
     </div>
+
+    
 </div>
 </div>
 @endsection
