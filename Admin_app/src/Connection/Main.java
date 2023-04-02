@@ -1,16 +1,9 @@
 package Connection;
-//testtesttese
 import java.sql.SQLException;
 
 import java.sql.ResultSet;
-
-import EmailSending.Report;
 import GUIs.LoginPage;
-import GUIs.OrderGUI;
-import GUIs.HomePageGUI;
 
-import java.sql.Date;
-import java.sql.ResultSet;
 
 public class Main {
 
@@ -37,8 +30,8 @@ public class Main {
 		//System.out.println(DAC.textToIDCat("Necklace"));
 		
 		//test
-		DBproductAndCategory DBPC= new DBproductAndCategory();
-		ResultSet rs = DBPC.findProduct("20");
+//		DBproductAndCategory DBPC= new DBproductAndCategory();
+//		ResultSet rs = DBPC.findProduct("20");
 		
 		new LoginPage();
 	}

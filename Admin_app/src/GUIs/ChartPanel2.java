@@ -1,6 +1,5 @@
 package GUIs;
 
-import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -20,8 +19,6 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.StandardChartTheme;
-import org.jfree.chart.renderer.category.BarRenderer;
-
 
 
 public class ChartPanel2 extends JPanel{

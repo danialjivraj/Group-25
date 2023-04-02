@@ -1,28 +1,11 @@
 package Connection;
 
 import java.sql.SQLException;
-import java.time.DayOfWeek;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-import com.mysql.jdbc.PreparedStatement;
 
 import java.sql.Date;
 import java.sql.ResultSet;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
-import org.jfree.chart.axis.NumberAxis;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-import GUIs.HomePageGUI;
 import GUIs.ChartPanel1;
 import GUIs.ChartPanel2;
 
@@ -99,20 +82,21 @@ public class DBorder extends DataBaseConn{
 	    }
 	}
 
-	
+	//gets all orders
 	public ResultSet getAllOrders() throws SQLException {
 		String sql = "SELECT * FROM orderb WHERE Order_Status <> 'Basket'";
 	    ResultSet rs = getStmt().executeQuery(sql);
 	    return rs;
 	}
 	
+	//gets orderProducts using OrderID
 	public ResultSet getOrderProductById(String ID) throws SQLException {
 	  String sql = "SELECT * FROM linked_product_order WHERE Order_ID='"+ID+"'";
 	  ResultSet rs = getStmt().executeQuery(sql);
 	  return rs;
 	}
 	
-	
+	//gets Orders In a week and draws a graph based on that
 	public void getOrdersInAWeek(ChartPanel1 chartPanel) throws SQLException {
 	    LocalDate startDate = LocalDate.now().minusWeeks(1);
 
@@ -140,7 +124,7 @@ public class DBorder extends DataBaseConn{
 	    chartPanel.updateDataset(data);
 	}
 	
-	
+	//gets Order distribution by order_status and makes a graph based on that
 	public void getOrderStatusDistributionInAWeek(ChartPanel2 chartPanel) throws SQLException {
 	    LocalDate startDate = LocalDate.now().minusWeeks(1);
 
@@ -167,16 +151,4 @@ public class DBorder extends DataBaseConn{
 	    }
 	    chartPanel.updateDataset(data);
 	}
-	
-
-//	public static void main(String[] args) throws SQLException {
-//	DBorder db = new DBorder();
-//	
-//	try {
-//		db.getOrderStatusDistributionInAWeek();
-//	} catch (SQLException e) {
-//	    // handle the exception here
-//	    System.out.println("SQLException occurred: " + e.getMessage());
-//	}
-//	}
 }

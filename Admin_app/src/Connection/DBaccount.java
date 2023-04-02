@@ -3,8 +3,6 @@ package Connection;
 import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.HashMap;
-
 import javax.swing.JOptionPane;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -107,6 +105,7 @@ public class DBaccount extends DataBaseConn{
 		return StatusSQL;
 	}
 	
+	//get and return user by ID
 	public ResultSet getUser(String ID) throws SQLException {
 	    String sql = "SELECT * FROM users WHERE id = '"+ID+"';";
 	    ResultSet rs = getStmt().executeQuery(sql);
@@ -123,7 +122,7 @@ public class DBaccount extends DataBaseConn{
 	    return rs;
 	}
 	
-	//Returns all users  - Added by Faraz
+	//Returns all users 
 	public ResultSet getUsers() throws SQLException {
 	    String sql = "SELECT * FROM users;";
 	    ResultSet rs = getStmt().executeQuery(sql);

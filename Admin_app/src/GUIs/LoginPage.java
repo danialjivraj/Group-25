@@ -1,14 +1,12 @@
 package GUIs;
 
 import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -20,9 +18,6 @@ import javax.swing.JTextField;
 import Connection.DBaccount;
 import java.awt.Color;
 import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.BoxLayout;
-import java.awt.FlowLayout;
 
 public class LoginPage  implements ActionListener {
 	private JFrame frame;

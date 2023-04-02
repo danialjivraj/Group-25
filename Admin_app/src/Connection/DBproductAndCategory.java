@@ -7,14 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-
-import GUIs.StockAlertGUI;
 
 public class DBproductAndCategory extends DataBaseConn{
 	public boolean editProduct(String sqlInfo,String ID) throws SQLException {

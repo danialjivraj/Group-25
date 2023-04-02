@@ -182,11 +182,4 @@ public class UserTableGUI extends JFrame implements ActionListener{
         });
  
 }
-
-      
-
-//Remove this main method once testing is done
-    public static void main(String[] args) throws SQLException {
-        new UserTableGUI();
-    }
 }

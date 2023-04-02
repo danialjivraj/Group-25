@@ -2,8 +2,6 @@ package GUIs;
 
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Map;
 
 import javax.swing.JPanel;
@@ -57,11 +55,5 @@ public class ChartPanel1 extends JPanel {
         }
     }
 
-    
-    
-//    public static void main(String[] args) {
-//		ChartPanel1 c = new ChartPanel1();
-//		c.updateDataset(null);;
-//	}
 }
 

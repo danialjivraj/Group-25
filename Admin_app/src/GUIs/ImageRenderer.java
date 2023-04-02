@@ -3,7 +3,6 @@ package GUIs;
 import javax.swing.table.DefaultTableCellRenderer;
 
 import java.awt.Component;
-import java.awt.Image;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;

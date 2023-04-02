@@ -111,14 +111,6 @@ public class OrderGUI extends JFrame implements ActionListener {
         table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         //columns cannot be reordered
         table.getTableHeader().setReorderingAllowed(false);
-		
-        // create search bar and filter by section
-//		JPanel searchPanel = new JPanel(new BorderLayout());
-//		JLabel searchLabel = new JLabel("Search by Order ID Or Account ID: ");
-//		searchField = new JTextField();
-//		searchField.addActionListener(this);
-//		searchPanel.add(searchLabel, BorderLayout.WEST);
-//		searchPanel.add(searchField, BorderLayout.CENTER);
         
         // NEW SEARCH PANEL
         JPanel searchPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -239,13 +231,6 @@ public class OrderGUI extends JFrame implements ActionListener {
 		} else if (e.getSource() == searchBtn) {
 			filterTable();
 			
-//			 String searchText = searchField.getText();
-//			    if (searchText.trim().equals("")) {
-//			        JOptionPane.showMessageDialog(this, "Search box is empty.");
-//			    } else {
-//			        filterTable();
-//			    }
-			
 		} else if (e.getSource() == changeOrderStatusBtn) {
 			// Get the selected status from the dropdown
 			String selectedStatus = (String) orderStatusComboBox.getSelectedItem();
@@ -297,15 +282,10 @@ public class OrderGUI extends JFrame implements ActionListener {
 		            ImageIcon resizedIcon = new ImageIcon(image);
 		            JOptionPane.showMessageDialog(this, panel, "Order Products for Order ID #" + orderId, JOptionPane.INFORMATION_MESSAGE, resizedIcon); // pass parent panel as message
 		        }  catch (SQLException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
        }
 	}
 }
 	
-
-	public static void main(String[] args) throws SQLException {
-		new OrderGUI();
-	}
 }

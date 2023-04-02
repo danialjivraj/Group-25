@@ -3,14 +3,8 @@ package Connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
-
-
-import java.sql.Date;
-
 
 public abstract class DataBaseConn {
 	// The class is used to create a connection to the database

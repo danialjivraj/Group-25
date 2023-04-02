@@ -23,7 +23,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.Image;
 
 
@@ -166,14 +165,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     	searchComponentsPanel.add(searchBtn);
     	searchPanel.add(searchComponentsPanel, BorderLayout.WEST);
     	
-    	
-//    	 // Create a sub-panel for the editProduct, productFinder, and addProduct components
-//        JPanel subPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-//        subPanel.add(productFinderlbl);
-//        subPanel.add(productFinder);
-//        subPanel.add(editProduct);
-//        subPanel.add(addProduct);
-//        searchPanel.add(subPanel, BorderLayout.EAST);
     	JPanel subPanel = new JPanel(new BorderLayout());
 
     	// Panel for productFinder and editProduct with FlowLayout set to LEFT
@@ -189,11 +180,8 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     	subPanel.add(topPanel, BorderLayout.NORTH); // add topPanel to the NORTH
     	subPanel.add(Box.createVerticalStrut(5), BorderLayout.CENTER); // add some space between the panels
     	topPanel.add(bottomPanel, BorderLayout.SOUTH); // add bottomPanel to the SOUTH
-   // 	topPanel.setBorder(BorderFactory.createEmptyBorder(0,0,0,5));
     	searchPanel.add(subPanel, BorderLayout.EAST); // add subPanel to searchPanel in the EAST
 
-    	
-    	///////////////
      
         JPanel filterPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JLabel filterLabel = new JLabel("Filter by Categories: ");
@@ -231,10 +219,6 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 
         setVisible(true);
     }
-    
-    public static void main(String[] args) throws SQLException {
-		new ProductsTableGUI();
-	}
     
     public void refreshTable() {
         // Clear the table
@@ -283,7 +267,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     		}
     		else if (e.getSource() == delButton) {
     			 int selectedRow = table.getSelectedRow();
-    			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is gonna show an error
+    			 if (selectedRow == -1) { //if No show is selected and submitButton2 is pressed it is going to show an error
 		            JOptionPane.showMessageDialog(this, "Please select a row to Delete.");
     			 }else {
 			        	String prodID = model.getValueAt(selectedRow, 1).toString();  //maybe Change this later as Product Image is now first column
@@ -295,9 +279,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
     			try {
 					db.delProduct(prodID);
 					refreshTable();
-					//model.removeRow(selectedRow);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
             }
@@ -332,7 +314,7 @@ public class ProductsTableGUI extends JFrame implements ActionListener{
 	 
 	}
 	
-	/////////
+
 	public void addProduct() throws SQLException {
 		AddProductGUI addProdGUI = new AddProductGUI();
 		addProdGUI.getFrame().addWindowListener(new WindowAdapter() {
