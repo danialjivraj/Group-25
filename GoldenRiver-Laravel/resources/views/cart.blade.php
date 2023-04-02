@@ -34,7 +34,7 @@
     <script>
         setTimeout(function() {
             location.reload();
-        }, 3000); // Reload page after 3 seconds (3000 milliseconds)    
+        }, 3000); // Reload page after 3 seconds (3000 milliseconds)
     </script>
 </div>
 @endif
@@ -51,7 +51,7 @@
                     <div class="ibox">
                         <div class="ibox-title">
                             <!--retrieve database info fot no. of items in cart-->
-                            <span class="pull-right">(<strong>...</strong>) items</span>
+                            <span class="pull-right">(<strong>{{ \App\Models\Order::basketTotal() }}</strong>) items</span>
                             <h5>Items in your cart</h5>
                         </div><br>
                         @foreach($products as $product)
