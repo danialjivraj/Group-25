@@ -40,7 +40,6 @@
   </body>
 
   @endsection
-</html>
 
 
 <!-- USE THE FOLLOWING ALERT IF U LIKE - Made by Faraz -->
