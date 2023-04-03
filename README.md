@@ -95,7 +95,7 @@ This next section will be on how to set up Java
 ### Step 7
 - If you have not already imported the sql file to your local host (XAMPP) please do so. The file is located in ```\Group-25\SQL File```.
 - Finally go back to eclipse and in the ```/Admin_app/src/Connection/DataBaseConn.java``` make sure you set the name correctly for your database:
-<img src="https://user-images.githubusercontent.com/116160905/229387729-6f261df7-039f-4479-a67b-1924b20dddc4.png" alt ="step7" width="300" height="50">
+<img src="https://user-images.githubusercontent.com/116160905/229387729-6f261df7-039f-4479-a67b-1924b20dddc4.png" alt ="step7" width="400" height="30">
 
 - You should now be able to run the Main Class. 
 - That is all the steps required you should now have the Admin_app ready to run.
