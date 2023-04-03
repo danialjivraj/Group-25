@@ -88,7 +88,7 @@ This next section will be on how to set up Java
 - Navigate to ```\Group-25\Admin_app\External_Jars``` and select all the JARS. 
 
 ### Step6
-<img src="https://user-images.githubusercontent.com/116160905/228320317-a230656d-b19b-4c31-8b47-82631e4a84ac.jpg" alt="java" width="200" height="200">
+<img src="https://user-images.githubusercontent.com/116160905/228320317-a230656d-b19b-4c31-8b47-82631e4a84ac.jpg" alt="java" width="400" height="200">
 -Your view will look something like this Image 
 -Select ```Apply and Close```. 
 
