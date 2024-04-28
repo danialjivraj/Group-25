@@ -1,3 +1,28 @@
+## jewellery-website
+This group project (Group 25) was part of an university module. <br>
+Laravel was used as the main framework.
+
+## My Contributions
+Within this project, I worked on both frontend and backend development. <br>
+
+Frontend
+ - Log in
+ - Log out
+ - Sign in
+ - Profile
+ - View Recent Orders
+ - Shop
+ - Product Category
+ 
+Backend
+ - Seach functionality
+ - All Javascript
+ - Log in and log out authentication
+ - Pagination
+ - Recent Orders
+ - Shipping fee calculation
+ - Database mofifications (SQL)
+
 # Group-25
 <img src="https://user-images.githubusercontent.com/116160905/226141518-2bb67b77-b194-45a1-bf62-510ddb8ffa43.png" alt="logo" width="500" height="500">
 
